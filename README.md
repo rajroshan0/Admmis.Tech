@@ -54,6 +54,7 @@ Details: [docs/architecture.md](docs/architecture.md)
 | File | What's in it |
 |---|---|
 | [docs/project-history.md](docs/project-history.md) | Full story from the first request to today: every step, finding and decision |
+| [docs/kickoff-pack.md](docs/kickoff-pack.md) | Start plan, questions per person, stakeholder brief, kickoff agenda, team message, hiring briefs |
 | [docs/decisions.md](docs/decisions.md) | Decision log (ADRs): every approved decision, who approved, when |
 | [docs/architecture.md](docs/architecture.md) | System diagram, components, lead pipeline, content model, performance rules |
 | [docs/timeline.md](docs/timeline.md) | 8-week plan to 1 Jan, milestones, approval gates |

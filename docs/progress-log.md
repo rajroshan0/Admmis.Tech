@@ -2,6 +2,11 @@
 
 Newest first. Updated every Friday and whenever something important changes.
 
+## 2026-11-06 (Fri, 10:22) — Kickoff pack ready
+- Start date set: **kickoff Mon 9 Nov**; nothing blocks the start.
+- `docs/kickoff-pack.md`: questions per person, stakeholder brief, kickoff agenda, team message, hiring briefs.
+- Waiting on Founder for 6 "before Monday" answers (team names/roles, CTO, GitHub org, domain, budget OK, meeting time zone).
+
 ## 2026-11-06 (Fri, 10:10) — FITTIN PDF reviewed
 - Founder's 217-page capture reviewed; additions in `reference-fittin.md` §3.9.
 - **Team update:** Copywriter + designer: the rental page gets two trust tables, "What's included" and "What you pay separately" (ref §3.9 B). SEO: add a "Platform vs custom" block and a budget-guideline table to the development page brief. Backend: hourly-rate roles in the pricing collection include "AI prompt engineer".
