@@ -91,6 +91,7 @@ Unit tests sit next to the code: `foo.ts` → `foo.test.ts`.
 ## 5. Theming and multi-brand (ADR-013, ADR-019)
 
 - **One repo, many brands.** The brand is selected **per deployment** by config: `src/brands/<brand>/` plus env `BRAND` (default `admmis-tech`). Client rentals are deployments of this same repo with a different brand folder and env, not forks. (Direction from PM, 2026-11-06.)
+- `BRAND` is a **build-time** setting (token file and fonts are resolved at build); one image per brand from the same commit. Server runtime also reads it for brand defaults. A script `scripts/select-brand.mjs` (hritik, at scaffold) resolves `src/brands/$BRAND/` so no component imports a brand path directly.
 - Components use token classes (`bg-surface`, `text-fg`, `rounded-card`), never raw hex, px colors, or brand names.
 - Brand-specific copy, logo, and default locales live in `brands/<brand>/brand.ts` or in CMS, never in components.
 - **OPEN POINT (for Roshan, no decision taken):** Per-client forks would be needed only if a client requires custom code that cannot be expressed as brand config, blocks, or CMS content, or requires an isolated codebase contractually. Until such a case appears, we do not fork. Revisit at Gate 3.

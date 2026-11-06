@@ -106,7 +106,7 @@ One `pricing` source in Payload: packages, rental plans, hourly rates, in NPR an
 A small client island reads the consent state and only then injects GA4, Meta Pixel and Clarity. Before consent no third-party request is made. Event names and parameters come from Sudip's spec; helper lives in `lib/analytics`.
 
 ### Environments
-`local` (Docker Postgres) → `staging` → `production`, all the same Docker image with different env. Secrets only in env/password manager. `.env.example` lists names only. Health endpoint `/api/health` for uptime checks. Sentry for errors, with PII scrubbing.
+`local` (Docker Postgres) → `staging` → `production`, the same Docker image per brand with different runtime env. `BRAND` is a build-time argument (it selects the token file and fonts at build, no runtime switching), so each brand has its own image built from the same commit (PROPOSED, detail in `docs/frontend/design-tokens.md`). Secrets only in env/password manager. `.env.example` lists names only. Health endpoint `/api/health` for uptime checks. Sentry for errors, with PII scrubbing.
 
 ### Risks to watch
 | Risk | Mitigation |
