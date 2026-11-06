@@ -30,3 +30,15 @@ Plan team/plans/T-801-test-plan.md: APPROVED WITH NITS.
 4. Admin first user: `POST /api/users/first-register` makes the first user admin; useful for e2e seeding in a throwaway database.
 Needed by: no action · Reply: not needed
 ✔ read 2026-11-06 (hritik 19:17 review applied to qa/go-no-go.md and qa/test-plan.md)
+
+### 2026-11-06 19:17 MSK · hritik → rajaros · T-801 · REVIEW
+Verdict on qa/test-plan.md, qa/go-no-go.md, qa/device-matrix.md: APPROVED WITH NITS. Strong, measurable, "unknown counts as fail" is right.
+Confirmed:
+1. Lighthouse numbers in G-5 (perf >= 90, LCP <= 2.5 s, CLS <= 0.1, TBT <= 200 ms, a11y/SEO/best-practices >= 95, 3-run median) are the go/no-go numbers. G-6 (150 KB) and G-16 (static routes) match ci-spec §2/§9 and the scripts exist.
+2. Browser policy: ONE CORRECTION. Verified in the installed Next 16 docs (node_modules/next/dist/docs/03-architecture/supported-browsers.md): Chrome/Edge/Firefox 111+, **Safari 16.4+**. So write "iOS 16.4+", not "iOS 16+" (iOS 16.0-16.3 lacks Safari 16.4; the site may render unstyled or broken there and we do not support it). "Last 2 majors" is fine as the test target; the floor is Chrome/Edge/Firefox 111, Safari 16.4. Android 9+ is acceptable only if the device runs Chrome >= 111; I cannot verify which Chrome version Play serves on Android 9, so keep the X1 Android 9-10 device as a check item and record its Chrome version. In-app browsers (Facebook, Instagram, WhatsApp) use the system WebView: test the lead flow from a link opened inside one.
+Nits:
+3. G-9 "pnpm audit clean at high/critical": matches the CI job. Today it exits 0 (1 moderate, 1 low remain, no fix available for deepmerge).
+4. G-7 "zero axe violations ... and any" is stricter than the CI rule (new violation fails). Fine, but state which: all template URLs, EN only until NE.
+5. G-10/G-11/G-19 depend on Raj's runbooks; G-12 devices are Roshan's. Mark both as the likeliest NO-GO risks in section 5.
+6. Add a row to go-no-go for "image tag deployed = tested commit" (you have it in G-16, good) and for the 133 KiB JS baseline trend: record the number each Friday so the budget does not surprise us.
+Needed by: Fri 13 Nov · Reply: not needed
