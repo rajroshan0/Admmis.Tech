@@ -1,0 +1,64 @@
+# Deploy skeleton (ci-spec jobs 11-12). T-502 DRAFT. DISABLED until Roshan approves (CLAUDE.md §3):
+# jobs run only when repository variable DEPLOY_ENABLED is 'true', and `production` needs a GitHub environment reviewer.
+# The server side is infra/deploy.sh, reached through a restricted SSH key (docs/runbooks/infra-setup.md §8).
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Target environment
+        type: choice
+        options: [staging, production]
+        required: true
+      brand:
+        description: Brand image to deploy
+        default: admmis-tech
+        required: true
+      sha:
+        description: Full commit SHA whose image was built by CI on main
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-${{ inputs.environment }}
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: vars.DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # Environment protection (required reviewer = Roshan for production) is configured in GitHub settings.
+    environment: ${{ inputs.environment }}
+    steps:
+      - name: Validate inputs
+        env:
+          BRAND: ${{ inputs.brand }}
+          SHA: ${{ inputs.sha }}
+        run: |
+          [[ "$BRAND" =~ ^[a-z0-9][a-z0-9-]{0,30}$ ]] || { echo "bad brand"; exit 1; }
+          [[ "$SHA" =~ ^[0-9a-f]{40}$ ]] || { echo "bad sha"; exit 1; }
+      - name: Prepare SSH
+        env:
+          KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$KEY" > ~/.ssh/deploy_key && chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+      - name: Deploy
+        env:
+          HOST: ${{ secrets.DEPLOY_HOST }}
+          BRAND: ${{ inputs.brand }}
+          SHA: ${{ inputs.sha }}
+        run: |
+          # The forced command on the server only accepts an image tag.
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes "deploy@$HOST" "$BRAND-$SHA"
+      - name: Smoke check
+        env:
+          URL: ${{ inputs.environment == 'production' && 'https://tech.admmis.org' || 'https://staging.tech.admmis.org' }}
+        # Staging is behind Cloudflare Access; CF_ACCESS_* service-token headers are added once Roshan creates the token.
+        run: curl --fail --silent --show-error --retry 5 --retry-delay 5 "$URL/api/health"

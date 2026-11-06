@@ -1,0 +1,79 @@
+# Production-like stack: app + Postgres + Caddy. Used on the VPS (production and staging) and for local prod-like checks.
+# For daily development use docker-compose.dev.yml (Postgres only, T-103).
+# DRAFT (T-502): untested (no Docker on the authoring machine, no app image yet).
+#
+# On the VPS, files live in /opt/admmis/:
+#   .env.production  app runtime env (mode 600, from Bitwarden)        -> app
+#   .env.postgres    POSTGRES_USER / POSTGRES_PASSWORD / POSTGRES_DB    -> postgres
+#   .env.caddy       SITE_HOST=tech.admmis.org  (+ EXTRA_HEADER for staging noindex) -> caddy
+#   certs/origin.pem + origin.key  Cloudflare Origin CA cert
+# IMAGE_TAG is set by deploy.sh (for example admmis-tech-3b4f39b).
+
+name: admmis
+
+services:
+  app:
+    image: ghcr.io/rajroshan0/admmis-tech:${IMAGE_TAG:?set IMAGE_TAG, for example admmis-tech-3b4f39b}
+    restart: unless-stopped
+    env_file: .env.production
+    depends_on:
+      postgres:
+        condition: service_healthy
+    user: "10001:10001"
+    read_only: true
+    tmpfs:
+      - /tmp
+    volumes:
+      - next-cache:/app/.next/cache
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 1536m
+    ports:
+      # Loopback only: used by the lead-worker timer and deploy health check. Public traffic goes through Caddy.
+      - "127.0.0.1:3000:3000"
+    networks: [internal]
+
+  postgres:
+    image: postgres:17-alpine@sha256:3540c0362c809df084ffac0ae69fe794515f9de92692f02178bcdce0ef0302ac
+    restart: unless-stopped
+    env_file: .env.postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+    cap_drop: [ALL]
+    cap_add: [CHOWN, DAC_OVERRIDE, FOWNER, SETGID, SETUID]
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 1024m
+    # No published port: only reachable from the app on the internal network.
+    networks: [internal]
+
+  caddy:
+    image: caddy:2-alpine@sha256:78bd35025c7ba85961dd149ae670315129954e77abe2383ac47c89106b35ade9
+    restart: unless-stopped
+    env_file: .env.caddy
+    depends_on: [app]
+    ports:
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./certs:/certs:ro
+      - caddy-data:/data
+    cap_drop: [ALL]
+    cap_add: [NET_BIND_SERVICE]
+    security_opt:
+      - no-new-privileges:true
+    networks: [internal]
+
+volumes:
+  pgdata:
+  next-cache:
+  caddy-data:
+
+networks:
+  internal:

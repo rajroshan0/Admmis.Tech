@@ -1,0 +1,253 @@
+# CI quality gates per docs/ci-spec.md (hritik rules, raj implementation). T-502 DRAFT.
+# Not yet run: the scaffold (T-103) does not exist when this is written. Script names follow docs/standards.md §14.
+name: CI
+
+on:
+  push:
+    branches: [main, staging]
+    tags: ["v*"]
+  pull_request:
+
+# ci-spec §6: concurrency per branch, cancel superseded runs
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# ci-spec §6: minimal permissions by default
+permissions:
+  contents: read
+
+env:
+  CI: "true"
+  NEXT_TELEMETRY_DISABLED: "1"
+  # Image repository must be lowercase
+  IMAGE: ghcr.io/rajroshan0/admmis-tech
+  # Raj's answer to ci-spec Q3: ceiling in bytes (600 MB uncompressed; revisit after first real build)
+  IMAGE_MAX_BYTES: "629145600"
+
+jobs:
+  # 1
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ./.github/actions/setup
+
+  # 2
+  lint:
+    needs: install
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ./.github/actions/setup
+      - run: pnpm lint
+      - run: pnpm format:check
+
+  # 3
+  typecheck:
+    needs: install
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ./.github/actions/setup
+      - run: pnpm typecheck
+
+  # 4
+  unit:
+    needs: install
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ./.github/actions/setup
+      # TODO(hritik): add @vitest/coverage-v8, then `pnpm test --coverage` (coverage is reported, not gated)
+      - run: pnpm test
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: coverage
+          path: coverage
+          if-no-files-found: ignore
+          retention-days: 7
+
+  # 5
+  audit:
+    needs: install
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ./.github/actions/setup
+      - run: pnpm audit --prod --audit-level=high
+
+  # 6
+  build:
+    needs: [lint, typecheck, unit]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ./.github/actions/setup
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .next/cache
+          key: next-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-${{ hashFiles('src/**', 'next.config.ts') }}
+          restore-keys: |
+            next-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-
+      # Dummy, non-secret values only. TODO(hritik): provide .env.ci (names = .env.example)
+      # next/font/google fetches fonts at build time: needs network to fonts.gstatic.com (runner has it)
+      - name: Build
+        run: |
+          set -a; . ./.env.ci; set +a
+          pnpm build
+      # ci-spec §9, hritik script
+      - run: node scripts/check-static-routes.mjs
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: next-build
+          include-hidden-files: true  # .next is a hidden folder
+          path: |
+            .next
+            public
+            !.next/cache
+          retention-days: 1
+
+  # 7
+  bundle-budget:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ./.github/actions/setup
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: next-build
+      - run: node scripts/check-bundle-size.mjs
+
+  # 8
+  e2e:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: ci
+          POSTGRES_PASSWORD: ci-not-a-secret
+          POSTGRES_DB: app
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U ci -d app"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+      # Set after .env.ci is sourced would be overridden; so the job env DATABASE_URL is re-exported in the step.
+      CI_DATABASE_URL: postgres://ci:ci-not-a-secret@localhost:5432/app
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ./.github/actions/setup
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: next-build
+      - run: pnpm exec playwright install --with-deps chromium webkit
+      # TODO(rajaros/hritik): playwright.config.ts starts the app (webServer) with `pnpm start` and fixtures seed
+      - name: Run e2e
+        run: |
+          set -a; . ./.env.ci; set +a
+          export DATABASE_URL="$CI_DATABASE_URL"   # real service container, not the dummy from .env.ci
+          pnpm test:e2e
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report
+          retention-days: 7
+
+  # 9
+  lighthouse:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # ci-spec job 9: warn-only for the first week after scaffold. Set repository variable LHCI_WARM_UP=false to enforce.
+    continue-on-error: ${{ vars.LHCI_WARM_UP != 'false' }}
+    env:
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ./.github/actions/setup
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: next-build
+      # lighthouserc.json (hritik) holds routes (only `/` for now), runs, mobile preset and thresholds (ci-spec §3).
+      # It has no startServerCommand: the app is started by the step below.
+      - name: Lighthouse CI
+        run: |
+          set -a; . ./.env.ci; set +a
+          pnpm start --port 3000 &
+          for i in $(seq 1 30); do curl -fs http://localhost:3000/api/health >/dev/null && break; sleep 2; done
+          pnpm exec lhci autorun
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: lighthouse
+          path: .lighthouseci
+          if-no-files-found: ignore
+          retention-days: 7
+
+  # 10: only on main and release tags (ci-spec); push to GHCR only there, never on PRs
+  docker:
+    needs: [build, bundle-budget, e2e]
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      fail-fast: true
+      matrix:
+        # One image per brand from the same commit (ADR-027). Add rental client brands here.
+        brand: [admmis-tech]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - name: Build (load locally to check size)
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          load: true
+          push: false
+          tags: ${{ env.IMAGE }}:${{ matrix.brand }}-${{ github.sha }}
+          build-args: |
+            BRAND=${{ matrix.brand }}
+            BUILD_SHA=${{ github.sha }}
+          cache-from: type=gha,scope=${{ matrix.brand }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.brand }}
+      - name: Image size ceiling
+        run: |
+          size=$(docker image inspect --format '{{.Size}}' "$IMAGE:${{ matrix.brand }}-${{ github.sha }}")
+          echo "image size: $size bytes (ceiling $IMAGE_MAX_BYTES)"
+          test "$size" -le "$IMAGE_MAX_BYTES"
+      - name: Log in to GHCR
+        uses: docker/login-action@8aa5831fb8d48d8f76594c7ddde61ae58019f550 # v4.8.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          push: true
+          tags: ${{ env.IMAGE }}:${{ matrix.brand }}-${{ github.sha }}
+          build-args: |
+            BRAND=${{ matrix.brand }}
+            BUILD_SHA=${{ github.sha }}
+          cache-from: type=gha,scope=${{ matrix.brand }}
