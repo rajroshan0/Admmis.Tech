@@ -26,6 +26,7 @@ Structure and UX are loosely inspired by fittin.ru. All brand, copy, photos and 
 - **Quality & audit:** QA/testing, code audit, UX/UI audit, SEO audit
 - **Outstaffing:** dedicated developers, designers, QA, DevOps on contract
 - **Marketing:** digital (SEO, social media, paid ads, influencer/affiliate) and offline (events, print, BTL)
+- **On rent (monthly subscription, from launch):** website on rent · AI agent on rent · team on rent — from **NPR 100,000/month** (see [ADR-012](docs/decisions.md), plan details pending)
 
 **Target clients:** Nepali SMEs, retailers and small businesses, plus international clients outsourcing to Nepal (Asia, Europe, Americas).
 

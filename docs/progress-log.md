@@ -2,6 +2,18 @@
 
 Newest first. Updated every Friday and whenever something important changes.
 
+## 2026-11-06 (Fri, later) — Rental service + full reference study
+**Done**
+- Founder added **rental service** (website / AI agent / team on rent, NPR 100k/month) to launch scope → ADR-012
+- Decided the site codebase doubles as the rental website base product → ADR-013
+- Prices centralised in one CMS collection → ADR-014
+- Full study of fittin.ru: 67 pages, calculator, quiz persona, case template, service page template, AI SaaS products, rental model, webinars, partners → `docs/reference-fittin.md`
+
+**Team update**
+> We now sell rentals from day one. **Backend:** add `rentalPlans` to the pricing collection. **Designer:** add an "On rent" page to the templates for the 27 Nov gate. **Tech lead:** design tokens and theming must support multiple brands (ADR-013). **SEO + copywriter:** use the 16-block service page structure in `reference-fittin.md` §3.4 for every service brief.
+
+**Waiting on stakeholders:** Q12–Q15 (rental plan details)
+
 ## 2026-11-06 (Fri) — Project kickoff
 **Done**
 - Analysed fittin.ru (architecture, stack, pricing model) → `docs/reference-fittin.md`

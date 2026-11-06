@@ -15,3 +15,6 @@ Format: number · date · decision · reason · approved by. Newest at the botto
 | ADR-009 | 2026-11-06 | Hero visual: **AI-generated model in a Nepali sari**, supplied by Founder | Distinctive, local brand identity | Founder |
 | ADR-010 | 2026-11-06 | Final design/content approval: **CTO + Founder** | Clear sign-off owners | Founder |
 | ADR-011 | 2026-11-06 | All project records live in this Git repo (README + /docs) | One source of truth for the whole team | Founder |
+| ADR-012 | 2026-11-06 | **Rental service sold from launch:** website on rent, AI agent on rent, team on rent. Base price **NPR 100,000/month**. Exact scope per plan pending (Q12–Q15) | Recurring revenue; proven by FITTIN's subscription model | Founder |
+| ADR-013 | 2026-11-06 | The ADMMIS.TECH site codebase (Next.js + Payload blocks) is built **themeable and multi-brand** so it becomes the base product for "website on rent" | Build once, reuse for every rental client; no separate product to build before launch | Founder (proposed by PM) |
+| ADR-014 | 2026-11-06 | All prices (packages, rental plans, hourly rates) live in **one CMS collection**; every page reads from it | FITTIN shows 3 different prices for the same plan on different pages | Founder (proposed by PM) |

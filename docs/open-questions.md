@@ -13,3 +13,7 @@
 | Q9 | Hero model files: delivery date and formats (see architecture.md) | Fri 13 Nov | Founder | |
 | Q10 | Lead notifications: which team chat (Slack/Telegram/Viber), sales email address, who replies to leads | Fri 20 Nov | Founder | |
 | Q11 | Office address and phone to publish; company registration details for the footer | Fri 27 Nov | Founder | |
+| Q12 | Is NPR 100,000/month the price **per product** (one website OR one agent OR one team) or a bundle? | Fri 13 Nov | Founder | |
+| Q13 | "Team on rent" at 100k/month: how many people and hours? (One senior costs ~NPR 120k/month, so a full team at 100k loses money) | Fri 13 Nov | Founder | |
+| Q14 | Rental terms: one-time setup fee? minimum contract (6/12 months)? support hours included? code buyout if the client leaves? | Fri 20 Nov | Founder + CTO | |
+| Q15 | Who builds and runs the AI-agent base product (needed before the first AI-agent client) | Fri 20 Nov | Founder + CTO | |

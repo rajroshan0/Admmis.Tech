@@ -7,6 +7,7 @@ The original estimate was ~14 weeks. To hit 1 Jan we run design, build and conte
 - Services hub + **8–10 service pages** (Development, Mobile apps, Websites, AI products & agents, QA & testing, Audit, Outstaffing, Digital marketing, Offline marketing)
 - Our work: **4–6 case studies** from current clients (with their permission)
 - Pricing (packages in NPR + USD, quote form)
+- **"On rent" page:** website / AI agent / team on rent, monthly plans, what's included, FAQ (code ownership, minimum term, support hours)
 - About, Careers (we are hiring), Contact
 - Blog with 3 launch articles
 - Opening event page
