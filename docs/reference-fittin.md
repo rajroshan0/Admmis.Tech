@@ -82,6 +82,53 @@ All are sold through a sales form, not self-serve sign-up. Setup is done by FITT
 - Pricing page is A/B-tested (`/tariffs` → `/tariffs-a`).
 - Product stack (from About page): Flutter/Dart, Python/Django admin, Docker, PostgreSQL/MySQL, MongoDB, Redis, Elasticsearch, S3, Sentry, Codemagic, GitLab, GitHub Actions; Yandex Cloud, Google Cloud, AWS.
 
+## 3.9 Additions from the Founder's PDF capture (6 Nov 2026)
+Source: [references/fittin-pages-capture-2026-11.pdf](references/fittin-pages-capture-2026-11.pdf) — 217 pages, English-translated capture of: homepage, **pricing page (newer version)**, full cases list, media menu, custom development page.
+
+**A. Newer pricing page: three packages sold as "your own sales channel instead of a marketplace commission"**
+
+| Package | Price (incl. VAT) | Launch | Includes |
+|---|---|---|---|
+| Website | 625,000 ₽ one-time + 170,000 ₽/month | up to 30 days | Mobile + desktop, catalog, cart, payment, account, order history, own brand design |
+| Application | (same PRO basis) | up to 30 days | App Store + RuStore, push, loyalty program, published to the **client's** developer account |
+| Full channel (website + app) | 835,000 ₽ one-time + **270,000 ₽/month** | up to 45 days | One database for both, 1C/MyWarehouse/Bitrix integration; **if the subscription is cancelled, the site and app stay the client's** |
+
+Headline numbers: 10+ years · 100+ e-commerce projects · 45 days to launch · **24 hours to estimate a project**.
+
+**B. Selling techniques on the pricing page (worth copying in our own words)**
+1. **"What's included in the subscription"** — 5 numbered items: hosting & updates, integrations, loyalty, analytics, push/newsletters.
+2. **"What you pay separately"** table — payment gateway fees (1–3%), delivery, SMS (3–5 ₽), new features (hourly), content/traffic. Their line: it's more honest to show it upfront than let it appear in month one. **Builds trust.**
+3. **Risk table "What if your main channel stops?"** — 5 real situations (warehouse refuses stock, terms changed, product card blocked, competitor dumping, account blocked) × "marketplace only" vs "own channel".
+4. **"Three questions everyone asks"** — Where do first buyers come from? Who owns the app if I stop paying? Do I need it if I'm on FBO?
+5. **Free analysis offer** — "we'll send an analysis for your category… no 40-slide presentation".
+6. **Group launch (NEW badge)** — several sellers split one-time and monthly cost.
+
+**C. Updated hourly rates (incl. VAT)** — supersedes §3.6
+
+| Role | ₽/hour |
+|---|---|
+| Frontend (UI) developer | 3,990 |
+| Backend developer | 3,675 |
+| DevOps engineer | 3,990 |
+| UX/UI designer | 3,990 |
+| Analyst | 3,150 |
+| Project manager | 2,940 |
+| QA / tester | 2,625 |
+| **AI prompt / query engineer** | **4,200** (new role, highest rate) |
+
+**D. Custom development page — page structure**
+Hero ("send your specs, get an estimate") → what's included (6 items: spec review, architecture, UX/UI, implementation, testing on real devices, post-release support) → **"Platform vs custom" comparison** → **scenarios table** (scenario · what's inside · relevant case: B2B wholesale → Saturn; custom brand app → Finn Flare; employee app → Corporate; industry app → Syrovarnya; MVP → MVP service) → stack & publishing stores (App Store, Google Play, RuStore, Huawei AppGallery, Aurora) → 6 stages → cases with 2 metrics each → **budget guideline table** (platform from 525k ₽ + from 150k ₽/mo; custom from 525k ₽ as lower limit) → FAQ (incl. "what happens if we switch to another contractor?", "do you take designs from another team?") → form.
+
+**E. Case metrics shown on cards**
+Saturn: 20+ cities, 30,000+ products · Finn Flare: ×2.5 lower budget, ×1.5 faster development · Gulliver: 80% of mobile traffic, 50% of revenue through the app · Syrovarnya: launched in 2 months, first app in the chain's history. Full case list has ~50 clients (adds Khvanch, Nika, Sneakerhead, 4FORMS, DAF Jewelry, Vkuster, Es Med Clinic, Marc O'Polo, Uzbechka, NetOptika, Aloe Pharmacy, Adria Cats, Zveno courier app, Voronezh Metropolitanate site).
+
+**F. Homepage content marketing**
+- Original research as blog content: *"What customers complain about in reviews — 2026"*, 1.1 million reviews analysed with partners (SaleSynergy, Markway). **Research gets press and backlinks.**
+- Membership badge: Association for the Development of Digital Agencies (ARDA).
+- 17 rotating testimonials with name, title, company and photo.
+
+**G. Again: prices are inconsistent** — Full channel monthly is 270k ₽ here vs 190k ₽ on the other pricing variant; platform monthly "from 150k" on the custom page vs 170k. Confirms ADR-014 (one price source).
+
 ## 4. What we adopt (and when)
 
 | Idea | ADMMIS.TECH version | When |
@@ -98,6 +145,13 @@ All are sold through a sales form, not self-serve sign-up. Setup is done by FITT
 | Webinars + reels | Events section, short-video page | Phase 2 |
 | Partners program | Partners page (payments: eSewa/Khalti, hosting, marketing) | Phase 2 |
 | Own AI SaaS products | Review replies, AI content, AI photos for Nepali sellers | Later — separate product track |
+| "What's included / what you pay separately" tables | On the rental page, for each plan | **Launch** |
+| "Who owns it if I stop paying?" answer | Rental FAQ (depends on Q14) | **Launch** |
+| Platform vs custom comparison + scenarios table | Development service page | **Launch** |
+| Budget guideline table ("from NPR …") | Pricing page | **Launch** |
+| Risk table (own channel vs marketplace/Daraz/Facebook-only) | Rental / e-commerce page | Phase 2 |
+| AI prompt engineer as a priced role | Outstaffing / hourly rates | **Launch** |
+| Original research content (e.g. "Nepal SME digital report 2027") | Blog + PR | Phase 2 |
 
 ## 5. What we do better
 CMS instead of hand-edited files · prices from one source · leads stored before notification · no secrets in client-side JS · consent-based analytics · case metrics with baseline and period · multilingual (EN + NE) · self-serve trial for SaaS products later.

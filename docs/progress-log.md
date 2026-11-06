@@ -2,6 +2,10 @@
 
 Newest first. Updated every Friday and whenever something important changes.
 
+## 2026-11-06 (Fri, 10:10) — FITTIN PDF reviewed
+- Founder's 217-page capture reviewed; additions in `reference-fittin.md` §3.9.
+- **Team update:** Copywriter + designer: the rental page gets two trust tables, "What's included" and "What you pay separately" (ref §3.9 B). SEO: add a "Platform vs custom" block and a budget-guideline table to the development page brief. Backend: hourly-rate roles in the pricing collection include "AI prompt engineer".
+
 ## 2026-11-06 (Fri, later) — Rental service + full reference study
 **Done**
 - Founder added **rental service** (website / AI agent / team on rent, NPR 100k/month) to launch scope → ADR-012

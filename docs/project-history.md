@@ -57,6 +57,10 @@ A chronological record of how this project started and every step taken, so new 
 **Request:** keep all files from start to end in `~/Desktop/ADMMIS.TECH`; Founder will push to Git later.
 **PM output:** this history file + the ChatGPT reference added; full repo (with git history) copied to the folder.
 
+## Step 7 — Founder's PDF capture of fittin.ru (10:10)
+**Input:** 217-page PDF (Google Docs render, English-translated) of FITTIN's homepage, newer pricing page, cases list, media menu and custom development page → saved as [references/fittin-pages-capture-2026-11.pdf](references/fittin-pages-capture-2026-11.pdf).
+**PM output:** text extracted and deduplicated (most pages are repeated carousels). New findings added to [reference-fittin.md §3.9](reference-fittin.md): Website / App / Full-channel packages (Full channel 835k ₽ + 270k ₽/month), "what's included" and "what you pay separately" tables, risk table, 8 hourly roles incl. AI prompt engineer at 4,200 ₽/h, custom-dev page structure, case card metrics, original-research blog content. Adoption table extended.
+
 ---
 
 ## Sources used
