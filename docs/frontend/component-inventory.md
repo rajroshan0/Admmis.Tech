@@ -1,6 +1,6 @@
 # Component inventory — tech.admmis.org
 
-Owner: satish · Task: T-201 · Version: v0.1 draft · 2026-11-06 · Reviewer: hritik
+Owner: satish · Task: T-201 · Version: v0.1.1 draft · 2026-11-06 · Reviewer: hritik
 Inputs: `docs/standards.md` §2/§5, `docs/api/content-model.md` v0.2 §6-7, `docs/frontend/templates-and-routes.md` (T-301), `docs/frontend/i18n.md` §7, `seo/sitemap.md` §4, `design/brand-directions/` (3 directions), `docs/reference-fittin.md` (structure only).
 Nothing here is installed or built. Sizes are estimates until Sharwan's wireframes (T-603+) arrive; the block list is final only after them (content-model open item 6).
 
@@ -213,7 +213,24 @@ Mahendra's island list (`templates-and-routes.md` §10) is the reference. Mine, 
 | `ConsentBanner` (visual) | state | with Mahendra's logic | |
 | `Reveal` observer | entrance motion | about 0.4 KB | optional, see below |
 
-Total of my islands is about 3.3 KB gzip against the 150 KB content-page budget (estimate; **measure at scaffold**). Everything else, including the accordion, the rental band selector, scroll rows and the sticky bar, is server HTML plus CSS. The sticky bar and band selector are the two places where I replace an island Mahendra expected; both are proposals and revertible without changing the API.
+### JS budget for a content page (content pages: under 150 KB gzip first-load JS, standards §6)
+
+All numbers are **estimates**. Hritik owns the final allocation after the first measurement at scaffold (T-103).
+
+| Item | Estimate (gzip) | Status |
+|---|---|---|
+| Next.js and React runtime baseline | measured at scaffold (expected to be the larger share of the budget) | not measured |
+| Satish islands: `NavMenu` | about 0.8 KB | estimate |
+| Satish islands: `MobileNav` | about 1.2 KB | estimate |
+| Satish islands: `CurrencyToggle` (pricing pages only) | under 0.3 KB | estimate |
+| Satish islands: `VideoFacade` (pages with the block only) | about 0.6 KB | estimate |
+| Satish islands: `Reveal` observer (optional) | about 0.4 KB | estimate |
+| Shared with Mahendra: `ConsentBanner` logic and analytics loader | TBD, Mahendra | not estimated |
+| Mahendra: `LeadForm` + zod + Turnstile loader (lazy on content pages) | TBD, Mahendra (zod size to be measured) | not estimated |
+| Mahendra: thank-you reader (thank-you page only) | TBD | not estimated |
+| **Remainder (headroom)** | TBD at scaffold = 150 KB minus all rows above | not known |
+
+My islands total about 3.3 KB if every one loads on the same page; typical content page about 2.0 KB (`NavMenu`, `MobileNav`, `Reveal`). This is only my share, not the page total. Everything else, including the accordion, the rental band selector, scroll rows and the sticky bar, is server HTML plus CSS.
 
 ### Motion (animation list)
 Only `transform` and `opacity`; all wrapped for `prefers-reduced-motion: reduce` (then none).
@@ -256,3 +273,4 @@ Rough total: 3 L (about 8 days), 17 M (about 17 days), about 36 S (about 12 days
 
 ## Changelog
 - v0.1 (2026-11-06): first draft.
+- v0.1.1 (2026-11-06, Hritik must-fix): JS budget table replaces the single "3.3 KB of 150 KB" line. Other review nits are scheduled for v0.2 (Fri 20 Nov).

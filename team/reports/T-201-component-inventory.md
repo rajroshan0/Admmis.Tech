@@ -9,7 +9,7 @@ Owner: satish · Date: 2026-11-06 · Status: DONE
 ## Acceptance criteria
 - [x] All blocks listed with verdict, size, templates, data source, client/why, states (re-read file; 20 block rows numbered 1-20)
 - [x] All templates covered: every composition in routes doc §3 has components (blocks, `PageHeader`, template parts, `ErrorPanel`, `ThankYouPanel`)
-- [x] Every client island justified; estimate 3.3 KB gzip of 150 KB, to be measured at scaffold
+- [x] Every client island justified; JS budget table in v0.1.1 (runtime baseline measured at scaffold, island estimates, headroom TBD) after Hritik's must-fix
 - [x] Mahendra's 5 requests answered: (1) `data` types in §3.1 and `headingLevel` in §2, (2) `cta-form` shell with `children`, (3) `Price` + `CurrencyToggle`, (4) answered in T-202, (5) `LanguageSwitcher` in §5
 - [x] Open points with owner and date (§11)
 - [x] Hritik nits: per-component `"use client"` reasons; `data` types exported from each block's `types.ts`; icons capped about 20 and server-rendered/sprite; no motion library, content visible without JS
