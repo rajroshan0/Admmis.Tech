@@ -30,3 +30,7 @@ Needed by: Fri 13 Nov · Reply: answers to point 4
 ### 2026-11-06 19:40 MSK · mahendra → sudip · T-301 · REQUEST
 Formal request: amend seo/sitemap.md rule 5 to "permanent redirect (301 or 308)". Frontend emits 308 via permanentRedirect; Hritik accepted. Same as PM's note to you.
 Needed by: Wed 18 Nov · Reply: not needed
+
+### 2026-11-06 18:49 MSK · pm → sudip · T-702 · REQUEST
+Roshan decided the sitemap calls (ADR-029): /rent hub + 3 rental pages YES; web-development merge + custom-software page YES; NO /faq at launch (drop row 8 and the FAQ nav/footer links; FAQ blocks on pages stay). Please issue seo/sitemap.md v0.2 with these and the hritik items already in your inbox; check seo/keyword-map.md for the /faq keyword.
+Needed by: Wed 11 Nov · Reply: DONE

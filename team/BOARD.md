@@ -8,7 +8,7 @@ Times MSK. Gate 1 = **Fri 13 Nov 15:00 MSK** (Roshan approves sitemap, scope, br
 
 | ID | Task | Owner | Deliverable | Depends on | Reviewer | Due | Status |
 |---|---|---|---|---|---|---|---|
-| T-702 | Sitemap draft (all launch-scope pages, URLs, templates, primary keyword) | sudip | `seo/sitemap.md` | — | pm | Wed 11 Nov | DONE (v0.1; 3 calls for Gate 1) |
+| T-702 | Sitemap draft (all launch-scope pages, URLs, templates, primary keyword) | sudip | `seo/sitemap.md` | — | pm | Wed 11 Nov | DONE (v0.1; calls decided ADR-029 → v0.2 by Wed 11 Nov) |
 | T-701 | Keyword map EN (clusters, intent, one primary per page) | sudip | `seo/keyword-map.md` | T-702 | pm | Thu 12 Nov | DONE (volumes = ESTIMATE) |
 | T-703 | Nepal competitor + price benchmark (≥10 agencies + FITTIN) | sudip | `seo/competitor-benchmark.md` | — | pm | Thu 12 Nov | DONE (v0.1, search-depth) |
 | T-601 | "AT" logo — 3 concepts in the ADMMIS family | sharwan | `design/logo/` | ADMMIS brand files (Roshan) | pm | Fri 13 Nov | PARTIAL — 3 concepts done; BLOCKED on Q18 for family match |
@@ -20,10 +20,10 @@ Times MSK. Gate 1 = **Fri 13 Nov 15:00 MSK** (Roshan approves sitemap, scope, br
 | T-202 | Design-token architecture for multi-brand theming | satish | `docs/frontend/design-tokens.md` | T-101 | hritik | Fri 13 Nov | DONE (v0.1.1, must-fixes applied) |
 | T-301 | Template & route map | mahendra | `docs/frontend/templates-and-routes.md` | T-702 | hritik | Thu 12 Nov | DONE (v0.1; nits for v0.2 Fri 20 Nov) |
 | T-302 | i18n architecture (EN now, NE in Feb without rework) | mahendra | `docs/frontend/i18n.md` | T-101 | hritik | Fri 13 Nov | DONE (v0.1; nits for v0.2 Fri 20 Nov) |
-| T-501 | Infra plan & runbooks (VPS options, DNS, Cloudflare, backups, monitoring, 2FA, Roshan's action list) | raj | `docs/runbooks/infra-setup.md` | — | hritik | Fri 13 Nov | PLANNING |
-| T-502 | Dockerfile, docker-compose, CI workflow skeleton | raj | `Dockerfile`, `docker-compose.yml`, `.github/workflows/ci.yml` | T-101 | hritik | Fri 13 Nov | PLANNING |
+| T-501 | Infra plan & runbooks (VPS options, DNS, Cloudflare, backups, monitoring, 2FA, Roshan's action list) | raj | `docs/runbooks/infra-setup.md` | — | hritik | Fri 13 Nov | IN PROGRESS |
+| T-502 | Dockerfile, docker-compose (prod-like), CI workflow skeleton. Dev Postgres compose is in T-103 | raj | `Dockerfile`, `docker-compose.yml`, `.github/workflows/ci.yml` | T-101, T-103 | hritik | Fri 13 Nov | IN PROGRESS |
 | T-801 | Test plan, device matrix, launch checklist draft, go/no-go criteria | rajaros | `qa/` | — | hritik | Fri 13 Nov | TODO |
-| T-103 | App scaffold per `docs/scaffold-plan.md` (installs packages; smoke tests; TS 7 vs 5.9 check) | hritik | `src/`, config files | T-101 + Roshan go-ahead | pm → Roshan | after Gate 1 | TODO (needs Roshan approval) |
+| T-103 | App scaffold per `docs/scaffold-plan.md` (installs packages; `.env.example`; docker compose for Postgres; README "Getting started"; smoke tests; TS 7 vs 5.9 check). Local only (ADR-024) | hritik | `src/`, config files, README section | T-101 | pm (+ neha peer review, standards §12) | Mon 9 Nov | IN PROGRESS (approved ADR-024) |
 | T-102 | Technical review of week-1 engineering work + readiness note | hritik | `docs/gates/gate-1-tech-review.md` | T-202, T-302, T-401, T-402, T-501, T-502 | pm | Fri 13 Nov 12:00 | TODO |
 | T-901 | Gate 1 pack for Roshan | pm | `docs/gates/gate-1.md` | all above | Roshan | Fri 13 Nov 15:00 | TODO |
 
@@ -32,7 +32,10 @@ Times MSK. Gate 1 = **Fri 13 Nov 15:00 MSK** (Roshan approves sitemap, scope, br
 |---|---|---|
 | ADMMIS logo/brand files (logo, colours, fonts) | Tue 10 Nov | T-601, T-602 |
 | Hero sari-model files (PNG ≥ 2000 px, 2–3 poses) | Wed 11 Nov | T-602 |
-| Rental plan details (Q12–Q15 in `docs/open-questions.md`) | Fri 13 Nov | Gate 1 |
+| Rental plan details (Q16, incl. team-on-rent pricing) — deferred to Gate 1/2 pack with options | Fri 13 Nov | Gate 1 |
+| Explicit OK on Node 24 LTS (team proceeds on it) | Fri 13 Nov | T-103, Gate 1 |
+| Local machine for `pnpm dev`: free disk space (only ~2.7 GB free) and Docker Desktop or the existing Homebrew Postgres | Mon 9 Nov | T-103 |
+| Q17 DNS owner for admmis.org | Tue 10 Nov | T-501 |
 
 ## Next weeks (outline — PM details these after Gate 1)
 Week 2: homepage design · design system build · CMS skeleton · copy starts → Gate 2 Fri 20 Nov (homepage design)

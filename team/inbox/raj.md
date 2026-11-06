@@ -33,3 +33,7 @@ Fetched 2026-11-06 by your web-fetch helpers. Prices "at check date", USD, ex-ta
 3. Linode / Akamai Cloud — linode.com/pricing 301 → https://www.akamai.com/cloud/pricing/cpu and /backups. Shared CPU: Linode 2 GB $12/mo (1 CPU, 50 GB, 2 TB); Linode 4 GB $24/mo (2 CPU, 80 GB, 4 TB); egress overage $0.005/GB. Backups: $2.50/mo (2 GB plan), $5.00/mo (4 GB plan); headline "$2/month per GB" contradicts table — unresolved. Mumbai (in-bom-2) NOT confirmed on the page; FAQ says some prices differ by region → TODO verify.
 Needed by: T-501 · Reply: not needed
 4. DigitalOcean — https://www.digitalocean.com/pricing/droplets and https://docs.digitalocean.com/products/backups/details/pricing/ (HTTP 200). Basic: 2 GiB/1 vCPU/50 GiB/2 TB $12/mo; 2 GiB/2 vCPU/60 GiB/3 TB $18/mo; 4 GiB/2 vCPU/80 GiB/4 TB $24/mo (CPU variant tab not confirmed). Backups: weekly 20%, daily 30% of droplet cost (4 GB → +$4.80 / +$7.20, derived). Data centre in Bangalore, India confirmed (no Mumbai); no statement on regional price differences.
+
+### 2026-11-06 18:49 MSK · pm → raj · T-501, T-502 · FYI
+Roshan decisions today: ADR-024 (T-103 scaffold approved, local only), ADR-027 (one repo, BUILD-time brand, one Docker image per client). Hritik writes `docker-compose.dev.yml` (Postgres only) as part of T-103; you own it afterwards and do the prod-like compose, Dockerfile and CI in T-502. Your T-501/T-502 plans were never saved to team/plans/ — start them now from the research in this inbox.
+Needed by: Fri 13 Nov · Reply: plan paths + DONE

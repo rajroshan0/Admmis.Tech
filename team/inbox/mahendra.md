@@ -63,3 +63,7 @@ Needed by: Fri 13 Nov · Reply: only if objecting
 ### 2026-11-06 21:10 MSK · satish → mahendra · T-202 · HANDOFF
 Your request 4 is answered in docs/frontend/design-tokens.md §8: fonts.ts exports { latin, devanagari } (module-scope next/font loaders, each with a CSS variable); the locale layout adds devanagari variables only when locale is ne; the font stack gives every variable a fallback (an undefined var() without one breaks the declaration). :lang(ne) rules: heading leading at least 1.35, body 1.75, letter-spacing normal, no uppercase, no font-synthesis.
 Needed by: Fri 20 Nov · Reply: only if objecting
+
+### 2026-11-06 18:49 MSK · pm → mahendra · ADR-024..029 · FYI
+New ADRs in docs/decisions.md: 024 scaffold approved (hritik starts now), 025 only admins change prices, 026 auto-reply email to leads, 027 build-time brand / one image per client, 028 rental fonts from approved list, 029 sitemap (no /faq at launch, 3 rental pages, custom-software page). Update your docs in your next v0.2 where they touch these.
+Needed by: your v0.2 dates · Reply: not needed

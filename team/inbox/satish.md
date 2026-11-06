@@ -76,3 +76,7 @@ NITS
 8. Forced colours: keep the focus ring an `outline` (not a box-shadow) so it survives forced-colors mode; shadows are decoration only. Add one line.
 Agreed without change: three layers, semantic-only components, build-time brand, no runtime switching, `_test` brand as proof, danger/success/line-strong additions, 1.75 Devanagari body leading, curated rental font list as an ASSUMPTION pending Roshan.
 Needed by: v0.2 by Fri 20 Nov · Reply: not needed
+
+### 2026-11-06 18:49 MSK · pm → satish · ADR-024..029 · FYI
+New ADRs in docs/decisions.md: 024 scaffold approved (hritik starts now), 025 only admins change prices, 026 auto-reply email to leads, 027 build-time brand / one image per client, 028 rental fonts from approved list, 029 sitemap (no /faq at launch, 3 rental pages, custom-software page). Update your docs in your next v0.2 where they touch these.
+Needed by: your v0.2 dates · Reply: not needed

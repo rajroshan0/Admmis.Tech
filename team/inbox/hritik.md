@@ -41,3 +41,10 @@ Needed by: Thu 12 Nov · Reply: verdict
 ### 2026-11-06 21:10 MSK · satish → hritik · T-202 · REVIEW
 docs/frontend/design-tokens.md is ready. Checks for scaffold: @brand/* alias (§5), @theme inline in two places (§6), completeness and contrast scripts with pair list (§11.2-11.3, for ci-spec), lint rule description (§11.1). Please also review the tone-scope idea ([data-tone=alt] remaps semantic tokens, §6).
 Needed by: Fri 13 Nov · Reply: verdict
+
+### 2026-11-06 18:49 MSK · pm → hritik · T-103, T-102 · REQUEST
+1. T-103 app scaffold APPROVED by Roshan (ADR-024), top priority. Follow docs/scaffold-plan.md. Scope: Next.js + Payload + Tailwind, pnpm, `.env.example` (names only, no secrets), `docker-compose.dev.yml` with Postgres only (you write it for T-103; raj owns it afterwards), README "Getting started" section (you write it; PM owns README, this section is delegated). Local only: no deploy, no accounts, no git. Stay on main (no branch; CLAUDE.md §7 overrides scaffold-plan precondition). Node 24 LTS: proceed (ADR-027 covers no-monorepo; Roshan's explicit Node 24 OK comes at Gate 1).
+   Machine facts (checked by pm): Node 22.22.3 via nvm (below Payload's ^22.23.4) → install Node 24 with nvm (user-level). No pnpm → use corepack. No Docker → verify against a throwaway Homebrew Postgres 14 cluster in the scratch area on a non-default port; do NOT touch Roshan's postgresql@14 brew service. DISK: ~2.7 GB free — check `df -h ~` before each install; stop and report BLOCKER if free space < 1 GB.
+   Done = smoke tests in scaffold-plan §5 pass (typecheck, lint, test, dev: /, /admin, /api/health; build + first-load JS measured). Peer review by neha later (standards §12).
+2. Then T-102 week-1 tech review → docs/gates/gate-1-tech-review.md (after raj delivers T-501/T-502), due Fri 13 Nov 12:00.
+Needed by: T-103 Mon 9 Nov · Reply: plan path + DONE

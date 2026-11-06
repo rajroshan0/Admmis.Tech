@@ -84,3 +84,7 @@ Needed by: Thu 19 Nov · Reply: only if objecting
 ### 2026-11-06 20:35 MSK · pm → neha · T-401 · REQUEST
 content-model.md §6 lists 20 blocks (incl. `banner`) but text says 19 — fix wording to 20 in v0.2.1. Agreed by hritik and satish (T-201).
 Needed by: Wed 18 Nov · Reply: not needed
+
+### 2026-11-06 18:49 MSK · pm → neha · ADR-024..029 · FYI
+New ADRs in docs/decisions.md: 024 scaffold approved (hritik starts now), 025 only admins change prices, 026 auto-reply email to leads, 027 build-time brand / one image per client, 028 rental fonts from approved list, 029 sitemap (no /faq at launch, 3 rental pages, custom-software page). Update your docs in your next v0.2 where they touch these.
+Needed by: your v0.2 dates · Reply: not needed
