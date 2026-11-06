@@ -53,6 +53,7 @@ Details: [docs/architecture.md](docs/architecture.md)
 
 | File | What's in it |
 |---|---|
+| [docs/project-history.md](docs/project-history.md) | Full story from the first request to today: every step, finding and decision |
 | [docs/decisions.md](docs/decisions.md) | Decision log (ADRs): every approved decision, who approved, when |
 | [docs/architecture.md](docs/architecture.md) | System diagram, components, lead pipeline, content model, performance rules |
 | [docs/timeline.md](docs/timeline.md) | 8-week plan to 1 Jan, milestones, approval gates |
@@ -60,7 +61,8 @@ Details: [docs/architecture.md](docs/architecture.md)
 | [docs/budget.md](docs/budget.md) | Cost estimate (people, tools, infrastructure) |
 | [docs/progress-log.md](docs/progress-log.md) | Dated log of progress, blockers, changes |
 | [docs/open-questions.md](docs/open-questions.md) | Questions waiting on stakeholders |
-| [docs/reference-fittin.md](docs/reference-fittin.md) | What we learned from analysing fittin.ru |
+| [docs/reference-fittin.md](docs/reference-fittin.md) | Full study of fittin.ru: pages, features, pricing, what we adopt |
+| [docs/references/](docs/references/) | Raw reference material (e.g. the ChatGPT analysis we compared against) |
 
 ## 5. How we work
 
