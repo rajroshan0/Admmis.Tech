@@ -79,4 +79,21 @@ Details: [docs/architecture.md](docs/architecture.md)
 
 ## 6. Getting started (developers)
 
-_Filled in by the tech lead in week 1 (Node version, `pnpm install`, `.env.example`, `docker compose up`)._
+Requirements: Node 24 LTS (`nvm use`, version in `.nvmrc`), pnpm 12 (`corepack enable`, version pinned in `package.json`), Docker (for the local database). About 1.5 GB of free disk for `node_modules` and the pnpm store.
+
+```bash
+nvm use                                   # Node 24
+corepack enable                           # provides the pinned pnpm
+pnpm install --frozen-lockfile
+cp .env.example .env                      # then set PAYLOAD_SECRET (32+ random characters)
+docker compose -f docker-compose.dev.yml up -d   # Postgres 17 on 127.0.0.1:5432
+pnpm dev                                  # http://localhost:3000
+```
+
+| URL | What |
+|---|---|
+| `/` | Public site (placeholder page until templates land) |
+| `/admin` | Payload CMS. The first account you create becomes `admin` |
+| `/api/health` | Liveness check (`{"status":"ok","sha":"dev"}`) |
+
+Quality commands (CI runs the same): `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm format:check`, `pnpm build`. All script names: `docs/standards.md` §14. `.env` is never committed; `.env.example` lists names and safe placeholders only. In dev, Payload creates tables automatically; migrations come with the content model (neha).

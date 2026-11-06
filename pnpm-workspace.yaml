@@ -1,0 +1,10 @@
+allowBuilds:
+  esbuild: true
+minimumReleaseAgeExclude:
+  - '@playwright/test@1.65.0'
+  - playwright-core@1.65.0
+  - playwright@1.65.0
+# Security overrides for transitive vulnerabilities (pnpm audit, T-103). Remove when Payload/Lexical ship the fix.
+overrides:
+  dompurify: 3.4.17
+  happy-dom: 21.0.4

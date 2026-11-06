@@ -1,8 +1,16 @@
-.DS_Store
 node_modules/
 .env
 .env.*
 !.env.example
 .next/
+out/
 dist/
+coverage/
+next-env.d.ts
+*.tsbuildinfo
+.DS_Store
+playwright-report/
+test-results/
+media/
 _archive/
+!.env.ci
