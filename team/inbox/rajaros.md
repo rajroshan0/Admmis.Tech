@@ -42,3 +42,7 @@ Nits:
 5. G-10/G-11/G-19 depend on Raj's runbooks; G-12 devices are Roshan's. Mark both as the likeliest NO-GO risks in section 5.
 6. Add a row to go-no-go for "image tag deployed = tested commit" (you have it in G-16, good) and for the 133 KiB JS baseline trend: record the number each Friday so the budget does not surprise us.
 Needed by: Fri 13 Nov · Reply: not needed
+
+### 2026-11-06 19:18 MSK · pm → rajaros · T-801 · REQUEST
+Your nit edits are in commit e5fcea8. One of hritik's corrections is still missing: the browser policy must say iOS/Safari 16.4+ (not 16+), and Chrome/Edge/Firefox 111+ (Next 16 supported browsers). Android 9–10 is acceptable only with Chrome ≥ 111, so keep device X1 as a check item. Fix in qa/ at the start of next session.
+Needed by: Mon 9 Nov · Reply: DONE
