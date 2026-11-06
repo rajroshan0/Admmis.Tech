@@ -1,6 +1,6 @@
 # Design-token architecture (multi-brand theming) — tech.admmis.org
 
-Owner: satish · Task: T-202 · Version: v0.1 draft · 2026-11-06 · Reviewer: hritik
+Owner: satish · Task: T-202 · Version: v0.1.1 draft · 2026-11-06 · Reviewer: hritik
 Inputs: ADR-013, ADR-019, `docs/standards.md` §2/§5, `docs/frontend/i18n.md` §7, `docs/frontend/component-inventory.md`, `design/brand-directions/` (all three token tables), Hritik's review of the plan (2026-11-06), Mahendra's request 4.
 This document defines **structure**. Values come from Sharwan after Gate 1 (Fri 13 Nov); the three directions appear only as examples and as the proof that the structure fits all of them. Nothing is installed or run. Tailwind-specific behaviour is marked **verify at scaffold** (T-103), as Hritik asked.
 
@@ -52,6 +52,8 @@ Required = every brand must define it (the completeness check fails the build ot
 | `--color-alt-muted` | `text-alt-muted` | new | Secondary text on alt |
 | `--color-alt-surface` | `bg-alt-surface` | new | Cards and inputs inside an alt section (the `cta-form` sits on alt) |
 | `--color-alt-line-strong` | `border-alt-line-strong` | new | Input borders inside alt (3:1 on alt-surface) |
+| `--color-alt-danger` | `text-alt-danger` | new | Error text inside alt (4.5:1 on alt and alt-surface). The page `danger` fails there: Himal `#FF8A80` on its light alt is 2.11:1 |
+| `--color-alt-success` | | new | Success text inside alt |
 | `--color-alt-primary` | | new | Button fill inside alt. Needed because the page primary often fails on alt (Himal teal on its light alt; Sindoor vermilion on its dark alt) |
 | `--color-alt-on-primary` | | new | Text on `alt-primary` |
 
@@ -71,13 +73,16 @@ Disabled controls use the same tokens at reduced emphasis; WCAG exempts inactive
 | Token | Role | Example (Sindoor Studio) |
 |---|---|---|
 | `--font-heading`, `--font-body` | Families. Stacks end with system Devanagari fallbacks (section 8) | Poppins / Hind |
-| `--font-weight-heading` | Display and H2 | 700 (H3 uses `--font-weight-heading-3`, 600) |
-| `--font-weight-strong` | Bold in body, labels | 600 |
+| `--weight-display` | Display and H2 | 700 |
+| `--weight-h3` | H3 | 600 |
+| `--weight-strong` | Bold in body, labels | 600 |
 | `--text-display`, `--text-h2`, `--text-h3`, `--text-lead`, `--text-body`, `--text-small` | Size. Mobile value in the theme; the base file raises them at 768 px (`@media`) | display 36 px (mobile) and 56 px (desktop); H2 28 / 38; H3 20 / 22; lead 17 / 19; body 16; small 14 |
 | `--leading-display`, `--leading-h2`, `--leading-h3`, `--leading-body`, `--leading-small` | Unitless line height, Latin | 1.15, 1.15, 1.25, 1.6, 1.6 |
 | `--leading-*-ne` | Devanagari line height, applied by `:lang(ne)` (section 8) | 1.35, 1.35, 1.4, 1.75, 1.75 |
 | `--tracking-heading` | Letter spacing for headings | -0.01em |
 | `--eyebrow-transform` | `uppercase` or `none` | `none` |
+
+Weight tokens are deliberately **not** in Tailwind's `--font-weight-*` namespace: that namespace generates `font-<name>` utilities, which would collide with the family utilities `font-heading` / `font-body` (Hritik). They are applied in `base.css` element rules and the `Heading` component, not as utilities.
 
 Sizes are `rem` (user font-size setting is respected). Brand file may not add sizes; it may change the values of these tokens within the same names (so the page rhythm stays predictable). Body is never below 16 px.
 
@@ -88,7 +93,7 @@ Sizes are `rem` (user font-size setting is respected). Brand file may not add si
 | `--radius-button`, `--radius-field`, `--radius-card`, `--radius-chip` | Sharwan's `--r` and `--r2` map to button and card. Himal Night has a pill button (999 px) but needs a normal field radius, which is why `--radius-field` is separate and required |
 | `--shadow-card`, `--shadow-raised` | Flat, soft or hard-offset. Sindoor `6px 6px 0 var(--color-fg)`; Gurans none (hairline rules); Himal: TODO(sharwan) |
 | `--border-width`, `--border-width-strong` | Hairline (1 px) and emphasised (2 px) |
-| `--focus-ring-width`, `--focus-ring-offset` | Same in all three directions: 3 px, 3 px. Applied by one `:focus-visible` rule in `base.css` |
+| `--focus-ring-width`, `--focus-ring-offset` | Same in all three directions: 3 px, 3 px. Applied by one `:focus-visible` rule in `base.css`. It is an `outline` (never a box-shadow) so it stays visible in forced-colors mode |
 | `--spacing` | Tailwind spacing base, 0.25 rem. The default numeric scale is kept (`p-4`, `gap-6`). Structure, not brand, so it is not themed |
 | `--space-section`, `--space-gutter` | Section vertical rhythm `clamp(3rem, 8vw, 6rem)`; page gutter 16 px mobile, 24 px at 768 px |
 | `--container`, `--container-prose` | 72 rem and 65 ch |
@@ -116,6 +121,7 @@ Only `transform` and `opacity` are ever animated (component inventory §9). No c
 2. **Alt sections need their own set.** Sindoor's `--focus` (`#1B1A2E`) equals its `--alt`, so the ring disappears; Himal's `--primary` (teal) on its light `--alt` (`#F3F6FB`) is 1.72:1; Sindoor's vermilion on its dark alt is 2.85:1. Hence the `alt-*` tokens. The `cta-form` block lives on alt, so inputs there need `alt-surface` and `alt-line-strong`.
 3. **Error and success colours are missing** from all directions. I propose `danger` `#B3261E` for Sindoor (6.08:1 on bg, 6.54 on surface) and Gurans (5.94 / 6.54) and `#FF8A80` for Himal (8.07 / 6.96); `success` `#1E6B3A` on light brands (6.52 / 6.03). Sharwan to confirm or replace.
 4. **Hero frame is structure, not colour** (arch + sun, glow circle + chips, tall frame + offset block). It is a per-brand option, not a token (section 10).
+4a. **Error and success inside alt.** Computed: Himal `#FF8A80` on its light alt `#F3F6FB` is 2.11:1, so `alt-danger` is needed. Proposals: Himal alt (light) `alt-danger #B3261E` (6.03:1), `alt-success #1E6B3A` (6.02:1); dark alts (Sindoor `#1B1A2E`, Gurans `#0F3D2E`, `_test` `#0B2B2B`) `alt-danger #FF8A80` (7.46, 5.33, 6.60 on alt; 5.02 on `_test` alt-surface) and `alt-success #7FD99A` (9.96, 7.12, 8.82; 6.71 on `_test` alt-surface). Sharwan to confirm.
 5. Body line height for Devanagari: Sharwan's sample uses 1.8, Mahendra asked for about 1.6-1.75. I use **1.75**. Sharwan to confirm.
 
 ## 5. File layout
@@ -130,7 +136,7 @@ src/
    ├─ admmis-tech/        default brand (the approved direction after Gate 1)
    │  ├─ tokens.css       layer 1 (optional) + layer 2 assignments + layer 3 overrides
    │  ├─ fonts.ts         next/font loaders: { latin, devanagari }
-   │  ├─ brand.ts         name, logo, themeColor, heroFrame, locales, default SEO (Neha/Mahendra consume)
+   │  ├─ brand.ts         name, logo and required `logoOnDark` (for alt sections and dark footers), themeColor, heroFrame, locales, default SEO (Neha/Mahendra consume)
    │  └─ README.md        what changed from the default and who approved it
    ├─ _test/              second theme used by CI (section 9); never deployed
    └─ <client>/           one folder per rental client (section 10)
@@ -145,7 +151,7 @@ src/
 @import "./base.css";          /* uses only tokens */
 ```
 
-`@brand/tokens.css` is a **stable alias** resolved at build time by Hritik's `scripts/select-brand.mjs` from env `BRAND` (default `admmis-tech`); the same applies to `@brand/fonts` and `@brand/brand`. I write against the alias only. Consequence agreed with Hritik: **one Docker image per brand**; switching brand at runtime is not possible and not needed (standards §5, architecture).
+`@brand/tokens.css` is a **stable alias** resolved at build time by Hritik's `scripts/select-brand.mjs` from env `BRAND` (default `admmis-tech`; Hritik generates it as a CSS file); the same applies to `@brand/fonts` and `@brand/brand`. I write against the alias only. Consequence agreed with Hritik: **one Docker image per brand**; switching brand at runtime is not possible and not needed (standards §5, architecture).
 
 ## 6. Tailwind mapping (v4, CSS-first, no `tailwind.config.js`)
 
@@ -167,6 +173,7 @@ src/
 How the values reach the utilities:
 - A `@theme` variable becomes a real CSS custom property on `:root` and a utility (`bg-surface` emits `background-color: var(--color-surface)`). The brand file, imported later, re-declares the same `--color-surface` on `:root`; the cascade picks the brand value. No JS, no per-brand CSS bundle: the build contains only the selected brand.
 - Names in `@theme` get a deliberately **ugly placeholder default** (magenta for colours) so a token the brand forgot shows up as an obvious failure, and the completeness check (section 11) fails the build before it ships.
+- **Verify at scaffold:** whether `@theme static` is needed so unused theme variables are still emitted to `:root` (tokens that no utility uses yet must still be present for components that read them with `var()`).
 - **Verify at scaffold (Hritik b):** whether `@theme inline` is required in two places. (1) Font variables: `next/font` creates `--font-heading-latin` on `<html>`; a theme entry `--font-heading: var(--font-heading-latin), …` probably needs `inline` so the utility resolves where the variable exists. (2) Derived tokens (`primary-hover`, tone scopes): a `color-mix()` that references `var(--color-primary)` is resolved where it is declared, so a **scoped** override of `--color-primary` (the alt tone below) must also re-declare the derived tokens. I wrote the tone scope that way; if `inline` is needed it simplifies.
 - Keep Tailwind's spacing, breakpoint and `font-size` defaults except where the catalogue names a token.
 
@@ -181,6 +188,7 @@ How the values reach the utilities:
   --color-line-strong: var(--color-alt-line-strong);
   --color-primary: var(--color-alt-primary); --color-on-primary: var(--color-alt-on-primary);
   --color-focus: var(--color-alt-focus);
+  --color-danger: var(--color-alt-danger);   --color-success: var(--color-alt-success);
   /* re-declare derived tokens here (hover, active, scrim) */
 }
 ```
@@ -210,7 +218,7 @@ Light = Sindoor Studio, Dark = Himal Night, Serif = Gurans (hex from the directi
 | color-scheme | light | **dark** | light | light |
 | hero frame (brand.ts) | `arch` | `glow-circle` | `offset-frame` | `plain` |
 
-`_test` brand ratios (computed 2026-11-06, WCAG relative luminance): fg/bg 15.06, muted/bg 6.84, muted/surface 6.33, on-primary/primary 6.08, primary/bg 6.08, primary/surface 5.62, on-accent/accent 6.31, line-strong/bg 3.65, line-strong/surface 3.38, focus/bg 15.06, on-alt/alt 15.06, danger `#B3261E`/bg 6.54, success `#1E6B3A`/bg 6.52, alt-primary `#E29578`/alt 6.31 with on-alt-primary `#0B2B2B` 6.31, alt-muted `#B9D0CF`/alt 9.31, alt-line-strong `#7FA8A7`/alt-surface 4.40.
+`_test` brand ratios (computed 2026-11-06, WCAG relative luminance): fg/bg 15.06, muted/bg 6.84, muted/surface 6.33, on-primary/primary 6.08, primary/bg 6.08, primary/surface 5.62, on-accent/accent 6.31, line-strong/bg 3.65, line-strong/surface 3.38, focus/bg 15.06, on-alt/alt 15.06, danger `#B3261E`/bg 6.54, success `#1E6B3A`/bg 6.52, alt-primary `#E29578`/alt 6.31 with on-alt-primary `#0B2B2B` 6.31, alt-muted `#B9D0CF`/alt 9.31, alt-line-strong `#7FA8A7`/alt-surface 4.40, alt-danger `#FF8A80`/alt 6.60 and /alt-surface 5.02, alt-success `#7FD99A`/alt 8.82 and /alt-surface 6.71.
 
 This table is the **proof of multi-brand**: four different value sets (light warm, dark, serif editorial, teal) fill the same names; no component changes. The `_test` brand is also what Rajaros and CI render to catch hard-coded colours: a component that still shows Sindoor colours under `BRAND=_test` fails visual review.
 
@@ -224,12 +232,12 @@ This table is the **proof of multi-brand**: four different value sets (light war
 // shape only; real families come from the chosen direction
 const headingLatin = Poppins({ subsets: ['latin'], weight: ['600', '700'], display: 'swap', variable: '--font-heading-latin' })
 const bodyLatin    = Hind({ subsets: ['latin'], weight: ['400', '600'], display: 'swap', variable: '--font-body-latin' })
-const headingDeva  = Poppins({ subsets: ['devanagari'], weight: ['600', '700'], display: 'swap', variable: '--font-heading-deva' })
-const bodyDeva     = Hind({ subsets: ['devanagari'], weight: ['400', '600'], display: 'swap', variable: '--font-body-deva' })
+const headingDeva  = Poppins({ subsets: ['devanagari'], weight: ['600', '700'], display: 'swap', preload: false, variable: '--font-heading-deva' })
+const bodyDeva     = Hind({ subsets: ['devanagari'], weight: ['400', '600'], display: 'swap', preload: false, variable: '--font-body-deva' })
 export const fonts = { latin: [headingLatin, bodyLatin], devanagari: [headingDeva, bodyDeva] }
 ```
 
-- The locale layout (Mahendra) puts `fonts.latin` variables on `<html>` for **every** locale and `fonts.devanagari` variables **only when `locale === 'ne'`**. EN pages therefore request no Devanagari file. Test: network panel at scaffold (i18n.md §11 item 4).
+- The locale layout (Mahendra) puts `fonts.latin` variables on `<html>` for **every** locale and `fonts.devanagari` variables **only when `locale === 'ne'`**. EN pages therefore request no Devanagari file. The Devanagari loaders also set `preload: false`, so no layout can emit a `<link rel=preload>` for them on EN pages (Hritik); NE pages still load the files when Devanagari glyphs are rendered. The network test stays as proof. Test: network panel at scaffold (i18n.md §11 item 4).
 - The stack in the theme must give every variable a fallback, because an undefined `var()` without one makes the whole declaration invalid:
   `--font-body: var(--font-body-latin, system-ui), var(--font-body-deva, "Noto Sans Devanagari"), "Nirmala UI", Mangal, system-ui, sans-serif;`
   On EN pages `--font-body-deva` is undefined, so the browser uses the named local Devanagari fonts only if it ever needs a Devanagari glyph (no download).
@@ -297,7 +305,7 @@ Each brand file sets `color-scheme` (`light` or `dark`) on `:root`, and `brand.t
 In `src/components/**`, forbid colour literals (`#fff`, `rgb()`, `hsl()`, named colours), Tailwind arbitrary values for colour or size (`bg-[#…]`, `text-[13px]`, `w-[37px]`), and Tailwind default palette classes (`bg-red-500`; already impossible because `--color-*: initial`). Allowed: the semantic utilities, the numeric spacing scale, and `var(--token)` references. Layers 1 and 2 files are exempt (they are where values live). Hritik chooses the enforcement tool at scaffold. Exceptions need a comment `// token-exception: <reason>` and reviewer sign-off.
 
 ### 11.2 Completeness check
-A script reads `@brand/tokens.css` and fails when a required token (section 3) is missing, is set to the placeholder magenta, or a `-ne` leading is lower than the minimums in 8.2.
+A script reads `@brand/tokens.css` and fails when a required token (section 3) is absent from the brand file (detection is by absence, not by comparing with a value), is set to the placeholder magenta, or a `-ne` leading is lower than the minimums in 8.2.
 
 ### 11.3 Contrast check (spec for Hritik's `ci-spec`, Hritik f)
 `scripts/check-brand-contrast.mjs` (name proposed) reads the resolved tokens of the selected brand and fails the build below the minimum. Pair list:
@@ -316,6 +324,7 @@ A script reads `@brand/tokens.css` and fails when a required token (section 3) i
 | 13 | alt-on-primary | alt-primary | 4.5 |
 | 14 | alt-line-strong | alt-surface, alt | 3 |
 | 15 | alt-focus | alt | 3 |
+| 16 | alt-danger, alt-success | alt, alt-surface | 4.5 |
 
 Accent is never tested as text because it is never text (rule). The check mixes `color-mix(in srgb …)` itself (about 15 lines). A second job runs the same list against `_test` so the script itself is tested. Axe-based page checks stay with Rajaros.
 
@@ -335,4 +344,5 @@ Playwright screenshots of the usage page under `BRAND=_test` (Rajaros) catch any
 | 7 | roshan (via pm) | Rental-client font list is curated (10.2) | Q16 |
 
 ## Changelog
+- v0.1.1 (2026-11-06, Hritik must-fixes): weight tokens renamed out of the Tailwind font namespace (`--weight-*`); Devanagari loaders `preload: false`; `alt-danger` and `alt-success` added with contrast pair 16. Nits applied: generated alias file, `@theme static` verify, detection by absence, `logoOnDark`, outline focus ring. Rest in v0.2 (Fri 20 Nov).
 - v0.1 (2026-11-06): first draft. Applies Hritik's review: `@brand/tokens.css` alias, `@theme inline` marked verify, lint rule described not tooled, icons server-rendered, approved font pairs only, `color-scheme` per brand.
