@@ -26,3 +26,4 @@ Format: number · date · decision · reason · approved by. Newest at the botto
 | ADR-020 | 2026-11-06 | **Logo:** ADMMIS family, own "AT" monogram/combination mark | Family brand, distinct unit | Roshan |
 | ADR-021 | 2026-11-06 | **Daily standup 10:00 MSK** (12:45 NPT) | Works for Founder (Moscow) and team (Nepal) | Roshan |
 | ADR-022 | 2026-11-06 | Code repository: **github.com/rajroshan0/Admmis.Tech** | — | Roshan |
+| ADR-023 | 2026-11-06 | **AI team operating model:** each role (PM + 8 seniors) runs as a Claude Code AI employee with its own role file (`.claude/agents/`), shared rules (`CLAUDE.md`), task board (`team/BOARD.md`) and inboxes (`team/inbox/`). Plan → execute → verify → report loop; only PM commits; Roshan approves money, accounts, pushes, deploys and external contact | One way of working for the whole team; every task, message and decision traceable in the repo | Roshan |

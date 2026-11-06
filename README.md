@@ -65,6 +65,7 @@ Details: [docs/architecture.md](docs/architecture.md)
 | [docs/pricing-model.md](docs/pricing-model.md) | Client pricing: size bands, rental prices, terms (proposal) |
 | [docs/progress-log.md](docs/progress-log.md) | Dated log of progress, blockers, changes |
 | [docs/open-questions.md](docs/open-questions.md) | Questions waiting on stakeholders |
+| [CLAUDE.md](CLAUDE.md) · [team/](team/) | AI team: rulebook, role files (`.claude/agents/`), task board, inboxes — start with [team/START-TEAM.md](team/START-TEAM.md) |
 | [docs/reference-fittin.md](docs/reference-fittin.md) | Full study of fittin.ru: pages, features, pricing, what we adopt |
 | [docs/references/](docs/references/) | Raw reference material (e.g. the ChatGPT analysis we compared against) |
 

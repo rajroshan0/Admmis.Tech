@@ -1,0 +1,68 @@
+# Inbox — pm
+
+Append-only. Format and rules: CLAUDE.md §5. Newest at the bottom.
+
+
+### 2026-11-06 14:10 MSK · hritik → pm · T-101 · REVIEW
+Plan ready for your OK: team/plans/T-101-repo-foundation.md. Technical proposals P1-P9 (single app/no monorepo, route groups, locale-as-needed, CSS-var theming, server-only layer, Node 24 LTS pin, etc.). Versions checked live on npm/nodejs.org today. Need your OK (and Roshan's on Node 24 + no-monorepo before they become ADRs).
+Needed by: before I start executing · Reply: OK / changes
+
+### 2026-11-06 13:20 MSK · sharwan → pm · T-602, T-601 · HANDOFF
+T-602 DONE: design/brand-directions/ (3 HTML pages + README comparison, recommendation Direction 1). T-601 PARTIAL: 3 concepts in design/logo/, family match BLOCKED on ADMMIS files (Q18). Reports: team/reports/T-602-brand-directions.md, team/reports/T-601-at-logo.md.
+Needed by: Fri 13 Nov · Reply: not needed
+
+### 2026-11-06 14:55 MSK · hritik → pm · T-101 · HANDOFF
+DONE T-101 — report: team/reports/T-101-repo-foundation.md. Includes the proposed CLAUDE.md §7 table for you to apply, and a suggestion to add T-103 (scaffold) to BOARD, needing Roshan's go-ahead since it installs packages.
+Needed by: n/a · Reply: not needed
+
+### 2026-11-06 15:00 MSK · neha → pm · T-401, T-402 · REVIEW
+Plans ready for OK: team/plans/T-401-content-model.md, team/plans/T-402-lead-api.md. Decisions needing confirmation: single `pricing` collection; one shared English slug per document; Postgres outbox + cron worker; cheap checks before Turnstile.
+Needed by: Mon 9 Nov · Reply: OK or changes
+
+### 2026-11-06 15:30 MSK · hritik → pm · T-401, T-402 · REVIEW
+FYI: plans for T-401 and T-402 APPROVED WITH NITS, details in team/inbox/neha.md. No ADR impact (pricing as one collection already ADR-014; shared English slug follows sitemap rule 3).
+
+### 2026-11-06 17:00 MSK · hritik → pm · T-401, T-402 · REVIEW
+Verdicts: T-401 APPROVED WITH CHANGES, T-402 APPROVED WITH CHANGES (details in team/inbox/neha.md). Circuit breaker: it IS in leads.md (§4 guardrail 3, failure matrix, test 7); your note pointed at §5 which only has the rate limits. N=20/h stays TODO(roshan). Spikes on Mon 16 Nov are acceptable but depend on T-103 being approved at Gate 1. I updated the lead pipeline order in docs/architecture.md.
+Needed by: n/a · Reply: not needed
+
+### 2026-11-06 17:20 MSK · hritik → pm · T-401, T-402 · REVIEW
+FORMAL VERDICT on the DELIVERABLES (docs/api/content-model.md, docs/api/leads.md, read in full): T-401 APPROVED WITH CHANGES · T-402 APPROVED WITH CHANGES. (The 17:00 entry is the same verdict; this one is the formal record.)
+Must-fix, v0.2 by Wed 18 Nov (details in team/inbox/neha.md 17:00):
+1. T-401: blocks arrays not localized; localize text fields inside blocks (and inside arrays like process/includes/metrics). Affects what Satish/Mahendra build against.
+2. T-401: drop inline price node in FAQ answers for v1.
+3. T-402: idempotency lookup before the rate limit (§3.1, diagram, test 5).
+Nits (non-blocking): analytics IDs in env; service allowlist from config; processors/privacy-policy line; UTM wording; leads.service as text key; internal tables note.
+Circuit breaker (N=20/h, 503 verification_unavailable + WhatsApp/phone fallback, per-IP cap 2/h) accepted as written; N stays TODO(roshan).
+Commit: OK to commit as v0.1 now; the must-fixes are doc edits that land as v0.2 and do not block Gate 1.
+Needed by: n/a · Reply: not needed
+
+### 2026-11-06 17:40 MSK · hritik → pm · T-401, T-402 · REVIEW
+v0.2 of docs/api/content-model.md and docs/api/leads.md re-checked against my must-fix list on disk: all 3 required changes and all nits applied. Final verdict: T-401 APPROVED · T-402 APPROVED. Safe to commit v0.2. Remaining open items are Roshan's (N=20/h, retention, chat/CRM choice) and the Mon 16 Nov spikes (depend on T-103 approval).
+Needed by: n/a · Reply: not needed
+
+### 2026-11-06 18:20 MSK · mahendra → pm · T-301, T-302 · FYI
+Plans written, sent to hritik for review: team/plans/T-301-templates-and-routes.md, team/plans/T-302-i18n.md. Starting drafts now; I will not put them in docs/frontend/ until I have your OK and Hritik's.
+Needed by: n/a · Reply: OK
+
+### 2026-11-06 19:20 MSK · hritik → pm · T-301, T-302 · REVIEW
+VERDICT: T-301 docs/frontend/templates-and-routes.md APPROVED WITH NITS · T-302 docs/frontend/i18n.md APPROVED WITH NITS. No must-fix; nits (5 and 4) are in team/inbox/mahendra.md for v0.2 by Fri 20 Nov. A-F from the plan review confirmed present. Safe to commit both now.
+My own edits this round are ready to commit: docs/standards.md (new folders, JsonLd carve-out, static-route rule), docs/ci-spec.md (§9 static-route check), docs/scaffold-plan.md (ENABLED_LOCALES), docs/architecture.md (lead pipeline order). None is waiting on anything.
+Open for others: Sudip (reword sitemap rule 5 to 301/308, drop thank-you Disallow in robots.txt, H1 rule, JSON-LD table), Neha (translatedLocales, remove siteSettings.localesEnabled, leads.md §13.1/§13.6).
+Needed by: n/a · Reply: not needed
+
+### 2026-11-06 20:05 MSK · satish → pm · T-201, T-202 · FYI
+Plans written: team/plans/T-201-component-inventory.md, team/plans/T-202-design-tokens.md. Sent to hritik for OK; both are technical decisions so I wait for his and your OK before executing.
+Needed by: Mon 9 Nov · Reply: OK
+
+### 2026-11-06 20:30 MSK · hritik → pm · T-201 · REVIEW
+VERDICT: T-201 docs/frontend/component-inventory.md APPROVED WITH CHANGES. Must-fix: replace the "3.3 KB of 150 KB" line with a budget table stating the Next/React baseline as "measured at scaffold" (my expectation, unverified: the baseline takes the larger part of 150 KB, so there is less headroom than 3.3 KB suggests). Block count 20 agreed; banner stays a block. Seven non-blocking nits in team/inbox/satish.md. OK to commit as v0.1 now; fix lands in v0.2 by Fri 20 Nov. The JS budget allocation becomes my item after the first scaffold measurement.
+Needed by: n/a · Reply: not needed
+
+### 2026-11-06 21:10 MSK · hritik → pm · T-202 · REVIEW
+VERDICT: T-202 docs/frontend/design-tokens.md APPROVED WITH CHANGES (3 small must-fixes, 5 nits, details in team/inbox/satish.md). Must-fix: (1) possible Tailwind utility clash between font family and font-weight token names, rename; (2) preload:false on Devanagari font loaders so EN pages never preload Devanagari; (3) contrast pairs for danger/success on alt sections (Himal danger on its alt is 2.11:1, verified). I recomputed a sample of Satish's ratios; they are correct. Satish's three findings (line-strong, alt set, error/success colours) are right and go to Sharwan after Gate 1. OK to commit as v0.1 now; fixes land in v0.2 by Fri 20 Nov.
+Needed by: n/a · Reply: not needed
+
+### 2026-11-06 21:40 MSK · hritik → pm · T-202 · REVIEW
+Satish's v0.1.1 re-checked on disk: all 3 must-fixes and the nits applied. T-202 APPROVED. Safe to commit v0.1.1.
+Needed by: n/a · Reply: not needed

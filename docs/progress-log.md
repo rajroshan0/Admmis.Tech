@@ -2,6 +2,12 @@
 
 Newest first. Updated every Friday and whenever something important changes.
 
+## 2026-11-06 (Fri) — AI team operating model set up
+**Done**
+- Every team role set up as an AI employee in Claude Code: shared rulebook `CLAUDE.md`, role files in `.claude/agents/`, task board `team/BOARD.md`, inboxes, plan/report templates (ADR-023)
+- Week-1 tasks broken into T-### IDs with owners, reviewers, dependencies and deadlines
+- How-to for Roshan: `team/START-TEAM.md`
+
 ## 2026-11-06 (Fri, 10:41) — Founder answers received
 - **Team confirmed:** Hritik (tech lead), Satish + Mahendra (frontend), Neha (backend/CMS), Raj (DevOps/security), Sharwan (UI/UX), Sudip (SEO/content), Rajaros (QA). PM: Claude. **CTO = Roshan** (Founder + CTO).
 - **Repo:** github.com/rajroshan0/Admmis.Tech · **Domain:** tech.admmis.org · **Standup:** 10:00 MSK daily.
