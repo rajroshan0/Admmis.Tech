@@ -24,12 +24,13 @@ Exact dependency versions are in `docs/scaffold-plan.md`. Dependencies are pinne
 /
 ├─ src/
 │  ├─ app/
-│  │  ├─ (site)/[locale]/…        public pages (mahendra)
+│  │  ├─ (site)/[locale]/…        public pages (mahendra); `_templates/` = template registry (private folder)
 │  │  ├─ (payload)/…              Payload admin + its API (generated; do not hand-edit)
 │  │  ├─ api/…                    custom route handlers, e.g. leads (neha)
 │  │  ├─ sitemap.ts, robots.ts    (mahendra)
 │  │  └─ not-found.tsx
 │  ├─ components/
+│  │  ├─ forms/                   form UI: LeadForm, fields, Turnstile widget (mahendra; built from ui/ primitives)
 │  │  ├─ ui/                      primitives: Button, Input, Card… (satish)
 │  │  ├─ blocks/                  CMS blocks: Hero, Pricing, FAQ… (satish; props only, no data fetching)
 │  │  └─ layout/                  Header, Footer, Nav (satish)
@@ -40,7 +41,8 @@ Exact dependency versions are in `docs/scaffold-plan.md`. Dependencies are pinne
 │  │  ├─ server/                  ONLY place for DB, Payload local API, secrets, email/CRM (neha). `import 'server-only'`
 │  │  ├─ schemas/                 zod schemas shared by form and API (neha + mahendra)
 │  │  ├─ i18n/                    locales, routing config, message loaders (mahendra)
-│  │  ├─ seo/                     metadata + JSON-LD helpers (mahendra)
+│  │  ├─ routes/                  URL/template resolution, `resolveBlocks()` (server-only, mahendra)
+│  │  ├─ seo/                     metadata + JSON-LD builders and the single `JsonLd` component (mahendra)
 │  │  ├─ analytics/               consent-gated loaders, event names (mahendra, spec from sudip)
 │  │  ├─ env.ts                   zod-parsed env, single source (hritik)
 │  │  └─ utils/                   small pure helpers
@@ -103,13 +105,13 @@ Unit tests sit next to the code: `foo.ts` → `foo.test.ts`.
 | CLS | < 0.1 |
 | First-load JS on content pages | < 150 KB (gzip) |
 
-Rules: `next/image` for every image (AVIF/WebP, explicit width/height, `priority` only for the LCP image); fonts self-hosted via `next/font`, subset, `display: swap`; no third-party script before consent; animations use `transform`/`opacity` and respect `prefers-reduced-motion`; no client-side data fetching for content; content pages are static/ISR (`revalidate` on publish via Payload hook).
+Rules: `next/image` for every image (AVIF/WebP, explicit width/height, `priority` only for the LCP image); fonts self-hosted via `next/font`, subset, `display: swap`; no third-party script before consent; animations use `transform`/`opacity` and respect `prefers-reduced-motion`; no client-side data fetching for content; content pages are static/ISR (`revalidate` on publish via Payload hook). Nothing under `(site)` may read `cookies()`, `headers()` or `searchParams` in layouts or pages (it silently makes the route dynamic); CI checks the build output lists public content routes as static/ISR.
 
 ## 7. Accessibility (WCAG 2.2 AA)
 Semantic landmarks and one `h1` per page; every input has a label; visible focus; contrast ≥ 4.5:1; alt text from CMS (required field, empty only when marked decorative); all interactive elements keyboard-operable; dialogs trap and restore focus; motion honors reduced-motion. `eslint-plugin-jsx-a11y` on; axe checks in Playwright (rajaros).
 
 ## 8. Security
-Validate and size-limit every input server-side; Turnstile on public forms; rate-limit `/api/leads`; Payload access control deny-by-default per collection (admin / editor / sales); security headers and CSP set in `next.config` (raj reviews); no `dangerouslySetInnerHTML` except through the sanitised rich-text renderer; dependency audit in CI (`pnpm audit --prod`, high+ fails). 2FA on all accounts (ADR-017).
+Validate and size-limit every input server-side; Turnstile on public forms; rate-limit `/api/leads`; Payload access control deny-by-default per collection (admin / editor / sales); security headers and CSP set in `next.config` (raj reviews); no `dangerouslySetInnerHTML` except (1) the sanitised rich-text renderer and (2) the single `JsonLd` component in `src/lib/seo/`, which only accepts objects built by typed builders (never editor-supplied strings), serialises with `JSON.stringify`, escapes `<`, `>`, `&`, U+2028 and U+2029 as `\uXXXX`, and has a unit test with a `</script>` payload (lint exception limited to that file); dependency audit in CI (`pnpm audit --prod`, high+ fails). 2FA on all accounts (ADR-017).
 
 ## 9. Testing
 - **Unit (Vitest):** all logic in `lib/` (schemas, price formatting, lead pipeline steps with mocked adapters). Target: every `lib/server` function that has a branch has a test.

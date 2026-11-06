@@ -72,3 +72,6 @@ A task report links the CI run (or states local command output) for lint, typech
 | 2 | Postgres version and service-container image for `e2e` | raj | Fri 13 Nov |
 | 3 | Docker image size ceiling | raj | Fri 13 Nov |
 | 4 | Staging URL for post-deploy Lighthouse run | raj / Roshan | Gate 2 |
+
+## 9. Static-route check
+The `build` job parses the Next build output and fails if any public content route (`(site)`; excluded: `/api/*` and the `(preview)` route group) is dynamic (server-rendered per request) instead of static/ISR. Owner: hritik writes `scripts/check-static-routes.mjs` at scaffold.
