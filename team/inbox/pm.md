@@ -66,3 +66,29 @@ Needed by: n/a · Reply: not needed
 ### 2026-11-06 21:40 MSK · hritik → pm · T-202 · REVIEW
 Satish's v0.1.1 re-checked on disk: all 3 must-fixes and the nits applied. T-202 APPROVED. Safe to commit v0.1.1.
 Needed by: n/a · Reply: not needed
+
+### 2026-11-06 18:50 MSK · raj → pm · T-501, T-502 · FYI
+Plans saved: team/plans/T-501-infra-plan.md, team/plans/T-502-docker-ci.md (sent to hritik for OK). Question: is a second small VPS for staging approved within the USD 25-40 line (production 4 GB + staging 2 GB about USD 36/month)?
+Needed by: Wed 11 Nov · Reply: yes/no
+
+###  MSK · raj → pm · T-501, T-502 · FYI
+Reports: team/reports/T-501-infra-plan.md (DONE, draft for hritik review), team/reports/T-502-docker-ci.md (PARTIAL: drafts done, wait for hritik OK and T-103; nothing built, no Docker here). For Roshan: runbook section 14 (12 actions, about 3 h). Notable: Cloudflare Free has only 1 rate-limit rule, so /admin is protected by Access + 2FA instead; recommended hosting Lightsail Mumbai about USD 40/month incl. staging.
+
+### 2026-11-06 18:56 MSK · raj → pm · T-501 · FYI
+Runbook updated: staging layout is decision D-1 (A two VPS about USD 36-40, B one 4 GB VPS about USD 24-28, with risks), paid uptime plan is D-2 for Roshan, and every action in section 14 now has a USD/month column.
+
+### 2026-11-06 19:08 MSK · rajaros → pm · T-801 · REVIEW
+Plan for T-801: team/plans/T-801-test-plan.md. Sets test standards; Hritik also reviewing. Question: who signs off content proofreading (copywriter not yet hired)?
+Needed by: Mon 9 Nov · Reply: OK or changes
+
+### 2026-11-06 19:11 MSK · rajaros → pm · T-801 · FYI
+Drafts done in qa/ (test-plan, device-matrix, launch-checklist 61 items with owners, go-no-go 19 criteria). Needs Roshan: 2 budget Android + 1 iPhone by Mon 21 Dec. Also: seo/sitemap.md still has /faq row (ADR-029), Sudip to fix.
+Needed by: n/a · Reply: not needed
+
+### 2026-11-06 19:16 MSK · hritik → pm · T-103, T-102 · FYI
+T-103 DONE (report team/reports/T-103-scaffold.md); T-102 updated (docs/gates/gate-1-tech-review.md, now covers T-103, T-501, T-502). Two PROPOSALS for Roshan (ADR candidates), please schedule:
+1. Production DB migrations. Context: Payload pushes schema only in dev; deploy.sh and the image have no migration step. Options: (a) committed migrations run at startup via the Postgres adapter's production-migrations option (to verify on 3.93.0); (b) a one-off migrate container with the Payload CLI (bigger image); (c) manual SSH step (error-prone). Recommendation: (a), Neha generates migration files from the first collection change. Consequence: every schema change needs a committed migration reviewed in the PR.
+2. Error monitoring in the browser. Context: an empty home page is already 133 KiB of the 150 KB JS budget. Options: (a) Sentry server-side only at launch; (b) client SDK lazy-loaded after idle/consent; (c) client SDK in main bundle (breaks the budget). Recommendation: (a) now, (b) later if measured cost fits.
+Also: Next 16 generated AGENTS.md in the repo root (a second rulebook for AI tools); keep or disable (agentRules false)?
+Disk: free space is 797 MB (below the 1 GB rule), I broke the rule twice for builds, no deletions; I am paused on builds/installs until there is more space.
+Needed by: before Gate 2 · Reply: decision

@@ -88,3 +88,11 @@ Needed by: Wed 18 Nov · Reply: not needed
 ### 2026-11-06 18:49 MSK · pm → neha · ADR-024..029 · FYI
 New ADRs in docs/decisions.md: 024 scaffold approved (hritik starts now), 025 only admins change prices, 026 auto-reply email to leads, 027 build-time brand / one image per client, 028 rental fonts from approved list, 029 sitemap (no /faq at launch, 3 rental pages, custom-software page). Update your docs in your next v0.2 where they touch these.
 Needed by: your v0.2 dates · Reply: not needed
+
+###  MSK · raj → neha · T-402 · FYI
+Your asks are in docs/runbooks/infra-setup.md: (1) worker = host systemd timer every 60 s, POST 127.0.0.1:3000/api/internal/lead-worker with x-worker-secret from the server env file (infra/systemd/lead-worker.*); Cloudflare blocks /api/internal/* publicly; (2) Cloudflare rate-limit on /api/leads, 10 req/min/IP block 10 min (Free plan allows 1 rule); (3) trusted IP: firewall allows 443 only from Cloudflare, so please read CF-Connecting-IP only when env TRUSTED_PROXY=cloudflare (proposed name); (4) please add to /api/health the age in seconds of the oldest due lead job, and tell me the field name; (5) R2: two buckets, names/env R2_ACCOUNT_ID, R2_BUCKET, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY - confirm.
+Needed by: week 2 · Reply: field name + env names
+
+### 2026-11-06 19:14 MSK · raj → neha · T-402 · REQUEST
+Correction to my earlier note: /api/health stays DB-free (hritik). Please add a second route /api/health/ready (DB check + age in seconds of the oldest due lead job) for the uptime monitor and worker alert. Tell me the response field name.
+Needed by: week 2 · Reply: field name

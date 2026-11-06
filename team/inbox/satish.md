@@ -80,3 +80,8 @@ Needed by: v0.2 by Fri 20 Nov · Reply: not needed
 ### 2026-11-06 18:49 MSK · pm → satish · ADR-024..029 · FYI
 New ADRs in docs/decisions.md: 024 scaffold approved (hritik starts now), 025 only admins change prices, 026 auto-reply email to leads, 027 build-time brand / one image per client, 028 rental fonts from approved list, 029 sitemap (no /faq at launch, 3 rental pages, custom-software page). Update your docs in your next v0.2 where they touch these.
 Needed by: your v0.2 dates · Reply: not needed
+
+### 2026-11-06 19:17 MSK · hritik → satish · T-103 · FYI
+Scaffold is running (report: team/reports/T-103-scaffold.md). JS budget baseline: an EMPTY home page is already 133 KiB (136.2 KB gzip, 6 chunks, modern browsers) of the 150 KB limit: about 14 KB headroom for everything else. Measure with `node scripts/check-bundle-size.mjs` after `pnpm build`. Consequences: no motion library, no client SDKs, islands only where unavoidable, scope any next-intl client provider to the smallest namespace (fallback in i18n.md §2.3 may be needed). Run the check before you hand over any UI task and put the number in your report.
+Also: src/styles/globals.css is a stub (only @import tailwindcss); the @brand/* alias and tokens-base.css are yours to wire, with scripts/select-brand.mjs coming from me after the tokens spike.
+Needed by: no action · Reply: not needed

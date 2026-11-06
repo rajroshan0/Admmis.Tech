@@ -20,12 +20,12 @@ Times MSK. Gate 1 = **Fri 13 Nov 15:00 MSK** (Roshan approves sitemap, scope, br
 | T-202 | Design-token architecture for multi-brand theming | satish | `docs/frontend/design-tokens.md` | T-101 | hritik | Fri 13 Nov | DONE (v0.1.1, must-fixes applied) |
 | T-301 | Template & route map | mahendra | `docs/frontend/templates-and-routes.md` | T-702 | hritik | Thu 12 Nov | DONE (v0.1; nits for v0.2 Fri 20 Nov) |
 | T-302 | i18n architecture (EN now, NE in Feb without rework) | mahendra | `docs/frontend/i18n.md` | T-101 | hritik | Fri 13 Nov | DONE (v0.1; nits for v0.2 Fri 20 Nov) |
-| T-501 | Infra plan & runbooks (VPS options, DNS, Cloudflare, backups, monitoring, 2FA, Roshan's action list) | raj | `docs/runbooks/infra-setup.md` | — | hritik | Fri 13 Nov | IN PROGRESS |
-| T-502 | Dockerfile, docker-compose (prod-like), CI workflow skeleton. Dev Postgres compose is in T-103 | raj | `Dockerfile`, `docker-compose.yml`, `.github/workflows/ci.yml` | T-101, T-103 | hritik | Fri 13 Nov | IN PROGRESS |
-| T-801 | Test plan, device matrix, launch checklist draft, go/no-go criteria | rajaros | `qa/` | — | hritik | Fri 13 Nov | TODO |
-| T-103 | App scaffold per `docs/scaffold-plan.md` (installs packages; `.env.example`; docker compose for Postgres; README "Getting started"; smoke tests; TS 7 vs 5.9 check). Local only (ADR-024) | hritik | `src/`, config files, README section | T-101 | pm (+ neha peer review, standards §12) | Mon 9 Nov | IN PROGRESS (approved ADR-024) |
-| T-102 | Technical review of week-1 engineering work + readiness note | hritik | `docs/gates/gate-1-tech-review.md` | T-202, T-302, T-401, T-402, T-501, T-502 | pm | Fri 13 Nov 12:00 | TODO |
-| T-901 | Gate 1 pack for Roshan | pm | `docs/gates/gate-1.md` | all above | Roshan | Fri 13 Nov 15:00 | TODO |
+| T-501 | Infra plan & runbooks (VPS options, DNS, Cloudflare, backups, monitoring, 2FA, Roshan's action list) | raj | `docs/runbooks/infra-setup.md` | — | hritik | Fri 13 Nov | DONE (hritik APPROVED WITH NITS; D-1/D-2 to Gate 1) |
+| T-502 | Dockerfile, docker-compose (prod-like), CI workflow skeleton. Dev Postgres compose is in T-103 | raj | `Dockerfile`, `docker-compose.yml`, `.github/workflows/ci.yml` | T-101, T-103 | hritik | Fri 13 Nov | PARTIAL (changes applied; first CI run after Roshan's push) |
+| T-801 | Test plan, device matrix, launch checklist draft, go/no-go criteria | rajaros | `qa/` | — | hritik | Fri 13 Nov | DONE v0.1 (hritik APPROVED WITH NITS) |
+| T-103 | App scaffold per `docs/scaffold-plan.md` (installs packages; `.env.example`; docker compose for Postgres; README "Getting started"; smoke tests; TS 7 vs 5.9 check). Local only (ADR-024) | hritik | `src/`, config files, README section | T-101 | pm (+ neha peer review, standards §12) | Mon 9 Nov | DONE (smoke tests pass; neha peer review + fresh-clone check pending) |
+| T-102 | Technical review of week-1 engineering work + readiness note | hritik | `docs/gates/gate-1-tech-review.md` | T-202, T-302, T-401, T-402, T-501, T-502 | pm | Fri 13 Nov 12:00 | DONE |
+| T-901 | Gate 1 pack for Roshan | pm | `docs/gates/gate-1.md` | all above | Roshan | Fri 13 Nov 15:00 | REVIEW (docs/gates/gate-1.md v0.2 ready for Roshan) |
 
 ## Waiting on Roshan
 | Item | Needed by | For |
@@ -34,7 +34,8 @@ Times MSK. Gate 1 = **Fri 13 Nov 15:00 MSK** (Roshan approves sitemap, scope, br
 | Hero sari-model files (PNG ≥ 2000 px, 2–3 poses) | Wed 11 Nov | T-602 |
 | Rental plan details (Q16, incl. team-on-rent pricing) — deferred to Gate 1/2 pack with options | Fri 13 Nov | Gate 1 |
 | Explicit OK on Node 24 LTS (team proceeds on it) | Fri 13 Nov | T-103, Gate 1 |
-| Local machine for `pnpm dev`: free disk space (only ~2.7 GB free) and Docker Desktop or the existing Homebrew Postgres | Mon 9 Nov | T-103 |
+| Local machine for `pnpm dev`: ≥ 4 GB free disk (now ~1.8 GB) and Docker Desktop (for `docker-compose.dev.yml`) | Mon 9 Nov | running the site, fresh-clone check |
+| Decisions C1–C3, D1–D7, E1–E3, F1–F4, G1–G3 in docs/gates/gate-1.md | Fri 13 Nov 15:00 | Gate 1 |
 | Q17 DNS owner for admmis.org | Tue 10 Nov | T-501 |
 
 ## Next weeks (outline — PM details these after Gate 1)

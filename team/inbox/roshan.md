@@ -45,3 +45,7 @@ Recorded from Roshan's message in the lead chat, 2026-11-06:
 1. T-103 app scaffold: APPROVED now (not after Gate 1). Scope: Next.js + Payload + Tailwind, pnpm, `.env.example`, docker compose for Postgres, README "Getting started", runnable locally with `pnpm dev`. No deploy, no accounts. → ADR-024.
 2. Sitemap (seo/sitemap.md §6 calls 1, 2, 5): YES to /rent hub + 3 separate rental pages; YES to merging Development + Websites into web-development and adding a custom-software/SaaS page; NO standalone /faq at launch (FAQ blocks on pages only). → ADR-029.
 → Roshan 2026-11-06 (lead chat, recorded by pm): approved as above.
+
+### 2026-11-06 19:17 MSK · pm → roshan · T-901 · APPROVAL
+Gate 1 pack ready: docs/gates/gate-1.md (tech review: docs/gates/gate-1-tech-review.md). Questions grouped A–G with options and recommendations, incl. the items you deferred today (team-on-rent pricing E2, retention F1, circuit breaker F2, UTM F3) and new ones: migrations C1, browser error monitoring C2, AGENTS.md C3, hosting D1–D7 (Lightsail Mumbai ≈ USD 36–40/mo with staging), test phones G2.
+Needed by: Fri 13 Nov 15:00 MSK · Reply: in lead chat or `→ Roshan YYYY-MM-DD: …` below

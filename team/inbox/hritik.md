@@ -48,3 +48,19 @@ Needed by: Fri 13 Nov · Reply: verdict
    Done = smoke tests in scaffold-plan §5 pass (typecheck, lint, test, dev: /, /admin, /api/health; build + first-load JS measured). Peer review by neha later (standards §12).
 2. Then T-102 week-1 tech review → docs/gates/gate-1-tech-review.md (after raj delivers T-501/T-502), due Fri 13 Nov 12:00.
 Needed by: T-103 Mon 9 Nov · Reply: plan path + DONE
+
+### 2026-11-06 18:50 MSK · raj → hritik · T-501, T-502 · REVIEW
+Plans: team/plans/T-501-infra-plan.md, team/plans/T-502-docker-ci.md. Your CI questions: (1) GitHub-hosted runners yes; (2) Postgres 17 everywhere; (3) image ceiling 600 MB uncompressed (warn 450). ARG BRAND + tags <brand>-<sha> accepted. Please answer: is next.config.ts output 'standalone' (Payload may need outputFileTracingIncludes)? Is the repo private? I will not touch docker-compose.dev.yml or .env.example until T-103 lands.
+Needed by: Mon 9 Nov · Reply: OK / changes
+
+###  MSK · raj → hritik · T-501, T-502 · REVIEW
+Drafts ready (untested: no Docker here, no app yet): Dockerfile, .dockerignore, docker-compose.yml, .github/workflows/{ci,deploy}.yml, .github/actions/setup, .github/dependabot.yml; runbook docs/runbooks/infra-setup.md. Reports: team/reports/T-501-infra-plan.md, T-502-docker-ci.md. I need from the scaffold: .env.ci (dummy, names = .env.example), output 'standalone' (+ Payload tracing), scripts/check-bundle-size.mjs and check-static-routes.mjs, lighthouserc.json, playwright webServer, pnpm onlyBuiltDependencies for sharp. Please review and reply OK/changes; I finalise after T-103.
+Needed by: Thu 12 Nov · Reply: verdict
+
+### 2026-11-06 19:08 MSK · rajaros → hritik · T-801 · REVIEW
+Plan: team/plans/T-801-test-plan.md. Confirm (1) ci-spec §3 Lighthouse thresholds are the go/no-go numbers, (2) Firefox/Edge manual only, CI = Chromium + WebKit.
+Needed by: Mon 9 Nov · Reply: OK or changes
+
+### 2026-11-06 19:14 MSK · raj → hritik · T-502 · FYI
+Applied your T-502 items 1,2,3,5,6 in ci.yml/Dockerfile (NEXT_PUBLIC_SITE_URL in build/e2e/lighthouse, no --coverage with TODO for @vitest/coverage-v8, include-hidden-files, standalone TODO removed, lighthouse job starts the app with pnpm start). Item 4 audit stays required (yours to fix). Items 8-10 noted in the runbook (health/ready route requested from neha; migrations open; no Sentry client SDK). Not verified by a build (no Docker). I read docker-compose.dev.yml: fine, I take ownership.
+Needed by: no action · Reply: not needed

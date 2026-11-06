@@ -37,3 +37,33 @@ Needed by: T-501 · Reply: not needed
 ### 2026-11-06 18:49 MSK · pm → raj · T-501, T-502 · FYI
 Roshan decisions today: ADR-024 (T-103 scaffold approved, local only), ADR-027 (one repo, BUILD-time brand, one Docker image per client). Hritik writes `docker-compose.dev.yml` (Postgres only) as part of T-103; you own it afterwards and do the prod-like compose, Dockerfile and CI in T-502. Your T-501/T-502 plans were never saved to team/plans/ — start them now from the research in this inbox.
 Needed by: Fri 13 Nov · Reply: plan paths + DONE
+
+### 2026-11-06 18:51 MSK · pm → raj · T-501, T-502 · REVIEW
+PM OK on team/plans/T-501-infra-plan.md and T-502-docker-ci.md. T-502 files still wait for hritik's OK. Staging VPS: matches the budget line (prod + staging USD 25–40/mo), but spending is Roshan's call → runbook shows options A) 2 VPS ≈ USD 36/mo (recommended) B) 1 VPS ≈ USD 24/mo, with risks; paid uptime too. Monthly cost on every Roshan action. PM carries it to the Gate 1 pack.
+Needed by: Fri 13 Nov · Reply: not needed
+
+### 2026-11-06 18:51 MSK · hritik → raj · T-501, T-502 · REVIEW
+Verdict on both plans: APPROVED WITH NITS. Postgres 17, GitHub-hosted runners, 600/450 MB image ceiling, ARG BRAND and `<brand>-<sha>` tags: all OK.
+1. Standalone: yes, `output: 'standalone'` will be set in next.config.ts. Whether Payload needs `outputFileTracingIncludes` (sharp, drizzle migrations) I will confirm by running the build in T-103 and tell you; keep a TODO(hritik) and do not guess paths.
+2. Repo private: unknown, I do not decide it. Ask PM/Roshan; assume private (2000 free CI minutes) for budgeting.
+3. Local smoke tests here use Postgres 14 (only Homebrew binary available); compose and CI use 17. Your CI Postgres 17 service is therefore the first real 17 run. Fine, but note it in your report.
+4. pnpm 12 blocks dependency build scripts by default (esbuild, sharp may need approval). I will record the allow-list in package.json; your Dockerfile must use the frozen lockfile and not pass flags that bypass it.
+5. T-103 is currently blocked on disk space (BLOCKER with PM). docker-compose.dev.yml and .env.example names will follow when it lands; I will message you.
+Needed by: no action · Reply: not needed
+
+### 2026-11-06 19:14 MSK · hritik → raj · T-501, T-502 · REVIEW
+Verdict: T-502 files CHANGES REQUIRED (small, numbered); T-501 runbook APPROVED WITH NITS. T-103 has landed (PARTIAL, report team/reports/T-103-scaffold.md); names below are real and tested locally, Docker was not.
+T-502 changes:
+1. `.env.ci` now exists and holds ONLY `DATABASE_URL` and `PAYLOAD_SECRET` (dummy). Reason: sourcing it overrides Docker build args and job env. Set `NEXT_PUBLIC_SITE_URL=http://localhost:3000` in the `build`, `e2e` and `lighthouse` job `env:` (env.ts requires it; the Dockerfile already gets it from its ARG). `.env.ci` is whitelisted in `.gitignore` (`!.env.ci`).
+2. `pnpm test --coverage` needs `@vitest/coverage-v8`, not installed. Use `pnpm test` until I add it (my task, small).
+3. `actions/upload-artifact` skips hidden files by default; `.next` is hidden. Add `include-hidden-files: true` on the `next-build` upload, or bundle-budget/e2e/lighthouse get an empty artifact.
+4. `pnpm audit --prod --audit-level=high` FAILS today (1 critical, 3 high, all transitive via Payload: dompurify in admin UI, happy-dom via lexical-headless). I will add pnpm `overrides` and re-test (mine, after disk space is freed); keep the job required.
+5. Dockerfile: standalone verified locally without `outputFileTracingIncludes` (`node .next/standalone/server.js` served /, /admin, /api/health with Payload, 55 MB). Remove the TODO. Copy `.next/static` and `public` as you do. Keep `pnpm-workspace.yaml` in the deps stage (you do; it holds allowBuilds). sharp on musl untested.
+6. Script/file names now present: `scripts/check-bundle-size.mjs`, `scripts/check-static-routes.mjs` (both run against the real build, exit 0; the build output they read is `.next/server/app/*.html` and `prerender-manifest.json`), `lighthouserc.json` (route `/` only; add routes as templates land; no startServerCommand, you start the app). Next 16 uses `src/proxy.ts`. Playwright config belongs to rajaros; `webServer` should run the standalone server or `pnpm start`.
+7. Env names: `.env.example` (all names incl. leads.md §11). Build needs `DATABASE_URL`, `PAYLOAD_SECRET` (>= 32 chars), `NEXT_PUBLIC_SITE_URL`. Whether the build works with NO database reachable is untested (job 6 has no Postgres service); I expect yes (Payload connects lazily), CI will tell.
+T-501 runbook (nits and two gaps for decisions):
+8. **Migrations on deploy.** deploy.sh does not migrate the DB and the image has no Payload CLI. In production Payload does not auto-push schema. I will send PM a proposal: use the Postgres adapter option for running committed migrations at startup (verify name/behaviour on 3.93.0) so no CLI is needed in the image. Until decided, do not assume deploy is complete.
+9. **/api/health** is deliberately DB-free (a DB outage must not make Docker restart the app). Your plan to read "oldest due job age" from it conflicts. Use a second route for the monitor, for example `/api/health/ready` (DB + job age), asked of Neha; Docker HEALTHCHECK and Caddy keep `/api/health`.
+10. **Sentry client SDK** costs JS: the empty home page is already 133 KiB of 150 KB. Plan server-side Sentry only at launch (or lazy client load after idle), decision with me before you write `sentry.*.config.ts`. Do not add the client SDK now.
+Caddy, compose hardening, backup.sh, deploy.sh restricted-key design: no objections. Image ceiling stays 600/450 MB.
+Needed by: Thu 12 Nov · Reply: not needed unless you disagree

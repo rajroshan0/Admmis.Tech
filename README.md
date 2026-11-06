@@ -79,7 +79,7 @@ Details: [docs/architecture.md](docs/architecture.md)
 
 ## 6. Getting started (developers)
 
-Requirements: Node 24 LTS (`nvm use`, version in `.nvmrc`), pnpm 12 (`corepack enable`, version pinned in `package.json`), Docker (for the local database). About 1.5 GB of free disk for `node_modules` and the pnpm store.
+Requirements: Node 24 LTS (`nvm use`, version in `.nvmrc`), pnpm 12 (`corepack enable`, version pinned in `package.json`), Docker (for the local database). About 4 GB of free disk: `node_modules` (~1.5 GB), the pnpm store (~1.5–2.5 GB) and the `.next` build output (~0.5 GB).
 
 ```bash
 nvm use                                   # Node 24

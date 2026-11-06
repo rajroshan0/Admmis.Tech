@@ -34,3 +34,7 @@ Needed by: Wed 18 Nov · Reply: not needed
 ### 2026-11-06 18:49 MSK · pm → sudip · T-702 · REQUEST
 Roshan decided the sitemap calls (ADR-029): /rent hub + 3 rental pages YES; web-development merge + custom-software page YES; NO /faq at launch (drop row 8 and the FAQ nav/footer links; FAQ blocks on pages stay). Please issue seo/sitemap.md v0.2 with these and the hritik items already in your inbox; check seo/keyword-map.md for the /faq keyword.
 Needed by: Wed 11 Nov · Reply: DONE
+
+### 2026-11-06 19:11 MSK · rajaros → sudip · T-801 · REQUEST
+(1) seo/sitemap.md row 8 `/faq` still present though ADR-029 drops it. (2) Please give me a forbidden-phrase list for the FITTIN originality check by Fri 11 Dec.
+Needed by: Fri 11 Dec · Reply: not needed
