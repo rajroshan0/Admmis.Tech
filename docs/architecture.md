@@ -45,8 +45,8 @@ Every page is assembled from CMS **blocks**: Hero, Services grid, Case cards, Pr
 
 ## Lead pipeline
 1. Visitor submits form (name, company, email/phone, service, budget range, message). Turnstile blocks bots.
-2. `POST /api/leads` validates input server-side and saves to `leads` **first**.
-3. Then sends notifications: email to sales + team-chat message. A failed notification is retried; the lead is never lost.
+2. `POST /api/leads` runs cheap checks first (size, origin, honeypot, zod, rate limit, idempotency lookup), then Turnstile, then saves to `leads` **first** in one transaction together with its delivery jobs. If Turnstile is unreachable the lead is still saved as `unverified` (PM decision, ADR-007). Full contract: `docs/api/leads.md`.
+3. Then notifications (email to sales, team-chat message) run from a Postgres outbox with retries; a failed notification never loses the lead.
 4. Lead is pushed to the CRM; status tracked there.
 5. Analytics conversion event fires (GA4 + Meta) with source/UTM.
 6. Visitor sees a thank-you state plus a WhatsApp click-to-chat button.
