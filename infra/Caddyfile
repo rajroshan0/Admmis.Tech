@@ -1,0 +1,29 @@
+# Caddy reverse proxy. TLS = Cloudflare Origin CA cert (Full strict). Raj, T-501/T-502. No secrets here.
+# SITE_HOST is set per VPS in /opt/admmis/.env.caddy (tech.admmis.org or staging.tech.admmis.org).
+{
+	auto_https off
+	servers {
+		trusted_proxies static private_ranges
+	}
+}
+
+{$SITE_HOST} {
+	tls /certs/origin.pem /certs/origin.key
+
+	# Internal routes are never public (the worker calls the app on 127.0.0.1, not through here).
+	@internal path /api/internal/*
+	respond @internal 404
+
+	encode zstd gzip
+
+	header {
+		-Server
+		X-Content-Type-Options nosniff
+		{$EXTRA_HEADER}
+	}
+
+	reverse_proxy app:3000 {
+		health_uri /api/health
+		health_interval 15s
+	}
+}

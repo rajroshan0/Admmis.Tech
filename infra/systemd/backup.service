@@ -1,0 +1,9 @@
+[Unit]
+Description=ADMMIS daily backup (Postgres + media mirror to R2)
+After=docker.service
+
+[Service]
+Type=oneshot
+User=deploy
+EnvironmentFile=/opt/admmis/.env.backup
+ExecStart=/opt/admmis/backup.sh
