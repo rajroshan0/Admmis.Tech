@@ -19,9 +19,9 @@ Nepali language (~Feb) · cost calculator · AI chat assistant · industry landi
 
 ## Week-by-week
 
-| Week | Dates | Work | Gate (CTO + Founder approve) |
+| Week | Dates | Work | Gate (Roshan approves) |
 |---|---|---|---|
-| 1 | 9–13 Nov | Discovery: sitemap, content model, competitor & price benchmark (Nepal + FITTIN), brand direction, repo + infrastructure setup | **Fri 13 Nov:** sitemap, scope, brand direction |
+| 1 | 9–13 Nov | Hero model files from Roshan (6 Nov, 15:00 MSK) · Discovery: sitemap, content model, competitor & price benchmark (Nepal + FITTIN), brand direction, repo + infrastructure setup | **Fri 13 Nov:** sitemap, scope, brand direction |
 | 2 | 16–20 Nov | Homepage design · design system · CMS skeleton · copywriting starts · photo shoot planned | **Fri 20 Nov:** homepage design |
 | 3 | 23–27 Nov | Remaining templates designed · Sprint 1 build (home, layout, CMS blocks) · photo shoot | **Fri 27 Nov:** all templates |
 | 4 | 30 Nov–4 Dec | Sprint 1 continues: services, cases, pricing templates · lead API | Sprint 1 demo (Fri 4 Dec) |
@@ -33,4 +33,4 @@ Nepali language (~Feb) · cost calculator · AI chat assistant · industry landi
 | 9–10 | 4–15 Jan | Hypercare: fixes, first analytics review, start Phase 2 | — |
 
 ## Critical path
-Brand direction → homepage design → templates → content. **Late content or slow approvals are the main risk.** Approvals are needed within 48 hours of each gate.
+Brand direction → homepage design → templates → content. **Late content or slow approvals are the main risk.** Roshan approves within **12 hours** of each gate; Hritik reviews technically first.

@@ -2,6 +2,15 @@
 
 Newest first. Updated every Friday and whenever something important changes.
 
+## 2026-11-06 (Fri, 10:41) — Founder answers received
+- **Team confirmed:** Hritik (tech lead), Satish + Mahendra (frontend), Neha (backend/CMS), Raj (DevOps/security), Sharwan (UI/UX), Sudip (SEO/content), Rajaros (QA). PM: Claude. **CTO = Roshan** (Founder + CTO).
+- **Repo:** github.com/rajroshan0/Admmis.Tech · **Domain:** tech.admmis.org · **Standup:** 10:00 MSK daily.
+- **CTO decisions:** stack approved, Mumbai VPS, no existing servers, 2FA, 24-hour backups, rental products built by our seniors, 12-hour approvals. → ADR-015 to ADR-022.
+- **Rental pricing:** each service charged separately, by company size → PM proposal in `pricing-model.md` (Q16).
+- **Logo:** ADMMIS family, "AT" combination mark. **Hero model files:** today 15:00 MSK.
+- **Budget:** spending plan with cash-flow by month written in `budget.md` (Q20).
+- Remaining open: Q4, Q5, Q8–Q11, Q16–Q20.
+
 ## 2026-11-06 (Fri, 10:22) — Kickoff pack ready
 - Start date set: **kickoff Mon 9 Nov**; nothing blocks the start.
 - `docs/kickoff-pack.md`: questions per person, stakeholder brief, kickoff agenda, team message, hiring briefs.

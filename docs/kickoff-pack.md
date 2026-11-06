@@ -1,5 +1,7 @@
 # Kickoff pack — ADMMIS.TECH website
 
+> Updated 6 Nov 10:41: team names, CTO (Roshan), repo, domain, meeting time filled in. Founder questions 1–6 answered — see `open-questions.md`.
+
 Prepared by PM, Fri 6 Nov 2026. **Kickoff: Monday 9 November 2026.**
 
 ---
@@ -51,7 +53,7 @@ Prepared by PM, Fri 6 Nov 2026. **Kickoff: Monday 9 November 2026.**
 2. Font licences: OK to use free Google Fonts (and one that supports Devanagari for the Nepali version later)?
 
 ### SEO / content strategist
-1. Does admmis.tech or admmis.org already have traffic / Google Search Console / Analytics accounts?
+1. Does admmis.org (or tech.admmis.org) already have traffic / Google Search Console / Analytics accounts?
 2. Top 10 competitor agencies in Nepal you know of (for benchmark).
 
 ### QA
@@ -85,18 +87,18 @@ Prepared by PM, Fri 6 Nov 2026. **Kickoff: Monday 9 November 2026.**
 
 ## 5. Team kickoff message — send Monday morning
 
-> Hi team — ADMMIS.TECH website kicks off today. Launch is **1 January** at our opening event.
-> Repo: (link) — README is the single source of truth. Please read README, timeline, architecture and the FITTIN study before the kickoff at (time).
+> Hi team — ADMMIS.TECH website (tech.admmis.org) kicks off today. Launch is **1 January** at our opening event.
+> Repo: https://github.com/rajroshan0/Admmis.Tech — README is the single source of truth. Please read README, timeline, architecture and the FITTIN study before the kickoff at 10:30 MSK / 13:15 NPT (after the standup slot).
 > **Week 1 owners:**
-> - **Tech lead:** repo, Docker, CI with Lighthouse budget, coding standards (Wed)
-> - **Frontend 1:** component inventory from the reference (keep / change / drop), design tokens plan for multi-brand (ADR-013)
-> - **Frontend 2:** page template list, i18n structure (EN now, NE later)
-> - **Backend:** Payload collections draft: services, cases, pricingPackages, rentalPlans, hourlyRates, leads (Thu)
-> - **DevOps:** VPS (Singapore/Mumbai), Cloudflare, staging URL, Sentry, backups (Fri)
-> - **Designer:** 3 brand directions with the sari-model hero (Fri)
-> - **SEO:** keyword map (EN), sitemap draft, Nepal competitor + price benchmark (Thu)
-> - **QA:** test plan + device list (Fri)
-> Standup daily at (time). Gate 1 Friday 13 Nov.
+> - **Hritik (tech lead):** repo, Docker, CI with Lighthouse budget, coding standards (Wed)
+> - **Satish (frontend):** component inventory from the reference (keep / change / drop), design tokens plan for multi-brand (ADR-013)
+> - **Mahendra (frontend):** page template list, i18n structure (EN now, NE later)
+> - **Neha (backend/CMS):** Payload collections draft: services, cases, pricingPackages, rentalPlans, hourlyRates, leads (Thu)
+> - **Raj (DevOps):** VPS (Mumbai), DNS for tech.admmis.org, 2FA on all accounts, 24-hour backups, Cloudflare, staging URL, Sentry, backups (Fri)
+> - **Sharwan (design):** "AT" logo options in the ADMMIS family + 3 brand directions with the sari-model hero (Fri)
+> - **Sudip (SEO):** keyword map (EN), sitemap draft, Nepal competitor + price benchmark (Thu)
+> - **Rajaros (QA):** test plan + device list (Fri)
+> Standup daily at 10:00 MSK / 12:45 NPT. Gate 1 Friday 13 Nov.
 
 ## 6. Hiring briefs — post today
 

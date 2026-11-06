@@ -1,6 +1,6 @@
-# admmis.tech — Company Website
+# ADMMIS.TECH — Company Website (tech.admmis.org)
 
-Marketing website for **ADMMIS.TECH**, the technology and marketing agency of ADMMIS (registered as a sub-organisation of ADMMIS).
+Marketing website for **ADMMIS.TECH** (`tech.admmis.org`), the technology and marketing agency of ADMMIS (registered as a sub-organisation of ADMMIS).
 Structure and UX are loosely inspired by fittin.ru. All brand, copy, photos and design are original.
 
 > **This README is the single source of truth.** Every decision, architecture change, tool and status update is recorded here or in `/docs`, and linked from here.
@@ -15,9 +15,11 @@ Structure and UX are loosely inspired by fittin.ru. All brand, copy, photos and 
 | Launch | **1 January 2027** — public launch at the opening event |
 | Soft launch (live, unannounced) | 29 December 2026 |
 | Language at launch | English. Nepali added ~February 2027 (earlier if time allows) |
-| Final approval | CTO + Founder (Roshan) |
+| Final approval | Roshan (Founder + CTO), within 12 hours; tech review by Hritik |
+| Repository | https://github.com/rajroshan0/Admmis.Tech |
+| Daily standup | 10:00 MSK / 12:45 NPT |
 | Project manager | Claude (PM) — single point of contact between team and stakeholders |
-| Status | 🟡 Discovery — week 1 starts Mon 9 Nov 2026 |
+| Status | 🟢 Kickoff Mon 9 Nov 2026 — team confirmed, stack approved |
 
 ## 2. What the company sells (site scope)
 
@@ -26,7 +28,7 @@ Structure and UX are loosely inspired by fittin.ru. All brand, copy, photos and 
 - **Quality & audit:** QA/testing, code audit, UX/UI audit, SEO audit
 - **Outstaffing:** dedicated developers, designers, QA, DevOps on contract
 - **Marketing:** digital (SEO, social media, paid ads, influencer/affiliate) and offline (events, print, BTL)
-- **On rent (monthly subscription, from launch):** website on rent · AI agent on rent · team on rent — from **NPR 100,000/month** (see [ADR-012](docs/decisions.md), plan details pending)
+- **On rent (monthly subscription, from launch):** website on rent · AI agent on rent · team on rent — priced **by company size**, each service separately (ADR-018, proposal in [docs/pricing-model.md](docs/pricing-model.md))
 
 **Target clients:** Nepali SMEs, retailers and small businesses, plus international clients outsourcing to Nepal (Asia, Europe, Americas).
 
@@ -42,7 +44,7 @@ Structure and UX are loosely inspired by fittin.ru. All brand, copy, photos and 
 | Database | PostgreSQL |
 | Media storage | Cloudflare R2 (S3-compatible) |
 | CDN, DNS, WAF, spam protection | Cloudflare (+ Turnstile on forms) |
-| Hosting | VPS (production + staging), Docker, GitHub Actions CI/CD |
+| Hosting | VPS in Mumbai region (production + staging), Docker, GitHub Actions CI/CD, backups every 24 h, 2FA everywhere |
 | Lead alerts | Email + team chat, WhatsApp click-to-chat for visitors |
 | Analytics | Google Analytics 4, Meta Pixel, Microsoft Clarity (behind cookie consent) |
 | Monitoring | Sentry (errors), uptime monitor |
@@ -59,7 +61,8 @@ Details: [docs/architecture.md](docs/architecture.md)
 | [docs/architecture.md](docs/architecture.md) | System diagram, components, lead pipeline, content model, performance rules |
 | [docs/timeline.md](docs/timeline.md) | 8-week plan to 1 Jan, milestones, approval gates |
 | [docs/team-and-tools.md](docs/team-and-tools.md) | Roles, responsibilities, tools and accounts |
-| [docs/budget.md](docs/budget.md) | Cost estimate (people, tools, infrastructure) |
+| [docs/budget.md](docs/budget.md) | Budget: where the money goes, cash-flow by month, week-1 payments |
+| [docs/pricing-model.md](docs/pricing-model.md) | Client pricing: size bands, rental prices, terms (proposal) |
 | [docs/progress-log.md](docs/progress-log.md) | Dated log of progress, blockers, changes |
 | [docs/open-questions.md](docs/open-questions.md) | Questions waiting on stakeholders |
 | [docs/reference-fittin.md](docs/reference-fittin.md) | Full study of fittin.ru: pages, features, pricing, what we adopt |

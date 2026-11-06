@@ -11,14 +11,14 @@ flowchart LR
   CMS --> R2[(Cloudflare R2<br/>images · video)]
   APP -->|POST /api/leads| LEAD[Lead API]
   LEAD --> DB
-  LEAD --> MAIL[Email alert<br/>sales@admmis.tech]
+  LEAD --> MAIL[Email alert<br/>sales@admmis.org]
   LEAD --> CHAT[Team chat alert]
   LEAD --> CRM[CRM]
   V -.consent.-> AN[GA4 · Meta Pixel · Clarity]
   APP --> SEN[Sentry]
 ```
 
-One application (Next.js + Payload) in Docker, deployed to **production** and **staging** by GitHub Actions. Database backed up daily to R2.
+One application (Next.js + Payload) in Docker on a **VPS in the Mumbai region**, deployed to **production** (`tech.admmis.org`) and **staging** by GitHub Actions. Database and media backed up **every 24 hours** to R2. 2FA on every account (ADR-017).
 
 ## Why it will be fast
 - Pages are **pre-built HTML** served from Cloudflare's edge. Editors publish in the CMS → page rebuilds in seconds (ISR).
@@ -41,7 +41,7 @@ Every page is assembled from CMS **blocks**: Hero, Services grid, Case cards, Pr
 | Simple page | about, careers, contact, legal |
 
 ## Content model (CMS collections)
-`services` · `serviceCategories` · `cases` · `clients` · `testimonials` · `pricingPackages` (NPR + USD) · `posts` · `faqs` · `teamMembers` · `jobs` · `leads` · `media` · `pages` · global `siteSettings` (menu, footer, contacts) · SEO fields on every document.
+`services` · `serviceCategories` · `rentalPlans` (by size band) · `hourlyRates` · `cases` · `clients` · `testimonials` · `pricingPackages` (NPR + USD) · `posts` · `faqs` · `teamMembers` · `jobs` · `leads` · `media` · `pages` · global `siteSettings` (menu, footer, contacts) · SEO fields on every document.
 
 ## Lead pipeline
 1. Visitor submits form (name, company, email/phone, service, budget range, message). Turnstile blocks bots.

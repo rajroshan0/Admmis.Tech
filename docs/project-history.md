@@ -61,6 +61,11 @@ A chronological record of how this project started and every step taken, so new 
 **Input:** 217-page PDF (Google Docs render, English-translated) of FITTIN's homepage, newer pricing page, cases list, media menu and custom development page → saved as [references/fittin-pages-capture-2026-11.pdf](references/fittin-pages-capture-2026-11.pdf).
 **PM output:** text extracted and deduplicated (most pages are repeated carousels). New findings added to [reference-fittin.md §3.9](reference-fittin.md): Website / App / Full-channel packages (Full channel 835k ₽ + 270k ₽/month), "what's included" and "what you pay separately" tables, risk table, 8 hourly roles incl. AI prompt engineer at 4,200 ₽/h, custom-dev page structure, case card metrics, original-research blog content. Adoption table extended.
 
+## Step 8 — Kickoff pack (10:22) and Founder answers (10:41)
+**PM output (10:22):** start date Mon 9 Nov; questions per person; stakeholder brief; kickoff agenda; team message; hiring briefs → [kickoff-pack.md](kickoff-pack.md).
+**Founder answers (10:41):** team roster with names; Roshan is also CTO; repo github.com/rajroshan0/Admmis.Tech; domain tech.admmis.org; standup 10:00 MSK; rental = every service charged separately by company size; logo = ADMMIS family with "AT" mark; sari model by 15:00 MSK; CTO approved stack, Mumbai hosting, 2FA, 24-hour backups, rental products built by seniors, 12-hour approvals. Asked: where is the budget needed?
+**PM output:** ADR-015–022; budget rewritten as a spending plan (by category, by month, week-1 payments); `pricing-model.md` proposal (size bands S/M/L/XL, rental prices per band, team rental per person, terms); open questions updated; git remote set to the GitHub repo.
+
 ---
 
 ## Sources used
