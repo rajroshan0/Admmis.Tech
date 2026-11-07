@@ -4,7 +4,7 @@ template: service
 primaryKeyword: software testing services Nepal
 title: "Software Testing Services in Nepal | ADMMIS.TECH"
 metaDescription: "Manual and automated testing for websites, apps and software, done in Nepal. Clear bug reports and fixes list. Get a quote."
-status: review
+status: reviewed
 openTodos: tools used; real device list; projects tested; retest policy; typical times; WhatsApp number
 ---
 

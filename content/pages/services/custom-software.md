@@ -4,7 +4,7 @@ template: service
 primaryKeyword: custom software development Nepal
 title: "Custom Software Development in Nepal | ADMMIS.TECH"
 metaDescription: "Custom software and SaaS built in Nepal around how your business works: tools, portals, CRM and integrations. Clear plan and price. Get a quote."
-status: review
+status: reviewed
 openTodos: systems shipped; code and data ownership; support terms; typical times; named clients; WhatsApp number
 ---
 

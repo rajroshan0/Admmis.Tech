@@ -3,8 +3,8 @@ slug: /rent/ai-agent
 template: rent-product
 primaryKeyword: AI chatbot subscription Nepal
 title: "AI Chatbot Subscription in Nepal | ADMMIS.TECH"
-metaDescription: "Rent an AI agent for WhatsApp, Telegram or your website. One monthly price, set up for you. See plans and get started."
-status: review
+metaDescription: "Rent an AI agent for WhatsApp, Telegram or your website on one monthly plan. See plans and get started."
+status: reviewed
 openTodos: plan names and inclusions; setup fee; minimum term; cancellation; data handling; Nepali support; time to start
 ---
 

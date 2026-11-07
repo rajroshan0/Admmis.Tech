@@ -4,7 +4,7 @@ template: service
 primaryKeyword: website audit service Nepal
 title: "Website Audit Service in Nepal | ADMMIS.TECH"
 metaDescription: "A clear review of your website or app: code, design, speed and SEO. You get a plain-language report and a prioritised fix list. Get a quote."
-status: review
+status: reviewed
 openTodos: sample report; tools used; turnaround; whether we must be hired to fix; app audits; WhatsApp number
 ---
 

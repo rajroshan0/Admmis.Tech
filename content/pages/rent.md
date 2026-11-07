@@ -3,8 +3,8 @@ slug: /rent
 template: rent-hub
 primaryKeyword: monthly website and software subscription Nepal
 title: "Website and Software Subscription in Nepal | ADMMIS.TECH"
-metaDescription: "Rent a ready-made website, an AI agent or a development team and pay every month. No big payment at the start. See plans by company size."
-status: review
+metaDescription: "Rent a ready-made website, an AI agent or a development team and pay every month. See plans by company size."
+status: reviewed
 openTodos: all rental terms (setup fee, minimum term, support hours, response time, buyout, cancellation); band prices (CMS, A6); ownership; company-size bands
 ---
 

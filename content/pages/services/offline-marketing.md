@@ -4,7 +4,7 @@ template: service
 primaryKeyword: event marketing Kathmandu
 title: "Event and BTL Marketing in Kathmandu | ADMMIS.TECH"
 metaDescription: "Events, print and on-ground campaigns in Kathmandu, planned with your online marketing. Clear plan and budget. Get a quote."
-status: review
+status: reviewed
 openTodos: events and print jobs delivered; in-house or vendors; cities beyond Kathmandu; named clients; WhatsApp number. If there is no portfolio, keep the page short (no cases)
 ---
 

@@ -36,3 +36,6 @@ Remaining 4 service pages (custom-software, qa-testing, audit, offline-marketing
 - Deviations: rent/ai-agent has 4 "what it can do" cards and rent/team has 4 role cards where the template wants 3 or 6 (noted in the files; ask sharwan/satish). Rent pages carry extra fields (channels, compare text, intro) beyond the spec.
 - New TODOs: approved rental terms (pricing-model section 3), plan inclusions per product, Nepali support for AI agents, report/checklist samples for audit, printing and cities for offline, tools and devices for QA.
 - Not run: typo and link check.
+
+## Update (T-1005-fix, sudip T-709)
+Applied 4 rent meta fixes (rent, rent/website, rent/team, rent/ai-agent); rent/website H1 is now "Website on rent in Nepal: pay month by month" and "live fast" is out of its heroSub. No change was needed on the P1 service pages. All rent and P1 files are `reviewed`.

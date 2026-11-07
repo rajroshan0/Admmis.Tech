@@ -3,8 +3,8 @@ slug: /rent/website
 template: rent-product
 primaryKeyword: website on rent Nepal
 title: "Website on Rent in Nepal | ADMMIS.TECH"
-metaDescription: "Get a ready-made, professional website on monthly rent in Nepal. Hosting, updates and support included. No big upfront cost. See plans and apply."
-status: review
+metaDescription: "Get a ready-made, professional website on monthly rent in Nepal. Hosting and support in one monthly price. See plans and apply."
+status: reviewed
 openTodos: setup fee; minimum term; launch time; support hours; ownership and buyout; sites live; example sites (sharwan); inclusions per plan
 ---
 
@@ -12,8 +12,8 @@ openTodos: setup fee; minimum term; launch time; support hours; ownership and bu
 
 ## hero
 - heroEyebrow: On rent
-- heroHeading: Website on rent in Nepal: pay monthly, no big upfront cost
-- heroSub: A professional website for your business, live fast. One monthly price covers hosting, updates and support.
+- heroHeading: Website on rent in Nepal: pay month by month
+- heroSub: A professional website for your business. One monthly price covers hosting, updates and support.
 - ctaPrimary: See the plans
 - ctaPrimaryLink: #plans
 - ctaSecondary: Get a quote

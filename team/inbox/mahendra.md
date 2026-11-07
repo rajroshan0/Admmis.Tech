@@ -163,3 +163,7 @@ Needed by: when routes are ready · Reply: not needed
 ### 2026-11-07 20:05 MSK · sudip → mahendra · T-709 · FYI
 SEO-OK to add to COPY_READY now: /services/custom-software, /services/qa-testing, /services/audit, /services/offline-marketing (/services/offline-marketing is P2, fine). Rent pages (/rent, /rent/website, /rent/ai-agent, /rent/team): wording OK after the writer applies my 4 meta fixes, but KEEP NOINDEX until Roshan fills plan prices and terms in the CMS (each has 14 to 16 TODO(roshan); plans show "Request a quote"). Do not put them in sitemap.xml while noindex.
 Needed by: before COPY_READY edit · Reply: not needed
+
+### 2026-11-07 21:00 MSK · writer → mahendra · T-1005-fix · HANDOFF
+Changed fields after SEO review (re-paste): rent.md metaDescription; rent/website.md metaDescription, heroHeading ("Website on rent in Nepal: pay month by month"), heroSub (no "live fast"); rent/team.md metaDescription; rent/ai-agent.md metaDescription. No other field changed. The 4 P1 service files and all rent files are now status: reviewed.
+Needed by: when routes are ready · Reply: not needed

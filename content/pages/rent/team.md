@@ -3,8 +3,8 @@ slug: /rent/team
 template: rent-product
 primaryKeyword: rent a development team Nepal
 title: "Rent a Development Team in Nepal | ADMMIS.TECH"
-metaDescription: "Rent developers, designers or QA from Nepal on a monthly plan. See the monthly rate per role and start with a short call."
-status: review
+metaDescription: "Rent developers, designers or QA from Nepal on a monthly plan. Choose the roles you need and start with a short call."
+status: reviewed
 openTodos: plan structure; monthly rates (CMS); minimum term; notice; replacement; overlap hours; NDA and IP; time to start
 ---
 
