@@ -109,3 +109,7 @@ Needed by: 14:00 (when you start) · Reply: only if objecting
 ### 2026-11-07 10:45 MSK · sharwan → satish · T-603 · HANDOFF
 Homepage spec is final: design/homepage/home-spec.md (tokens section 1, type 2, layout 3, states 4, components 7); visual mock design/homepage/home.html (open home-preview.html for 360 and 1280). Final tokens use the Sindoor names; new ones: --line-strong #6B7A99, --green, --primary-hover/active, --shadow-hard (layer 3), status and full alt-* set, --alt-focus. Answers to your T-202 findings: status colours replace your proposals (success #1F6B58, alt pairs in 1.2); Devanagari body leading 1.75 confirmed; focus #2F6BEA works on bg and navy. New for you: Section tone "band" (orange CTA), compact row layout of services-grid and feature-list below 640 px. Orange is fill only, never text on light. Fonts: Montserrat variable latin + Mukta 400/700 devanagari (3 files). Logo files final in design/logo/ (lockup, lockup-dark, mark, favicon).
 Needed by: build starts about 14:00 MSK today · Reply: only questions
+
+### 2026-11-07 10:58 MSK · sharwan → satish · T-601 · FYI
+Logo files changed after the PM redirect (now vectorised from Roshan's own logo): use design/logo/admmis-tech-lockup.svg (header, 40 px desktop / 34 px mobile, min 32 px), admmis-tech-lockup-dark.svg (footer, navy sections), favicon.svg, admmis-tech-mark.svg. Aspect of the lockup is about 4.4:1 (width 148 at 34 px high). Hero image spec is now AVIF/WebP about 600 px, fetchpriority high, LCP stays the H1 (home-spec.md 3.2).
+Needed by: no action · Reply: not needed

@@ -85,3 +85,11 @@ Needed by: n/a · Reply: not needed
 ### 2026-11-07 10:45 MSK · sharwan → mahendra · T-603 · HANDOFF
 Homepage design is final: design/homepage/home-spec.md (section order and block mapping in section 3; copy keys map to content/pages/home.md), visual mock design/homepage/home.html. Hero image is Roshan's model (design/inputs/female sari.jpeg): needs a 640 px WebP at most 60 KB and a waist-up mobile crop; use priority, explicit width and height. Pending TODO(roshan) items (venue/time, FAQ answers 2, 4, 6, phone, WhatsApp, PAN, case results) must not render as placeholders: hide the row or question until the value exists (spec 3.7 to 3.12). Sticky bar links: wa.me and tel need Roshan's numbers.
 Needed by: build starts about 14:00 MSK today · Reply: only questions
+
+### 2026-11-07 10:50 MSK · satish → mahendra · T-204 · HANDOFF
+Components are in src/components/{ui,layout,blocks} (barrels: index.ts in each). Swap list: layout.tsx adds `className={fontVariables}` on <html> (from @/brands/admmis-tech/fonts) and imports Header/Footer/MobileStickyBar from @/components/layout; page.tsx imports the ten *Block components from @/components/blocks (HeroBlock, ServicesGridBlock, RentCardsBlock, FeatureListBlock, ProcessStepsBlock, CaseCardsBlock, PricingTeaserBlock, EventTeaserBlock, FaqBlock, CtaBandBlock), data = your view objects. HERO_IMAGE = { src: '/images/hero-model.webp', width: 640, height: 800 }. Event: please add dateParts { day, month, year } to the view. Types: components/blocks/*/types.ts and index.ts.
+Needed by: today 14:00 MSK · Reply: tell me when swapped
+
+### 2026-11-07 10:58 MSK · sharwan → mahendra · T-601 · FYI
+Logo files changed (vectorised from Roshan's own logo): header uses design/logo/admmis-tech-lockup.svg, width 148 and height 34 at mobile, 40 px high desktop. Favicon: design/logo/favicon.svg plus png/favicon-32.png and png/apple-touch-icon-180.png. Hero image: AVIF/WebP about 600 px, fetchpriority high (home-spec.md 3.2).
+Needed by: no action · Reply: not needed

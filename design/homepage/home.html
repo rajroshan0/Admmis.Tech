@@ -81,8 +81,8 @@ h3,.h3{font:700 20px/1.3 var(--font-head)}
 /* ========= HEADER ========= */
 .hdr{position:sticky;top:0;z-index:40;background:var(--surface);border-bottom:1px solid var(--line)}
 .hdr .container{display:flex;align-items:center;justify-content:space-between;height:var(--header-h)}
-.logo img{height:28px;width:auto}
-@media(min-width:768px){.logo img{height:34px}}
+.logo img{height:34px;width:auto}
+@media(min-width:768px){.logo img{height:40px}}
 .nav{display:none}
 .burger{display:inline-flex;width:48px;height:48px;align-items:center;justify-content:center;background:none;border:2px solid var(--ink);border-radius:var(--r);color:var(--ink);cursor:pointer}
 @media(min-width:1024px){
@@ -269,7 +269,7 @@ h3,.h3{font:700 20px/1.3 var(--font-head)}
 .ftr{background:var(--alt);color:var(--alt-muted);padding:48px 0 24px}
 .ftr .cols{display:grid;gap:32px;grid-template-columns:1fr 1fr}
 .ftr .about{grid-column:1/-1}
-.ftr .about img{height:32px;width:auto;margin-bottom:16px}
+.ftr .about img{height:44px;width:auto;margin-bottom:16px}
 .ftr .about p{max-width:32ch;font-size:15px}
 .ftr h2{font:700 14px/1.3 var(--font-head);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
 .ftr li a{display:inline-flex;align-items:center;min-height:36px;text-decoration:none;font-size:15px;color:var(--onalt)}
@@ -324,7 +324,7 @@ h3,.h3{font:700 20px/1.3 var(--font-head)}
 <!-- ===== HEADER: Header + NavMenu + MobileNav + Logo ===== -->
 <header class="hdr">
   <div class="container">
-    <a class="logo" href="#top" aria-label="ADMMIS.TECH home"><img src="../logo/admmis-tech-lockup.svg" alt="ADMMIS.TECH" width="170" height="34"></a>
+    <a class="logo" href="#top" aria-label="ADMMIS.TECH home"><img src="../logo/admmis-tech-lockup.svg" alt="ADMMIS.TECH" width="148" height="34"></a>
     <ul class="nav" aria-label="Main">
       <li><button class="n" aria-expanded="false" aria-haspopup="true">Services <svg class="ic chev"><use href="#i-chev"/></svg></button>
         <div class="drop" role="group" aria-label="Services">
@@ -500,7 +500,7 @@ h3,.h3{font:700 20px/1.3 var(--font-head)}
 <footer class="ftr">
   <div class="container">
     <div class="cols">
-      <div class="about"><img src="../logo/admmis-tech-lockup-dark.svg" alt="ADMMIS.TECH" width="170" height="34"><p>ADMMIS.TECH is the technology and marketing unit of ADMMIS, in Nepal.</p></div>
+      <div class="about"><img src="../logo/admmis-tech-lockup-dark.svg" alt="ADMMIS.TECH" width="192" height="44"><p>ADMMIS.TECH is the technology and marketing unit of ADMMIS, in Nepal.</p></div>
       <nav aria-label="Services"><h2>Services</h2><ul><li><a href="#">Websites</a></li><li><a href="#">Mobile apps</a></li><li><a href="#">Custom software</a></li><li><a href="#">AI agents</a></li><li><a href="#">QA and testing</a></li><li><a href="#">Audits</a></li><li><a href="#">Dedicated team</a></li><li><a href="#">Digital marketing</a></li><li><a href="#">Offline marketing</a></li></ul></nav>
       <nav aria-label="On rent"><h2>On rent</h2><ul><li><a href="#">Website on rent</a></li><li><a href="#">AI agent on rent</a></li><li><a href="#">Team on rent</a></li></ul></nav>
       <nav aria-label="Company"><h2>Company</h2><ul><li><a href="#">About</a></li><li><a href="#">Careers</a></li><li><a href="#">Blog</a></li><li><a href="#">Opening event</a></li><li><a href="#faq">FAQ</a></li><li><a href="#">Contact</a></li></ul></nav>

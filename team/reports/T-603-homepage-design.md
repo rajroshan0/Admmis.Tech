@@ -13,7 +13,8 @@ Owner: sharwan · 2026-11-07 · Status: DONE (review by pm; satish and mahendra 
 - Navy hero, On rent, Event and footer; light body; orange CTA band. Orange is fill only (2.47:1 as text on light); text on orange is navy (6.16:1). Primary button = orange + navy label + hard offset shadow.
 - Fixes owed: `--line-strong` `#6B7A99` (4.09:1), status colours with alt pairs, full `alt-*` set, `--focus` `#2F6BEA` valid on bg and navy, `--alt-focus` amber. Devanagari body leading 1.75 confirmed.
 - Fonts: Montserrat variable (latin) + Mukta 400/700 (devanagari, only on NE pages): 3 files.
-- Hero uses Roshan's real model image (it arrived 2026-11-06) on an arch, blended with multiply; no silhouette needed.
+- Hero uses Roshan's real model image (`female sari.jpeg`, 768 x 1365, below the 2000 px we asked for) on a peach arch with an orange offset arch and amber sun, blended with multiply; maroon sari and gold border checked against navy and orange: works. Spec: AVIF with WebP fallback, about 600 px display, at most 60 KB, `fetchpriority=high`, LCP stays the H1 text.
+- Header and footer use the new compact lockup from Roshan's own logo (see T-601 report).
 
 ## Verification
 - Contrast: Python WCAG 2.2 script, 46 pairs, all pass (table in spec 1.5).
@@ -21,7 +22,7 @@ Owner: sharwan · 2026-11-07 · Status: DONE (review by pm; satish and mahendra 
 - Not done: real-device test, screen reader pass (rajaros), Nepali text render (no NE copy yet).
 
 ## Assumptions / questions
-See spec section 8. For Roshan: (1) is `design/inputs/admmis.tech logo.png` the official ADMMIS.TECH logo? (2) transparent cut-outs of the model; (3) original ADMMIS vector/colours if they exist.
+See spec section 8. For Roshan: (1) does a vector original of the logo exist? (2) transparent cut-outs of the model; (3) original ADMMIS vector/colours if they exist.
 
 ## Handoff
 Satish: tokens + component notes (spec 1, 3, 7). Mahendra: section order, content keys, limits (spec 3). Writer: limits sent 10:40 MSK.

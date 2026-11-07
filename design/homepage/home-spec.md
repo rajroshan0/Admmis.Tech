@@ -19,6 +19,8 @@ Builders: satish (tokens, components), mahendra (template). Every value below is
 | Header | White, not transparent, sticky, 1 px `--line` bottom border | One logo variant (light lockup) needed in the header; navy hero starts under it |
 | Hero image | The AI model from Roshan, inside a peach arch (`#FFE3C4`) with an orange offset arch, amber sun and amber base bar. Photo is blended with `mix-blend-mode: multiply` so its white background disappears. A transparent cut-out is still preferred (see 3.2) | Files arrived 2026-11-06 (`design/inputs/female sari.jpeg`); no silhouette placeholder needed |
 
+Hero colour check (done in the mock, 2026-11-07): the maroon sari with gold border sits well on the peach arch next to navy, orange and amber; maroon against the peach has strong contrast and the gold border echoes the amber. No colour changes needed.
+
 ## 1. Tokens (final values)
 
 Names are the existing Sindoor names (satish maps them to `--color-*`, see `docs/frontend/design-tokens.md` section 3). New tokens are marked **new**.
@@ -186,7 +188,7 @@ Eyebrow (13 px, `--muted`, on navy `--accent`) + H2 + optional intro (Lead, `--m
 | | 360 px | 1280 px |
 |---|---|---|
 | Height | 64 px | 72 px |
-| Content | Logo lockup (height 28 px, link, `aria-label="ADMMIS.TECH home"`), burger button 48 x 48 (right) | Logo lockup 34 px; nav right-aligned; "Get a quote" primary button 44 px tall at the end |
+| Content | Logo lockup (height 34 px, link, `aria-label="ADMMIS.TECH home"`; never below 32 px, TECH becomes unreadable), burger button 48 x 48 (right) | Logo lockup 40 px; nav right-aligned; "Get a quote" primary button 44 px tall at the end |
 | Nav items (5 + CTA, max 6 per sitemap) | In `MobileNav` | Services (dropdown, 9 links) · On rent · Pricing · Our work · About (dropdown: About us, Careers, Blog, FAQ) · Get a quote |
 | Label limit | 14 characters per nav item, 16 for CTA | same |
 | Behaviour | Sticky, white, border-bottom 1 px `--line` | same |
@@ -207,7 +209,7 @@ States: **NavMenu** closed / open / item hover / item focus / current. **MobileN
 | Image stage | Width 100% (max 360), aspect 4:5 | Max width 460 px, aspect 4:5, right-aligned |
 
 Stage construction (all CSS, no extra images): (1) orange arch (`--primary`) offset 14 px right and down, radius `999px 999px 0 0`; (2) amber sun circle (`--accent`), 30% of stage width, top right, partly outside the arch; (3) peach arch `#FFE3C4` with the model image, `object-fit: cover; object-position: 50% 0`; photo blended with `mix-blend-mode: multiply` so its white background becomes the peach; (4) amber base bar 10 px tall across the bottom. The model is cropped head to waist at every width. Mobile crop: `hero.image.mobile` = waist-up crop (see inventory request 2).
-Image rules (performance): **LCP element**; `priority`, no lazy, no entrance animation; max 640 px wide, WebP, **at most 60 KB** (the provisional JPEG in `design/homepage/assets/` is 75 KB at 563 x 1000, for the mock only); explicit width and height (no layout shift); alt text from copy `hero.imageAlt`. Ask Roshan for a **transparent PNG cut-out** (already in the open request); with a cut-out, drop `mix-blend-mode`, keep the arch colour, and the model may break the arch top slightly. Fallback if the image is missing: the arch and sun shapes stay (CSS only), with the sari silhouette from `design/brand-directions/01-sindoor-studio.html` as an inline SVG.
+Image rules (performance): the **LCP element should stay the H1 text** (on 360 px the image is below the text; on desktop it may be measured as LCP, so it is still preloaded): `fetchpriority="high"` / `priority`, no lazy, no entrance animation; display width about 600 px (max 460 px on desktop, 328 on phones), serve **AVIF with WebP fallback, at most 60 KB each** (`next/image` `sizes="(min-width:1024px) 460px, 328px"`) (the provisional JPEG in `design/homepage/assets/` is 75 KB at 563 x 1000, for the mock only); explicit width and height (no layout shift); alt text from copy `hero.imageAlt`. **Source is below the 2000 px we asked for** (768 x 1365): fine at 1x, slightly soft on 2x and 3x phones (needs about 1000 px for a 328 px stage at 3x). Ask Roshan for a **transparent PNG cut-out at 2000 px tall** (already in the open request); with a cut-out, drop `mix-blend-mode`, keep the arch colour, and the model may break the arch top slightly. Fallback if the image is missing: the arch and sun shapes stay (CSS only), with the sari silhouette from `design/brand-directions/01-sindoor-studio.html` as an inline SVG.
 The mock shows a "PROVISIONAL IMAGE" label on the stage: **remove in production**.
 States: image loading (arch visible with peach background, no flash), buttons per section 4.
 
@@ -245,7 +247,7 @@ States: closed / hover (summary background `--bg`) / focus (3 px ring on the sum
 360 px: stacked: H2 (max 8 words, 22ch wide), text (20 words), buttons stacked full width (52 px tall): navy "Get a quote", outline "Chat on WhatsApp" with WhatsApp icon. 1024 px: two columns (text left, buttons right, both 220 px+ wide, side by side). Section padding as all sections. This is the only primary action on its screen. The `cta-form` form slot is not used on home (the quote page has the form).
 
 ### 3.12 Footer (alt)
-Content from `docs/company-info.md` only. Top: lockup (dark, 32 px high) + about line (20 words max) in the first column; columns Services (9 links), On rent (3), Company (6), Legal (3), Contact (`<dl>`: address, phone, email, main website; empty values omitted; phone and WhatsApp are `tel:` and click-to-chat links). 360 px: about spans both columns, then 2-column grid of link lists. 768 px up: 6 columns (`1.4fr 1fr 1fr 1fr 1fr 1.3fr`). Column titles 14/700 uppercase amber (not uppercase for Nepali). Links white 15 px, min height 36 px (the list rows touch, use 44 px on mobile), hover underline. Bottom row: 1 px `--alt-line-strong` rule, copyright left, small links or registration right. **Not shown until Roshan confirms**: PAN (12 digits on file, expected 9), registration line, phone, social links, language switcher (hidden until Nepali launches). Address shows "Janaki Chowk, Janakpurdham-3, Nepal" once confirmed for ADMMIS.TECH.
+Content from `docs/company-info.md` only. Top: lockup (dark, 44 px high) + about line (20 words max) in the first column; columns Services (9 links), On rent (3), Company (6), Legal (3), Contact (`<dl>`: address, phone, email, main website; empty values omitted; phone and WhatsApp are `tel:` and click-to-chat links). 360 px: about spans both columns, then 2-column grid of link lists. 768 px up: 6 columns (`1.4fr 1fr 1fr 1fr 1fr 1.3fr`). Column titles 14/700 uppercase amber (not uppercase for Nepali). Links white 15 px, min height 36 px (the list rows touch, use 44 px on mobile), hover underline. Bottom row: 1 px `--alt-line-strong` rule, copyright left, small links or registration right. **Not shown until Roshan confirms**: PAN (12 digits on file, expected 9), registration line, phone, social links, language switcher (hidden until Nepali launches). Address shows "Janaki Chowk, Janakpurdham-3, Nepal" once confirmed for ADMMIS.TECH.
 
 ### 3.13 Sticky action bar (below 768 px only)
 Fixed bottom, 3 equal-height buttons (48 px) with 8 px gap, white background, 1 px `--line` top border, soft upward shadow, safe-area padding. WhatsApp and Call: outline buttons (white, 2 px navy border, icon + label, 14/700). "Get a quote": primary orange, 1.5x wider. Body gets 72 px bottom padding so nothing is hidden. Hidden when the mobile menu is open and when a text field has focus (keyboard up), CSS-only where possible (`:has()` is not needed; mahendra decides). Labels max 10 characters. Links: WhatsApp `https://wa.me/<number>` (TODO(roshan): number), `tel:` (TODO(roshan)), `/contact`.
@@ -274,7 +276,7 @@ Allowed: hover lift on cards (translateY -3 px, 200 ms), button press (translate
 - Icons: one inline SVG sprite, 21-name list from the component inventory; this page uses 19. About 3 KB.
 - Fonts: 3 files (above), `swap`, preload only the Latin variable file. Nepali files not loaded on EN pages.
 - No carousel library (scroll-snap CSS only), no accordion JS (`<details>`), no animation library. JS on this page: `MobileNav` (about 1.2 KB), `NavMenu` (about 0.8 KB).
-- Logo: SVG lockup under 2 KB, inline or `<img>`; set width and height to avoid layout shift. Favicon SVG 0.8 KB plus 32 and 180 px PNGs.
+- Logo: SVG lockup about 3 KB, inline or `<img>`; set width and height to avoid layout shift. Favicon SVG 0.8 KB plus 32 and 180 px PNGs.
 - Layout shift: reserve the hero stage with `aspect-ratio`; set explicit image sizes; card heights come from content, not images.
 - Section CSS is plain and flat: no blur, no backdrop-filter, no big shadows (only the 4 px hard offsets). Fine on low-end Android.
 - Contrast and focus were checked by computed numbers (above). Rajaros should verify at 200% zoom and on a 360 px device.
@@ -289,7 +291,7 @@ Answers to satish's request (T-201): states shown in this spec for NavMenu open,
 1. ASSUMPTION: ADMMIS colours were sampled from the signboard image, not from original files; if Roshan has the originals, hex values may shift by a few units and the contrast table must be re-run (`design/homepage/` has no script; rerun the ratios from section 1.5).
 2. ASSUMPTION: Montserrat variable latin as one file is available from Google Fonts with a `wght` axis (it is, as of 2026-11); satish confirms size at scaffold.
 3. ASSUMPTION: the hero photo may be shown on a peach arch with multiply blending. A transparent cut-out would look cleaner and is still requested from Roshan (2 to 3 poses, 2000 px tall). `female coat with bg. clean it.jpeg` and `male.jpeg` are also in `design/inputs/` and are not used on the homepage.
-4. There is also `design/inputs/admmis.tech logo.png`, an AI-made ADMMIS.TECH logo (circle with ring text and a hexagon A with circuit lines). I redrew the **signboard** emblem as instructed (PM brief); question to Roshan: is the new image the official ADMMIS.TECH logo? If yes, the lockup and favicon change.
+4. Logo: redrawn from Roshan's `design/inputs/admmis.tech logo.png` (PM redirect 2026-11-07); the signboard emblem is only a colour reference. It is a redraw, not an original vector. Question to Roshan: does a vector original exist?
 5. TODO(roshan) items shown as markers in the mock and to be hidden in production if still open: case-study results, event venue and time, FAQ answers 2, 4, 6, phone number, WhatsApp number, PAN and registration line, social links.
 6. No prices on the home page until the price list is approved.
 
