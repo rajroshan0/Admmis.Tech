@@ -1,19 +1,13 @@
 # Roshan's to-do list
 
-Owner: pm · Rebuilt 2026-11-07 (Sat) after the day-1 build · Sorted by deadline within each section.
+Owner: pm · Rebuilt 2026-11-07 (Sat) 16:00 MSK after Roshan's answers A2–A5, A10 · Sorted by deadline within each section.
 Reply in the lead chat, e.g. "A1 yes, A2 option A, B3: +977 98…". PM records your answers and moves them to **Answered**.
 
 ## Approve / decide
 
 | # | What | Why it matters / what it blocks | Options + PM recommendation | Where to see it | Deadline |
 |---|---|---|---|---|---|
-| ~~A1~~ | ✔ ACCEPTED 7 Nov — homepage approved; language switch + Nepali homepage added (ADR-041) | This is the base for every other page | Accept, or say what to change (colours, text, layout) | `pnpm dev --port 3100` → http://localhost:3100 · screenshots in `team/reports/assets/` | Sun 8 Nov |
-| A2 | Approve the voice-and-tone guide | All copy follows it | Recommend: approve | `content/voice-and-tone.md` | Sun 8 Nov |
-| A3 | Approve the homepage copy | It goes live as written | Recommend: approve; fill the gaps in B1–B7 | `content/pages/home.md` | Sun 8 Nov |
-| A4 | Accept the logo redraw of your PNG | Used in header, footer, favicon | Recommend: accept now, swap in your vector original later if one exists (B8) | `design/logo/index.html` | Sun 8 Nov |
-| A10 | Homepage heading: sudip (SEO) suggests "Software, apps and AI built in Nepal" with the eyebrow "Software development company, Nepal" | Puts the main search phrase on the page | Recommend: sudip's version (applied after QA today); alternative: "Software development company in Nepal" | `team/inbox/writer.md` (sudip 11:00) | Sun 8 Nov |
 | A11 | Proofread the Nepali homepage (native check), especially the AI-agent/audit cards and FAQ. Is "भाडामा" the right word for "on rent"? Add the Bikram Sambat date to the event? | Nepali page goes live only after your check | Recommend: proofread in the file or on /ne; send corrections in chat | `content/pages/home.ne.md` · http://localhost:3100/ne | Tue 10 Nov |
-| A5 | OK for the unused `AGENTS.md` file to be removed automatically (you chose "disable" at Gate 1) | Next.js removes it on the next `pnpm dev`; it is untracked and contains only generated text | Recommend: yes | repo root `AGENTS.md` | Sun 8 Nov |
 | A6 | Prices: bands, rental prices, team-on-rent option, terms (P1–P6) | Pricing and rent pages. Team-on-rent may be **3–4× underpriced for foreign clients** | Recommend: P1–P4 yes, team option A + a separate USD rate card | `docs/pricing-summary.md` | Fri 13 Nov |
 | A7 | Budget plan and team pay model (Q19, Q20) | Real cash plan | Free-services-only for now (ADR-037) | `docs/budget.md` | Fri 13 Nov |
 | A8 | Free hosting: Oracle Cloud Always Free (2 CPU / 12 GB, India region, USD 0). (a) Is giving Oracle a card for verification OK? (likely required, not verified) (b) approve the new hosting ADR text (§0.7) | Staging server; soft launch 14 Dec depends on it. Risk: Oracle may reclaim a quiet server → raj measures for 7 days and we switch to paid (Lightsail Mumbai ≈ USD 12–24/mo, needs your OK) before 14 Dec if needed | Recommend: yes to Oracle + the 7-day measurement gate (hritik reviewing) | `docs/runbooks/infra-setup.md` §0 | Fri 13 Nov |
@@ -48,6 +42,12 @@ Reply in the lead chat, e.g. "A1 yes, A2 option A, B3: +977 98…". PM records y
 
 | Date | Item | Answer |
 |---|---|---|
+| 2026-11-07 | A2 Voice-and-tone guide | Approved |
+| 2026-11-07 | A3 Homepage copy | Approved (gaps B1–B7 still open) |
+| 2026-11-07 | A4 Logo redraw | Accepted; vector original swapped in later if it exists (B8) |
+| 2026-11-07 | A5 Remove unused `AGENTS.md` | Yes |
+| 2026-11-07 | A10 Homepage heading | Sudip's version: "Software, apps and AI built in Nepal" + eyebrow "Software development company, Nepal" |
+| 2026-11-07 | Soft launch | As early as possible, target ≤ Mon 14 Dec; Sprint 2 pulled forward |
 | 2026-11-07 | A1 Homepage | Approved; add EN/नेपाली switch + Nepali homepage now (ADR-041) |
 | 2026-11-07 | Gate 1 | PASSED with PM recommendations → ADR-030..040 |
 | 2026-11-07 | Brand direction | Sindoor Studio layout in ADMMIS colours (ADR-031) |

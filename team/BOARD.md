@@ -5,41 +5,57 @@ Status: `TODO` · `PLANNING` · `IN PROGRESS` · `REVIEW` · `BLOCKED` · `DONE`
 Times MSK. **Gate 1 PASSED Sat 7 Nov (ADR-030).** Scrum from 7 Nov (ADR-040): backlog `team/BACKLOG.md`,
 release plan `team/RELEASE-PLAN.md`. This board mirrors the active sprint: `team/sprints/sprint-1.md`.
 
-## Sprint 1 — Sat 7 – Sun 15 Nov (active) · goal: homepage running in the ADMMIS brand today 20:00 MSK
+## Sprint 1 — Sat 7 – Sun 15 Nov (active) · goal: homepage live in the ADMMIS brand ✔ (accepted, ADR-041) → now pulling Sprint 2 forward for soft launch ≤ Mon 14 Dec
 
+Updated 2026-11-07 16:00 MSK. Priority order (Roshan 7 Nov 15:45): language switch → template designs → service + rent templates built → CMS collections in code → service copy → QA.
+
+### Active / next (in priority order)
 | ID | Task | Owner | Deliverable | Story | Reviewer | Due | Status |
 |---|---|---|---|---|---|---|---|
-| T-603 | Homepage design spec + mock (ADMMIS colours, contrast fixes) | sharwan | `design/homepage/` | US-103/104 | pm → Roshan | Sat 7 Nov 13:30 | IN PROGRESS |
-| T-601 | ADMMIS.TECH logo, ADMMIS family (finish) | sharwan | `design/logo/admmis-tech-*.svg` | US-102 | pm → Roshan | Sat 7 Nov 13:30 | IN PROGRESS |
-| T-1001 | Voice and tone guide | writer | `content/voice-and-tone.md` | US-1001 | pm → Roshan | Sat 7 Nov 12:30 | IN PROGRESS |
-| T-1002 | Homepage copy + microcopy | writer | `content/pages/home.md`, `content/microcopy.md` | US-1002 | pm, sudip → Roshan | Sat 7 Nov 13:30 | IN PROGRESS |
-| T-203 | Brand tokens + self-hosted fonts | satish | `src/styles/`, `src/brands/admmis-tech/` | US-201/202 | hritik | Sat 7 Nov 16:00 | TODO (after T-603) |
-| T-204 | UI/layout components + home blocks | satish | `src/components/` | US-203/204/205 | hritik | Sat 7 Nov 18:00 | TODO (after T-603) |
-| T-303 | Homepage route, message files, metadata | mahendra | `src/app/(site)/`, `src/messages/en/` | US-401 | hritik | Sat 7 Nov 18:00 | TODO (after T-1002) |
-| T-104 | Code review of homepage build | hritik | `team/reports/T-104-home-review.md` | US-903 | pm | Sat 7 Nov 19:15 | TODO |
-| T-903 | Day-1 review for Roshan | pm | `team/sprints/sprint-1-day1-review.md` | — | Roshan | Sat 7 Nov 20:00 | TODO |
-| T-106 | Disable AGENTS.md + standards line (ADR-034) | hritik | `next.config.ts`, `docs/standards.md` | — | pm | Mon 9 Nov | TODO |
-| T-403 | Peer review T-103 + fresh-clone check | neha | `team/reports/T-403-…` | — | hritik | Mon 9 Nov | TODO |
-| T-504 | DNS steps for Roshan (Cloudflare Free) | raj | `docs/runbooks/dns-cloudflare.md` | US-803 | hritik | Mon 9 Nov | TODO |
-| T-505 | Docker Desktop note for Roshan's Mac | raj | request to pm | — | pm | Mon 9 Nov | TODO |
-| T-704 | Sitemap v0.2 | sudip | `seo/sitemap.md` | US-702 | pm | Mon 9 Nov | TODO |
-| T-707 | SEO check of home copy | sudip | `team/inbox/writer.md` | US-1002 | pm | Mon 9 Nov | TODO |
-| T-802 | Manual QA of day-1 homepage | rajaros | `qa/bugs/`, report | US-904 | pm | Mon 9 Nov | TODO |
-| T-105 | Five architecture spikes | hritik | `docs/spikes/` | US-902 | pm | Tue 10 Nov | TODO |
-| T-304 | next-intl routing | mahendra | `src/lib/i18n/`, `src/proxy.ts` | US-402 | hritik | Tue 10 Nov | TODO |
-| T-503 | USD-0 infra plan + paid fallback | raj | `docs/runbooks/infra-setup.md` v0.2 | US-802 | hritik → Roshan | Tue 10 Nov | TODO |
-| T-904 | 1-page pricing summary | pm | `docs/pricing-summary.md` | US-911 | Roshan | Tue 10 Nov | TODO |
-| T-705 | Page briefs (P0 Wed, all Sun) | sudip | `seo/briefs/` | US-1003 | pm, writer | Wed 11 / Sun 15 Nov | TODO |
-| T-404 | Migrations-at-start check + collections plan | neha | `team/plans/T-404-collections.md` | US-305 prep | hritik | Thu 12 Nov | TODO |
-| T-803 | Playwright + axe e2e home, Lighthouse | rajaros | `tests/e2e/home.spec.ts` | US-904 | hritik | Thu 12 Nov | TODO |
-| T-205 | Component inventory + tokens v0.2 | satish | `docs/frontend/` | — | hritik | Fri 13 Nov | TODO |
-| T-305 | Templates/routes + i18n v0.2 | mahendra | `docs/frontend/` | — | hritik | Fri 13 Nov | TODO |
-| T-405 | Free-provider check for lead alerts | neha | `docs/api/leads.md` §11 | US-503 prep | hritik | Fri 13 Nov | TODO |
-| T-706 | Schema + analytics event spec | sudip | `seo/schema-spec.md`, `seo/analytics-events.md` | US-704 | hritik | Fri 13 Nov | TODO |
-| T-804 | Go/no-go v0.2 | rajaros | `qa/` | — | hritik | Fri 13 Nov | TODO |
-| T-604 | Wireframes, other templates | sharwan | `design/wireframes/` | US-105 | pm, satish | Sun 15 Nov | TODO |
-| T-1003 | Services hub + 2 service pages copy (prep) | writer | `content/pages/` | US-1004 | sudip, pm | Sun 15 Nov | TODO |
-| T-905 | Sprint 1 Review = Gate 2 | pm | `team/sprints/sprint-1-review.md` | — | Roshan | Sun 15 Nov 15:00 | TODO |
+| T-306 | EN/नेपाली switch wiring + `/ne` homepage (hreflang, fonts, tests) | mahendra | `src/app/(site)/`, `src/lib/`, `src/messages/ne/`, `tests/e2e/ne.spec.ts` | US-401 (ADR-041) | hritik | Sat 7 Nov 17:00 | IN PROGRESS (finishing; uncommitted work kept) |
+| T-206 | LanguageSwitch component + Header `languages` prop, ServiceItem `linkLabel` | satish | `src/components/layout/LanguageSwitch.tsx` (+test), Header, services grid | ADR-041 | hritik | Sat 7 Nov | DONE (report in T-204 update; commit with T-306) |
+| T-604a | Service page + services hub + on-rent template design specs (narrowed T-604) | sharwan | `design/templates/service-spec.md`, `rent-spec.md` (+ mocks) | US-105 | pm, satish | Sat 7 Nov 19:00 | IN PROGRESS |
+| T-207 | Components for service + rent templates (from T-604a) | satish | `src/components/` | Sprint 2 (pulled) | hritik | Tue 10 Nov | TODO (after T-604a) |
+| T-307 | Routes/templates: `/services`, `/services/[slug]`, `/rent`, `/rent/[slug]`, messages, metadata | mahendra | `src/app/(site)/`, `src/messages/en/` | Sprint 2 (pulled) | hritik | Wed 11 Nov | TODO (after T-604a, T-207) |
+| T-404 | Migrations-at-start check + collections plan | neha | `team/plans/T-404-collections.md` | US-305 prep | hritik | Mon 9 Nov (was Thu 12) | TODO |
+| T-406 | CMS collections in code (Pages, Services, Rentals, Media, globals) per content-model + T-604a fields | neha | `src/collections/` | Sprint 2 (pulled) | hritik | Thu 12 Nov | TODO (after T-404; DB run needs Docker, C1) |
+| T-1003 | Services hub + service page copy (P0 briefs first) | writer | `content/pages/services*.md`, `content/pages/services/*.md` | US-1004 | sudip, pm | Tue 10 Nov (was Sun 15) | TODO |
+| T-1005 | Rent hub + rental pages copy | writer | `content/pages/rent*.md` | US-1004 | sudip, pm | Wed 11 Nov | TODO |
+| T-805 | QA of /ne + service/rent templates (manual + e2e) | rajaros | `qa/bugs/`, `tests/e2e/` | US-904 | hritik | Thu 12 Nov | TODO |
+
+### Done today (Sat 7 Nov)
+| ID | Task | Owner | Status |
+|---|---|---|---|
+| T-603 | Homepage design spec + mock | sharwan | DONE |
+| T-601 | ADMMIS.TECH logo (ADMMIS family) | sharwan | DONE — Roshan accepted (A4) |
+| T-1001 | Voice and tone guide | writer | DONE — Roshan approved (A2) |
+| T-1002 | Homepage copy + microcopy (+ SEO fix round) | writer | DONE — Roshan approved (A3), sudip's H1 (A10) |
+| T-1004 | Nepali homepage draft + switch labels | writer | DONE — waits for Roshan's proofread (A11) |
+| T-203 | Brand tokens + self-hosted fonts | satish | DONE |
+| T-204 | UI/layout components + home blocks (+ BUG fixes) | satish | DONE |
+| T-303 | Homepage route, message files, metadata (+ fix round) | mahendra | DONE |
+| T-104 | Code review of homepage build | hritik | DONE (APPROVED WITH NITS, nits applied) |
+| T-106 | AGENTS.md disabled (ADR-034) | hritik | DONE (A5: Roshan OK to remove the file) |
+| T-503 / T-504 / T-505 | USD-0 infra plan v0.2, DNS guide, local-dev guide | raj | DONE (hritik approved with nits) — waits for Roshan (A8, C1, C3) |
+| T-704 / T-707 | Sitemap v0.2, SEO check of home copy | sudip | DONE |
+| T-705 | Page briefs — P0 (9 briefs) | sudip | P0 DONE; remaining briefs Sun 15 Nov |
+| T-802 / T-803 | Homepage manual QA (10 bugs) + Playwright/axe e2e, Lighthouse 95–97 | rajaros | DONE (hritik approved with nits) |
+| T-904 | 1-page pricing summary | pm | DONE — waits for Roshan (A6) |
+| T-903 | Day-1 review | pm | DONE (superseded: Roshan reviewed live, ADR-041) |
+
+### Still open this sprint (unchanged)
+| ID | Task | Owner | Due | Status |
+|---|---|---|---|---|
+| T-403 | Peer review T-103 + fresh-clone check | neha | Mon 9 Nov | TODO |
+| T-105 | Five architecture spikes | hritik | Tue 10 Nov | TODO |
+| T-304 | next-intl routing (replaces typed loader) | mahendra | Tue 10 Nov | TODO (after T-307 if it competes) |
+| T-405 | Free-provider check for lead alerts | neha | Fri 13 Nov | TODO |
+| T-706 | Schema + analytics event spec | sudip | Fri 13 Nov | TODO |
+| T-804 | Go/no-go v0.2 | rajaros | Fri 13 Nov | TODO |
+| T-205 / T-305 | Component inventory + tokens v0.2 / templates + i18n docs v0.2 | satish / mahendra | Fri 13 Nov | TODO |
+| T-604b | Wireframes, remaining templates (pricing, contact, about, cases, blog…) | sharwan | Sun 15 Nov | TODO |
+| T-705b | Page briefs — all remaining launch pages | sudip | Sun 15 Nov | TODO |
+| T-905 | Sprint 1 Review = Gate 2 | pm | Sun 15 Nov 15:00 | TODO |
 
 ## Week 1 — Discovery & foundations (closed at Gate 1, Sat 7 Nov)
 
@@ -67,7 +83,7 @@ release plan `team/RELEASE-PLAN.md`. This board mirrors the active sprint: `team
 ## Waiting on Roshan
 | Item | Needed by | For |
 |---|---|---|
-| Day-1 homepage review: accept / changes | Sun 8 Nov | Sprint 1 |
+| Nepali homepage proofread (A11) | Tue 10 Nov | `/ne` goes public |
 | Pricing decision (after 1-page summary T-904) | Fri 13 Nov | pricing + rent pages |
 | Docker Desktop install (100 GB freed ✔) | Mon 9 Nov | /admin + DB locally |
 | Hero sari-model PNGs (≥ 2000 px, 2–3 poses) | Fri 20 Nov | US-107 |

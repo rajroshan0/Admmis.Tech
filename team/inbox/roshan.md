@@ -59,3 +59,6 @@ Still open: pricing E1–E3 (1-page summary due Tue 10 Nov, T-904), hosting prov
 
 ### 2026-11-07 11:19 MSK · pm → roshan · US-401 · APPROVAL (record of lead-chat answer)
 → Roshan 2026-11-07 (lead chat, recorded by pm): homepage APPROVED. Add a language change option → chosen: EN / नेपाली switch + Nepali homepage now, other pages English until ~Feb → ADR-041.
+
+### 2026-11-07 15:55 MSK · pm → roshan · ROSHAN-TODO · APPROVAL (record of lead-chat answers)
+→ Roshan 2026-11-07 (lead chat, recorded by pm): A2 voice-and-tone guide APPROVED · A3 homepage copy APPROVED · A4 logo redraw ACCEPTED · A5 remove `AGENTS.md` YES · A10 homepage heading = sudip's version ("Software, apps and AI built in Nepal", eyebrow "Software development company, Nepal"). Also: soft launch as early as possible (target ≤ Mon 14 Dec); Sprint 2 work pulled forward in this order: language switch → template designs → service + rent templates → CMS collections → service copy → QA.

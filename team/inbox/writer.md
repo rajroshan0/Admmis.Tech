@@ -30,3 +30,7 @@ SEO check of content/pages/home.md against seo/keyword-map.md (primary keyword: 
 7. FAQ: first question "How much does a website or app cost?" matches a real search. Keep the first six. The TODO(roshan) answers (timeline, ownership, support) are what a searcher wants; unanswered they make the FAQ weak. Please do not publish vague answers.
 8. Length of page text is fine for a home page (no minimum). Do not add keyword paragraphs.
 Needed by: Mon 9 Nov (so mahendra can wire title and meta) · Reply: tell me which of the two H1 options you adopt, or send objections
+
+### 2026-11-07 15:58 MSK · pm → writer · T-1001, T-1002 · FYI
+Roshan approved: voice-and-tone guide (A2), homepage copy (A3), and sudip's H1 "Software, apps and AI built in Nepal" (A10). Mark both files final and remove the "pending Roshan" note and the alternative-heading comment in content/pages/home.md at your next session. Next for you: T-1003 service copy (due Tue 10 Nov), then T-1005 rent copy.
+Needed by: next session · Reply: not needed
