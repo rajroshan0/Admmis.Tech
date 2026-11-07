@@ -21,9 +21,13 @@ Updated 2026-11-07 16:00 MSK. Priority order (Roshan 7 Nov 15:45): language swit
 | T-406 | CMS collections in code (Pages, Services, Rentals, Media, globals) per content-model + T-604a fields | neha | `src/collections/` | Sprint 2 (pulled) | hritik | Thu 12 Nov | DONE (T-109 APPROVED WITH NITS; migrations unverified until Docker C1) |
 | T-308 | Sync service + rent copy into pages; COPY_READY = 5 P0 services | mahendra | `src/messages/en/{services,rent}.json` | US-1004 | rajaros (QA) | Sat 7 Nov | DONE |
 | T-708 | SEO review of service copy + 6 P1 briefs (T-705b) | sudip | `team/inbox/writer.md`, `seo/briefs/` | US-1003 | pm | Sat 7 Nov | DONE |
-| T-709 | SEO review of P1 service + rent copy → flip COPY_READY | sudip → mahendra | review note | US-1004 | pm | Mon 9 Nov | TODO |
+| T-709 | SEO review of P1 service + rent copy → flip COPY_READY | sudip → mahendra | review note | US-1004 | pm | Sat 7 Nov | DONE (9 services indexable; /rent noindex until A6) |
+| T-604b | Specs: pricing, contact, about, work, blog, event | sharwan | `design/templates/*-spec.md` | US-105 | pm, satish | Sat 7 Nov | DONE |
+| T-208 | Components for T-604b specs (contact form first) + T-108 nits | satish | `src/components/` | Sprint 2 (pulled) | hritik | Tue 10 Nov | IN PROGRESS |
+| T-407 | Collections: cases, posts, events, team, leads + lead API | neha | `src/collections/`, `src/app/api/` | Sprint 2 (pulled) | hritik | Wed 11 Nov | IN PROGRESS |
+| T-309 | Routes: /pricing, /contact (+thank-you), /about, /work, /blog, /event | mahendra | `src/app/(site)/` | Sprint 2 (pulled) | hritik | Thu 12 Nov | TODO (after T-208) |
 | T-1003 | Services hub + service page copy (P0 briefs first) | writer | `content/pages/services*.md`, `content/pages/services/*.md` | US-1004 | sudip, pm | Tue 10 Nov (was Sun 15) | DONE (9 pages + hub; P0 SEO-reviewed T-708; P1 review pending) |
-| T-1005 | Rent hub + rental pages copy | writer | `content/pages/rent*.md` | US-1004 | sudip, pm | Wed 11 Nov | REVIEW (copy done; sudip review pending; terms TODO(roshan)) |
+| T-1005 | Rent hub + rental pages copy | writer | `content/pages/rent*.md` | US-1004 | sudip, pm | Wed 11 Nov | DONE (SEO-reviewed; terms TODO(roshan)) |
 | T-805 | QA of /ne + service/rent templates (manual + e2e) | rajaros | `qa/bugs/`, `tests/e2e/` | US-904 | hritik | Thu 12 Nov | DONE (e2e 80/80 after T-308, axe clean, no new bugs) |
 
 ### Done today (Sat 7 Nov)
@@ -56,7 +60,6 @@ Updated 2026-11-07 16:00 MSK. Priority order (Roshan 7 Nov 15:45): language swit
 | T-706 | Schema + analytics event spec | sudip | Fri 13 Nov | TODO |
 | T-804 | Go/no-go v0.2 | rajaros | Fri 13 Nov | TODO |
 | T-205 / T-305 | Component inventory + tokens v0.2 / templates + i18n docs v0.2 | satish / mahendra | Fri 13 Nov | TODO |
-| T-604b | Wireframes, remaining templates (pricing, contact, about, cases, blog…) | sharwan | Sun 15 Nov | TODO |
 | T-705b | Page briefs — all remaining launch pages | sudip | Sun 15 Nov | TODO |
 | T-905 | Sprint 1 Review = Gate 2 | pm | Sun 15 Nov 15:00 | TODO |
 
