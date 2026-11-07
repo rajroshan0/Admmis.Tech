@@ -17,3 +17,7 @@ WebKit, real devices, screen reader, manual keyboard walk of the new pages (focu
 
 ## Run
 `E2E_PORT=3108 E2E_CHANNEL=chrome E2E_WEBKIT=0 pnpm exec playwright test` with the server started under `ENABLED_LOCALES=en,ne`.
+
+## Re-run after T-308 (real copy, 12 pages)
+Rebuilt on the current tree. Chromium e2e: 80 passed, 0 failed, 0 skipped. services.spec now expects the hub and 5 P0 slugs to have no robots meta, the other 4 slugs noindex; rent.spec expects the hub indexable, 3 slugs noindex.
+360 px look at /services/web-development, /rent/team and /services: see PROBE result in message; no visible TODO text. Server stopped.

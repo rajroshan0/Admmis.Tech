@@ -19,9 +19,12 @@ Updated 2026-11-07 16:00 MSK. Priority order (Roshan 7 Nov 15:45): language swit
 | T-307 | Routes/templates: `/services`, `/services/[slug]`, `/rent`, `/rent/[slug]`, messages, metadata | mahendra | `src/app/(site)/`, `src/messages/en/` | Sprint 2 (pulled) | hritik | Wed 11 Nov | DONE (T-110 APPROVED WITH NITS; pages noindex until COPY_READY) |
 | T-404 | Migrations-at-start check + collections plan | neha | `team/plans/T-404-collections.md` | US-305 prep | hritik | Mon 9 Nov (was Thu 12) | DONE (plan OK by hritik; migration run needs Docker C1) |
 | T-406 | CMS collections in code (Pages, Services, Rentals, Media, globals) per content-model + T-604a fields | neha | `src/collections/` | Sprint 2 (pulled) | hritik | Thu 12 Nov | DONE (T-109 APPROVED WITH NITS; migrations unverified until Docker C1) |
-| T-1003 | Services hub + service page copy (P0 briefs first) | writer | `content/pages/services*.md`, `content/pages/services/*.md` | US-1004 | sudip, pm | Tue 10 Nov (was Sun 15) | REVIEW (hub + 5 P0 pages done; 4 P1 pages next; sudip reviewing) |
-| T-1005 | Rent hub + rental pages copy | writer | `content/pages/rent*.md` | US-1004 | sudip, pm | Wed 11 Nov | TODO |
-| T-805 | QA of /ne + service/rent templates (manual + e2e) | rajaros | `qa/bugs/`, `tests/e2e/` | US-904 | hritik | Thu 12 Nov | TODO |
+| T-308 | Sync service + rent copy into pages; COPY_READY = 5 P0 services | mahendra | `src/messages/en/{services,rent}.json` | US-1004 | rajaros (QA) | Sat 7 Nov | DONE |
+| T-708 | SEO review of service copy + 6 P1 briefs (T-705b) | sudip | `team/inbox/writer.md`, `seo/briefs/` | US-1003 | pm | Sat 7 Nov | DONE |
+| T-709 | SEO review of P1 service + rent copy → flip COPY_READY | sudip → mahendra | review note | US-1004 | pm | Mon 9 Nov | TODO |
+| T-1003 | Services hub + service page copy (P0 briefs first) | writer | `content/pages/services*.md`, `content/pages/services/*.md` | US-1004 | sudip, pm | Tue 10 Nov (was Sun 15) | DONE (9 pages + hub; P0 SEO-reviewed T-708; P1 review pending) |
+| T-1005 | Rent hub + rental pages copy | writer | `content/pages/rent*.md` | US-1004 | sudip, pm | Wed 11 Nov | REVIEW (copy done; sudip review pending; terms TODO(roshan)) |
+| T-805 | QA of /ne + service/rent templates (manual + e2e) | rajaros | `qa/bugs/`, `tests/e2e/` | US-904 | hritik | Thu 12 Nov | DONE (e2e 80/80 after T-308, axe clean, no new bugs) |
 
 ### Done today (Sat 7 Nov)
 | ID | Task | Owner | Status |

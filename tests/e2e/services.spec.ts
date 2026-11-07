@@ -4,6 +4,7 @@ import { expect, test } from '@playwright/test'
 // T-805. Services templates (T-307). Placeholder copy by design; every slug page is noindex until listed in COPY_READY.
 const ROUTES = ['/services', ...['web-development', 'mobile-app-development', 'custom-software', 'ai-agents', 'qa-testing', 'audit', 'outstaffing', 'digital-marketing', 'offline-marketing'].map((s) => `/services/${s}`)]
 const HUB = '/services'
+const INDEXABLE = ['web-development', 'ai-agents', 'mobile-app-development', 'outstaffing', 'digital-marketing'].map((s) => `/services/${s}`) // COPY_READY (T-308)
 
 for (const route of ROUTES) {
   test.describe(route, () => {
@@ -15,10 +16,11 @@ for (const route of ROUTES) {
       await expect(page.locator('main')).not.toContainText(/TODO|lorem ipsum|undefined|\[object/i)
     })
 
-    test('robots noindex on slug pages', async ({ page }) => {
-      test.skip(route === HUB, 'hub indexability is decided in COPY_READY, not asserted here')
+    test('robots: P0 slugs and hub indexable, other slugs noindex', async ({ page }) => {
       await page.goto(route)
-      await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/)
+      const robots = page.locator('meta[name="robots"]')
+      if (route === HUB || INDEXABLE.includes(route)) await expect(robots).toHaveCount(0)
+      else await expect(robots).toHaveAttribute('content', /noindex/)
     })
 
     test('axe: no violations (WCAG 2.2 AA)', async ({ page }) => {

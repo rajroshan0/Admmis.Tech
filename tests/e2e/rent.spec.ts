@@ -15,8 +15,8 @@ for (const route of ROUTES) {
       await expect(page.locator('main')).not.toContainText(/TODO|lorem ipsum|undefined|\[object/i)
     })
 
-    test('robots noindex on slug pages', async ({ page }) => {
-      test.skip(route === HUB, 'hub indexability is decided in COPY_READY, not asserted here')
+    test('robots: hub indexable, rent slugs noindex', async ({ page }) => {
+      if (route === HUB) { await page.goto(route); await expect(page.locator('meta[name="robots"]')).toHaveCount(0); return }
       await page.goto(route)
       await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/)
     })
