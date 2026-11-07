@@ -33,7 +33,7 @@ Rules that always apply: `content/voice-and-tone.md`, CLAUDE.md §8 (Truth, Writ
 | Element | Text | Count / limit |
 |---|---|---|
 | `<title>` (seoTitle) | Mobile App Development in Nepal \| ADMMIS.TECH | 45 / 60 |
-| Meta description | Android and iPhone apps built in Nepal with Flutter, React Native or native code. Clear plan, clear price, support after launch. Get a quote. | 141 / 155 |
+| Meta description | Android and iPhone apps built in Nepal. Clear plan, clear price, support after launch. Get a quote. | 141 / 155 |
 | H1 (heroHeading) | Mobile app development in Nepal for Android and iPhone | 54 / 70 |
 | Hero subheadline | From idea to the Play Store and App Store. We choose the technology that fits your goal and budget. | 19 / 25 words |
 

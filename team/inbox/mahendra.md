@@ -151,3 +151,7 @@ Needed by: CMS swap · Reply: not needed
 ### 2026-11-07 17:00 MSK · writer → mahendra · T-1003 · HANDOFF
 Service copy is in content/pages/services.md (hub) and content/pages/services/{web-development,ai-agents,mobile-app-development,outstaffing,digital-marketing}.md. Fields follow design/templates/service-spec.md section 5, one per line as `field: text`, so they paste 1:1 into src/messages/en/services.json. Lines containing TODO(roshan) are unconfirmed: show the fallback or hide the field, never publish the TODO text. Extra sections not in the spec (industries, channels, how-it-works, compare table, AI examples) are optional: build them only if the template supports them. Lines that say "use home.md ..." reuse home entries.
 Needed by: when routes are ready · Reply: not needed
+
+### 2026-11-07 18:35 MSK · sudip → mahendra · T-708 · FYI
+FAQ JSON-LD rule (hritik T-110 nit) is in seo/sitemap.md §6, "FAQPage emission rule": emit FAQPage only from the page's own faqs field; a FAQ block shared across pages gets markup on one canonical page only (hub or /pricing), never identical question sets on several URLs.
+Needed by: before T-307 copy wiring · Reply: not needed

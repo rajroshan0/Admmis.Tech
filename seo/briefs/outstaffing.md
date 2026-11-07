@@ -33,7 +33,7 @@ Rules that always apply: `content/voice-and-tone.md`, CLAUDE.md §8 (Truth, Writ
 | Element | Text | Count / limit |
 |---|---|---|
 | `<title>` (seoTitle) | Hire Dedicated Developers in Nepal \| ADMMIS.TECH | 48 / 60 |
-| Meta description | Hire dedicated developers, designers, QA and DevOps from Nepal. Work in your time zone, pay a clear monthly rate per person. Talk to us. | 136 / 155 |
+| Meta description | Hire dedicated developers, designers, QA and DevOps from Nepal. Pay a clear monthly rate per person. Talk to us. | 136 / 155 |
 | H1 (heroHeading) | Hire dedicated developers in Nepal for your product | 51 / 70 |
 | Hero subheadline | Add senior engineers, designers and testers to your team. You direct the work; we handle hiring, tools and payroll. | 19 / 25 words |
 

@@ -25,6 +25,7 @@ Reply in the lead chat, e.g. "A1 yes, A2 option A, B3: +977 98…". PM records y
 | B6 | Opening event: venue, city, start/end time, do guests register? | Event section and event page | lead chat | Fri 20 Nov |
 | B7 | FAQ facts: typical time for a website / app / AI agent; ownership terms; support terms after launch; may we promise a same-working-day reply? | 3 of 6 homepage FAQs are hidden until answered | lead chat | Fri 13 Nov |
 | B11 | Optional proof facts: years in business, team size, VAT number, and the NPR→USD rate to use for prices | Service pages read stronger with real numbers; we never invent them | lead chat | Fri 20 Nov |
+| B12 | Service page facts: which technologies we have really shipped (e.g. Flutter/React Native?), payment gateways we integrate, where AI agent data is hosted, can our AI agents speak Nepali, standard contract/NDA wording (needs legal review) | Service pages (web, mobile, AI agents, outstaffing) show these as hidden gaps; we never claim what we can't prove | List in `team/reports/T-1003-service-copy.md` | lead chat | Fri 13 Nov |
 | B8 | Vector original of the ADMMIS.TECH logo (SVG/AI/CDR/Canva), if it exists | We use a careful redraw meanwhile | `design/inputs/` | any time |
 | B9 | Hero model: transparent cut-outs, 2000 px tall, 2–3 poses (current image is 768 px, slightly soft on sharp phones) | Hero sharpness | `design/inputs/` | Fri 20 Nov |
 | B10 | Lead handling (Q10): team chat (Slack free?), sales email, CRM (HubSpot Free?), who answers leads | Lead alerts | lead chat | Fri 20 Nov |
@@ -33,6 +34,7 @@ Reply in the lead chat, e.g. "A1 yes, A2 option A, B3: +977 98…". PM records y
 
 | # | What | Why | How | Deadline |
 |---|---|---|---|---|
+| C0 | To see the Nepali page locally, add `ENABLED_LOCALES=en,ne` to your `.env` (the team doesn't edit your `.env`) | Without it, /ne returns 404 on your Mac | Open `.env`, add the line, restart `pnpm dev` | today |
 | C1 | Install Docker Desktop (free) | Needed for the CMS admin (`/admin`) and the local database | Guide ready: `docs/runbooks/local-dev-mac.md` (free for businesses < 250 staff and < USD 10M revenue) | Mon 9 Nov |
 | C2 | Push the commits to GitHub (`git push`) | First CI run; proves the build pipeline | `git push origin main` | Mon 16 Nov |
 | C3 | Move admmis.org DNS to Cloudflare Free (whole domain; Free plan can't move only `tech.`). First tell raj: where admmis.org is registered, who runs its DNS today, and whether DNSSEC is on | Staging/production, SSL, spam protection | Guide ready: `docs/runbooks/dns-cloudflare.md` (≈ 1 h for you + up to 24 h waiting; email records kept) | registrar info Fri 13 Nov; move by Mon 23 Nov |

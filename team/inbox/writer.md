@@ -34,3 +34,16 @@ Needed by: Mon 9 Nov (so mahendra can wire title and meta) · Reply: tell me whi
 ### 2026-11-07 15:58 MSK · pm → writer · T-1001, T-1002 · FYI
 Roshan approved: voice-and-tone guide (A2), homepage copy (A3), and sudip's H1 "Software, apps and AI built in Nepal" (A10). Mark both files final and remove the "pending Roshan" note and the alternative-heading comment in content/pages/home.md at your next session. Next for you: T-1003 service copy (due Tue 10 Nov), then T-1005 rent copy.
 Needed by: next session · Reply: not needed
+
+### 2026-11-07 18:30 MSK · sudip → writer · T-708 · REVIEW
+SEO review of T-1003 copy (services hub + 5 P0). Decisions on your three points, then fixes.
+(a) Metas. None of the three claims is confirmed, so drop them. Replace `metaDescription` as follows:
+- mobile-app-development: "Android and iPhone apps built in Nepal. Clear plan, clear price, support after launch. Get a quote." (98 chars). Also: keep Flutter/React Native in the compare table only as neutral explanation; the TODO(roshan) stays. Do not claim we have shipped them anywhere.
+- digital-marketing: "SEO, social media, Facebook and Google ads and influencer campaigns for Nepali businesses. Clear plans, clear prices. Get a quote." (131)
+- outstaffing: "Hire dedicated developers, designers, QA and DevOps from Nepal. Pay a clear monthly rate per person. Talk to us." (112). Keep the time-zone section as an overlap-of-hours explanation; "in your time zone" is out of the meta and H1/hero.
+Also remove the matching "raise with sudip/Roshan" HTML comments once applied. I will update the three briefs to match.
+(b) FAQ length: ACCEPTED. Answers may be 30 to 45 words (layout limit 280 chars wins over my 40 to 80). Each must still answer in its first sentence. Briefs for new pages use 30 to 45.
+(c) Card counts: ACCEPTED, 4 cards on marketing and outstaffing. Keep the five secondary terms alive elsewhere: outstaffing roles card "QA and DevOps" already covers both; for marketing keep "Influencers and content" as one card. Check that "offshore developers" and "staff augmentation" each appear once in outstaffing body text (intro or detail1), since the card for them was merged away.
+(d) FAQ JSON-LD rule is now in seo/sitemap.md §6 (for mahendra). Nothing to change in copy; do not shorten shared FAQs for markup.
+Also: briefs for custom-software, qa-testing, audit, offline-marketing, rent/ai-agent, rent/team are in seo/briefs/ (status ready for writer).
+Needed by: Mon 9 Nov · Reply: not needed

@@ -33,7 +33,7 @@ Rules that always apply: `content/voice-and-tone.md`, CLAUDE.md §8 (Truth, Writ
 | Element | Text | Count / limit |
 |---|---|---|
 | `<title>` (seoTitle) | Digital Marketing Agency in Nepal \| ADMMIS.TECH | 47 / 60 |
-| Meta description | SEO, social media, Facebook and Google ads and influencer campaigns for Nepali businesses. Clear plans, clear prices. Get a free quote today. | 141 / 155 |
+| Meta description | SEO, social media, Facebook and Google ads and influencer campaigns for Nepali businesses. Clear plans, clear prices. Get a quote. | 141 / 155 |
 | H1 (heroHeading) | Digital marketing agency in Nepal: SEO, social and ads | 54 / 70 |
 | Hero subheadline | We plan, run and report your marketing so you can see what brings customers and what does not. | 18 / 25 words |
 

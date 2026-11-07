@@ -141,6 +141,8 @@ Full field mapping is in T-706 (`seo/schema-spec.md`, due Fri 13 Nov). Rules her
 | `legal` | `BreadcrumbList` | |
 | `thank-you`, `error` | none | noindex |
 
+**FAQPage emission rule (T-708, answers hritik's T-110 nit):** emit `FAQPage` JSON-LD only from the page's own `faqs` field, and only for questions whose answer text is visible on that page. If the same shared FAQ block is shown on several pages, emit `FAQPage` on one canonical page only (the hub or `/pricing`); the others show the block without markup. Never emit identical question sets on more than one URL.
+
 **FAQPage question (mahendra open item 10):** ASSUMPTION, to verify. My understanding is that since August 2023 Google shows FAQ rich results only for well-known government and health sites, so our pages will not get the snippet. Markup is harmless and still describes the content to other engines and AI answer tools, but it earns no search appearance. Recommendation: keep `FAQPage` because the cost is near zero (generated from the same `faqs` field), do not promise rich results to Roshan, and do not write FAQs for markup's sake. I will re-check Google's current documentation (URL and date) in T-706.
 
 ## 7. Answers to mahendra's items (T-301 §13) and other open requests
