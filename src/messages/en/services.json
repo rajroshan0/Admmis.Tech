@@ -1,0 +1,55 @@
+{
+  "ui": {
+    "eyebrow": "Service",
+    "hubEyebrow": "Services",
+    "factsLabel": "At a glance",
+    "factsTitle": "At a glance",
+    "startsFrom": "Starts from",
+    "requestQuote": "Request a quote",
+    "getQuote": "Get a quote",
+    "introHeading": "What it is",
+    "priceHeading": "Know the cost before you start",
+    "priceText": "Tell us what you need and we send a clear quote.",
+    "placeholderTitle": "More detail is coming soon",
+    "placeholderText": "This page is being finished. Ask us for a quote and we answer your questions directly."
+  },
+  "hub": {
+    "seoTitle": "IT Services in Nepal | ADMMIS.TECH",
+    "metaDescription": "Websites, mobile apps, custom software, AI agents, testing, audits, dedicated teams and marketing. One Nepal-based team, clear prices. Get a quote.",
+    "heroHeading": "IT services in Nepal, from first build to marketing",
+    "heroSub": "Choose one service or combine several. Each is priced on its own, and we show the prices.",
+    "listHeading": "All services"
+  },
+  "items": {
+    "web-development": {
+      "seoTitle": "Web Development Company in Nepal | ADMMIS.TECH",
+      "metaDescription": "Fast, clear websites and web platforms built in Nepal: company sites, online shops, booking and portals. See prices and get a quote.",
+      "heroHeading": "Web development in Nepal: fast websites that bring customers",
+      "heroSub": "We design, build and launch your website so it loads fast on any phone and makes it easy to contact you."
+    },
+    "mobile-app-development": {
+      "seoTitle": "Mobile App Development in Nepal | ADMMIS.TECH",
+      "metaDescription": "Android and iPhone apps built in Nepal with Flutter, React Native or native code. Clear plan, clear price, support after launch. Get a quote.",
+      "heroHeading": "Mobile app development in Nepal for Android and iPhone",
+      "heroSub": "From idea to the Play Store and App Store. We choose the technology that fits your goal and budget."
+    },
+    "ai-agents": {
+      "seoTitle": "AI Agent Development in Nepal | ADMMIS.TECH",
+      "metaDescription": "AI agents and chatbots for WhatsApp, Telegram and your website, built in Nepal. They answer customers and handle routine tasks. Get a quote.",
+      "heroHeading": "AI agent development in Nepal that answers your customers",
+      "heroSub": "An AI agent is software that answers questions and does routine work for you, on WhatsApp, Telegram or your website."
+    },
+    "outstaffing": {
+      "seoTitle": "Hire Dedicated Developers in Nepal | ADMMIS.TECH",
+      "metaDescription": "Hire dedicated developers, designers, QA and DevOps from Nepal. Work in your time zone, pay a clear monthly rate per person. Talk to us.",
+      "heroHeading": "Hire dedicated developers in Nepal for your product",
+      "heroSub": "Add senior engineers, designers and testers to your team. You direct the work; we handle hiring, tools and payroll."
+    },
+    "digital-marketing": {
+      "seoTitle": "Digital Marketing Agency in Nepal | ADMMIS.TECH",
+      "metaDescription": "SEO, social media, Facebook and Google ads and influencer campaigns for Nepali businesses. Clear plans, clear prices. Get a free quote today.",
+      "heroHeading": "Digital marketing agency in Nepal: SEO, social and ads",
+      "heroSub": "We plan, run and report your marketing so you can see what brings customers and what does not."
+    }
+  }
+}

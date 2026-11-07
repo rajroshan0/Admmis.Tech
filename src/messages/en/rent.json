@@ -1,0 +1,28 @@
+{
+  "ui": {
+    "eyebrow": "On rent",
+    "factsLabel": "At a glance",
+    "factsTitle": "At a glance",
+    "startsFrom": "Starts from",
+    "requestQuote": "Request a quote",
+    "getQuote": "Get a quote",
+    "introHeading": "What you rent",
+    "placeholderTitle": "More detail is coming soon",
+    "placeholderText": "Plans and prices are being finished. Ask us for a quote and we answer your questions directly.",
+    "cardsHeading": "Choose what to rent"
+  },
+  "hub": {
+    "seoTitle": "Website and Software Subscription in Nepal | ADMMIS.TECH",
+    "metaDescription": "Rent a ready-made website, an AI agent or a development team and pay every month. No big payment at the start. See plans by company size.",
+    "heroHeading": "Monthly website and software subscription for Nepal",
+    "heroSub": "Rent what you need and pay every month. We look after hosting, updates and support."
+  },
+  "items": {
+    "website": {
+      "seoTitle": "Website on Rent in Nepal | ADMMIS.TECH",
+      "metaDescription": "Get a ready-made, professional website on monthly rent in Nepal. Hosting, updates and support included. No big upfront cost. See plans and apply.",
+      "heroHeading": "Website on rent in Nepal: pay monthly, no big upfront cost",
+      "heroSub": "A professional website for your business, live fast. One monthly price covers hosting, updates and support."
+    }
+  }
+}

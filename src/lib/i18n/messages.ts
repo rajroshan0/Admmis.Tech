@@ -1,5 +1,7 @@
 import type common from '@/messages/en/common.json'
 import type home from '@/messages/en/home.json'
+import type rent from '@/messages/en/rent.json'
+import type services from '@/messages/en/services.json'
 
 import { DEFAULT_LOCALE, type Locale } from '@/lib/i18n/config'
 
@@ -10,6 +12,8 @@ import { DEFAULT_LOCALE, type Locale } from '@/lib/i18n/config'
 export type Messages = {
   common: typeof common
   home: typeof home
+  services: typeof services
+  rent: typeof rent
 }
 export type Namespace = keyof Messages
 
@@ -17,6 +21,8 @@ const loaders: Record<Locale, { [N in Namespace]?: () => Promise<{ default: unkn
   en: {
     common: () => import('@/messages/en/common.json'),
     home: () => import('@/messages/en/home.json'),
+    services: () => import('@/messages/en/services.json'),
+    rent: () => import('@/messages/en/rent.json'),
   },
   // NE homepage draft (ADR-041): same keys as EN; keys missing here fall back to EN.
   ne: {

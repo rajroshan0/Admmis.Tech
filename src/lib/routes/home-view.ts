@@ -21,7 +21,7 @@ export function dateParts(locale: Locale, iso: string) {
 
 export type HomeView = ReturnType<typeof buildHomeView>
 
-const SERVICE_ICONS = [
+export const SERVICE_ICONS = [
   'web',
   'mobile',
   'code',
