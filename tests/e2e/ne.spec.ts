@@ -12,8 +12,7 @@ test.describe('nepali homepage route', () => {
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', /\/ne$/)
   })
 
-  // FIXME(satish): the EN switch label "नेपाली" pulls the 68 KB Mukta file because tokens-base.css names a literal 'Mukta' fallback.
-  test.fixme('EN homepage keeps lang=en and requests no Devanagari font file', async ({ page }) => {
+  test('EN homepage keeps lang=en and requests no Devanagari font file', async ({ page }) => {
     const fonts: string[] = []
     page.on('request', (r) => {
       if (/\.woff2?(\?|$)/.test(r.url())) fonts.push(r.url())

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import type { ReactNode } from 'react'
 
 import type { BlockProps } from '../shared-types'
 import type { HeroData } from './types'
@@ -7,8 +8,41 @@ import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 
 // The image is the LCP element: preloaded, never lazy, never animated, space reserved by aspect-ratio.
-export function HeroBlock({ data, headingLevel = 1, tone = 'alt' }: BlockProps<HeroData>) {
+export function HeroBlock({
+  data,
+  headingLevel = 1,
+  tone = 'alt',
+  aside,
+}: BlockProps<HeroData> & { aside?: ReactNode }) {
   const Tag = `h${headingLevel}` as 'h1' | 'h2'
+  if (data.variant === 'plain') {
+    return (
+      <Section tone={tone} contained={false}>
+        <Container
+          className={`pb-10 pt-8 lg:pb-16 lg:pt-14 ${
+            aside ? 'grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-start lg:gap-12' : ''
+          }`}
+        >
+          <div className={aside ? '' : 'max-w-[40rem]'}>
+            {data.eyebrow ? <p className="eyebrow mb-4">{data.eyebrow}</p> : null}
+            <Tag className="mb-4 text-display font-bold text-fg">{data.heading}</Tag>
+            {data.subheading ? (
+              <p className="mb-6 max-w-[34rem] text-lead text-muted">{data.subheading}</p>
+            ) : null}
+            <div className="flex flex-wrap gap-4">
+              <LinkButton cta={data.primaryCta} className="flex-1 basis-50 lg:flex-none" />
+              <LinkButton
+                cta={data.secondaryCta}
+                variant="secondary"
+                className="flex-1 basis-50 lg:flex-none"
+              />
+            </div>
+          </div>
+          {aside}
+        </Container>
+      </Section>
+    )
+  }
   return (
     <Section tone={tone} contained={false} className="overflow-hidden">
       <Container className="grid gap-8 pt-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end lg:gap-12 lg:pt-16">

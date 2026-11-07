@@ -10,5 +10,6 @@ export type HeroData = {
   chips?: string[]
   /** width and height are the intrinsic size of `src`; the stage keeps a 4:5 aspect ratio */
   image?: { src: string; width: number; height: number; alt: string }
-  variant?: 'model'
+  /** `plain`: navy, no image; an optional `aside` slot (ServiceFacts) is passed to HeroBlock */
+  variant?: 'model' | 'plain'
 }
