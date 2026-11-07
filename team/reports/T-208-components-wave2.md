@@ -11,5 +11,5 @@ Gaps: CurrencyToggle, Breadcrumbs, 360 px visual check, no-JS Turnstile fallback
 Note: I ran prettier on src/; it changed only my files.
 
 ## T-208-fix (hritik T-111)
-Done: ErrorSummary id `form-errors`, tabIndex -1, autofocus (no-JS 303 must end in `#form-errors`); Honeypot `name` required, callers pass `LEAD_FORM.honeypot` (neha asked to rename it from `website`, open until she replies); Table roles; Gallery thumbnails are links, Left/Right keys, label template "Open image: {alt}"; busy submit uses aria-disabled + type button; autocomplete listed in mahendra's checklist.
+Done: ErrorSummary id `form-errors`, tabIndex -1, autofocus (no-JS 303 must end in `#form-errors`); Honeypot `name` required, default is neha's `HONEYPOT_FIELD` (`contact_ref_hp`); Table roles; Gallery thumbnails are links, Left/Right keys, label template "Open image: {alt}"; busy submit uses aria-disabled + type button; autocomplete listed in mahendra's checklist.
 Verified: vitest 101/101, tsc and eslint clean, build compiles and passes.

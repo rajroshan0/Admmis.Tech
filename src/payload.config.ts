@@ -7,13 +7,22 @@ import { s3Storage } from '@payloadcms/storage-s3'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
 
+import { Cases } from './collections/Cases'
+import { Clients } from './collections/Clients'
+import { Events } from './collections/Events'
 import { Faqs } from './collections/Faqs'
+import { LeadJobs } from './collections/LeadJobs'
+import { LeadRateLimits } from './collections/LeadRateLimits'
+import { Leads } from './collections/Leads'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
+import { Posts } from './collections/Posts'
 import { Pricing } from './collections/Pricing'
 import { RentalPlans } from './collections/RentalPlans'
 import { Redirects } from './collections/Redirects'
 import { Services } from './collections/Services'
+import { TeamMembers } from './collections/TeamMembers'
+import { Testimonials } from './collections/Testimonials'
 import { Users } from './collections/Users'
 import { SiteSettings } from './globals/SiteSettings'
 import { getServerEnv } from './lib/env'
@@ -41,7 +50,25 @@ const r2 =
 
 export default buildConfig({
   admin: { user: Users.slug, importMap: { baseDir: path.resolve(dirname) } },
-  collections: [Users, Media, Pages, Services, Pricing, RentalPlans, Faqs, Redirects],
+  collections: [
+    Users,
+    Media,
+    Pages,
+    Services,
+    Pricing,
+    RentalPlans,
+    Faqs,
+    Redirects,
+    Cases,
+    Posts,
+    Events,
+    TeamMembers,
+    Clients,
+    Testimonials,
+    Leads,
+    LeadJobs,
+    LeadRateLimits,
+  ],
   globals: [SiteSettings],
   // Content is read through the local API only (content-model, ADR-025); no public query surface.
   graphQL: { disable: true },

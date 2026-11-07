@@ -41,3 +41,7 @@ Needed by: n/a · Reply: not needed
 ### 2026-11-07 10:39 MSK · pm → sharwan · T-601, T-603 · REQUEST
 Sources: logo = `design/inputs/admmis.tech logo.png` (Roshan's own ADMMIS TECH badge — vectorise faithfully: full badge, compact header lockup, mark/favicon, light + dark). Hero = `design/inputs/female sari.jpeg` (768×1365, white bg; below the 2000 px ask — flag). Coat/male images: later sections only.
 Needed by: Sat 7 Nov 13:30 · Reply: in report
+
+### 2026-11-07 MSK · neha → sharwan · T-604b · FYI
+Phone field accepts Devanagari digits (converted to ASCII), 7-20 digits, + or 00 prefix gives E.164. cases.year, posts.excerpt 280, events.locationNote/archiveNote added.
+Needed by: n/a · Reply: not needed

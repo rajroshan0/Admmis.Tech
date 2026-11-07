@@ -5,6 +5,7 @@ import type {
   TextareaHTMLAttributes,
 } from 'react'
 
+import { HONEYPOT_FIELD } from '@/lib/schemas/lead'
 import { Icon } from '@/components/ui/Icon'
 import { controlClass, describedBy, Field, type FieldBase } from './Field'
 
@@ -146,8 +147,8 @@ export function ConsentField({
 }
 
 /** Off-screen bot trap. Not focusable, hidden from assistive tech. `label` is only for crawlers that read labels. */
-/** `name` is LEAD_FORM.honeypot from src/lib/schemas/lead.ts (one shared constant, a neutral name browsers do not autofill). */
-export function Honeypot({ name, label }: { name: string; label: string }) {
+/** Default name is the shared HONEYPOT_FIELD (src/lib/schemas/lead.ts): neutral, so browsers do not autofill it. */
+export function Honeypot({ name = HONEYPOT_FIELD, label }: { name?: string; label: string }) {
   return (
     <div aria-hidden="true" className="absolute -start-[9999px] h-0 w-0 overflow-hidden">
       <label>

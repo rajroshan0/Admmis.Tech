@@ -110,3 +110,11 @@ Needed by: before the first staging deploy · Reply: not needed
 ### 2026-11-07 16:10 MSK · pm → raj · T-109 · REQUEST
 From hritik's T-109 review: (1) Payload's first-user registration is open to anyone reaching /admin while the users table is empty. In the deploy runbook, create the first admin before the site is publicly reachable (or gate /admin with Cloudflare Access until then). (2) Once Docker exists, confirm /api/graphql is dead (GraphQL disabled in config). (3) 2FA for /admin (ADR-017) is still open for a gate.
 Needed by: before the first staging deploy · Reply: not needed
+
+### 2026-11-07 MSK · neha → raj · T-407 · FYI
+New env TRUSTED_PROXY=cloudflare|none (default none; CF-Connecting-IP read only when cloudflare). Add to .env.example and server env.
+Needed by: week 2 · Reply: not needed
+
+### 2026-11-07 16:25 MSK · pm → raj · T-112 · REQUEST
+From hritik's T-112 lead API review: (1) production env must set TRUSTED_PROXY=cloudflare, IP_HASH_SALT (random, required in prod), LEAD_ALLOWED_HOSTS, TURNSTILE_SECRET_KEY. Add them to .env.example (names only, no values) and the deploy checklist. (2) Firewall the VPS so ports 80/443 accept only Cloudflare IP ranges, otherwise X-Forwarded-For can be spoofed to bypass the per-IP lead limits.
+Needed by: before the first staging deploy · Reply: not needed

@@ -75,7 +75,17 @@ export interface Config {
     rentalPlans: RentalPlan;
     faqs: Faq;
     redirects: Redirect;
+    cases: Case;
+    posts: Post;
+    events: Event;
+    teamMembers: TeamMember;
+    clients: Client;
+    testimonials: Testimonial;
+    leads: Lead;
+    leadJobs: LeadJob;
+    leadRateLimits: LeadRateLimit;
     'payload-kv': PayloadKv;
+    'payload-jobs': PayloadJob;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -90,7 +100,17 @@ export interface Config {
     rentalPlans: RentalPlansSelect<false> | RentalPlansSelect<true>;
     faqs: FaqsSelect<false> | FaqsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
+    cases: CasesSelect<false> | CasesSelect<true>;
+    posts: PostsSelect<false> | PostsSelect<true>;
+    events: EventsSelect<false> | EventsSelect<true>;
+    teamMembers: TeamMembersSelect<false> | TeamMembersSelect<true>;
+    clients: ClientsSelect<false> | ClientsSelect<true>;
+    testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
+    leads: LeadsSelect<false> | LeadsSelect<true>;
+    leadJobs: LeadJobsSelect<false> | LeadJobsSelect<true>;
+    leadRateLimits: LeadRateLimitsSelect<false> | LeadRateLimitsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
+    'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -111,7 +131,13 @@ export interface Config {
   };
   user: User;
   jobs: {
-    tasks: unknown;
+    tasks: {
+      schedulePublish: TaskSchedulePublish;
+      inline: {
+        input: unknown;
+        output: unknown;
+      };
+    };
     workflows: unknown;
   };
 }
@@ -1212,6 +1238,7 @@ export interface Service {
     };
     [k: string]: unknown;
   } | null;
+  relatedCases?: (number | Case)[] | null;
   /**
    * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
    */
@@ -1398,6 +1425,185 @@ export interface Pricing {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "cases".
+ */
+export interface Case {
+  id: number;
+  /**
+   * The page H1. Aim for 70 characters or fewer (hard limit 98, room for Nepali).
+   */
+  title: string;
+  /**
+   * The web address, English, lowercase, hyphens only. It is locked after publishing.
+   */
+  slug: string;
+  /**
+   * Tick only if you understand the old web address will redirect to the new one.
+   */
+  confirmSlugChange?: boolean | null;
+  client: number | Client;
+  /**
+   * Show the client name only after the client gave permission.
+   */
+  clientNameVisible?: boolean | null;
+  industry?:
+    ('retail' | 'education' | 'finance' | 'health' | 'hospitality' | 'services' | 'nonprofit' | 'other') | null;
+  year?: number | null;
+  services: (number | Service)[];
+  /**
+   * Aim for 161 characters or fewer (hard limit 225, room for Nepali).
+   */
+  summary: string;
+  cover: number | Media;
+  challenge: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  solution: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  result: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * Real figures only. Leave empty if none.
+   */
+  metrics?:
+    | {
+        /**
+         * Aim for 32 characters or fewer (hard limit 45, room for Nepali).
+         */
+        label: string;
+        /**
+         * Aim for 9 characters or fewer (hard limit 12, room for Nepali).
+         */
+        value: string;
+        id?: string | null;
+      }[]
+    | null;
+  gallery?: (number | Media)[] | null;
+  testimonial?: (number | null) | Testimonial;
+  publishedAt: string;
+  seo?: {
+    /**
+     * Browser and search title. Start with the main keyword. Leave empty to use the page title. Aim for 43 characters or fewer (hard limit 60, room for Nepali).
+     */
+    metaTitle?: string | null;
+    /**
+     * Search result text. Up to 160 characters.
+     */
+    metaDescription?: string | null;
+    /**
+     * For editors only. Not shown on the site.
+     */
+    primaryKeyword?: string | null;
+    /**
+     * Social share image. Falls back to the site default.
+     */
+    ogImage?: (number | null) | Media;
+    /**
+     * Only if this page should point to another URL.
+     */
+    canonicalPath?: string | null;
+    /**
+     * Hide from search engines and the sitemap.
+     */
+    noindex?: boolean | null;
+    nofollow?: boolean | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "clients".
+ */
+export interface Client {
+  id: number;
+  name: string;
+  /**
+   * One image, usable in greyscale (SVG or transparent PNG).
+   */
+  logo?: (number | null) | Media;
+  website?: string | null;
+  showInLogoStrip?: boolean | null;
+  /**
+   * Tick only when the client agreed in writing to be shown. Otherwise nothing about them is public.
+   */
+  permissionConfirmed: boolean;
+  /**
+   * Lower numbers come first.
+   */
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials".
+ */
+export interface Testimonial {
+  id: number;
+  /**
+   * Aim for 286 characters or fewer (hard limit 400, room for Nepali).
+   */
+  quote: string;
+  authorName: string;
+  /**
+   * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+   */
+  authorRole?: string | null;
+  client?: (number | null) | Client;
+  photo?: (number | null) | Media;
+  /**
+   * Tick only when the person agreed in writing to be quoted.
+   */
+  permissionConfirmed: boolean;
+  /**
+   * Lower numbers come first.
+   */
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "faqs".
  */
 export interface Faq {
@@ -1503,6 +1709,326 @@ export interface Redirect {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: number;
+  /**
+   * Aim for 70 characters or fewer (hard limit 98, room for Nepali).
+   */
+  title: string;
+  /**
+   * The web address, English, lowercase, hyphens only. It is locked after publishing.
+   */
+  slug: string;
+  /**
+   * Tick only if you understand the old web address will redirect to the new one.
+   */
+  confirmSlugChange?: boolean | null;
+  /**
+   * Aim for 200 characters or fewer (hard limit 280, room for Nepali).
+   */
+  excerpt: string;
+  cover: number | Media;
+  /**
+   * Headings H2 and H3 only. Every image needs alt text.
+   */
+  body: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  author: number | TeamMember;
+  tags?:
+    | {
+        /**
+         * Aim for 24 characters or fewer (hard limit 34, room for Nepali).
+         */
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  relatedServices?: (number | Service)[] | null;
+  publishedAt: string;
+  seo?: {
+    /**
+     * Browser and search title. Start with the main keyword. Leave empty to use the page title. Aim for 43 characters or fewer (hard limit 60, room for Nepali).
+     */
+    metaTitle?: string | null;
+    /**
+     * Search result text. Up to 160 characters.
+     */
+    metaDescription?: string | null;
+    /**
+     * For editors only. Not shown on the site.
+     */
+    primaryKeyword?: string | null;
+    /**
+     * Social share image. Falls back to the site default.
+     */
+    ogImage?: (number | null) | Media;
+    /**
+     * Only if this page should point to another URL.
+     */
+    canonicalPath?: string | null;
+    /**
+     * Hide from search engines and the sitemap.
+     */
+    noindex?: boolean | null;
+    nofollow?: boolean | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "teamMembers".
+ */
+export interface TeamMember {
+  id: number;
+  /**
+   * Aim for 40 characters or fewer (hard limit 56, room for Nepali).
+   */
+  name: string;
+  /**
+   * Aim for 40 characters or fewer (hard limit 56, room for Nepali).
+   */
+  role: string;
+  /**
+   * Aim for 100 characters or fewer (hard limit 140, room for Nepali).
+   */
+  bio?: string | null;
+  photo?: (number | null) | Media;
+  links?:
+    | {
+        type: 'linkedin' | 'github' | 'x' | 'website';
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Show on the About page. Needs the person's consent.
+   */
+  showOnAbout: boolean;
+  /**
+   * Lower numbers come first.
+   */
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "events".
+ */
+export interface Event {
+  id: number;
+  /**
+   * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+   */
+  title: string;
+  /**
+   * The web address, English, lowercase, hyphens only. It is locked after publishing.
+   */
+  slug: string;
+  /**
+   * Tick only if you understand the old web address will redirect to the new one.
+   */
+  confirmSlugChange?: boolean | null;
+  /**
+   * Aim for 150 characters or fewer (hard limit 210, room for Nepali).
+   */
+  heroSub?: string | null;
+  startsAt: string;
+  endsAt?: string | null;
+  /**
+   * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+   */
+  venue: string;
+  /**
+   * Aim for 121 characters or fewer (hard limit 170, room for Nepali).
+   */
+  address: string;
+  /**
+   * Aim for 161 characters or fewer (hard limit 225, room for Nepali).
+   */
+  locationNote?: string | null;
+  online?: boolean | null;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  agenda?:
+    | {
+        time: string;
+        /**
+         * Aim for 70 characters or fewer (hard limit 98, room for Nepali).
+         */
+        title: string;
+        speaker?: (number | null) | TeamMember;
+        id?: string | null;
+      }[]
+    | null;
+  registration: 'form' | 'link' | 'none';
+  registrationLink?: string | null;
+  /**
+   * Shown after the event has ended. Aim for 121 characters or fewer (hard limit 170, room for Nepali).
+   */
+  archiveNote?: string | null;
+  cover?: (number | null) | Media;
+  faqs?: (number | Faq)[] | null;
+  /**
+   * Aim for 50 characters or fewer (hard limit 70, room for Nepali).
+   */
+  formHeading?: string | null;
+  /**
+   * Aim for 121 characters or fewer (hard limit 170, room for Nepali).
+   */
+  formText?: string | null;
+  seo?: {
+    /**
+     * Browser and search title. Start with the main keyword. Leave empty to use the page title. Aim for 43 characters or fewer (hard limit 60, room for Nepali).
+     */
+    metaTitle?: string | null;
+    /**
+     * Search result text. Up to 160 characters.
+     */
+    metaDescription?: string | null;
+    /**
+     * For editors only. Not shown on the site.
+     */
+    primaryKeyword?: string | null;
+    /**
+     * Social share image. Falls back to the site default.
+     */
+    ogImage?: (number | null) | Media;
+    /**
+     * Only if this page should point to another URL.
+     */
+    canonicalPath?: string | null;
+    /**
+     * Hide from search engines and the sitemap.
+     */
+    noindex?: boolean | null;
+    nofollow?: boolean | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "leads".
+ */
+export interface Lead {
+  id: number;
+  publicId: string;
+  name: string;
+  company?: string | null;
+  email?: string | null;
+  phone?: string | null;
+  service?: string | null;
+  sizeBand?: ('S' | 'M' | 'L' | 'XL') | null;
+  budgetRange?: string | null;
+  message?: string | null;
+  locale: 'en' | 'ne';
+  formKind: 'contact' | 'quote' | 'rent' | 'event' | 'callback';
+  /**
+   * Plan the visitor clicked, if any.
+   */
+  pricingKey?: string | null;
+  source?: {
+    utmSource?: string | null;
+    utmMedium?: string | null;
+    utmCampaign?: string | null;
+    utmTerm?: string | null;
+    utmContent?: string | null;
+    referrer?: string | null;
+    landingPath?: string | null;
+    pagePath?: string | null;
+  };
+  consent?: {
+    contactConsent?: boolean | null;
+    consentAt?: string | null;
+    policyVersion?: string | null;
+  };
+  /**
+   * Unverified leads had no spam check. Check them before replying.
+   */
+  verification: 'verified' | 'unverified-turnstile-unavailable' | 'unverified-no-js';
+  status: 'new' | 'contacted' | 'qualified' | 'won' | 'lost' | 'spam';
+  assignee?: (number | null) | User;
+  notes?:
+    | {
+        by?: (number | null) | User;
+        at?: string | null;
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  crmId?: string | null;
+  ipHash?: string | null;
+  userAgent?: string | null;
+  idempotencyKey?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "leadJobs".
+ */
+export interface LeadJob {
+  id: number;
+  lead: number | Lead;
+  channel: 'email' | 'chat' | 'crm';
+  status: 'pending' | 'sending' | 'sent' | 'failed' | 'dead';
+  attempts: number;
+  nextAttemptAt: string;
+  lockedAt?: string | null;
+  /**
+   * Provider error only. No personal data.
+   */
+  lastError?: string | null;
+  sentAt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "leadRateLimits".
+ */
+export interface LeadRateLimit {
+  id: number;
+  key: string;
+  count: number;
+  expiresAt: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -1517,6 +2043,98 @@ export interface PayloadKv {
     | number
     | boolean
     | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-jobs".
+ */
+export interface PayloadJob {
+  id: number;
+  /**
+   * Input data provided to the job
+   */
+  input?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  taskStatus?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  completedAt?: string | null;
+  totalTried?: number | null;
+  /**
+   * If hasError is true this job will not be retried
+   */
+  hasError?: boolean | null;
+  /**
+   * If hasError is true, this is the error that caused it
+   */
+  error?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  /**
+   * Task execution log
+   */
+  log?:
+    | {
+        executedAt: string;
+        completedAt: string;
+        taskSlug: 'inline' | 'schedulePublish';
+        taskID: string;
+        input?:
+          | {
+              [k: string]: unknown;
+            }
+          | unknown[]
+          | string
+          | number
+          | boolean
+          | null;
+        output?:
+          | {
+              [k: string]: unknown;
+            }
+          | unknown[]
+          | string
+          | number
+          | boolean
+          | null;
+        state: 'failed' | 'succeeded';
+        error?:
+          | {
+              [k: string]: unknown;
+            }
+          | unknown[]
+          | string
+          | number
+          | boolean
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  taskSlug?: ('inline' | 'schedulePublish') | null;
+  queue?: string | null;
+  waitUntil?: string | null;
+  processing?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1556,6 +2174,42 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'redirects';
         value: number | Redirect;
+      } | null)
+    | ({
+        relationTo: 'cases';
+        value: number | Case;
+      } | null)
+    | ({
+        relationTo: 'posts';
+        value: number | Post;
+      } | null)
+    | ({
+        relationTo: 'events';
+        value: number | Event;
+      } | null)
+    | ({
+        relationTo: 'teamMembers';
+        value: number | TeamMember;
+      } | null)
+    | ({
+        relationTo: 'clients';
+        value: number | Client;
+      } | null)
+    | ({
+        relationTo: 'testimonials';
+        value: number | Testimonial;
+      } | null)
+    | ({
+        relationTo: 'leads';
+        value: number | Lead;
+      } | null)
+    | ({
+        relationTo: 'leadJobs';
+        value: number | LeadJob;
+      } | null)
+    | ({
+        relationTo: 'leadRateLimits';
+        value: number | LeadRateLimit;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -2080,6 +2734,7 @@ export interface ServicesSelect<T extends boolean = true> {
       };
   detailHeading?: T;
   detail?: T;
+  relatedCases?: T;
   priceHeading?: T;
   priceText?: T;
   pricingRefs?: T;
@@ -2217,11 +2872,297 @@ export interface RedirectsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "cases_select".
+ */
+export interface CasesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  confirmSlugChange?: T;
+  client?: T;
+  clientNameVisible?: T;
+  industry?: T;
+  year?: T;
+  services?: T;
+  summary?: T;
+  cover?: T;
+  challenge?: T;
+  solution?: T;
+  result?: T;
+  metrics?:
+    | T
+    | {
+        label?: T;
+        value?: T;
+        id?: T;
+      };
+  gallery?: T;
+  testimonial?: T;
+  publishedAt?: T;
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+        primaryKeyword?: T;
+        ogImage?: T;
+        canonicalPath?: T;
+        noindex?: T;
+        nofollow?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts_select".
+ */
+export interface PostsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  confirmSlugChange?: T;
+  excerpt?: T;
+  cover?: T;
+  body?: T;
+  author?: T;
+  tags?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  relatedServices?: T;
+  publishedAt?: T;
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+        primaryKeyword?: T;
+        ogImage?: T;
+        canonicalPath?: T;
+        noindex?: T;
+        nofollow?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "events_select".
+ */
+export interface EventsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  confirmSlugChange?: T;
+  heroSub?: T;
+  startsAt?: T;
+  endsAt?: T;
+  venue?: T;
+  address?: T;
+  locationNote?: T;
+  online?: T;
+  description?: T;
+  agenda?:
+    | T
+    | {
+        time?: T;
+        title?: T;
+        speaker?: T;
+        id?: T;
+      };
+  registration?: T;
+  registrationLink?: T;
+  archiveNote?: T;
+  cover?: T;
+  faqs?: T;
+  formHeading?: T;
+  formText?: T;
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+        primaryKeyword?: T;
+        ogImage?: T;
+        canonicalPath?: T;
+        noindex?: T;
+        nofollow?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "teamMembers_select".
+ */
+export interface TeamMembersSelect<T extends boolean = true> {
+  name?: T;
+  role?: T;
+  bio?: T;
+  photo?: T;
+  links?:
+    | T
+    | {
+        type?: T;
+        url?: T;
+        id?: T;
+      };
+  showOnAbout?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "clients_select".
+ */
+export interface ClientsSelect<T extends boolean = true> {
+  name?: T;
+  logo?: T;
+  website?: T;
+  showInLogoStrip?: T;
+  permissionConfirmed?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials_select".
+ */
+export interface TestimonialsSelect<T extends boolean = true> {
+  quote?: T;
+  authorName?: T;
+  authorRole?: T;
+  client?: T;
+  photo?: T;
+  permissionConfirmed?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "leads_select".
+ */
+export interface LeadsSelect<T extends boolean = true> {
+  publicId?: T;
+  name?: T;
+  company?: T;
+  email?: T;
+  phone?: T;
+  service?: T;
+  sizeBand?: T;
+  budgetRange?: T;
+  message?: T;
+  locale?: T;
+  formKind?: T;
+  pricingKey?: T;
+  source?:
+    | T
+    | {
+        utmSource?: T;
+        utmMedium?: T;
+        utmCampaign?: T;
+        utmTerm?: T;
+        utmContent?: T;
+        referrer?: T;
+        landingPath?: T;
+        pagePath?: T;
+      };
+  consent?:
+    | T
+    | {
+        contactConsent?: T;
+        consentAt?: T;
+        policyVersion?: T;
+      };
+  verification?: T;
+  status?: T;
+  assignee?: T;
+  notes?:
+    | T
+    | {
+        by?: T;
+        at?: T;
+        text?: T;
+        id?: T;
+      };
+  crmId?: T;
+  ipHash?: T;
+  userAgent?: T;
+  idempotencyKey?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "leadJobs_select".
+ */
+export interface LeadJobsSelect<T extends boolean = true> {
+  lead?: T;
+  channel?: T;
+  status?: T;
+  attempts?: T;
+  nextAttemptAt?: T;
+  lockedAt?: T;
+  lastError?: T;
+  sentAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "leadRateLimits_select".
+ */
+export interface LeadRateLimitsSelect<T extends boolean = true> {
+  key?: T;
+  count?: T;
+  expiresAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
   key?: T;
   data?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-jobs_select".
+ */
+export interface PayloadJobsSelect<T extends boolean = true> {
+  input?: T;
+  taskStatus?: T;
+  completedAt?: T;
+  totalTried?: T;
+  hasError?: T;
+  error?: T;
+  log?:
+    | T
+    | {
+        executedAt?: T;
+        completedAt?: T;
+        taskSlug?: T;
+        taskID?: T;
+        input?: T;
+        output?: T;
+        state?: T;
+        error?: T;
+        id?: T;
+      };
+  taskSlug?: T;
+  queue?: T;
+  waitUntil?: T;
+  processing?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2538,6 +3479,26 @@ export interface CollectionsWidget {
     [k: string]: unknown;
   };
   width: 'full';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TaskSchedulePublish".
+ */
+export interface TaskSchedulePublish {
+  input: {
+    type?: ('publish' | 'unpublish') | null;
+    locale?: string | null;
+    doc?: {
+      relationTo: 'posts';
+      value: number | Post;
+    } | null;
+    global?: string | null;
+    user?: {
+      relationTo: 'users';
+      value: number | User;
+    } | null;
+  };
+  output?: unknown;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

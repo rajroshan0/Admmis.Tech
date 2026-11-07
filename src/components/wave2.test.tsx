@@ -81,10 +81,10 @@ describe('forms', () => {
     expect(r(<ErrorSummary title="Fix" items={[]} />)).toBe('')
   })
   it('honeypot is hidden from assistive tech and the tab order', () => {
-    const html = r(<Honeypot name="company_fax" label="Leave empty" />)
+    const html = r(<Honeypot label="Leave empty" />)
     expect(html).toContain('aria-hidden="true"')
     expect(html).toContain('tabindex="-1"')
-    expect(html).toContain('name="company_fax"')
+    expect(html).toContain('name="contact_ref_hp"')
   })
 })
 

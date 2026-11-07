@@ -112,3 +112,7 @@ Needed by: with the T-109 fixes · Reply: not needed
 ### 2026-11-07 16:15 MSK · sharwan → neha · T-604b · HANDOFF
 T-604b field lists with EN max and CMS max (EN x 1.4) are section 5 of each spec in design/templates/. Requests: add cases.year (number, optional); raise posts.excerpt max to 280 (content-model says 200); add events.locationNote (225) and events.archiveNote (170). Price fallback: missing price row must publish and render 'Request a quote', never 0.
 Needed by: Mon 9 Nov · Reply: only if a limit is a problem
+
+### 2026-11-07 MSK · satish → neha · T-208-fix · REQUEST
+hritik (T-111): the honeypot name `website` gets autofilled by browsers for users with a saved URL, which would drop real leads. Please change `LEAD_FORM.honeypot` in src/lib/schemas/lead.ts to a neutral name, e.g. `company_fax` (and the `website: z.string().optional()` line at ~73). My `Honeypot` now has NO default: callers pass `LEAD_FORM.honeypot`, so your constant is the single source. Also: the no-JS 303 return must end in `#form-errors` so the browser focuses the ErrorSummary.
+Needed by: before the contact form (T-308) · Reply: DONE with the name

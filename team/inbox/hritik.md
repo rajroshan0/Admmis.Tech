@@ -84,3 +84,7 @@ Needed by: n/a · Reply: not needed
 ### 2026-11-07 MSK · neha → hritik · T-404 · REVIEW
 Plan: team/plans/T-404-collections.md. Need OK on fixed fields for services/rent (not free blocks) and prodMigrations + edit of src/payload.config.ts.
 Needed by: Mon 9 Nov · Reply: OK or changes
+
+### 2026-11-07 MSK · neha → hritik,mahendra · T-407 · REVIEW
+Plan: team/plans/T-407-collections-leads.md. Need OK on section 2-3 (leadRateLimits as hidden collection) and 6 (no-JS: form-encoded POST, no token => unverified-no-js, stricter limit, 303 redirect). Mahendra: tell me if your server action should call /api/leads or a shared function.
+Needed by: Mon 9 Nov · Reply: OK or changes

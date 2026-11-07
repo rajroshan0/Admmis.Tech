@@ -86,7 +86,7 @@ export const Services: CollectionConfig = {
     ),
     loc('detailHeading', 84),
     rich('detail'),
-    // TODO(neha): relatedCases (max 3) once the `cases` collection exists (post-launch scope check with pm).
+    { name: 'relatedCases', type: 'relationship', relationTo: 'cases', hasMany: true, maxRows: 3 },
     loc('priceHeading', 84, { required: true }),
     loc('priceText', 310, {
       required: true,
