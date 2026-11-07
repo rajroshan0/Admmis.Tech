@@ -146,7 +146,8 @@ export function ConsentField({
 }
 
 /** Off-screen bot trap. Not focusable, hidden from assistive tech. `label` is only for crawlers that read labels. */
-export function Honeypot({ name = 'website', label }: { name?: string; label: string }) {
+/** `name` is LEAD_FORM.honeypot from src/lib/schemas/lead.ts (one shared constant, a neutral name browsers do not autofill). */
+export function Honeypot({ name, label }: { name: string; label: string }) {
   return (
     <div aria-hidden="true" className="absolute -start-[9999px] h-0 w-0 overflow-hidden">
       <label>

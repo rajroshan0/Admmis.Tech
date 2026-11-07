@@ -19,27 +19,37 @@ export function Table({
   rows: TableRow[]
 }) {
   return (
-    <table className="table-stacked w-full max-w-[64rem] border-collapse text-start">
+    <table role="table" className="table-stacked w-full max-w-[64rem] border-collapse text-start">
       <caption className={captionVisible ? 'mb-3 text-start font-bold' : 'sr-only'}>
         {caption}
       </caption>
-      <thead>
-        <tr>
+      <thead role="rowgroup">
+        <tr role="row">
           {columns.map((c) => (
-            <th key={c} scope="col" className="border-b-2 border-fg p-3 text-start text-small">
+            <th
+              key={c}
+              scope="col"
+              role="columnheader"
+              className="border-b-2 border-fg p-3 text-start text-small"
+            >
               {c}
             </th>
           ))}
         </tr>
       </thead>
-      <tbody>
+      <tbody role="rowgroup">
         {rows.map((row) => (
-          <tr key={row.key} className="border-b border-line hover:bg-bg">
-            <th scope="row" data-label={columns[0]} className="p-3 text-start align-top">
+          <tr key={row.key} role="row" className="border-b border-line hover:bg-bg">
+            <th
+              scope="row"
+              role="rowheader"
+              data-label={columns[0]}
+              className="p-3 text-start align-top"
+            >
               {row.header}
             </th>
             {row.cells.map((cell, i) => (
-              <td key={i} data-label={columns[i + 1]} className="p-3 align-top">
+              <td key={i} role="cell" data-label={columns[i + 1]} className="p-3 align-top">
                 {cell}
               </td>
             ))}

@@ -21,6 +21,8 @@ export function FormCard({
   )
 }
 
+export const ERROR_SUMMARY_ID = 'form-errors'
+
 /**
  * One-line summary above the form. role="alert" so it is announced when it appears.
  * Each item links to its field; focus moves to the first invalid field in the form's own script.
@@ -28,13 +30,22 @@ export function FormCard({
 export function ErrorSummary({
   title,
   items,
+  id = ERROR_SUMMARY_ID,
 }: {
+  /** keep the default: the no-JS redirect ends in `#form-errors` so the browser focuses this box */
+  id?: string
   title: string
   items: { id: string; message: string }[]
 }) {
   if (items.length === 0) return null
   return (
-    <div role="alert" className="rounded-field border-2 border-danger p-4">
+    <div
+      id={id}
+      role="alert"
+      tabIndex={-1}
+      autoFocus
+      className="rounded-field border-2 border-danger p-4 outline-none focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-focus"
+    >
       <p className="flex items-center gap-2 font-bold text-danger">
         <Icon name="alert" className="size-5" />
         {title}
@@ -63,7 +74,11 @@ export function SubmitButton({
   busy?: boolean
 }) {
   return (
-    <Button type="submit" disabled={busy} className="min-h-13 w-full sm:w-auto">
+    <Button
+      type={busy ? 'button' : 'submit'}
+      ariaDisabled={busy}
+      className="min-h-13 w-full sm:w-auto"
+    >
       {busy && busyLabel ? busyLabel : label}
     </Button>
   )

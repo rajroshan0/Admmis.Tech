@@ -2,7 +2,7 @@ import type { SectionHead } from '../shared-types'
 import type { Photo } from '@/components/ui/Initials'
 
 export type GalleryLabels = {
-  /** button name prefix: "Open image" gives "Open image: <alt>" */
+  /** link name template with {alt}: "Open image: {alt}" (the message owns the punctuation) */
   open: string
   close: string
   previous: string

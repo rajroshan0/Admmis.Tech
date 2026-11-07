@@ -14,6 +14,7 @@ import {
 import {
   ConsentField,
   ErrorSummary,
+  SubmitButton,
   FormCard,
   Honeypot,
   SelectField,
@@ -22,6 +23,7 @@ import {
 } from './forms'
 import {
   AuthorBox,
+  Table,
   CaseFacts,
   ContactChannels,
   FilterLinks,
@@ -79,9 +81,10 @@ describe('forms', () => {
     expect(r(<ErrorSummary title="Fix" items={[]} />)).toBe('')
   })
   it('honeypot is hidden from assistive tech and the tab order', () => {
-    const html = r(<Honeypot label="Leave empty" />)
+    const html = r(<Honeypot name="company_fax" label="Leave empty" />)
     expect(html).toContain('aria-hidden="true"')
     expect(html).toContain('tabindex="-1"')
+    expect(html).toContain('name="company_fax"')
   })
 })
 
@@ -227,5 +230,21 @@ describe('about, cases, blog, event parts', () => {
     expect(r(<AuthorBox label="About the author" name="Sam" />)).toContain(
       '<aside aria-label="About the author"',
     )
+  })
+})
+
+describe('wave 2 fixes', () => {
+  it('busy submit keeps focus: aria-disabled button of type button', () => {
+    const html = r(<SubmitButton label="Send" busyLabel="Sending" busy />)
+    expect(html).toContain('aria-disabled="true"')
+    expect(html).toContain('type="button"')
+    expect(html).not.toContain(' disabled')
+  })
+  it('table keeps semantics with roles', () => {
+    const html = r(
+      <Table caption="c" columns={['A', 'B']} rows={[{ key: 'k', header: 'h', cells: ['x'] }]} />,
+    )
+    expect(html).toContain('role="rowheader"')
+    expect(html).toContain('role="cell"')
   })
 })

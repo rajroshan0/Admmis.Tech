@@ -9,3 +9,7 @@ Built: forms (FormCard, TextField, TextareaField, SelectField, ConsentField, Hon
 Verified: vitest 94/94; tsc clean for my files; eslint 0 errors (4 warnings, all in neha's src/lib/server/leads). `next build` compiles but fails the type step on neha's in-progress leads/collections files (stale payload-types), not on my code. JS budget not re-measured: only GalleryViewer is client code, and no route uses it yet.
 Gaps: CurrencyToggle, Breadcrumbs, 360 px visual check, no-JS Turnstile fallback (mahendra/neha/hritik), Turnstile widget slot.
 Note: I ran prettier on src/; it changed only my files.
+
+## T-208-fix (hritik T-111)
+Done: ErrorSummary id `form-errors`, tabIndex -1, autofocus (no-JS 303 must end in `#form-errors`); Honeypot `name` required, callers pass `LEAD_FORM.honeypot` (neha asked to rename it from `website`, open until she replies); Table roles; Gallery thumbnails are links, Left/Right keys, label template "Open image: {alt}"; busy submit uses aria-disabled + type button; autocomplete listed in mahendra's checklist.
+Verified: vitest 101/101, tsc and eslint clean, build compiles and passes.

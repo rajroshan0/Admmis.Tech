@@ -24,6 +24,8 @@ type Props = {
   href?: string
   external?: boolean
   disabled?: boolean
+  /** keeps focus (unlike `disabled`); use with type="button" so it does nothing */
+  ariaDisabled?: boolean
   type?: 'button' | 'submit'
   iconEnd?: ReactNode
 }
@@ -35,10 +37,11 @@ export function Button({
   href,
   external,
   disabled,
+  ariaDisabled,
   type = 'button',
   iconEnd,
 }: Props) {
-  const cls = `${base} ${variants[variant]} ${disabled ? 'cursor-not-allowed opacity-50' : ''} ${className}`
+  const cls = `${base} ${variants[variant]} ${disabled || ariaDisabled ? 'cursor-not-allowed opacity-50' : ''} ${className}`
   const content = (
     <>
       {children}
@@ -57,7 +60,12 @@ export function Button({
     )
   }
   return (
-    <button type={type} className={cls} disabled={disabled}>
+    <button
+      type={type}
+      className={cls}
+      disabled={disabled}
+      aria-disabled={ariaDisabled || undefined}
+    >
       {content}
     </button>
   )
