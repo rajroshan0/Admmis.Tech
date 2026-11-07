@@ -16,6 +16,8 @@ Binding for every engineer. Disagree openly (CLAUDE.md §5), then follow. Items 
 | Tests | Vitest (unit), Playwright (e2e, owned by rajaros) | Binding |
 | Monorepo | **None.** One app, one `package.json` | **PROPOSED** (Roshan) |
 
+Next.js 16 differs from older releases (APIs, conventions, file structure). Before coding against a Next feature, read the matching guide in `node_modules/next/dist/docs/` for the installed version; do not rely on memory. Heed deprecation notices. (ADR-034 replaces the auto-generated `AGENTS.md` block with this rule.)
+
 Exact dependency versions are in `docs/scaffold-plan.md`. Dependencies are pinned exactly (no `^`) in `package.json`; upgrades are their own `chore:` task.
 
 ## 2. Repo structure

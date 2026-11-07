@@ -14,6 +14,7 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   output: 'standalone', // TODO(hritik): confirm outputFileTracingIncludes needs for Payload + sharp from a real build
   poweredByHeader: false,
+  agentRules: false, // ADR-034: stop `next dev` writing the managed block into AGENTS.md
   images: { formats: ['image/avif', 'image/webp'] },
   async headers() {
     return [{ source: '/:path*', headers: securityHeaders }]

@@ -113,3 +113,15 @@ Needed by: build starts about 14:00 MSK today · Reply: only questions
 ### 2026-11-07 10:58 MSK · sharwan → satish · T-601 · FYI
 Logo files changed after the PM redirect (now vectorised from Roshan's own logo): use design/logo/admmis-tech-lockup.svg (header, 40 px desktop / 34 px mobile, min 32 px), admmis-tech-lockup-dark.svg (footer, navy sections), favicon.svg, admmis-tech-mark.svg. Aspect of the lockup is about 4.4:1 (width 148 at 34 px high). Hero image spec is now AVIF/WebP about 600 px, fetchpriority high, LCP stays the H1 (home-spec.md 3.2).
 Needed by: no action · Reply: not needed
+
+### 2026-11-07 11:05 MSK · mahendra → satish · T-303 · HANDOFF
+Swap is in: layout (fontVariables, @/components/layout), page (10 blocks, hero-model.webp 640x800, event dateParts), placeholders deleted. Build passes, / is SSG, 1 h1, 13 h2, JS 143.8 KB gzip of 150 (6 KB headroom left, please keep it in mind). Ready for your 360/1280 check.
+Needed by: n/a · Reply: only if a fix is needed
+
+### 2026-11-07 11:05 MSK · sharwan → satish · T-601 · HANDOFF
+Logo files are FINAL (vectorised from Roshan's own logo, all under 10 KB): design/logo/admmis-tech-lockup.svg and -dark.svg (header/footer), admmis-tech-mark.svg and -dark.svg, admmis-tech-badge.svg and -dark.svg (about/event/OG, min 200 px), favicon.svg (+ png/favicon-32.png, apple-touch-icon-180.png). Usage rules: design/homepage/home-spec.md 3.14 and design/logo/README.md. You can build now.
+Needed by: build start · Reply: only questions
+
+### 2026-11-07 10:58 MSK · hritik → satish · T-104 · REVIEW
+Verdict APPROVED WITH NITS, no must-fixes. Full list in team/reports/T-104-home-review.md (satish section): skip link tokens, quality={80} vs images.qualities, footer logo lazy, optional inert while menu open, tone comment. @brand alias answer: no TS alias for CSS; hritik writes scripts/select-brand.mjs that generates src/styles/brand.generated.css and src/brands/active.ts (Sprint 2). Keep direct imports until then.
+Needed by: Gate 2 · Reply: not needed

@@ -1,0 +1,102 @@
+/*
+ * Token catalogue (docs/frontend/design-tokens.md §3, §6). Declares NAMES only.
+ * Every colour is a magenta placeholder: a token a brand forgot is an obvious failure.
+ * `static` so unused tokens are still emitted for var() readers (components.css).
+ */
+@theme static {
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* page colours */
+  --color-bg: #ff00ff;
+  --color-surface: #ff00ff;
+  --color-fg: #ff00ff;
+  --color-muted: #ff00ff;
+  --color-primary: #ff00ff;
+  --color-on-primary: #ff00ff;
+  --color-primary-hover: #ff00ff;
+  --color-primary-active: #ff00ff;
+  --color-accent: #ff00ff;
+  --color-on-accent: #ff00ff;
+  --color-line: #ff00ff;
+  --color-line-strong: #ff00ff;
+  --color-green: #ff00ff;
+  --color-focus: #ff00ff;
+  --color-danger: #ff00ff;
+  --color-success: #ff00ff;
+  --color-warning: #ff00ff;
+
+  /* alt (dark or inverted) section set, applied by [data-tone='alt'] */
+  --color-alt: #ff00ff;
+  --color-on-alt: #ff00ff;
+  --color-alt-muted: #ff00ff;
+  --color-alt-surface: #ff00ff;
+  --color-alt-line-strong: #ff00ff;
+  --color-alt-primary: #ff00ff;
+  --color-alt-on-primary: #ff00ff;
+  --color-alt-focus: #ff00ff;
+  --color-alt-danger: #ff00ff;
+  --color-alt-success: #ff00ff;
+  --color-alt-warning: #ff00ff;
+
+  /* brand decoration */
+  --color-stage: #ff00ff; /* hero frame fill behind the photo */
+
+  /* scope-aware helpers: re-pointed by the tone scopes in base.css, never set by a brand */
+  --color-edge: var(--color-fg);
+  --color-shadow-ink: var(--color-fg);
+  --color-hover-soft: var(--color-line);
+
+  /* shape */
+  --radius-button: 0.75rem;
+  --radius-field: 0.75rem;
+  --radius-card: 1.125rem;
+  --radius-chip: 999px;
+
+  /* type: families end with system Devanagari fallbacks (section 8) */
+  --font-heading:
+    var(--font-latin, 'Montserrat'), var(--font-devanagari, 'Mukta'), system-ui, -apple-system,
+    'Segoe UI', Roboto, 'Noto Sans Devanagari', sans-serif;
+  --font-body:
+    var(--font-latin, 'Montserrat'), var(--font-devanagari, 'Mukta'), system-ui, -apple-system,
+    'Segoe UI', Roboto, 'Noto Sans Devanagari', sans-serif;
+
+  /* sizes: mobile values here, raised at 768 and 1024 in base.css */
+  --text-display: 2.25rem;
+  --text-display--line-height: 1.12;
+  --text-display--letter-spacing: -0.01em;
+  --text-h2: 1.75rem;
+  --text-h2--line-height: 1.2;
+  --text-h2--letter-spacing: -0.01em;
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 1.3;
+  --text-lead: 1.0625rem;
+  --text-lead--line-height: 1.55;
+  --text-body: 1rem;
+  --text-body--line-height: 1.65;
+  --text-card: 0.9375rem;
+  --text-card--line-height: 1.55;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5;
+
+  /* layout */
+  --container-page: 72rem;
+  --spacing-header: 4rem;
+  --spacing-gutter: 1rem;
+  --spacing-section: clamp(3rem, 8vw, 6rem);
+
+  /* motion: only transform and opacity are ever animated */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 400ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --default-transition-duration: var(--duration-base);
+  --default-transition-timing-function: var(--ease-standard);
+}
+
+/* Shadows read scope-aware colours, so they must resolve at the element: `inline`. */
+@theme inline static {
+  --shadow-hard: 4px 4px 0 var(--color-shadow-ink);
+  --shadow-hard-lg: 6px 6px 0 var(--color-shadow-ink);
+}

@@ -1,0 +1,154 @@
+/* Element defaults, focus, tone scopes, Devanagari and reduced motion. Tokens only. */
+
+:root {
+  scroll-padding-top: var(--spacing-header);
+  scroll-padding-bottom: 5rem; /* keyboard focus never hides behind the sticky action bar */
+  -webkit-text-size-adjust: 100%;
+  --color-band: var(--color-primary); /* captured at :root so the band scope can still read it */
+}
+
+@media (min-width: 768px) {
+  :root {
+    --spacing-header: 4.5rem;
+    --spacing-gutter: 1.5rem;
+    --text-display: 2.75rem;
+    --text-display--line-height: 1.1;
+    --text-h2: 2rem;
+    --text-h3: 1.375rem;
+    --text-lead: 1.1875rem;
+    scroll-padding-bottom: 0;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --text-display: 3.5rem;
+    --text-display--line-height: 1.08;
+    --text-h2: 2.5rem;
+    --text-h2--line-height: 1.15;
+  }
+}
+@media (min-width: 1280px) {
+  :root {
+    --spacing-gutter: 2rem;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  overflow-wrap: break-word; /* long Nepali words must not break layouts */
+}
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); /* room for MobileStickyBar */
+  }
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+dl,
+dd {
+  margin: 0;
+}
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+/* One focus rule for every interactive element. An outline (not a box-shadow) so it survives forced-colors. */
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---- Tone scopes: components never take colour props, the scope remaps the semantic tokens ---- */
+[data-tone='alt'] {
+  --color-bg: var(--color-alt);
+  --color-fg: var(--color-on-alt);
+  --color-muted: var(--color-alt-muted);
+  --color-surface: var(--color-alt-surface);
+  --color-line: var(--color-alt-line-strong);
+  --color-line-strong: var(--color-alt-line-strong);
+  --color-primary: var(--color-alt-primary);
+  --color-on-primary: var(--color-alt-on-primary);
+  --color-focus: var(--color-alt-focus);
+  --color-danger: var(--color-alt-danger);
+  --color-success: var(--color-alt-success);
+  --color-warning: var(--color-alt-warning);
+  --color-edge: var(--color-alt-primary);
+  --color-shadow-ink: var(--color-accent);
+  --color-hover-soft: var(--color-alt-surface);
+}
+
+/* The orange CTA band: orange ground, navy text, the primary action turns navy. */
+[data-tone='band'] {
+  --color-bg: var(--color-band);
+  --color-muted: var(--color-fg);
+  --color-primary: var(--color-fg);
+  --color-on-primary: var(--color-surface);
+  --color-primary-hover: var(--color-alt-surface);
+  --color-primary-active: var(--color-alt-surface);
+  --color-focus: var(--color-fg);
+  --color-edge: var(--color-fg);
+  --color-shadow-ink: var(--color-accent);
+  --color-hover-soft: color-mix(in srgb, var(--color-surface) 35%, var(--color-band));
+}
+
+/* ---- Devanagari (Nepali): looser leading, no uppercase, no tracking ---- */
+:lang(ne) {
+  --text-body--line-height: 1.75;
+  --text-card--line-height: 1.75;
+  --text-small--line-height: 1.75;
+  --text-lead--line-height: 1.7;
+  --text-h3--line-height: 1.4;
+  --text-h2--line-height: 1.35;
+  --text-display--line-height: 1.35;
+  --text-display--letter-spacing: normal;
+  --text-h2--letter-spacing: normal;
+}
+:lang(ne) .eyebrow {
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* ---- Motion ---- */
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0.01ms;
+    --duration-base: 0.01ms;
+    --duration-slow: 0.01ms;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

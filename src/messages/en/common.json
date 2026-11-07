@@ -1,0 +1,169 @@
+{
+  "common": {
+    "skipToContent": "Skip to main content",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "menuLabel": "Main menu",
+    "languageSwitch": "Language",
+    "backToTop": "Back to top",
+    "readMore": "Read more",
+    "opensInNewTab": "(opens in a new tab)"
+  },
+  "header": {
+    "nav": [
+      {
+        "label": "Services",
+        "link": "/services"
+      },
+      {
+        "label": "On rent",
+        "link": "/rent"
+      },
+      {
+        "label": "Pricing",
+        "link": "/pricing"
+      },
+      {
+        "label": "Our work",
+        "link": "/work"
+      },
+      {
+        "label": "About",
+        "link": "/about"
+      }
+    ],
+    "ctaLabel": "Get a quote",
+    "ctaLink": "/contact",
+    "logoAlt": "ADMMIS.TECH home"
+  },
+  "footer": {
+    "about": "ADMMIS.TECH is the technology and marketing unit of ADMMIS, in Nepal.",
+    "columns": [
+      {
+        "title": "Services",
+        "links": [
+          {
+            "label": "Websites",
+            "link": "/services/web-development"
+          },
+          {
+            "label": "Mobile apps",
+            "link": "/services/mobile-app-development"
+          },
+          {
+            "label": "Custom software",
+            "link": "/services/custom-software"
+          },
+          {
+            "label": "AI agents",
+            "link": "/services/ai-agents"
+          },
+          {
+            "label": "QA and testing",
+            "link": "/services/qa-testing"
+          },
+          {
+            "label": "Audits",
+            "link": "/services/audit"
+          },
+          {
+            "label": "Dedicated team",
+            "link": "/services/outstaffing"
+          },
+          {
+            "label": "Digital marketing",
+            "link": "/services/digital-marketing"
+          },
+          {
+            "label": "Offline marketing",
+            "link": "/services/offline-marketing"
+          }
+        ]
+      },
+      {
+        "title": "On rent",
+        "links": [
+          {
+            "label": "Website on rent",
+            "link": "/rent/website"
+          },
+          {
+            "label": "AI agent on rent",
+            "link": "/rent/ai-agent"
+          },
+          {
+            "label": "Team on rent",
+            "link": "/rent/team"
+          }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          {
+            "label": "About",
+            "link": "/about"
+          },
+          {
+            "label": "Careers",
+            "link": "/careers"
+          },
+          {
+            "label": "Blog",
+            "link": "/blog"
+          },
+          {
+            "label": "Opening event",
+            "link": "/opening-event"
+          },
+          {
+            "label": "FAQ",
+            "link": "/faq"
+          },
+          {
+            "label": "Contact",
+            "link": "/contact"
+          }
+        ]
+      },
+      {
+        "title": "Legal",
+        "links": [
+          {
+            "label": "Privacy policy",
+            "link": "/privacy"
+          },
+          {
+            "label": "Terms of service",
+            "link": "/terms"
+          },
+          {
+            "label": "Cookie policy",
+            "link": "/cookies"
+          }
+        ]
+      }
+    ],
+    "contact": {
+      "addressLabel": "Address",
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "email": "admmis.org@gmail.com",
+      "websiteLabel": "Main website",
+      "website": "www.admmis.org"
+    },
+    "copyright": "© 2027 ADMMIS.TECH, part of ADMMIS. All rights reserved."
+  },
+  "stickyBar": {
+    "whatsapp": "WhatsApp",
+    "call": "Call",
+    "quote": "Get a quote",
+    "whatsappAria": "Chat with us on WhatsApp",
+    "callAria": "Call ADMMIS.TECH",
+    "quoteAria": "Get a quote"
+  },
+  "faq": {
+    "expand": "Show answer",
+    "collapse": "Hide answer"
+  }
+}

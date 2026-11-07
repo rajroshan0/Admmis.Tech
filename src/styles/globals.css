@@ -1,2 +1,7 @@
+/* Import order is the theming mechanism (docs/frontend/design-tokens.md §5). */
 @import 'tailwindcss';
-/* TODO(satish): tokens-base.css, @brand/tokens.css and base.css per docs/frontend/design-tokens.md §5 */
+@import './tokens-base.css'; /* @theme: every token NAME, magenta placeholders, no brand values */
+/* TODO(hritik): swap to the generated @brand alias (scripts/select-brand.mjs) when it exists. */
+@import '../brands/admmis-tech/tokens.css'; /* brand values: same names, later in the cascade */
+@import './base.css' layer(base); /* element defaults, focus, tone scopes, reduced motion */
+@import './components.css' layer(components); /* structural CSS that utilities cannot express, tokens only */

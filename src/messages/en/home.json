@@ -1,0 +1,209 @@
+{
+  "hero": {
+    "eyebrow": "Technology and marketing, Nepal",
+    "headline": "Websites, apps and AI for Nepal",
+    "subheadline": "We build your website, app or AI agent, and we market it. Pay by project, or monthly on rent.",
+    "ctaPrimary": "Get a quote",
+    "ctaPrimaryLink": "/contact",
+    "ctaSecondary": "See our services",
+    "ctaSecondaryLink": "/services",
+    "imageAlt": "A smiling woman in a maroon sari with a gold border talks on a mobile phone."
+  },
+  "services": {
+    "eyebrow": "What we do",
+    "title": "Everything your business needs online",
+    "intro": "Build it, test it, market it. Choose one service or combine several. Each service is priced on its own.",
+    "cards": [
+      {
+        "title": "Websites",
+        "text": "A fast website that shows your business well and brings in customers, on any phone.",
+        "link": "/services/web-development"
+      },
+      {
+        "title": "Mobile apps",
+        "text": "Apps for Android and iPhone, built with the technology that fits your goal and budget.",
+        "link": "/services/mobile-app-development"
+      },
+      {
+        "title": "Custom software",
+        "text": "Software made for the way you work, from internal tools to full online platforms.",
+        "link": "/services/custom-software"
+      },
+      {
+        "title": "AI agents",
+        "text": "An AI agent answers customer questions and handles routine tasks, so your team can focus on people.",
+        "link": "/services/ai-agents"
+      },
+      {
+        "title": "QA and testing",
+        "text": "We test your website or app before your customers do, and report every problem clearly.",
+        "link": "/services/qa-testing"
+      },
+      {
+        "title": "Audits",
+        "text": "An honest review of your code, design or search ranking, with a clear list of what to fix.",
+        "link": "/services/audit"
+      },
+      {
+        "title": "Dedicated team",
+        "text": "Developers, designers, QA and DevOps who work for you full time on a contract.",
+        "link": "/services/outstaffing"
+      },
+      {
+        "title": "Digital marketing",
+        "text": "Search, social media, paid ads and influencers, planned to bring you real enquiries.",
+        "link": "/services/digital-marketing"
+      },
+      {
+        "title": "Offline marketing",
+        "text": "Events, print and on-the-ground activities that put your brand in front of people in Kathmandu.",
+        "link": "/services/offline-marketing"
+      }
+    ],
+    "allLinkLabel": "See all services",
+    "allLink": "/services"
+  },
+  "rent": {
+    "eyebrow": "On rent",
+    "title": "Rent what you need. Pay every month.",
+    "intro": "No big payment at the start. You pay a monthly price that depends on the size of your company.",
+    "cards": [
+      {
+        "title": "Website on rent",
+        "text": "A ready, professional website with hosting, updates and support included.",
+        "link": "/rent/website"
+      },
+      {
+        "title": "AI agent on rent",
+        "text": "One AI agent that answers your customers on one channel, trained on your own information.",
+        "link": "/rent/ai-agent"
+      },
+      {
+        "title": "Team on rent",
+        "text": "Add a developer, designer or tester to your team for a month, or longer.",
+        "link": "/rent/team"
+      }
+    ],
+    "ctaLabel": "See plans on rent",
+    "ctaLink": "/rent"
+  },
+  "whyUs": {
+    "eyebrow": "Why ADMMIS.TECH",
+    "title": "Why businesses choose us",
+    "points": [
+      {
+        "title": "Prices you can see",
+        "text": "We publish our packages in NPR and USD. You know the cost before you call us."
+      },
+      {
+        "title": "Build and marketing together",
+        "text": "One company makes your product and promotes it. You do not manage two agencies."
+      },
+      {
+        "title": "Based in Nepal",
+        "text": "We speak your language, know your market and are one message away on WhatsApp."
+      },
+      {
+        "title": "Pay in the way that suits you",
+        "text": "Choose a fixed project, or rent monthly. Each service is priced on its own."
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "How we work",
+    "title": "Four clear steps",
+    "steps": [
+      {
+        "title": "Talk",
+        "text": "Tell us about your business and your goal. We listen and ask questions."
+      },
+      {
+        "title": "Plan and quote",
+        "text": "We suggest a plan and send a clear quote, so you know what you get and what it costs."
+      },
+      {
+        "title": "Build",
+        "text": "We make your website, app, agent or campaign. You see progress and give feedback."
+      },
+      {
+        "title": "Launch and support",
+        "text": "We go live together. Then we stay available to fix problems and help you improve."
+      }
+    ]
+  },
+  "work": {
+    "eyebrow": "Our work",
+    "title": "What we have built",
+    "intro": "A few of our projects. Full details are coming soon.",
+    "cases": [
+      {
+        "title": "Telegram AI agent for data entry",
+        "text": "An AI agent that takes data entry work off your team's hands inside Telegram.",
+        "link": "/work"
+      },
+      {
+        "title": "Telegram AI agent for marketing",
+        "text": "An AI agent in Telegram that supports marketing work.",
+        "link": "/work"
+      },
+      {
+        "title": "WhatsApp AI agent for a local shop",
+        "text": "An AI agent on WhatsApp for a local e-commerce shop in Nepal.",
+        "link": "/work"
+      },
+      {
+        "title": "Website and mobile app for e-commerce",
+        "text": "An online shop with both a website and a mobile app.",
+        "link": "/work"
+      }
+    ],
+    "ctaLabel": "See our work",
+    "ctaLink": "/work"
+  },
+  "pricingTeaser": {
+    "eyebrow": "Pricing",
+    "title": "Know the cost before you start",
+    "text": "Our packages are listed in NPR and USD. The price depends on the service and the size of your company. For larger projects, we send a quote.",
+    "ctaPrimary": "See pricing",
+    "ctaPrimaryLink": "/pricing",
+    "ctaSecondary": "Get a quote",
+    "ctaSecondaryLink": "/contact"
+  },
+  "event": {
+    "eyebrow": "Opening event",
+    "title": "Join us at our opening",
+    "text": "We open ADMMIS.TECH to the public on 1 January 2027. Come and meet the team.",
+    "date": "1 January 2027",
+    "ctaLabel": "See event details",
+    "ctaLink": "/opening-event",
+    "dateIso": "2027-01-01"
+  },
+  "faq": {
+    "title": "Questions we hear often",
+    "items": [
+      {
+        "q": "How much does a website or app cost?",
+        "a": "It depends on the service and the size of your company. Our packages are on the pricing page. For larger projects, tell us your goal and we send a quote."
+      },
+      {
+        "q": "What does \"on rent\" mean?",
+        "a": "You pay a monthly price instead of a large payment at the start. We look after hosting, updates and support. Read the plans to see what is included."
+      },
+      {
+        "q": "Do you work with clients outside Nepal?",
+        "a": "Yes. We work with clients in Nepal and in other countries. Our pricing is also shown in US dollars."
+      }
+    ]
+  },
+  "finalCta": {
+    "title": "Ready to start your project?",
+    "text": "Tell us what you need. We reply with a clear plan and quote.",
+    "ctaPrimary": "Get a quote",
+    "ctaPrimaryLink": "/contact",
+    "ctaSecondary": "Chat on WhatsApp"
+  },
+  "meta": {
+    "title": "Software Development Company in Nepal | ADMMIS.TECH",
+    "metaDescription": "ADMMIS.TECH builds websites, apps and AI agents in Nepal, and runs your marketing. Pay by project or monthly on rent. Get a quote today."
+  }
+}

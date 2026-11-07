@@ -1,0 +1,44 @@
+/*
+ * ADMMIS.TECH brand values (ADR-031: Sindoor Studio layout in ADMMIS colours).
+ * Source: design/homepage/home-spec.md §1, contrast table §1.5. Same names as tokens-base.css.
+ * Orange is fill only, never text on light. Amber and green are never text on light.
+ */
+:root {
+  --color-bg: #f7f9fd;
+  --color-surface: #ffffff;
+  --color-fg: #0a1f4a;
+  --color-muted: #445372;
+  --color-primary: #f48221;
+  --color-on-primary: #0a1f4a;
+  --color-primary-hover: #ff9a3d;
+  --color-primary-active: #d96f12;
+  --color-accent: #f5ae44;
+  --color-on-accent: #0a1f4a;
+  --color-line: #d7def0;
+  --color-line-strong: #6b7a99;
+  --color-green: #31907a;
+  --color-focus: #2f6bea;
+  --color-danger: #b3261e;
+  --color-success: #1f6b58;
+  --color-warning: #8a4b00;
+
+  --color-alt: #0a1f4a;
+  --color-on-alt: #ffffff;
+  --color-alt-muted: #d7def0;
+  --color-alt-surface: #14306b;
+  --color-alt-line-strong: #8c9cc4;
+  --color-alt-primary: #f48221;
+  --color-alt-on-primary: #0a1f4a;
+  --color-alt-focus: #f5ae44;
+  --color-alt-danger: #ff8a80;
+  --color-alt-success: #7fd99a;
+  --color-alt-warning: #f5ae44;
+
+  --color-stage: #ffe3c4;
+
+  --radius-button: 12px;
+  --radius-field: 12px;
+  --radius-card: 18px;
+
+  color-scheme: light;
+}

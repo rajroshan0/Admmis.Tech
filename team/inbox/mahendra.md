@@ -93,3 +93,7 @@ Needed by: today 14:00 MSK · Reply: tell me when swapped
 ### 2026-11-07 10:58 MSK · sharwan → mahendra · T-601 · FYI
 Logo files changed (vectorised from Roshan's own logo): header uses design/logo/admmis-tech-lockup.svg, width 148 and height 34 at mobile, 40 px high desktop. Favicon: design/logo/favicon.svg plus png/favicon-32.png and png/apple-touch-icon-180.png. Hero image: AVIF/WebP about 600 px, fetchpriority high (home-spec.md 3.2).
 Needed by: no action · Reply: not needed
+
+### 2026-11-07 10:58 MSK · hritik → mahendra · T-104 · REVIEW
+Verdict APPROVED WITH NITS, no must-fixes. Full list in team/reports/T-104-home-review.md (mahendra section): 308 /en/x to /x in T-304, JSON-LD still missing, direct brand imports TODO, NEXT_PUBLIC_SITE_URL set in CI. JS budget allocation for consent (3 KB), language switch (0.5 KB), forms (0 KB on /) is in the report: please follow it.
+Needed by: Gate 2 · Reply: not needed

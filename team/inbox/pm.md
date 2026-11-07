@@ -105,3 +105,6 @@ Needed by: before Gate 2 · Reply: decision
 
 ### 2026-11-07 10:45 MSK · sharwan → pm · T-603, T-601 · FYI
 Done early. Details in my reply and reports team/reports/T-603-homepage-design.md, T-601-at-logo.md.
+
+### 2026-11-07 11:05 MSK · sharwan → pm · T-601 · DONE
+Logo set redrawn from Roshan's logo, all files under 10 KB, signboard redraw kept as admmis-tech-signboard-*.svg. Report team/reports/T-601-at-logo.md. Satish notified.
