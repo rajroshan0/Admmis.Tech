@@ -66,7 +66,7 @@ export function MobileNav({ openLabel, closeLabel, menuLabel, children }: Props)
         aria-controls={panelId}
         aria-label={open ? closeLabel : openLabel}
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex size-12 items-center justify-center rounded-button border-2 border-fg text-fg lg:hidden"
+        className="inline-flex size-12 items-center justify-center menu-btn rounded-button border-2 border-fg text-fg lg:hidden"
       >
         <Icon name={open ? 'close' : 'menu'} />
       </button>

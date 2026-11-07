@@ -40,3 +40,15 @@ Contrast script for token pairs, `_test` second theme, `/dev/components` usage p
 3. Footer logo is `loading="lazy"` (`Logo` has a `lazy` prop); the header logo stays eager.
 4. Logo: final Sharwan lockups copied to `public/brand/` (now 437x100); header 34 px high on mobile, 40 px from 768 px.
 Checks: typecheck, lint, test (13/13), build pass. First Load JS `/en` 143.8 KB gzip of 150 (unchanged). Screenshots `home-360.png` and `home-1280.png` re-taken; 360 px scrollWidth 360, no overflow. I stopped only the server I started on port 3101.
+
+## Update 2026-11-07 (T-204-fix, QA bugs)
+| Bug | Fix |
+|---|---|
+| BUG-001 | Case card no longer clips: `overflow-hidden` removed from the card (cover has its own rounded top), scroll-row top padding 8 px so the ring fits. e2e marker removed, test passes |
+| BUG-004 | Without JS the menu button is hidden and the links show as a row under the header (`<noscript>`, zero JS added) |
+| BUG-008 | Footer grid: Contact column is 1.7fr at 1024 px and up, full row from 768 to 1023; `overflow-wrap: anywhere` only on the contact link. Email is one line at 1280 (19 px high) |
+| BUG-009 | Sticky bar content is in a `<nav>`; optional `label` prop (mahendra may add a localized label, not required) |
+| BUG-010 (mine) | `public/favicon.ico` (32 px PNG in ICO, `/favicon.ico` returns 200) and `public/apple-touch-icon.png`. The 404 page stays with mahendra |
+| BUG-005 | Not built. For Sprint 2: needs a nested nav data shape from mahendra (`nav: {label, href, children?}[]`) and a small `NavMenu` client island (about 0.8 KB) |
+Markers for BUG-001 and BUG-009 removed in `tests/e2e/home.spec.ts`. BUG-003 stays marked (mahendra's footer link).
+Checks: typecheck, lint, test 13/13, build pass; e2e (`E2E_PORT=3103 E2E_CHANNEL=chrome E2E_WEBKIT=0`): 20 passed. First Load JS `/en` 143.8 KB gzip (unchanged). Stopped only the servers I started.

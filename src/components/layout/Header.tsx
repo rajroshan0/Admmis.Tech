@@ -40,6 +40,10 @@ export function Header({ homeHref, logoAlt, nav, cta, labels }: Props) {
           </ul>
         </nav>
 
+        {/* No JavaScript: the menu button would be inert, so hide it and show the links in a row below. */}
+        <noscript>
+          <style>{'.menu-btn{display:none!important}'}</style>
+        </noscript>
         <MobileNav
           openLabel={labels.menuOpen}
           closeLabel={labels.menuClose}
@@ -61,6 +65,22 @@ export function Header({ homeHref, logoAlt, nav, cta, labels }: Props) {
           <LinkButton cta={cta} className="mt-6 w-full" />
         </MobileNav>
       </div>
+      <noscript>
+        <nav aria-label={labels.menuLabel} className="border-t border-line px-gutter lg:hidden">
+          <ul className="flex flex-wrap gap-x-5">
+            {nav.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className="inline-flex min-h-11 items-center font-semibold text-fg no-underline"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </noscript>
     </header>
   )
 }

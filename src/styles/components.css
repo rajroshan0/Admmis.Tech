@@ -143,7 +143,7 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-padding-inline: var(--spacing-gutter);
-  padding: 4px var(--spacing-gutter) 1rem;
+  padding: 8px var(--spacing-gutter) 1rem; /* room for the 3 px focus ring plus offset */
   margin-inline: calc(var(--spacing-gutter) * -1);
 }
 .scroll-row > li {

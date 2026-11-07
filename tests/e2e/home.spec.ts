@@ -198,8 +198,7 @@ test.describe('home: keyboard', () => {
     await expect(page).toHaveURL(/#main$/)
   })
 
-  // BUG-001: case cards clip their focus ring. Remove test.fail when fixed.
-  test.fail('every tab stop shows a visible focus ring, 1280 px [BUG-001]', async ({ page }) => {
+  test('every tab stop shows a visible focus ring, 1280 px [BUG-001]', async ({ page }) => {
     await page.setViewportSize(DESKTOP)
     await page.goto('/')
     expect(await focusRingMissing(page)).toEqual([])
@@ -256,7 +255,7 @@ test.describe('home: accessibility (axe, WCAG 2.2 AA)', () => {
   }
 
   // BUG-009: axe best-practice "region" on the sticky bar at 360 px.
-  test.fail('best-practice rules clean at 360 px [BUG-009]', async ({ page }) => {
+  test('best-practice rules clean at 360 px [BUG-009]', async ({ page }) => {
     await page.setViewportSize(MOBILE)
     await page.goto('/')
     const res = await new AxeBuilder({ page }).withTags(['best-practice']).analyze()

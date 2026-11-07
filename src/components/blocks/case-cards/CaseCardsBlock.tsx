@@ -28,8 +28,11 @@ export function CaseCardsBlock({ data, headingLevel = 2, tone = 'bg' }: BlockPro
       <ul className="scroll-row">
         {data.items.map((item, i) => (
           <li key={item.href}>
-            <Card interactive className="flex h-full flex-col overflow-hidden p-0 lg:p-0">
-              <div className={`cover ${COVERS[i % COVERS.length]}`} aria-hidden="true">
+            <Card interactive className="flex h-full flex-col p-0 lg:p-0">
+              <div
+                className={`cover rounded-t-[calc(var(--radius-card)-1px)] ${COVERS[i % COVERS.length]}`}
+                aria-hidden="true"
+              >
                 <Icon
                   name={item.icon ?? COVER_ICONS[i % COVER_ICONS.length] ?? 'web'}
                   className="size-14 stroke-[1.6]"

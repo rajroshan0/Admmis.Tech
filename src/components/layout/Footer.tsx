@@ -12,8 +12,8 @@ export function Footer({ about, columns, contact, copyright }: Props) {
   return (
     <footer data-tone="alt" className="bg-bg pb-6 pt-12 text-muted">
       <Container>
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-[1.4fr_1fr_1fr_1fr_1fr_1.3fr]">
-          <div className="col-span-2 md:col-span-1">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-[1.3fr_repeat(4,1fr)_1.7fr]">
+          <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <Logo onDark lazy className="mb-4 h-8" />
             <p className="max-w-[32ch] text-card">{about}</p>
           </div>
@@ -35,13 +35,13 @@ export function Footer({ about, columns, contact, copyright }: Props) {
             </nav>
           ))}
           {contact.length > 0 ? (
-            <dl className="col-span-2 grid gap-3 text-card md:col-span-1">
+            <dl className="col-span-2 grid gap-3 text-card md:col-span-4 lg:col-span-1">
               {contact.map((item) => (
                 <div key={item.label}>
                   <dt className="font-bold text-fg">{item.label}</dt>
                   <dd>
                     {item.href ? (
-                      <a href={item.href} className="break-all text-fg">
+                      <a href={item.href} className="[overflow-wrap:anywhere] text-fg">
                         {item.value}
                       </a>
                     ) : (
