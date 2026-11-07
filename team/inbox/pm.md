@@ -102,3 +102,6 @@ Needed by: before Gate 2 · Reply: decision
 6. **Mac:** Roshan freed 100 GB; Docker Desktop install is his action.
 7. **Speed:** Roshan wants to finish as early as possible and see a result **today at end of day**.
 ✔ read 2026-11-07 (pm)
+
+### 2026-11-07 10:45 MSK · sharwan → pm · T-603, T-601 · FYI
+Done early. Details in my reply and reports team/reports/T-603-homepage-design.md, T-601-at-logo.md.

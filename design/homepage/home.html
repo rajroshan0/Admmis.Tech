@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADMMIS.TECH Home Mock</title>
+<meta name="description" content="Visual mock of the ADMMIS.TECH homepage (T-603). Not the production page.">
+<link rel="icon" href="../logo/favicon.svg" type="image/svg+xml">
+<!-- Mock only: fonts from Google Fonts. Production self-hosts (Montserrat variable latin + Mukta 400/700 devanagari). -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Mukta:wght@400;700&display=swap">
+<style>
+/* ========= TOKENS: ADMMIS-coloured Sindoor Studio (see home-spec.md section 1) ========= */
+:root{
+  --bg:#F7F9FD; --surface:#FFFFFF; --ink:#0A1F4A; --muted:#445372;
+  --primary:#F48221; --onp:#0A1F4A; --primary-hover:#FF9A3D; --primary-active:#D96F12;
+  --accent:#F5AE44; --on-accent:#0A1F4A; --green:#31907A;
+  --line:#D7DEF0; --line-strong:#6B7A99;
+  --alt:#0A1F4A; --onalt:#FFFFFF; --alt-muted:#D7DEF0; --alt-surface:#14306B; --alt-line-strong:#8C9CC4;
+  --alt-primary:#F48221; --alt-onp:#0A1F4A; --alt-focus:#F5AE44;
+  --focus:#2F6BEA;
+  --danger:#B3261E; --success:#1F6B58; --warning:#8A4B00;
+  --alt-danger:#FF8A80; --alt-success:#7FD99A; --alt-warning:#F5AE44;
+  --r:12px; --r2:18px;
+  --shadow-hard:4px 4px 0 var(--ink);
+  --font-head:'Montserrat','Mukta',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --font-body:'Montserrat','Mukta',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --gutter:16px; --container:72rem; --space-section:clamp(3rem,8vw,6rem);
+  --header-h:64px;
+}
+@media(min-width:768px){:root{--gutter:24px;--header-h:72px}}
+@media(min-width:1280px){:root{--gutter:32px}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 var(--font-body);padding-bottom:72px}
+@media(min-width:768px){body{padding-bottom:0}}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,p,ul,ol{margin:0}
+ul,ol{padding:0;list-style:none}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.alt :focus-visible{outline-color:var(--alt-focus)}
+.band :focus-visible{outline-color:var(--ink)}
+.skip{position:absolute;left:8px;top:-60px;background:var(--ink);color:#fff;padding:12px 16px;border-radius:var(--r);z-index:100}
+.skip:focus{top:8px}
+.container{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.mock-note{background:var(--ink);color:var(--alt-muted);font-size:13px;line-height:1.4;padding:8px var(--gutter);text-align:center}
+.mock-note b{color:var(--accent)}
+
+/* ========= TYPE ========= */
+.display{font:700 36px/1.12 var(--font-head);letter-spacing:-.01em}
+h2,.h2{font:700 28px/1.2 var(--font-head);letter-spacing:-.01em}
+h3,.h3{font:700 20px/1.3 var(--font-head)}
+.lead{font-size:17px;line-height:1.55}
+.small{font-size:14px;line-height:1.5}
+.eyebrow{font:700 13px/1.3 var(--font-head);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:12px}
+.alt .eyebrow{color:var(--accent)}
+.muted{color:var(--muted)}
+@media(min-width:768px){.display{font-size:44px;line-height:1.1}h2,.h2{font-size:32px}h3,.h3{font-size:22px}.lead{font-size:19px}}
+@media(min-width:1024px){.display{font-size:56px;line-height:1.08}h2,.h2{font-size:40px;line-height:1.15}}
+:lang(ne){--lh-body:1.75}
+:lang(ne) body{line-height:1.75}
+
+/* ========= BUTTONS ========= */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:var(--r);border:2px solid var(--ink);font:700 16px/1 var(--font-head);text-decoration:none;cursor:pointer;transition:transform .2s cubic-bezier(.2,0,0,1),background-color .2s;text-align:center}
+.btn.p{background:var(--primary);color:var(--onp);box-shadow:var(--shadow-hard)}
+.btn.p:hover{background:var(--primary-hover);transform:translate(-1px,-1px)}
+.btn.p:active{background:var(--primary-active);transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+.btn.s{background:transparent;color:var(--ink)}
+.btn.s:hover{background:var(--line)}
+.alt .btn.p{border-color:var(--primary);box-shadow:4px 4px 0 var(--accent)}
+.alt .btn.s{color:var(--onalt);border-color:var(--onalt)}
+.alt .btn.s:hover{background:var(--alt-surface)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.btn svg{width:20px;height:20px}
+.link{font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;display:inline-flex;gap:6px;align-items:center;min-height:44px}
+.link:hover{text-decoration-thickness:4px}
+.ic{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ========= HEADER ========= */
+.hdr{position:sticky;top:0;z-index:40;background:var(--surface);border-bottom:1px solid var(--line)}
+.hdr .container{display:flex;align-items:center;justify-content:space-between;height:var(--header-h)}
+.logo img{height:28px;width:auto}
+@media(min-width:768px){.logo img{height:34px}}
+.nav{display:none}
+.burger{display:inline-flex;width:48px;height:48px;align-items:center;justify-content:center;background:none;border:2px solid var(--ink);border-radius:var(--r);color:var(--ink);cursor:pointer}
+@media(min-width:1024px){
+  .nav{display:flex;align-items:center;gap:4px}
+  .burger{display:none}
+}
+.nav>li{position:relative}
+.nav a.n,.nav button.n{display:inline-flex;align-items:center;gap:4px;min-height:44px;padding:0 12px;font:600 15px/1 var(--font-head);text-decoration:none;background:none;border:0;color:var(--ink);cursor:pointer;border-radius:var(--r);position:relative}
+.nav a.n::after,.nav button.n::after{content:"";position:absolute;left:12px;right:12px;bottom:6px;height:3px;background:var(--primary);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.nav a.n:hover::after,.nav button.n:hover::after,.nav a[aria-current]::after{transform:scaleX(1)}
+.nav .btn{min-height:44px;margin-left:12px;padding:0 20px}
+.chev{width:16px;height:16px}
+.drop{display:none;position:absolute;top:100%;left:0;min-width:300px;background:var(--surface);border:2px solid var(--ink);border-radius:var(--r2);box-shadow:var(--shadow-hard);padding:8px;z-index:5}
+.nav>li:hover>.drop,.nav>li:focus-within>.drop{display:block}
+.drop a{display:block;padding:10px 12px;border-radius:8px;text-decoration:none;font-size:15px;min-height:44px}
+.drop a:hover{background:var(--line)}
+/* mobile panel (shown by default in the mock only when .open) */
+.mnav{display:none;position:fixed;inset:var(--header-h) 0 0 0;background:var(--surface);z-index:45;overflow:auto;padding:16px var(--gutter) 32px}
+.mnav.open{display:block}
+.mnav a,.mnav summary{display:flex;align-items:center;justify-content:space-between;min-height:52px;font:700 18px/1.2 var(--font-head);text-decoration:none;border-bottom:1px solid var(--line);cursor:pointer;list-style:none}
+.mnav summary::-webkit-details-marker{display:none}
+.mnav details[open] summary .chev{transform:rotate(180deg)}
+.mnav details a{font:600 16px/1.2 var(--font-body);padding-left:16px;min-height:48px}
+.mnav .btn{width:100%;margin-top:24px}
+@media(min-width:1024px){.mnav{display:none!important}}
+
+/* ========= SECTIONS ========= */
+.sec{padding:var(--space-section) 0}
+.sec.alt{background:var(--alt);color:var(--onalt)}
+.sec.surf{background:var(--surface)}
+.sec-head{max-width:52rem;margin-bottom:32px}
+.sec-head p{margin-top:12px;color:var(--muted)}
+.alt .sec-head p{color:var(--alt-muted)}
+@media(min-width:1024px){.sec-head{margin-bottom:48px}}
+
+/* ---- Hero ---- */
+.hero{background:var(--alt);color:var(--onalt);overflow:hidden}
+.hero .container{display:grid;gap:32px;padding-top:32px;padding-bottom:0}
+.hero .copy{padding-bottom:8px}
+.hero .display{margin:0 0 16px}
+.hero .lead{color:var(--alt-muted);max-width:34rem;margin-bottom:24px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:16px}
+.hero .cta .btn{flex:1 1 200px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chip{display:inline-flex;align-items:center;min-height:32px;padding:0 12px;border-radius:999px;background:var(--alt-surface);color:var(--onalt);font:600 14px/1 var(--font-head);border:1px solid var(--alt-line-strong)}
+.stage{position:relative;width:100%;max-width:360px;margin:0 auto;aspect-ratio:4/5}
+.stage .arch-back{position:absolute;inset:14px -14px -0px 14px;background:var(--primary);border-radius:999px 999px 0 0}
+.stage .sun{position:absolute;right:-6%;top:3%;width:30%;aspect-ratio:1;border-radius:50%;background:var(--accent)}
+.stage .arch{position:absolute;inset:0;border-radius:999px 999px 0 0;background:#FFE3C4;overflow:hidden}
+.stage .arch img{width:100%;height:100%;object-fit:cover;object-position:50% 0;mix-blend-mode:multiply}
+.stage .ph{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);background:var(--ink);color:#fff;font:600 11px/1.3 var(--font-head);padding:6px 10px;border-radius:6px;white-space:nowrap;z-index:2}
+.stage .base{position:absolute;left:-14px;right:-14px;bottom:-1px;height:10px;background:var(--accent)}
+@media(min-width:1024px){
+  .hero .container{grid-template-columns:1.1fr .9fr;align-items:end;gap:48px;padding-top:64px}
+  .hero .copy{padding-bottom:64px;align-self:center}
+  .stage{max-width:460px;margin:0 0 0 auto}
+}
+
+/* ---- Cards ---- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r2);padding:20px;position:relative;transition:transform .2s cubic-bezier(.2,0,0,1)}
+.card:hover{transform:translateY(-3px)}
+.card h3{margin:12px 0 8px}
+.card p{color:var(--muted);font-size:15px;line-height:1.55}
+.card a.stretch{text-decoration:none;color:inherit}
+.card a.stretch::after{content:"";position:absolute;inset:0;border-radius:var(--r2)}
+.card:focus-within{outline:3px solid var(--focus);outline-offset:3px}
+.card a.stretch:focus-visible{outline:none}
+.icon-tile{width:48px;height:48px;border-radius:var(--r);background:var(--ink);color:var(--accent);display:grid;place-items:center}
+.icon-tile .ic{width:26px;height:26px}
+.grid{display:grid;gap:16px}
+.services{grid-template-columns:1fr}
+@media(min-width:640px){.services{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.services{grid-template-columns:repeat(3,1fr);gap:24px}.card{padding:24px}}
+.svc .more{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-weight:700;font-size:15px}
+.center{text-align:center;margin-top:32px}
+
+@media(max-width:639px){
+  .svc,.why .card{display:grid;grid-template-columns:48px 1fr;column-gap:16px;align-items:start;padding:16px}
+  .svc .icon-tile,.why .icon-tile{grid-row:span 2}
+  .svc h3,.why h3{margin:0 0 4px;font-size:18px}
+}
+/* ---- On rent (alt) ---- */
+.alt .card{background:var(--alt-surface);border-color:var(--alt-line-strong);color:var(--onalt)}
+.alt .card p{color:var(--alt-muted)}
+.alt .icon-tile{background:var(--accent);color:var(--ink)}
+.rent{grid-template-columns:1fr}
+@media(min-width:768px){.rent{grid-template-columns:repeat(3,1fr);gap:24px}}
+.rent .card{padding:24px}
+.badge{display:inline-flex;min-height:28px;align-items:center;padding:0 10px;border-radius:999px;background:var(--accent);color:var(--on-accent);font:700 12px/1 var(--font-head);letter-spacing:.04em;text-transform:uppercase}
+
+/* ---- Why us ---- */
+.why{grid-template-columns:1fr}
+@media(min-width:640px){.why{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.why{grid-template-columns:repeat(4,1fr)}}
+.why .card{border-top:6px solid var(--primary)}
+.why .card:nth-child(2){border-top-color:var(--accent)}
+.why .card:nth-child(3){border-top-color:var(--green)}
+.why .card:nth-child(4){border-top-color:var(--ink)}
+.why .card:hover{transform:none}
+
+/* ---- Process ---- */
+.steps{counter-reset:s;display:grid;gap:16px;position:relative}
+.steps li{counter-increment:s;position:relative;padding:0 0 0 64px;min-height:48px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:48px;height:48px;border-radius:50%;background:var(--ink);color:#fff;font:700 20px/48px var(--font-head);text-align:center}
+.steps li:not(:last-child)::after{content:"";position:absolute;left:23px;top:52px;bottom:-14px;width:2px;background:var(--line-strong)}
+.steps h3{margin-bottom:4px}
+.steps p{color:var(--muted);font-size:15px}
+@media(min-width:1024px){
+  .steps{grid-template-columns:repeat(4,1fr);gap:24px}
+  .steps li{padding:64px 0 0}
+  .steps li:not(:last-child)::after{left:56px;right:-24px;top:23px;bottom:auto;width:auto;height:2px}
+}
+
+/* ---- Work ---- */
+.work{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gutter);padding:4px var(--gutter) 16px;margin:0 calc(var(--gutter)*-1)}
+.work>li{flex:0 0 82%;scroll-snap-align:start}
+.work>li:last-child{margin-right:var(--gutter)}
+@media(min-width:640px){.work>li{flex-basis:46%}}
+@media(min-width:1024px){.work{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible;margin:0;padding:0;gap:24px}.work>li{flex:none}.work>li:last-child{margin-right:0}}
+.case{padding:0;overflow:hidden;height:100%;display:flex;flex-direction:column}
+.cover{aspect-ratio:16/10;display:grid;place-items:center;position:relative;overflow:hidden}
+.cover .ic{width:56px;height:56px;stroke-width:1.6;opacity:.95}
+.c1{background:var(--ink);color:var(--accent)}
+.c2{background:var(--green);color:#fff}
+.c3{background:var(--primary);color:var(--ink)}
+.c4{background:var(--muted);color:#fff}
+.cover::before{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.12)}
+.case .body{padding:16px 20px 20px;gap:0;display:flex;flex-direction:column;flex:1}
+.case h3{font-size:17px;margin:8px 0}.case p{margin-bottom:16px}
+.tag{align-self:flex-start;display:inline-flex;min-height:26px;align-items:center;padding:0 10px;border-radius:999px;background:var(--line);color:var(--ink);font:700 12px/1 var(--font-head)}
+.todo{margin-top:auto;padding-top:12px;display:block;font-size:13px;color:var(--muted);border-top:1px dashed var(--line-strong)}
+
+/* ---- Pricing teaser ---- */
+.ptease{display:grid;gap:32px}
+@media(min-width:1024px){.ptease{grid-template-columns:1fr 1fr;align-items:center;gap:64px}}
+.ptease .cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:24px}
+.ptease .cta .btn{flex:1 1 180px}
+.pbox{background:var(--bg);border:2px solid var(--ink);border-radius:var(--r2);padding:20px;box-shadow:var(--shadow-hard)}
+.seg{display:inline-flex;border:2px solid var(--ink);border-radius:var(--r);overflow:hidden;margin-bottom:16px}
+.seg span{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;font:700 15px/1 var(--font-head)}
+.seg span[aria-checked=true]{background:var(--ink);color:#fff}
+.prow{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+.sk{display:inline-block;height:14px;border-radius:7px;background:var(--line);vertical-align:middle}
+.pbox .note{font-size:13px;color:var(--muted);margin-top:12px}
+
+/* ---- Event ---- */
+.event{display:grid;gap:32px;align-items:center;position:relative}
+@media(min-width:1024px){.event{grid-template-columns:auto 1fr auto;gap:56px}}
+.date{width:132px;border-radius:var(--r2);background:var(--primary);color:var(--ink);text-align:center;padding:14px 8px;border:2px solid var(--primary);box-shadow:6px 6px 0 var(--accent)}
+.date b{display:block;font:700 56px/1 var(--font-head)}
+.date span{display:block;font:700 15px/1.3 var(--font-head);letter-spacing:.08em}
+.facts{display:grid;gap:8px;margin:16px 0 24px;color:var(--alt-muted)}
+.facts li{display:flex;gap:10px;align-items:center}
+.facts .ic{color:var(--accent)}
+.hexdeco{display:none}
+@media(min-width:1024px){.hexdeco{display:block;width:220px;opacity:.9}}
+
+/* ---- FAQ ---- */
+.faq{max-width:52rem}
+.faq details{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);margin-bottom:12px}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:56px;padding:12px 20px;font:700 16px/1.4 var(--font-head);cursor:pointer;list-style:none;border-radius:var(--r)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .chev{width:20px;height:20px;transition:transform .2s;flex:none}
+.faq details[open] summary .chev{transform:rotate(180deg)}
+.faq details[open]{border-color:var(--ink);border-width:2px}
+.faq .ans{padding:0 20px 20px;color:var(--muted)}
+.faq summary:hover{background:var(--bg)}
+.pending{display:inline-block;background:var(--accent);color:var(--on-accent);font:700 12px/1 var(--font-head);padding:4px 8px;border-radius:6px;margin-right:6px}
+
+/* ---- Final CTA band ---- */
+.band{background:var(--primary);color:var(--ink);padding:var(--space-section) 0}
+.band .container{display:grid;gap:24px;align-items:center}
+.band h2{max-width:22ch}
+.band p{margin-top:8px;max-width:34rem}
+.band .cta{display:flex;flex-wrap:wrap;gap:16px}
+.band .btn{flex:1 1 200px;min-height:52px}
+.band .btn.d{background:var(--ink);color:#fff;box-shadow:4px 4px 0 var(--accent);border-color:var(--ink)}
+.band .btn.d:hover{background:#14306B}
+.band .btn.o{background:transparent;color:var(--ink);border-color:var(--ink)}
+.band .btn.o:hover{background:#FFB36A}
+@media(min-width:1024px){.band .container{grid-template-columns:1fr auto}.band .btn{flex:none;min-width:220px}}
+
+/* ---- Footer ---- */
+.ftr{background:var(--alt);color:var(--alt-muted);padding:48px 0 24px}
+.ftr .cols{display:grid;gap:32px;grid-template-columns:1fr 1fr}
+.ftr .about{grid-column:1/-1}
+.ftr .about img{height:32px;width:auto;margin-bottom:16px}
+.ftr .about p{max-width:32ch;font-size:15px}
+.ftr h2{font:700 14px/1.3 var(--font-head);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.ftr li a{display:inline-flex;align-items:center;min-height:36px;text-decoration:none;font-size:15px;color:var(--onalt)}
+.ftr li a:hover{text-decoration:underline;text-underline-offset:4px}
+.ftr dl{margin:0;display:grid;gap:12px;font-size:15px}
+.ftr dt{font-weight:700;color:var(--onalt)}
+.ftr dd{margin:0}
+.ftr dd a{color:var(--onalt)}
+.ftr .legal{margin-top:40px;padding-top:20px;border-top:1px solid var(--alt-line-strong);display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;font-size:14px}
+@media(min-width:768px){.ftr .cols{grid-template-columns:1.4fr 1fr 1fr 1fr 1fr 1.3fr}.ftr .about{grid-column:auto}}
+.tdo{color:var(--accent);font-size:13px}
+
+/* ---- Sticky bar (mobile) ---- */
+.sbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:8px;padding:8px var(--gutter) calc(8px + env(safe-area-inset-bottom));background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -6px 16px -10px rgba(10,31,74,.35)}
+.sbar a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:48px;border-radius:var(--r);border:2px solid var(--ink);font:700 14px/1 var(--font-head);text-decoration:none;color:var(--ink);background:var(--surface)}
+.sbar a.q{flex:1.5;background:var(--primary)}
+.sbar .ic{width:20px;height:20px}
+@media(min-width:768px){.sbar{display:none}}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;scroll-behavior:auto!important}.card:hover,.btn.p:hover{transform:none}}
+</style>
+</head>
+<body>
+<!-- Icon sprite: 21-name IconName list from docs/frontend/component-inventory.md (subset used here) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-web" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M3 9h18M8 21h8M12 17v4"/></symbol>
+<symbol id="i-mobile" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><path d="M8 8l-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/></symbol>
+<symbol id="i-ai" viewBox="0 0 24 24"><path d="M11 4l2 5.5L18.5 11.5 13 13.5 11 19 9 13.5 3.5 11.5 9 9.5zM19 3v4M17 5h4"/></symbol>
+<symbol id="i-test" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+<symbol id="i-audit" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></symbol>
+<symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.5 0 4.5 2 4.5 5"/></symbol>
+<symbol id="i-megaphone" viewBox="0 0 24 24"><path d="M3 10v4a1 1 0 001 1h3l9 4V5L7 9H4a1 1 0 00-1 1zM19 9a4 4 0 010 6"/></symbol>
+<symbol id="i-event" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M12 13l1 2 2 .3-1.5 1.4.4 2.1-1.9-1-1.9 1 .4-2.1L9 15.3l2-.3z"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></symbol>
+<symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-13.3 7.9L3 21l1.2-4.5A9 9 0 1121 12z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8a4 4 0 01-2-2l.8-1-1-2z"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-quote" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+</defs></svg>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="mock-note"><b>Design mock (T-603), not the production page.</b> Copy from content/pages/home.md (status: review). Hero image is a provisional crop of Roshan's file. Open home-preview.html for 1280 px and 360 px side by side.</div>
+
+<!-- ===== HEADER: Header + NavMenu + MobileNav + Logo ===== -->
+<header class="hdr">
+  <div class="container">
+    <a class="logo" href="#top" aria-label="ADMMIS.TECH home"><img src="../logo/admmis-tech-lockup.svg" alt="ADMMIS.TECH" width="170" height="34"></a>
+    <ul class="nav" aria-label="Main">
+      <li><button class="n" aria-expanded="false" aria-haspopup="true">Services <svg class="ic chev"><use href="#i-chev"/></svg></button>
+        <div class="drop" role="group" aria-label="Services">
+          <a href="#">Websites</a><a href="#">Mobile apps</a><a href="#">Custom software</a><a href="#">AI agents</a><a href="#">QA and testing</a><a href="#">Audits</a><a href="#">Dedicated team</a><a href="#">Digital marketing</a><a href="#">Offline marketing</a>
+        </div></li>
+      <li><a class="n" href="#rent">On rent</a></li>
+      <li><a class="n" href="#pricing">Pricing</a></li>
+      <li><a class="n" href="#work">Our work</a></li>
+      <li><button class="n" aria-expanded="false" aria-haspopup="true">About <svg class="ic chev"><use href="#i-chev"/></svg></button>
+        <div class="drop" role="group" aria-label="About" style="min-width:220px"><a href="#">About us</a><a href="#">Careers</a><a href="#">Blog</a><a href="#faq">FAQ</a></div></li>
+      <li><a class="btn p" href="#cta">Get a quote</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="Open menu"><svg class="ic"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Main mobile">
+  <details><summary>Services <svg class="ic chev"><use href="#i-chev"/></svg></summary>
+    <a href="#">Websites</a><a href="#">Mobile apps</a><a href="#">Custom software</a><a href="#">AI agents</a><a href="#">QA and testing</a><a href="#">Audits</a><a href="#">Dedicated team</a><a href="#">Digital marketing</a><a href="#">Offline marketing</a></details>
+  <a href="#rent">On rent</a><a href="#pricing">Pricing</a><a href="#work">Our work</a>
+  <details><summary>About <svg class="ic chev"><use href="#i-chev"/></svg></summary><a href="#">About us</a><a href="#">Careers</a><a href="#">Blog</a><a href="#faq">FAQ</a></details>
+  <a class="btn p" href="#cta">Get a quote</a>
+</nav>
+
+<main id="main">
+<!-- ===== 1. HERO (block: hero, variant model) ===== -->
+<section class="hero alt" id="top" aria-labelledby="h-hero">
+  <div class="container">
+    <div class="copy">
+      <span class="eyebrow">Technology and marketing, Nepal</span>
+      <h1 class="display" id="h-hero">Websites, apps and AI for Nepal</h1>
+      <p class="lead">We build your website, app or AI agent, and we market it. Pay by project, or monthly on rent.</p>
+      <div class="cta"><a class="btn p" href="#cta">Get a quote</a><a class="btn s" href="#services">See our services</a></div>
+      <ul class="chips" aria-label="What we do"><li class="chip">Websites</li><li class="chip">AI agents</li><li class="chip">Marketing</li></ul>
+    </div>
+    <div class="stage">
+      <div class="arch-back"></div><div class="sun"></div>
+      <div class="arch"><img src="assets/hero-sari-preview.jpg" width="563" height="1000" alt="A smiling woman in a maroon sari talks on a phone." fetchpriority="high"></div>
+      <div class="base"></div>
+      <span class="ph">PROVISIONAL IMAGE: replace with cut-out</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. SERVICES (block: services-grid) ===== -->
+<section class="sec" id="services" aria-labelledby="h-svc">
+  <div class="container">
+    <div class="sec-head"><span class="eyebrow">What we do</span><h2 id="h-svc">Everything your business needs online</h2><p>Build it, test it, market it. Choose one service or combine several. Each service is priced on its own.</p></div>
+    <ul class="grid services">
+      <li class="card svc"><span class="icon-tile"><svg class="ic"><use href="#i-web"/></svg></span><h3><a class="stretch" href="#">Websites</a></h3><p>A fast website that shows your business well and brings in customers, on any phone.</p></li>
+      <li class="card svc"><span class="icon-tile"><svg class="ic"><use href="#i-mobile"/></svg></span><h3><a class="stretch" href="#">Mobile apps</a></h3><p>Apps for Android and iPhone, built with the technology that fits your goal and budget.</p></li>
+      <li class="card svc"><span class="icon-tile"><svg class="ic"><use href="#i-code"/></svg></span><h3><a class="stretch" href="#">Custom software</a></h3><p>Software made for the way you work, from internal tools to full online platforms.</p></li>
+      <li class="card svc"><span class="icon-tile"><svg class="ic"><use href="#i-ai"/></svg></span><h3><a class="stretch" href="#">AI agents</a></h3><p>An AI agent answers customer questions and handles routine tasks, so your team can focus on people.</p></li>
+      <li class="card svc"><span class="icon-tile"><svg class="ic"><use href="#i-test"/></svg></span><h3><a class="stretch" href="#">QA and testing</a></h3><p>We test your website or app before your customers do, and report every problem clearly.</p></li>
+      <li class="card svc"><span class="icon-tile"><svg class="ic"><use href="#i-audit"/></svg></span><h3><a class="stretch" href="#">Audits</a></h3><p>An honest review of your code, design or search ranking, with a clear list of what to fix.</p></li>
+      <li class="card svc"><span class="icon-tile"><svg class="ic"><use href="#i-team"/></svg></span><h3><a class="stretch" href="#">Dedicated team</a></h3><p>Developers, designers, QA and DevOps who work for you full time on a contract.</p></li>
+      <li class="card svc"><span class="icon-tile"><svg class="ic"><use href="#i-megaphone"/></svg></span><h3><a class="stretch" href="#">Digital marketing</a></h3><p>Search, social media, paid ads and influencers, planned to bring you real enquiries.</p></li>
+      <li class="card svc"><span class="icon-tile"><svg class="ic"><use href="#i-event"/></svg></span><h3><a class="stretch" href="#">Offline marketing</a></h3><p>Events, print and on-the-ground activities that put your brand in front of people in Kathmandu.</p></li>
+    </ul>
+    <p class="center"><a class="link" href="#">See all services <svg class="ic" style="width:20px;height:20px"><use href="#i-arrow"/></svg></a></p>
+  </div>
+</section>
+
+<!-- ===== 3. ON RENT (alt) (block: rental-plans teaser / feature-list) ===== -->
+<section class="sec alt" id="rent" aria-labelledby="h-rent">
+  <div class="container">
+    <div class="sec-head"><span class="eyebrow">On rent</span><h2 id="h-rent">Rent what you need. Pay every month.</h2><p>No big payment at the start. You pay a monthly price that depends on the size of your company.</p></div>
+    <ul class="grid rent">
+      <li class="card"><span class="icon-tile"><svg class="ic"><use href="#i-web"/></svg></span><h3><a class="stretch" href="#">Website on rent</a></h3><p>A ready, professional website with hosting, updates and support included.</p></li>
+      <li class="card"><span class="icon-tile"><svg class="ic"><use href="#i-ai"/></svg></span><h3><a class="stretch" href="#">AI agent on rent</a></h3><p>One AI agent that answers your customers on one channel, trained on your own information.</p></li>
+      <li class="card"><span class="icon-tile"><svg class="ic"><use href="#i-team"/></svg></span><h3><a class="stretch" href="#">Team on rent</a></h3><p>Add a developer, designer or tester to your team for a month, or longer.</p></li>
+    </ul>
+    <p class="center"><a class="btn p" href="#">See plans on rent</a></p>
+  </div>
+</section>
+
+<!-- ===== 4. WHY US (block: feature-list) ===== -->
+<section class="sec" aria-labelledby="h-why">
+  <div class="container">
+    <div class="sec-head"><span class="eyebrow">Why ADMMIS.TECH</span><h2 id="h-why">Why businesses choose us</h2></div>
+    <ul class="grid why">
+      <li class="card"><span class="icon-tile"><svg class="ic"><use href="#i-check"/></svg></span><h3>Prices you can see</h3><p>We publish our packages in NPR and USD. You know the cost before you call us.</p></li>
+      <li class="card"><span class="icon-tile"><svg class="ic"><use href="#i-code"/></svg></span><h3>Build and marketing together</h3><p>One company makes your product and promotes it. You do not manage two agencies.</p></li>
+      <li class="card"><span class="icon-tile"><svg class="ic"><use href="#i-pin"/></svg></span><h3>Based in Nepal</h3><p>We speak your language, know your market and are one message away on WhatsApp.</p></li>
+      <li class="card"><span class="icon-tile"><svg class="ic"><use href="#i-calendar"/></svg></span><h3>Pay in the way that suits you</h3><p>Choose a fixed project, or rent monthly. Each service is priced on its own.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 5. PROCESS (block: process-steps) ===== -->
+<section class="sec surf" aria-labelledby="h-proc">
+  <div class="container">
+    <div class="sec-head"><span class="eyebrow">How we work</span><h2 id="h-proc">Four clear steps</h2></div>
+    <ol class="steps">
+      <li><h3>Talk</h3><p>Tell us about your business and your goal. We listen and ask questions.</p></li>
+      <li><h3>Plan and quote</h3><p>We suggest a plan and send a clear quote, so you know what you get and what it costs.</p></li>
+      <li><h3>Build</h3><p>We make your website, app, agent or campaign. You see progress and give feedback.</p></li>
+      <li><h3>Launch and support</h3><p>We go live together. Then we stay available to fix problems and help you improve.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== 6. OUR WORK (block: case-cards, ScrollRow on mobile) ===== -->
+<section class="sec" id="work" aria-labelledby="h-work">
+  <div class="container">
+    <div class="sec-head"><span class="eyebrow">Our work</span><h2 id="h-work">What we have built</h2><p>A few of our projects. Full details are coming soon.</p></div>
+    <ul class="work">
+      <li class="card case"><div class="cover c1"><svg class="ic"><use href="#i-ai"/></svg></div><div class="body"><span class="tag">AI agent</span><h3><a class="stretch" href="#">Telegram AI agent for data entry</a></h3><p>An AI agent that takes data entry work off your team's hands inside Telegram.</p><span class="todo">Result: pending (TODO roshan)</span></div></li>
+      <li class="card case"><div class="cover c2"><svg class="ic"><use href="#i-megaphone"/></svg></div><div class="body"><span class="tag">AI agent</span><h3><a class="stretch" href="#">Telegram AI agent for marketing</a></h3><p>An AI agent in Telegram that supports marketing work.</p><span class="todo">Result: pending (TODO roshan)</span></div></li>
+      <li class="card case"><div class="cover c3"><svg class="ic"><use href="#i-whatsapp"/></svg></div><div class="body"><span class="tag">AI agent</span><h3><a class="stretch" href="#">WhatsApp AI agent for a local shop</a></h3><p>An AI agent on WhatsApp for a local e-commerce shop in Nepal.</p><span class="todo">Result: pending (TODO roshan)</span></div></li>
+      <li class="card case"><div class="cover c4"><svg class="ic"><use href="#i-mobile"/></svg></div><div class="body"><span class="tag">Website and app</span><h3><a class="stretch" href="#">Website and mobile app for e-commerce</a></h3><p>An online shop with both a website and a mobile app.</p><span class="todo">Result: pending (TODO roshan)</span></div></li>
+    </ul>
+    <p class="center"><a class="link" href="#">See our work <svg class="ic" style="width:20px;height:20px"><use href="#i-arrow"/></svg></a></p>
+  </div>
+</section>
+
+<!-- ===== 7. PRICING TEASER (surface) (block: PriceTeaser / rental-plans) ===== -->
+<section class="sec surf" id="pricing" aria-labelledby="h-price">
+  <div class="container ptease">
+    <div>
+      <span class="eyebrow">Pricing</span><h2 id="h-price">Know the cost before you start</h2>
+      <p class="lead muted" style="margin-top:12px">Our packages are listed in NPR and USD. The price depends on the service and the size of your company. For larger projects, we send a quote.</p>
+      <div class="cta"><a class="btn p" href="#">See pricing</a><a class="btn s" href="#cta">Get a quote</a></div>
+    </div>
+    <div class="pbox" aria-label="Price list placeholder">
+      <div class="seg" role="radiogroup" aria-label="Currency"><span role="radio" aria-checked="true">NPR</span><span role="radio" aria-checked="false">USD</span></div>
+      <div class="prow"><span>Website on rent</span><span class="sk" style="width:90px"></span></div>
+      <div class="prow"><span>AI agent on rent</span><span class="sk" style="width:90px"></span></div>
+      <div class="prow"><span>Team on rent</span><span class="sk" style="width:90px"></span></div>
+      <p class="note">Design slot only. The Price component fills real figures from the CMS. No numbers on the home page until Roshan approves the price list.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. OPENING EVENT (alt) (block: banner / event teaser) ===== -->
+<section class="sec alt" aria-labelledby="h-event">
+  <div class="container event">
+    <div class="date" role="img" aria-label="1 January 2027"><b>01</b><span>JAN</span><span>2027</span></div>
+    <div>
+      <span class="eyebrow">Opening event</span><h2 id="h-event">Join us at our opening</h2>
+      <p class="lead" style="margin-top:12px;color:var(--alt-muted)">We open ADMMIS.TECH to the public on 1 January 2027. Come and meet the team.</p>
+      <ul class="facts"><li><svg class="ic"><use href="#i-calendar"/></svg>1 January 2027</li><li><svg class="ic"><use href="#i-pin"/></svg><span class="tdo">Venue: pending (TODO roshan)</span></li><li><svg class="ic"><use href="#i-clock"/></svg><span class="tdo">Time: pending (TODO roshan)</span></li></ul>
+      <a class="btn p" href="#">See event details</a>
+    </div>
+    <svg class="hexdeco" viewBox="0 0 200 200" aria-hidden="true"><path d="M168 100l-34 59H66L32 100l34-59h68z" fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="round" opacity=".9"/><path d="M80 148l20-60 20 60M89 124h22" fill="none" stroke="#31907A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="100" cy="82" r="8" fill="#fff"/><circle cx="80" cy="148" r="8" fill="#fff"/><circle cx="120" cy="148" r="8" fill="#fff"/><circle cx="89" cy="124" r="6" fill="#F5AE44"/><circle cx="111" cy="124" r="6" fill="#F5AE44"/></svg>
+  </div>
+</section>
+
+<!-- ===== 9. FAQ (block: faq, native details) ===== -->
+<section class="sec" id="faq" aria-labelledby="h-faq">
+  <div class="container">
+    <div class="sec-head"><h2 id="h-faq">Questions we hear often</h2></div>
+    <div class="faq">
+      <details name="faq" open><summary>How much does a website or app cost?<svg class="ic chev"><use href="#i-chev"/></svg></summary><div class="ans">It depends on the service and the size of your company. We list our packages on the pricing page. For larger projects, tell us your goal and we send a quote.</div></details>
+      <details name="faq"><summary>How long does a project take?<svg class="ic chev"><use href="#i-chev"/></svg></summary><div class="ans"><span class="pending">PENDING</span>Answer waiting for Roshan (typical times for a website, an app and an AI agent).</div></details>
+      <details name="faq"><summary>What does "on rent" mean?<svg class="ic chev"><use href="#i-chev"/></svg></summary><div class="ans">You pay a monthly price instead of a large payment at the start. We look after hosting, updates and support. Read the plans to see what is included.</div></details>
+      <details name="faq"><summary>Who owns my website and content?<svg class="ic chev"><use href="#i-chev"/></svg></summary><div class="ans"><span class="pending">PENDING</span>Ownership terms to be confirmed by Roshan.</div></details>
+      <details name="faq"><summary>Do you work with clients outside Nepal?<svg class="ic chev"><use href="#i-chev"/></svg></summary><div class="ans">Yes. We work with clients in Nepal and in other countries. Our pricing is also shown in US dollars.</div></details>
+      <details name="faq"><summary>What help do I get after launch?<svg class="ic chev"><use href="#i-chev"/></svg></summary><div class="ans"><span class="pending">PENDING</span>Support terms to be confirmed by Roshan.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. FINAL CTA BAND (block: cta-form, no form slot on home) ===== -->
+<section class="band" id="cta" aria-labelledby="h-cta">
+  <div class="container">
+    <div><h2 id="h-cta">Ready to start your project?</h2><p>Tell us what you need. We reply with a clear plan and quote.</p></div>
+    <div class="cta"><a class="btn d" href="#">Get a quote</a><a class="btn o" href="#"><svg class="ic"><use href="#i-whatsapp"/></svg>Chat on WhatsApp</a></div>
+  </div>
+</section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="ftr">
+  <div class="container">
+    <div class="cols">
+      <div class="about"><img src="../logo/admmis-tech-lockup-dark.svg" alt="ADMMIS.TECH" width="170" height="34"><p>ADMMIS.TECH is the technology and marketing unit of ADMMIS, in Nepal.</p></div>
+      <nav aria-label="Services"><h2>Services</h2><ul><li><a href="#">Websites</a></li><li><a href="#">Mobile apps</a></li><li><a href="#">Custom software</a></li><li><a href="#">AI agents</a></li><li><a href="#">QA and testing</a></li><li><a href="#">Audits</a></li><li><a href="#">Dedicated team</a></li><li><a href="#">Digital marketing</a></li><li><a href="#">Offline marketing</a></li></ul></nav>
+      <nav aria-label="On rent"><h2>On rent</h2><ul><li><a href="#">Website on rent</a></li><li><a href="#">AI agent on rent</a></li><li><a href="#">Team on rent</a></li></ul></nav>
+      <nav aria-label="Company"><h2>Company</h2><ul><li><a href="#">About</a></li><li><a href="#">Careers</a></li><li><a href="#">Blog</a></li><li><a href="#">Opening event</a></li><li><a href="#faq">FAQ</a></li><li><a href="#">Contact</a></li></ul></nav>
+      <nav aria-label="Legal"><h2>Legal</h2><ul><li><a href="#">Privacy policy</a></li><li><a href="#">Terms of service</a></li><li><a href="#">Cookie policy</a></li></ul></nav>
+      <div><h2>Contact</h2><dl>
+        <div><dt>Address</dt><dd>Janaki Chowk, Janakpurdham-3, Nepal <span class="tdo">(confirm)</span></dd></div>
+        <div><dt>Phone</dt><dd><span class="tdo">pending: which number (TODO roshan)</span></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:admmis.org@gmail.com">admmis.org@gmail.com</a></dd></div>
+        <div><dt>Main website</dt><dd><a href="#">www.admmis.org</a></dd></div></dl></div>
+    </div>
+    <div class="legal"><span>© 2027 ADMMIS.TECH, part of ADMMIS. All rights reserved.</span><span class="tdo">Registration line and PAN: not shown until confirmed</span></div>
+  </div>
+</footer>
+
+<!-- ===== STICKY BAR (mobile only) ===== -->
+<div class="sbar" role="navigation" aria-label="Quick actions">
+  <a href="#"><svg class="ic"><use href="#i-whatsapp"/></svg>WhatsApp</a>
+  <a href="#"><svg class="ic"><use href="#i-phone"/></svg>Call</a>
+  <a class="q" href="#cta"><svg class="ic"><use href="#i-quote"/></svg>Get a quote</a>
+</div>
+
+<script>
+// Mock-only behaviour. Production: MobileNav island (focus trap, restore focus, scroll lock, Esc).
+(function(){
+  var b=document.getElementById('burger'),m=document.getElementById('mnav');
+  function set(o){m.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Close menu':'Open menu');b.querySelector('use').setAttribute('href',o?'#i-close':'#i-menu');document.body.style.overflow=o?'hidden':''}
+  b.addEventListener('click',function(){set(!m.classList.contains('open'))});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open')){set(false);b.focus()}});
+  m.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
+})();
+</script>
+</body>
+</html>
