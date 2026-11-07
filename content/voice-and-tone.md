@@ -74,3 +74,31 @@ One primary CTA per screen. A CTA says what happens next.
 | Forms, errors | Calm and helpful; say how to fix it |
 | Success messages | Warm, short, say what happens next |
 | Legal | Plain, but reviewed by a lawyer or Roshan |
+
+## Nepali (नेपाली) word list — draft, native proofread by Roshan required
+Style: clear, polite "तपाईं/तपाईंको" form; short sentences; no heavy Sanskritised words. Technical terms Nepali readers use in English stay in English or in Devanagari. Brand and product names stay in Latin script.
+
+| English | Nepali (use this) | Note |
+|---|---|---|
+| ADMMIS.TECH, WhatsApp, Telegram, AI, QA, DevOps, SEO, UX, NPR, USD | same, Latin script | never transliterate |
+| website | वेबसाइट | |
+| mobile app / app | मोबाइल एप / एप | |
+| custom software | कस्टम सफ्टवेयर | |
+| software development company | सफ्टवेयर डेभलपमेन्ट कम्पनी | |
+| AI agent | AI एजेन्ट | |
+| on rent | भाडामा | monthly subscription product name |
+| get a quote | कोटेशन लिनुहोस् | |
+| our work | हाम्रा काम | |
+| pricing / price | मूल्य | |
+| services | सेवाहरू | |
+| dedicated team | समर्पित टोली | |
+| digital / offline marketing | डिजिटल / अफलाइन मार्केटिङ | |
+| audit | अडिट | |
+| testing | टेस्टिङ | |
+| support | सपोर्ट (or सहयोग in running text) | pick one per page |
+| hosting | होस्टिङ | |
+| opening event | उद्घाटन कार्यक्रम | |
+| Kathmandu, Janakpurdham | काठमाडौं, जनकपुरधाम | |
+| company size | कम्पनीको आकार | |
+
+Numbers: Devanagari numerals in running text (१ जनवरी २०२७); Latin digits in phone numbers and prices (format to be agreed). Nepali text runs about 20 to 30 percent longer than English: check card and button fit.

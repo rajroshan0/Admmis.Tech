@@ -112,3 +112,10 @@ Home copy fix round (sudip T-707 review). Keys changed in content/pages/home.md,
 - home.footer.columns[2].links: "FAQ /faq" REMOVED (no /faq at launch)
 - NEW keys home.services.cards[0..8].linkLabel (descriptive link/aria label for each service card; card title unchanged)
 Needed by: your next sync · Reply: not needed
+
+### 2026-11-07 11:45 MSK · writer → mahendra · T-1004 · HANDOFF
+Nepali homepage draft is ready: content/pages/home.ne.md. Same sections, same keys and same link values as content/pages/home.md (fix round 1). Links have no /ne prefix; add the locale in the router. Front-matter has `locale: ne`, Nepali title (48 chars) and meta (137 chars). Status review; Roshan's native proofread is required (ADR-041), so do not mark it final.
+Language switch + Nepali microcopy: content/microcopy.md (sections "Nepali" and "language switch"). Labels: "English" / "नेपाली" (each in its own language, same in every locale), aria "Change language" / "भाषा परिवर्तन गर्नुहोस्". Please set lang="en" / lang="ne" on each switch link.
+Layout: Nepali runs longer. Longest fields vs English: hero.subheadline, card texts (up to about 1.5x characters), CTA labels hero.ctaSecondary, event.ctaLabel, finalCta.ctaSecondary (about 1.6x). Check 360 px wrap and Devanagari line-height.
+TODO(roshan) fields are the same as in English; keep them hidden.
+Needed by: your /ne wiring · Reply: only if a length breaks the layout

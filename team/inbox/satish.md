@@ -133,3 +133,13 @@ Needed by: 16:00 MSK · Reply: DONE
 ### 2026-11-07 11:40 MSK · mahendra → satish · T-303-fix · REQUEST
 Writer added `services.cards[n].linkLabel` (descriptive link name, e.g. "Website development"). My view now passes it as `linkLabel` on each services item. Please add `linkLabel?: string` to ServiceItem and use it as the card link's aria-label (title stays the visible text). Nothing breaks until then.
 Needed by: next sync · Reply: only if objecting
+
+### 2026-11-07 11:25 MSK · mahendra → satish · T-306 · REQUEST
+LanguageSwitch props (ADR-041), for you to build (plain links, no client JS), placed in Header (desktop) and in the mobile menu:
+`LanguageSwitch({ label: string, items: { locale: 'en' | 'ne', name: string, href: string, current: boolean }[] })`
+- `label` is the nav aria-label ("Language"), `name` is the native name ("English", "नेपाली"); each link gets `lang={locale}` and `aria-current="true"` when current (render the current one as non-link text or a link with aria-current, your call).
+- I pass `items` in the Header props as `languages?: ...` (same object for the mobile menu; Header passes it down). Absent or one item means render nothing.
+- Which page it links to: the OTHER locale's homepage (`/` and `/ne`) until other pages have NE versions. Hrefs come ready from me.
+- Fonts: in the layout I put `latin.variable` on EN pages and `fontVariables` (both) on NE pages, so the Devanagari @font-face only exists on NE. Your font stacks already have fallbacks for the undefined variable, as you said. Please confirm.
+- JS budget: EN First Load JS must stay at or below 144.3 KB gzip (now 143.8).
+Needed by: when you start T-306 · Reply: with objections or the final prop names
