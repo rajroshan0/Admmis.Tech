@@ -1,0 +1,155 @@
+{
+  "ui": {
+    "placeholderTitle": "This page is being written",
+    "placeholderText": "Ask us anything in the meantime. We reply with a clear plan and quote.",
+    "getQuote": "Get a quote",
+    "requestQuote": "Request a quote",
+    "contactUs": "Contact us",
+    "home": "Back to home"
+  },
+  "pricing": {
+    "seoTitle": "Software Development Cost in Nepal | ADMMIS.TECH",
+    "metaDescription": "See what websites, apps, AI agents and marketing cost in Nepal. Public NPR and USD prices by company size. Pick a plan or request a quote.",
+    "eyebrow": "Pricing",
+    "heading": "Software development cost in Nepal: our public prices",
+    "sub": "Every service is priced separately and by company size. Find your price, or tell us your goal and get a quote.",
+    "howHeading": "How our prices work",
+    "how": [
+      {
+        "title": "Per service",
+        "text": "Each service has its own price."
+      },
+      {
+        "title": "By company size",
+        "text": "The price depends on the size of your company."
+      },
+      {
+        "title": "Shown up front",
+        "text": "We show prices in NPR and USD where they are set."
+      }
+    ],
+    "pendingTitle": "Prices are being finalised",
+    "pendingText": "Tell us your goal and we send a clear quote.",
+    "formHeading": "Get a quote",
+    "formText": "Tell us what you need. We reply with a clear plan and quote."
+  },
+  "about": {
+    "seoTitle": "About ADMMIS.TECH | ADMMIS.TECH",
+    "metaDescription": "ADMMIS.TECH is the technology and marketing unit of ADMMIS, in Nepal.",
+    "eyebrow": "About",
+    "heading": "About ADMMIS.TECH",
+    "calloutTitle": "Part of ADMMIS",
+    "calloutText": "ADMMIS.TECH is the technology and marketing unit of ADMMIS, in Nepal.",
+    "ctaHeading": "Work with us",
+    "ctaText": "Tell us what you need. We reply with a clear plan and quote."
+  },
+  "work": {
+    "seoTitle": "Our Work | ADMMIS.TECH",
+    "metaDescription": "Projects by ADMMIS.TECH.",
+    "eyebrow": "Our work",
+    "heading": "Our work",
+    "sub": "Projects we have built and the results.",
+    "emptyTitle": "Case studies are coming soon",
+    "emptyText": "We show a project here once the client agrees. Tell us about yours.",
+    "ctaHeading": "Tell us about your project",
+    "ctaText": "We reply with a clear plan and quote.",
+    "labels": {
+      "facts": "Project facts",
+      "client": "Client",
+      "industry": "Industry",
+      "year": "Year",
+      "challenge": "Challenge",
+      "solution": "Solution",
+      "result": "Result",
+      "gallery": "Gallery",
+      "metrics": "Results"
+    }
+  },
+  "blog": {
+    "seoTitle": "Blog | ADMMIS.TECH",
+    "metaDescription": "Articles on technology and marketing from ADMMIS.TECH.",
+    "eyebrow": "Blog",
+    "heading": "Blog",
+    "sub": "Technology and marketing, explained plainly.",
+    "emptyTitle": "Our first articles are coming soon",
+    "emptyText": "Check back soon.",
+    "ctaHeading": "Need help with your project?",
+    "ctaText": "We reply with a clear plan and quote."
+  },
+  "event": {
+    "seoTitle": "Opening Event, 1 January 2027 | ADMMIS.TECH",
+    "metaDescription": "Join the opening of ADMMIS.TECH on 1 January 2027.",
+    "dateLabel": "Date",
+    "registerHeading": "Register for the event",
+    "registerText": "Leave your details and we confirm your place."
+  },
+  "contact": {
+    "seoTitle": "Contact ADMMIS.TECH | ADMMIS.TECH",
+    "metaDescription": "Contact ADMMIS.TECH and tell us what you need. We reply with a clear plan and quote.",
+    "eyebrow": "Contact",
+    "heading": "Contact us",
+    "sub": "Tell us what you need. We reply with a clear plan and quote.",
+    "channelsHeading": "Other ways to reach us",
+    "nextHeading": "What happens next",
+    "next": [
+      {
+        "title": "We read it",
+        "text": "A person on our team reads your message."
+      },
+      {
+        "title": "We reply",
+        "text": "We write back with questions or a first answer."
+      },
+      {
+        "title": "We agree a plan",
+        "text": "If we fit, we agree the next step with you."
+      }
+    ],
+    "thanks": {
+      "seoTitle": "Thank you | ADMMIS.TECH",
+      "heading": "Thank you. We got your message.",
+      "text": "We read every message and reply as soon as we can.",
+      "work": "See our work"
+    }
+  },
+  "form": {
+    "action": "/api/leads",
+    "policyVersion": "draft",
+    "name": "Your name",
+    "email": "Email",
+    "phone": "Phone",
+    "contactHint": "Give an email, a phone number, or both. We reply on the one you give.",
+    "contactRequired": "Please give an email or a phone number.",
+    "honeypot": "Leave this field empty",
+    "company": "Company",
+    "service": "I need help with",
+    "servicePlaceholder": "Choose a service",
+    "message": "What do you need?",
+    "consent": "I agree that ADMMIS.TECH may contact me about this request. Read the",
+    "privacyLabel": "privacy policy",
+    "submit": "Send request",
+    "required": "required",
+    "optional": "optional",
+    "errorTitle": "We could not send your request",
+    "errors": {
+      "validation_failed": "Please check your details and try again.",
+      "captcha_failed": "The check failed. Please try again.",
+      "rate_limited": "Too many requests. Please wait a little and try again.",
+      "origin_not_allowed": "We could not send your request. Please try again.",
+      "storage_unavailable": "We could not send your message. Please try again, or write to us by email.",
+      "internal_error": "We could not send your message. Please try again, or write to us by email.",
+      "verification_unavailable": "We could not send your message. Please try again, or write to us by email.",
+      "fallback": "We could not send your message. Please try again, or write to us by email."
+    },
+    "services": {
+      "web-development": "Websites",
+      "mobile-apps": "Mobile apps",
+      "custom-software": "Custom software",
+      "ai-agents": "AI agents",
+      "qa-testing": "QA and testing",
+      "digital-marketing": "Digital marketing",
+      "team-rental": "Team on rent",
+      "other": "Something else"
+    }
+  }
+}

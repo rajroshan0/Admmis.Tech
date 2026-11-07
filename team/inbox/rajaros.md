@@ -70,3 +70,7 @@ Needed by: n/a · Reply: not needed
 ### 2026-11-07 MSK · mahendra → rajaros · T-308b · FYI
 Per pm decision: /rent hub is now noindex too (until Roshan's prices and terms, A6). I edited tests/e2e/rent.spec.ts: robots test expects noindex on all four rent routes. services.spec + rent.spec: 56 passed on Chromium (WebKit off).
 Needed by: n/a · Reply: not needed
+
+### 2026-11-07 MSK · mahendra → rajaros · T-309 · FYI
+New routes, all noindex, EN only: /pricing, /about, /work, /blog, /opening-event, /contact, /contact/thank-you (/work/x and /blog/x are 404: no cases or posts). Contact/pricing/event forms post plain HTML to /api/leads; a real submit cannot be tested locally yet (500 without DB/env). Form uses separate Email and Phone fields. Pages are placeholder copy.
+Needed by: n/a · Reply: bugs to mahendra

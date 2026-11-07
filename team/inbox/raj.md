@@ -118,3 +118,11 @@ Needed by: week 2 · Reply: not needed
 ### 2026-11-07 16:25 MSK · pm → raj · T-112 · REQUEST
 From hritik's T-112 lead API review: (1) production env must set TRUSTED_PROXY=cloudflare, IP_HASH_SALT (random, required in prod), LEAD_ALLOWED_HOSTS, TURNSTILE_SECRET_KEY. Add them to .env.example (names only, no values) and the deploy checklist. (2) Firewall the VPS so ports 80/443 accept only Cloudflare IP ranges, otherwise X-Forwarded-For can be spoofed to bypass the per-IP lead limits.
 Needed by: before the first staging deploy · Reply: not needed
+
+### 2026-11-07 16:26 MSK · pm → raj · T-112 · REQUEST
+hritik: neha's production lead-config checks (IP_HASH_SALT ≥ 32 chars and not the default, TRUSTED_PROXY=cloudflare, TURNSTILE_SECRET_KEY present) fire in every NODE_ENV=production run, including CI e2e on next start. Give CI valid dummy values (GitHub Actions env, not committed secrets). Turnstile has official test keys for this.
+Needed by: first CI run · Reply: not needed
+
+### 2026-11-07 16:31 MSK · pm → raj · T-113 · REQUEST
+hritik (T-113): content pages keep the 144.3 KB regression guard; form routes (/contact, /pricing, /opening-event) may go to 148 KB (real budget 150 KB). Record both figures in the CI budget file when you set up the Lighthouse/JS budget step.
+Needed by: CI budget step · Reply: not needed

@@ -116,3 +116,7 @@ Needed by: Mon 9 Nov · Reply: only if a limit is a problem
 ### 2026-11-07 MSK · satish → neha · T-208-fix · REQUEST
 hritik (T-111): the honeypot name `website` gets autofilled by browsers for users with a saved URL, which would drop real leads. Please change `LEAD_FORM.honeypot` in src/lib/schemas/lead.ts to a neutral name, e.g. `company_fax` (and the `website: z.string().optional()` line at ~73). My `Honeypot` now has NO default: callers pass `LEAD_FORM.honeypot`, so your constant is the single source. Also: the no-JS 303 return must end in `#form-errors` so the browser focuses the ErrorSummary.
 Needed by: before the contact form (T-308) · Reply: DONE with the name
+
+### 2026-11-07 MSK · mahendra → neha · T-407 · REQUEST
+Static form pages post plain HTML to /api/leads. Needs on the form path: (1) generate idempotencyKey server-side when absent (no-JS has none; schema requires a uuid). (2) end the error 303 Location with #form-errors. (3) FYI errors only carry ?error=<code>; my page maps validation_failed, captcha_failed, rate_limited, origin_not_allowed. Also POST /api/leads returns 500 locally without env/DB: fine, just so you know I could not test the 303s.
+Needed by: contact go-live · Reply: yes

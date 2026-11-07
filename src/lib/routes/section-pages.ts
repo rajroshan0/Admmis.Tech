@@ -106,3 +106,6 @@ export function applyCopy(
     crossSell: (copy.crossSell ?? []).map((c) => ({ ...c, href: href(c.href) })),
   }
 }
+
+/** Paths of the T-309 pages whose final copy is in (default none: all noindex; thank-you is always noindex). */
+export const PAGE_COPY_READY: ReadonlySet<string> = new Set<string>()

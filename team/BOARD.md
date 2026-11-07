@@ -25,7 +25,8 @@ Updated 2026-11-07 16:00 MSK. Priority order (Roshan 7 Nov 15:45): language swit
 | T-604b | Specs: pricing, contact, about, work, blog, event | sharwan | `design/templates/*-spec.md` | US-105 | pm, satish | Sat 7 Nov | DONE |
 | T-208 | Components for T-604b specs (contact form first) + T-108 nits | satish | `src/components/` | Sprint 2 (pulled) | hritik | Tue 10 Nov | DONE (T-111 APPROVED WITH NITS, fixes in) |
 | T-407 | Collections: cases, posts, events, team, leads + lead API | neha | `src/collections/`, `src/app/api/` | Sprint 2 (pulled) | hritik | Wed 11 Nov | DONE (T-112 must-fixes applied; atomic limiter + DB checks wait for Docker C1) |
-| T-309 | Routes: /pricing, /contact (+thank-you), /about, /work, /blog, /event | mahendra | `src/app/(site)/` | Sprint 2 (pulled) | hritik | Thu 12 Nov | IN PROGRESS |
+| T-309 | Routes: /pricing, /contact (+thank-you), /about, /work, /blog, /event | mahendra | `src/app/(site)/` | Sprint 2 (pulled) | hritik | Thu 12 Nov | DONE (T-113 must-fix done; real submit needs DB; /privacy needed — T-1006) |
+| T-1006 | Legal pages copy: privacy (+ policyVersion), terms, cookies — consent link on /contact 404s until /privacy exists; Roshan approves legal text | writer → mahendra | `content/pages/privacy.md` … | US-411 | Roshan | Fri 20 Nov | TODO (blocks form going live) |
 | T-1003 | Services hub + service page copy (P0 briefs first) | writer | `content/pages/services*.md`, `content/pages/services/*.md` | US-1004 | sudip, pm | Tue 10 Nov (was Sun 15) | DONE (9 pages + hub; P0 SEO-reviewed T-708; P1 review pending) |
 | T-1005 | Rent hub + rental pages copy | writer | `content/pages/rent*.md` | US-1004 | sudip, pm | Wed 11 Nov | DONE (SEO-reviewed; terms TODO(roshan)) |
 | T-805 | QA of /ne + service/rent templates (manual + e2e) | rajaros | `qa/bugs/`, `tests/e2e/` | US-904 | hritik | Thu 12 Nov | DONE (e2e 80/80 after T-308, axe clean, no new bugs) |

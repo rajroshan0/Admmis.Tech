@@ -1,5 +1,6 @@
 import type common from '@/messages/en/common.json'
 import type home from '@/messages/en/home.json'
+import type pages from '@/messages/en/pages.json'
 import type rent from '@/messages/en/rent.json'
 import type services from '@/messages/en/services.json'
 
@@ -14,6 +15,7 @@ export type Messages = {
   home: typeof home
   services: typeof services
   rent: typeof rent
+  pages: typeof pages
 }
 export type Namespace = keyof Messages
 
@@ -23,6 +25,7 @@ const loaders: Record<Locale, { [N in Namespace]?: () => Promise<{ default: unkn
     home: () => import('@/messages/en/home.json'),
     services: () => import('@/messages/en/services.json'),
     rent: () => import('@/messages/en/rent.json'),
+    pages: () => import('@/messages/en/pages.json'),
   },
   // NE homepage draft (ADR-041): same keys as EN; keys missing here fall back to EN.
   ne: {
