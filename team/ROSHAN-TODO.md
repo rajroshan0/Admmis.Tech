@@ -7,7 +7,7 @@ Reply in the lead chat, e.g. "A1 yes, A2 option A, B3: +977 98…". PM records y
 
 | # | What | Why it matters / what it blocks | Options + PM recommendation | Where to see it | Deadline |
 |---|---|---|---|---|---|
-| A1 | Look at the homepage and accept it or list the changes you want | This is the base for every other page | Accept, or say what to change (colours, text, layout) | `pnpm dev --port 3100` → http://localhost:3100 · screenshots in `team/reports/assets/` | Sun 8 Nov |
+| ~~A1~~ | ✔ ACCEPTED 7 Nov — homepage approved; language switch + Nepali homepage added (ADR-041) | This is the base for every other page | Accept, or say what to change (colours, text, layout) | `pnpm dev --port 3100` → http://localhost:3100 · screenshots in `team/reports/assets/` | Sun 8 Nov |
 | A2 | Approve the voice-and-tone guide | All copy follows it | Recommend: approve | `content/voice-and-tone.md` | Sun 8 Nov |
 | A3 | Approve the homepage copy | It goes live as written | Recommend: approve; fill the gaps in B1–B7 | `content/pages/home.md` | Sun 8 Nov |
 | A4 | Accept the logo redraw of your PNG | Used in header, footer, favicon | Recommend: accept now, swap in your vector original later if one exists (B8) | `design/logo/index.html` | Sun 8 Nov |
@@ -47,6 +47,7 @@ Reply in the lead chat, e.g. "A1 yes, A2 option A, B3: +977 98…". PM records y
 
 | Date | Item | Answer |
 |---|---|---|
+| 2026-11-07 | A1 Homepage | Approved; add EN/नेपाली switch + Nepali homepage now (ADR-041) |
 | 2026-11-07 | Gate 1 | PASSED with PM recommendations → ADR-030..040 |
 | 2026-11-07 | Brand direction | Sindoor Studio layout in ADMMIS colours (ADR-031) |
 | 2026-11-07 | Spending | Free services only (ADR-037) |

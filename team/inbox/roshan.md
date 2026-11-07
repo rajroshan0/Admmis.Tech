@@ -56,3 +56,6 @@ brand Direction 1 in ADMMIS colours (ADR-031) · migrations at app start (ADR-03
 AGENTS.md disabled (ADR-034) · backups as proposed (ADR-035) · lead options F1–F3 A (ADR-036) · free services only,
 you manage DNS (ADR-037) · writer replaces copywriter hire (ADR-038) · QA/go-no-go approved (ADR-039) · Scrum (ADR-040).
 Still open: pricing E1–E3 (1-page summary due Tue 10 Nov, T-904), hosting provider (free option first, T-503), G2 test phones, Q10.
+
+### 2026-11-07 11:19 MSK · pm → roshan · US-401 · APPROVAL (record of lead-chat answer)
+→ Roshan 2026-11-07 (lead chat, recorded by pm): homepage APPROVED. Add a language change option → chosen: EN / नेपाली switch + Nepali homepage now, other pages English until ~Feb → ADR-041.
