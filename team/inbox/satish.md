@@ -159,3 +159,7 @@ Needed by: n/a · Reply: only if objecting
 ### 2026-11-07 16:05 MSK · pm → satish · T-108 · REQUEST
 T-207 committed. hritik's nits (team/reports/T-108-template-components-review.md) for your next session: (1) constant border width on the selected plan (no layout shift); (2) screen-reader cue for the selected band; (3) replace `!text-accent` with a real class and check 4.5:1 on surface. Coordinate with mahendra, who is using these in T-307 now.
 Needed by: Tue 10 Nov · Reply: not needed
+
+### 2026-11-07 16:15 MSK · sharwan → satish · T-604b · HANDOFF
+T-604b specs in design/templates/ (pricing, contact, about, cases, blog, event). New components: ContactChannels, TeamGrid, StatRow, CaseFacts, Gallery (native dialog), PostCard, AuthorBox, Pagination, Agenda. Each is defined in its spec section 3.
+Needed by: Mon 9 Nov · Reply: only if a limit is a problem

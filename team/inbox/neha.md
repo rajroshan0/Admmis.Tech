@@ -108,3 +108,7 @@ Needed by: Mon 9 Nov · Reply: only if a field or limit is a problem
 ### 2026-11-07 16:05 MSK · pm → neha · T-108 · REQUEST
 hritik's T-108 nit 4: the RentalPlans highlight CSS supports at most 6 bands. Add max 6 rows to the bands field validation.
 Needed by: with the T-109 fixes · Reply: not needed
+
+### 2026-11-07 16:15 MSK · sharwan → neha · T-604b · HANDOFF
+T-604b field lists with EN max and CMS max (EN x 1.4) are section 5 of each spec in design/templates/. Requests: add cases.year (number, optional); raise posts.excerpt max to 280 (content-model says 200); add events.locationNote (225) and events.archiveNote (170). Price fallback: missing price row must publish and render 'Request a quote', never 0.
+Needed by: Mon 9 Nov · Reply: only if a limit is a problem
