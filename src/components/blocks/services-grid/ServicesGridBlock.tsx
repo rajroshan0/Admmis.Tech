@@ -1,3 +1,5 @@
+import { useId } from 'react'
+
 import type { BlockProps } from '../shared-types'
 import type { ServicesGridData } from './types'
 import { Icon } from '@/components/ui/Icon'
@@ -12,10 +14,11 @@ export function ServicesGridBlock({
   headingLevel = 2,
   tone = 'bg',
 }: BlockProps<ServicesGridData>) {
+  const headingId = useId()
   return (
-    <Section tone={tone} labelledBy="services-heading">
+    <Section tone={tone} labelledBy={headingId}>
       <SectionHeader
-        id="services-heading"
+        id={headingId}
         eyebrow={data.eyebrow}
         heading={data.heading}
         intro={data.intro}

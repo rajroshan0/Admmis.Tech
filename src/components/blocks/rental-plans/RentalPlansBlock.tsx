@@ -10,6 +10,9 @@ import { SectionHeader } from '@/components/ui/SectionHeader'
 
 // Zero client JS. The band picker is a native radio group; components.css (.plans) reads :has(:checked)
 // to highlight the matching plan card. All plans stay in the DOM and in the reading order.
+/** The highlight CSS covers this many bands; extra plans are still listed, just not highlighted. */
+export const MAX_HIGHLIGHTED_PLANS = 6
+
 export function RentalPlansBlock({
   data,
   headingLevel = 2,
@@ -30,9 +33,16 @@ export function RentalPlansBlock({
         level={headingLevel}
       />
       <div className="plans">
-        <fieldset className="m-0 mb-6 min-w-0 border-0 p-0">
+        <fieldset
+          aria-describedby={data.help ? `${uid}-help` : undefined}
+          className="m-0 mb-6 min-w-0 border-0 p-0"
+        >
           <legend className="mb-1 p-0 font-bold">{data.legend}</legend>
-          {data.help ? <p className="mb-3 text-card text-muted">{data.help}</p> : null}
+          {data.help ? (
+            <p id={`${uid}-help`} className="mb-3 text-card text-muted">
+              {data.help}
+            </p>
+          ) : null}
           <div className="plans-bands grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {data.plans.map((plan) => (
               <label key={plan.id} className="band-card">
@@ -55,7 +65,7 @@ export function RentalPlansBlock({
           {data.plans.map((plan) => (
             <li
               key={plan.id}
-              className="plan-card rounded-card border border-line bg-surface p-5 lg:p-6"
+              className="plan-card rounded-card border-2 border-line bg-surface p-5 lg:p-6"
             >
               <p className="plan-badge mb-3 inline-block rounded-chip bg-accent px-3 py-1 text-small font-bold text-on-accent">
                 {data.selectedLabel}

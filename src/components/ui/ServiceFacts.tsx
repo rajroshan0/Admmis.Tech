@@ -20,7 +20,7 @@ export function ServiceFacts({ label, title, rows }: Props) {
       aria-label={label}
       className="rounded-card border border-line-strong bg-surface p-5 lg:p-6"
     >
-      <p className="eyebrow mb-3 !text-accent">{title}</p>
+      <p className="facts-title mb-3">{title}</p>
       <dl className="m-0">
         {visible.map((row) => (
           <div

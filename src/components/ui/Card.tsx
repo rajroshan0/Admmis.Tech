@@ -5,12 +5,14 @@ type CardProps = {
   className?: string
   /** adds the hover lift; pair it with a CardLink */
   interactive?: boolean
+  /** no padding: for cards whose first child is a full-bleed cover */
+  flush?: boolean
 }
 
-export function Card({ children, className = '', interactive }: CardProps) {
+export function Card({ children, className = '', interactive, flush }: CardProps) {
   return (
     <div
-      className={`relative rounded-card border border-line bg-surface p-5 lg:p-6 ${
+      className={`relative rounded-card border border-line bg-surface ${flush ? '' : 'p-5 lg:p-6'} ${
         interactive ? 'transition-transform motion-safe:hover:-translate-y-0.75' : ''
       } ${className}`}
     >

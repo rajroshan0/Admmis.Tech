@@ -243,7 +243,7 @@ details[open] > summary .chev {
 .plans:has(.plans-bands > :nth-child(4) input:checked) .plans-list > :nth-child(4),
 .plans:has(.plans-bands > :nth-child(5) input:checked) .plans-list > :nth-child(5),
 .plans:has(.plans-bands > :nth-child(6) input:checked) .plans-list > :nth-child(6) {
-  border: 2px solid var(--color-fg);
+  border-color: var(--color-fg);
   box-shadow: var(--shadow-hard);
 }
 .plans:has(.plans-bands > :nth-child(1) input:checked) .plans-list > :nth-child(1) .plan-badge,
@@ -253,4 +253,92 @@ details[open] > summary .chev {
 .plans:has(.plans-bands > :nth-child(5) input:checked) .plans-list > :nth-child(5) .plan-badge,
 .plans:has(.plans-bands > :nth-child(6) input:checked) .plans-list > :nth-child(6) .plan-badge {
   display: inline-block;
+}
+
+.facts-title {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+:lang(ne) .facts-title {
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* ---- Pricing: show the checked band's price only (needs :has; otherwise all bands stay visible) ---- */
+@supports selector(:has(*)) {
+  body:has(.band-select) .band-price {
+    display: none;
+  }
+  body:has(.band-select > :nth-child(1) input:checked) .band-price[data-i='1'],
+  body:has(.band-select > :nth-child(2) input:checked) .band-price[data-i='2'],
+  body:has(.band-select > :nth-child(3) input:checked) .band-price[data-i='3'],
+  body:has(.band-select > :nth-child(4) input:checked) .band-price[data-i='4'],
+  body:has(.band-select > :nth-child(5) input:checked) .band-price[data-i='5'],
+  body:has(.band-select > :nth-child(6) input:checked) .band-price[data-i='6'] {
+    display: block;
+  }
+}
+
+/* ---- Table: stacked cards below 640 px (900 px in Nepali); semantics unchanged ---- */
+@media (max-width: 639.98px) {
+  .table-stacked,
+  .table-stacked tbody,
+  .table-stacked tr,
+  .table-stacked th,
+  .table-stacked td {
+    display: block;
+  }
+  .table-stacked thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .table-stacked tr {
+    margin-bottom: 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    padding: 0.5rem;
+  }
+  .table-stacked td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+}
+@media (max-width: 899.98px) {
+  :lang(ne) .table-stacked,
+  :lang(ne) .table-stacked tbody,
+  :lang(ne) .table-stacked tr,
+  :lang(ne) .table-stacked th,
+  :lang(ne) .table-stacked td {
+    display: block;
+  }
+  :lang(ne) .table-stacked thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  :lang(ne) .table-stacked tr {
+    margin-bottom: 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    padding: 0.5rem;
+  }
+  :lang(ne) .table-stacked td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
 }

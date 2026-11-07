@@ -1,3 +1,5 @@
+import { useId } from 'react'
+
 import type { BlockProps } from '../shared-types'
 import type { ProcessStepsData } from './types'
 import { Section } from '@/components/ui/Section'
@@ -9,10 +11,11 @@ export function ProcessStepsBlock({
   headingLevel = 2,
   tone = 'surface',
 }: BlockProps<ProcessStepsData>) {
+  const headingId = useId()
   return (
-    <Section tone={tone} labelledBy="process-heading">
+    <Section tone={tone} labelledBy={headingId}>
       <SectionHeader
-        id="process-heading"
+        id={headingId}
         eyebrow={data.eyebrow}
         heading={data.heading}
         intro={data.intro}
