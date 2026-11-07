@@ -14,20 +14,22 @@ describe('no-JS redirects', () => {
         'https://tech.admmis.org',
         'validation_failed',
       ),
-    ).toBe('/ne/contact?error=validation_failed')
+    ).toBe('/ne/contact?error=validation_failed#form-errors')
     expect(
       errorTarget(
         'https://tech.admmis.org/rent/website',
         'https://tech.admmis.org',
         'rate_limited',
       ),
-    ).toBe('/rent/website?error=rate_limited')
+    ).toBe('/rent/website?error=rate_limited#form-errors')
   })
   it('never redirects to another host or unknown page', () => {
     expect(errorTarget('https://evil.test/steal', 'https://tech.admmis.org', 'x')).toBe(
-      '/contact?error=x',
+      '/contact?error=x#form-errors',
     )
-    expect(errorTarget('//evil.test', 'https://tech.admmis.org', 'x')).toBe('/contact?error=x')
-    expect(errorTarget(null, 'https://tech.admmis.org', 'x')).toBe('/contact?error=x')
+    expect(errorTarget('//evil.test', 'https://tech.admmis.org', 'x')).toBe(
+      '/contact?error=x#form-errors',
+    )
+    expect(errorTarget(null, 'https://tech.admmis.org', 'x')).toBe('/contact?error=x#form-errors')
   })
 })

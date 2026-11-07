@@ -25,10 +25,17 @@ describe('request helpers', () => {
     fd.set('consentContact', 'on')
     fd.set('policyVersion', 'v1')
     fd.set('source.utmSource', 'fb')
-    expect(formToLead(fd)).toEqual({
+    const out = formToLead(fd)
+    expect(out).toMatchObject({
       name: 'Sita',
       consent: { contact: true, policyVersion: 'v1' },
       source: { utmSource: 'fb' },
     })
+    expect(out.idempotencyKey).toMatch(/^[0-9a-f-]{36}$/)
+  })
+  it('keeps a key the form sent', () => {
+    const fd = new FormData()
+    fd.set('idempotencyKey', '3f9b2c1e-6f1d-4a6e-9a55-2d7b1f0c8e11')
+    expect(formToLead(fd).idempotencyKey).toBe('3f9b2c1e-6f1d-4a6e-9a55-2d7b1f0c8e11')
   })
 })

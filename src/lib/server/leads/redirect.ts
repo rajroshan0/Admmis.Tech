@@ -19,5 +19,5 @@ export function errorTarget(referer: string | null, base: string, code: string):
   } catch {
     /* keep default */
   }
-  return `${path}?error=${encodeURIComponent(code)}`
+  return `${path}?error=${encodeURIComponent(code)}#form-errors`
 }

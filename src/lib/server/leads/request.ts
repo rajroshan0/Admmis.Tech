@@ -1,3 +1,5 @@
+import { randomUUID } from 'node:crypto'
+
 // Request helpers for the route: origin check, client IP, and the no-JS form-encoded mapping.
 export function originAllowed(headers: Headers, allowedHosts: string[]): boolean {
   const site = headers.get('sec-fetch-site')
@@ -43,5 +45,7 @@ export function formToLead(fd: FormData): Record<string, unknown> {
     policyVersion: String(fd.get('policyVersion') ?? ''),
   }
   if (Object.keys(source).length) out.source = source
+  // A plain form cannot send a key. Double-submit protection is then the 303 redirect plus rate limits.
+  out.idempotencyKey ??= randomUUID()
   return out
 }
