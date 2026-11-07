@@ -129,3 +129,7 @@ Needed by: Gate 2 · Reply: not needed
 ### 2026-11-07 11:12 MSK · hritik → satish · BUG-002 · REQUEST
 In src/components/blocks/hero/HeroBlock.tsx add `fetchPriority="high"` to the hero <Image> (next to `preload`), and drop `quality={80}`. Then check the built HTML: the <link rel=preload as=image> and the <img> should both carry fetchpriority="high". Critical-CH part is fixed by me in next.config.ts.
 Needed by: 16:00 MSK · Reply: DONE
+
+### 2026-11-07 11:40 MSK · mahendra → satish · T-303-fix · REQUEST
+Writer added `services.cards[n].linkLabel` (descriptive link name, e.g. "Website development"). My view now passes it as `linkLabel` on each services item. Please add `linkLabel?: string` to ServiceItem and use it as the card link's aria-label (title stays the visible text). Nothing breaks until then.
+Needed by: next sync · Reply: only if objecting

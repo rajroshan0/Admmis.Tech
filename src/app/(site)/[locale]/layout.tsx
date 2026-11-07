@@ -16,8 +16,6 @@ export function generateStaticParams() {
   return getServerEnv().ENABLED_LOCALES.map((locale) => ({ locale }))
 }
 
-export const dynamicParams = false
-
 export const viewport: Viewport = { width: 'device-width', initialScale: 1 }
 
 export default async function LocaleLayout({

@@ -22,6 +22,9 @@ import { buildMetadata } from '@/lib/seo/metadata'
 
 const HERO_IMAGE = { src: '/images/hero-model.webp', width: 640, height: 800 }
 
+// Default share image (lockup on brand navy). Alt text is the brand name, not copy.
+const OG_IMAGE = { url: '/og-default.png', width: 1200, height: 630, alt: brand.name }
+
 type Props = { params: Promise<{ locale: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -35,6 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: home.meta.title,
     description: home.meta.metaDescription,
     siteName: brand.name,
+    image: OG_IMAGE,
   })
 }
 

@@ -1,7 +1,7 @@
 {
   "hero": {
-    "eyebrow": "Technology and marketing, Nepal",
-    "headline": "Websites, apps and AI for Nepal",
+    "eyebrow": "Software development company, Nepal",
+    "headline": "Software, apps and AI built in Nepal",
     "subheadline": "We build your website, app or AI agent, and we market it. Pay by project, or monthly on rent.",
     "ctaPrimary": "Get a quote",
     "ctaPrimaryLink": "/contact",
@@ -11,53 +11,62 @@
   },
   "services": {
     "eyebrow": "What we do",
-    "title": "Everything your business needs online",
+    "title": "Software development and marketing, in one team",
     "intro": "Build it, test it, market it. Choose one service or combine several. Each service is priced on its own.",
     "cards": [
       {
         "title": "Websites",
         "text": "A fast website that shows your business well and brings in customers, on any phone.",
-        "link": "/services/web-development"
+        "link": "/services/web-development",
+        "linkLabel": "Website development"
       },
       {
         "title": "Mobile apps",
         "text": "Apps for Android and iPhone, built with the technology that fits your goal and budget.",
-        "link": "/services/mobile-app-development"
+        "link": "/services/mobile-app-development",
+        "linkLabel": "Mobile app development"
       },
       {
         "title": "Custom software",
         "text": "Software made for the way you work, from internal tools to full online platforms.",
-        "link": "/services/custom-software"
+        "link": "/services/custom-software",
+        "linkLabel": "Custom software development"
       },
       {
         "title": "AI agents",
         "text": "An AI agent answers customer questions and handles routine tasks, so your team can focus on people.",
-        "link": "/services/ai-agents"
+        "link": "/services/ai-agents",
+        "linkLabel": "AI agent development"
       },
       {
         "title": "QA and testing",
         "text": "We test your website or app before your customers do, and report every problem clearly.",
-        "link": "/services/qa-testing"
+        "link": "/services/qa-testing",
+        "linkLabel": "QA and software testing"
       },
       {
         "title": "Audits",
         "text": "An honest review of your code, design or search ranking, with a clear list of what to fix.",
-        "link": "/services/audit"
+        "link": "/services/audit",
+        "linkLabel": "Code, UX and SEO audits"
       },
       {
         "title": "Dedicated team",
         "text": "Developers, designers, QA and DevOps who work for you full time on a contract.",
-        "link": "/services/outstaffing"
+        "link": "/services/outstaffing",
+        "linkLabel": "Hire dedicated developers"
       },
       {
         "title": "Digital marketing",
         "text": "Search, social media, paid ads and influencers, planned to bring you real enquiries.",
-        "link": "/services/digital-marketing"
+        "link": "/services/digital-marketing",
+        "linkLabel": "Digital marketing services"
       },
       {
         "title": "Offline marketing",
         "text": "Events, print and on-the-ground activities that put your brand in front of people in Kathmandu.",
-        "link": "/services/offline-marketing"
+        "link": "/services/offline-marketing",
+        "linkLabel": "Offline and event marketing"
       }
     ],
     "allLinkLabel": "See all services",
@@ -101,7 +110,7 @@
       },
       {
         "title": "Based in Nepal",
-        "text": "We speak your language, know your market and are one message away on WhatsApp."
+        "text": "We speak your language, know your market and work from Nepal."
       },
       {
         "title": "Pay in the way that suits you",
@@ -204,6 +213,6 @@
   },
   "meta": {
     "title": "Software Development Company in Nepal | ADMMIS.TECH",
-    "metaDescription": "ADMMIS.TECH builds websites, apps and AI agents in Nepal, and runs your marketing. Pay by project or monthly on rent. Get a quote today."
+    "metaDescription": "ADMMIS.TECH is a software development company in Nepal. We build websites, apps and AI agents and run your marketing. Get a quote today."
   }
 }

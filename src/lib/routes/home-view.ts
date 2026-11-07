@@ -63,6 +63,7 @@ export function buildHomeView(
       title: card.title,
       summary: card.text,
       icon: SERVICE_ICONS[i],
+      linkLabel: card.linkLabel,
     })),
     cta: cta(home.services.allLinkLabel, home.services.allLink),
   }
@@ -172,6 +173,7 @@ export function buildChrome(locale: Locale, common: Messages['common']) {
 
   // WhatsApp and Call need numbers (TODO(roshan)); only the quote action exists for now.
   const stickyBar = {
+    label: common.stickyBar.navLabel,
     items: [
       {
         kind: 'quote' as const,

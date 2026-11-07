@@ -117,10 +117,6 @@
             "link": "/opening-event"
           },
           {
-            "label": "FAQ",
-            "link": "/faq"
-          },
-          {
             "label": "Contact",
             "link": "/contact"
           }
@@ -160,10 +156,17 @@
     "quote": "Get a quote",
     "whatsappAria": "Chat with us on WhatsApp",
     "callAria": "Call ADMMIS.TECH",
-    "quoteAria": "Get a quote"
+    "quoteAria": "Get a quote",
+    "navLabel": "Quick actions"
   },
   "faq": {
     "expand": "Show answer",
     "collapse": "Hide answer"
+  },
+  "notFound": {
+    "title": "We could not find that page",
+    "text": "The link may be old, or the page may have moved. Go back to the home page, or tell us what you need.",
+    "homeLabel": "Go to the home page",
+    "contactLabel": "Get a quote"
   }
 }

@@ -76,3 +76,7 @@ Needed by: review 18:00 · Reply: not needed
 ### 2026-11-07 11:30 MSK · raj → hritik · T-503, T-504 · REVIEW
 Please review docs/runbooks/infra-setup.md (new section 0), docs/runbooks/dns-cloudflare.md. Two technical points: Oracle A1 is Arm, so images must build linux/arm64 (sharp on musl untested; fallback Debian slim); reclaim mitigation 1 (memory above 20%) is logic from Oracle's wording, not proven.
 Needed by: Tue 10 Nov · Reply: inbox raj
+
+### 2026-11-07 11:14 MSK · pm → hritik · BUG-002 · FYI
+BUG-002(b) done by satish (commit b1c6166): preload link and img carry fetchpriority=high. Both halves of BUG-002 are in; rajaros re-measures LCP in the re-test.
+Needed by: n/a · Reply: not needed
