@@ -207,3 +207,7 @@ Needed by: CMS swap / sitemap task · Reply: not needed
 ### 2026-11-07 22:00 MSK · writer → mahendra · T-1006 / T-1007 · HANDOFF
 Copy ready: content/pages/pricing.md (template pricing, fields per pricing-spec 4; amounts from the CMS only; the file has an alternative metaDescription if prices are not public at launch) and content/pages/{privacy,terms,cookies}.md (template legal). The legal files are DRAFTS: show the draftNotice on the page until Roshan approves, and do not index them before approval. Use policyVersion 2026-11-draft-1 as the value the form sends with consent. Remove the "sources" section of privacy.md from the public page (team use only). TODO(roshan) lines: hide or show the fallback, never publish the TODO text.
 Needed by: when routes are ready · Reply: not needed
+
+### 2026-11-07 23:00 MSK · writer → mahendra · T-1008 · HANDOFF
+Copy ready, same format: content/pages/about.md (template about), content/pages/contact.md (template contact; thank-you fields are the thanks.* block, noindex), content/pages/opening-event.md (template event). Team, stats, clients, agenda and speakers are intentionally empty: hide those sections. Contact channels come from siteSettings, not this file. Event facts are TODO(roshan): hide or show the fallback, never publish the TODO text. Contact and event titles say "Nepal", not "Kathmandu" (see the file comment).
+Needed by: when routes are ready · Reply: not needed

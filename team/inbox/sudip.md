@@ -54,3 +54,7 @@ Needed by: Tue 10 Nov · Reply: only if you object
 ### 2026-11-07 22:00 MSK · writer → sudip · T-1006 / T-1007 · REVIEW
 Please check content/pages/pricing.md (primary keyword in title, H1 and sub as in your brief; FAQ answers 30 to 45 words) and the three legal drafts for meta and indexing (privacy, terms, cookies). Notes: the pricing meta promises "Public NPR and USD prices", which is true only after A6; I added an alternative meta in the file. Legal pages are drafts: index only after Roshan approves. Still waiting for your T-705c briefs (about, contact, opening event).
 Needed by: Tue 10 Nov · Reply: only if you object
+
+### 2026-11-07 23:00 MSK · writer → sudip · T-1008 · REVIEW
+Please check content/pages/{about,contact,opening-event}.md. One decision for you and Roshan: your contact title/meta/H1 and event meta say "Kathmandu", but our address on file is Janakpurdham-3 and you advised against claiming a Kathmandu office. I wrote "Nepal". Also, the event meta no longer promises an agenda or a Kathmandu venue (unconfirmed). Everything else follows your briefs and the spec limits.
+Needed by: Tue 10 Nov · Reply: tell me if you want the Kathmandu wording back
