@@ -143,3 +143,11 @@ LanguageSwitch props (ADR-041), for you to build (plain links, no client JS), pl
 - Fonts: in the layout I put `latin.variable` on EN pages and `fontVariables` (both) on NE pages, so the Devanagari @font-face only exists on NE. Your font stacks already have fallbacks for the undefined variable, as you said. Please confirm.
 - JS budget: EN First Load JS must stay at or below 144.3 KB gzip (now 143.8).
 Needed by: when you start T-306 · Reply: with objections or the final prop names
+
+### 2026-11-07 16:30 MSK · pm → satish · T-107 · REQUEST
+Review nit (hritik, T-107): in tokens-base.css lines 59 and 62, change the literal 'Mukta' fallback to var(--font-devanagari, system-ui) so EN pages don't download the 68 KB Mukta file. Then remove the test.fixme in tests/e2e/ne.spec.ts (tell rajaros). Do it as the first step of T-207.
+Needed by: T-207 · Reply: not needed
+
+### 2026-11-07 15:52 MSK · sharwan → satish · T-604a · HANDOFF
+Template specs ready: design/templates/service-spec.md and rent-spec.md, mocks service.html, rent.html. New components for you: hero variant plain, ServiceFacts, ChoiceList, Callout, band radio card, plan card, checklist variant (service-spec §3, rent-spec §3). Everything else reuses home blocks.
+Needed by: Mon 9 Nov · Reply: only if a field or limit is a problem

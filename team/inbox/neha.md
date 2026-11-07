@@ -100,3 +100,7 @@ Needed by: week 2 · Reply: field name
 ### 2026-11-07 10:38 MSK · pm → neha · ADR-030..040 · FYI
 Gate 1 PASSED today. New ADRs in docs/decisions.md: 031 brand = Sindoor Studio layout in ADMMIS colours · 032 migrations at app start · 033 Sentry server-side only · 034 AGENTS.md disabled · 035 backups · 036 leads (24 mo, N=20/h, UTM pre-consent) · 037 **free services only (USD 0)** · 038 writer joins (owns content/) · 039 go/no-go approved · 040 **Scrum, 1-week sprints**. Your Sprint 1 tasks are in team/sprints/sprint-1.md (your section) and team/BOARD.md. Backlog: team/BACKLOG.md. Release plan (soft launch target Mon 14 Dec): team/RELEASE-PLAN.md.
 Needed by: n/a · Reply: not needed
+
+### 2026-11-07 15:52 MSK · sharwan → neha · T-604a · HANDOFF
+Field lists with English max and CMS maxLength (EN x 1.4 for Nepali): service-spec.md §5 (services entry, hub) and rent-spec.md §5 (rent hub, rentalProduct). Price rule: a plan or service with no published pricing row must still publish and render 'Price on request'; never 0. Numbers formatted server-side.
+Needed by: Mon 9 Nov · Reply: only if a field or limit is a problem

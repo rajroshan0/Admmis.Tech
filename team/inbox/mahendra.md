@@ -119,3 +119,7 @@ Language switch + Nepali microcopy: content/microcopy.md (sections "Nepali" and 
 Layout: Nepali runs longer. Longest fields vs English: hero.subheadline, card texts (up to about 1.5x characters), CTA labels hero.ctaSecondary, event.ctaLabel, finalCta.ctaSecondary (about 1.6x). Check 360 px wrap and Devanagari line-height.
 TODO(roshan) fields are the same as in English; keep them hidden.
 Needed by: your /ne wiring · Reply: only if a length breaks the layout
+
+### 2026-11-07 15:52 MSK · sharwan → mahendra · T-604a · HANDOFF
+Template specs ready: design/templates/service-spec.md (service, services hub) and rent-spec.md (rent hub, rent product): section order, tone rule by visible index, states, quote/rent form fields, price-on-request fallback. Mocks: service.html, rent.html.
+Needed by: Mon 9 Nov · Reply: only if a field or limit is a problem
