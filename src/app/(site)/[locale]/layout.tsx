@@ -3,7 +3,7 @@ import type { Viewport } from 'next'
 import type { ReactNode } from 'react'
 
 import { fontVariables } from '@/brands/admmis-tech/fonts'
-import { Footer, Header, MobileStickyBar } from '@/components/layout'
+import { Footer, Header, MobileStickyBar, SkipLink } from '@/components/layout'
 import { isLocale } from '@/lib/i18n/config'
 import { getMessages } from '@/lib/i18n/messages'
 import { getServerEnv } from '@/lib/env'
@@ -36,12 +36,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={fontVariables}>
       <body>
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:start-2 focus:top-2 focus:z-50 focus:bg-white focus:p-3 focus:text-black"
-        >
-          {chrome.skipToContent}
-        </a>
+        <SkipLink label={chrome.skipToContent} />
         <Header {...chrome.header} />
         <main id="main">{children}</main>
         <Footer {...chrome.footer} />

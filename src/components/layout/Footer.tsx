@@ -14,7 +14,7 @@ export function Footer({ about, columns, contact, copyright }: Props) {
       <Container>
         <div className="grid grid-cols-2 gap-8 md:grid-cols-[1.4fr_1fr_1fr_1fr_1fr_1.3fr]">
           <div className="col-span-2 md:col-span-1">
-            <Logo onDark className="mb-4 h-8" />
+            <Logo onDark lazy className="mb-4 h-8" />
             <p className="max-w-[32ch] text-card">{about}</p>
           </div>
           {columns.map((col) => (

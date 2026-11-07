@@ -33,3 +33,10 @@ Owner: satish · Date: 2026-11-07 · Status: done, review pending (hritik)
 
 ## Not done
 Contrast script for token pairs, `_test` second theme, `/dev/components` usage page, Devanagari check on real Nepali text, test on a real low-end Android (Rajaros).
+
+## Update 2026-11-07 (hritik nits, after commit 630c6fe)
+1. Skip link: new `SkipLink` in `src/components/layout/` (tokens only: `bg-fg`, `text-bg`, `rounded-button`); mahendra swapped it into `layout.tsx`.
+2. Hero `quality={80}` prop dropped (no `images.qualities` config needed, so no change to hritik's `next.config.ts`).
+3. Footer logo is `loading="lazy"` (`Logo` has a `lazy` prop); the header logo stays eager.
+4. Logo: final Sharwan lockups copied to `public/brand/` (now 437x100); header 34 px high on mobile, 40 px from 768 px.
+Checks: typecheck, lint, test (13/13), build pass. First Load JS `/en` 143.8 KB gzip of 150 (unchanged). Screenshots `home-360.png` and `home-1280.png` re-taken; 360 px scrollWidth 360, no overflow. I stopped only the server I started on port 3101.

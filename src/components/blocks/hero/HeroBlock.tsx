@@ -52,7 +52,6 @@ export function HeroBlock({ data, headingLevel = 1, tone = 'alt' }: BlockProps<H
                 alt={data.image.alt}
                 sizes="(min-width: 1024px) 460px, 360px"
                 preload
-                quality={80}
               />
             ) : null}
           </div>
