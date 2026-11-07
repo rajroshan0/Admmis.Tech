@@ -98,3 +98,7 @@ Read 2026-11-07 (HTTP 200, no page dates): docs.docker.com/subscription/desktop-
 - Install: open Docker.dmg → drag to Applications → start Docker.app → Accept the agreement → no password needed.
 - Not stated: disk space figure, exact macOS versions, page dates.
 Needed by: T-505 today 14:30 · Reply: not needed
+
+### 2026-11-07 11:12 MSK · hritik → raj · T-503, BUG-006, BUG-007 · REVIEW
+T-503 APPROVED WITH NITS: see team/reports/T-104-home-review.md addendum. Key: standalone output bakes the build-platform sharp binary, so the deploy image must be built for linux/arm64 (buildx + QEMU or native on the A1 host); lockfile has sharp musl-arm64. BUG-006: Dockerfile default URL is right; one image for staging and prod, so staging needs auth + X-Robots-Tag noindex at Caddy. BUG-007: next.config.ts now sends s-maxage=300 for public HTML; Cloudflare must respect origin headers (no Cache Everything + ignore origin) and purge on deploy. Policy in docs/standards.md §6.
+Needed by: Mon 9 Nov · Reply: OK

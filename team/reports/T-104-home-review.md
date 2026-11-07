@@ -72,3 +72,31 @@ and a plain TS alias is then unnecessary: code imports `@/brands/active`. I will
 - `next.config.ts`: added `agentRules: false`. Verified in `node_modules/next/dist/docs/01-app/03-api-reference/05-config/01-next-config-js/agentRules.md`. Typecheck passes.
 - `docs/standards.md` §1: added the "read the Next 16 docs in `node_modules/next/dist/docs/` before coding" rule.
 - **Root `AGENTS.md`**: I did not delete it. Important: in `generate-agent-files.js`, when `agentRules` is false, `next dev` removes the managed block and then **deletes `AGENTS.md` itself if nothing else is in it**. The file contains only the managed block, so the next `next dev` will delete it automatically. Recommendation: let that happen, but Roshan should OK it first (CLAUDE.md §3 delete rule). If Roshan wants to keep the file, add any text outside the markers.
+
+---
+# Addendum 2026-11-07 (batch 2): BUG fixes and reviews
+
+## BUG-002 (a) fixed, BUG-007 fixed (hritik, next.config.ts)
+- Critical-CH came from `withPayload` (adds Accept-CH, Vary, Critical-CH to `/:path*`). `next.config.ts` now rewrites those rules to `/admin/:path*` only. Production build checked on port 3104: `/` and `/en` carry none of the three headers.
+- Public HTML now sends `Cache-Control: public, max-age=0, s-maxage=300, stale-while-revalidate=3600`. `/_next/static` stays immutable. Policy is in docs/standards.md §6.
+- BUG-002 (b): fetchPriority="high" on the hero image, REQUEST sent to satish.
+
+## BUG-006 (my part)
+Dockerfile defaults `NEXT_PUBLIC_SITE_URL=https://tech.admmis.org` and the ci.yml docker job passes no override, so the deployed image canonical is correct. The `http://localhost:3000` values in ci.yml are the test jobs only, which is right. Rule: one image per commit, built with the production URL; staging is the same image, so staging must be behind auth and send `X-Robots-Tag: noindex` (raj, at Caddy). Remaining: og:image (mahendra).
+
+## T-803 e2e (rajaros): APPROVED WITH NITS
+Good: runs against the production build, `test.fail` markers with bug ids, copy checked against content/pages/home.md, keyboard, axe at two widths, reduced motion.
+Nits:
+1. Add one test that guards my fixes: GET `/` has no `critical-ch` header and `cache-control` contains `s-maxage=300`.
+2. Sticky bar locator uses `div.fixed.bottom-0` plus the text "Get a quote": brittle. Ask satish for a `data-testid` or select by role and name.
+3. Mobile menu trap test accepts any element inside `header`; the panel is inside the header, so it cannot detect focus escaping to the logo link. Tighten to the panel plus the toggle.
+4. `pnpm start` on a `standalone` build prints a warning. Fine for now; the Docker image runs `node server.js`, so add one smoke run against the container later.
+
+## T-503 infra v0.2 §0 (raj): APPROVED WITH NITS
+Technically sound. The arm64 need is real and larger than the doc says:
+1. **Build must run on arm64.** `output: 'standalone'` copies the traced node_modules of the build platform, including sharp's native binary. A build-on-amd64 image will not run on Oracle A1. Use `docker buildx --platform linux/arm64` with QEMU for the whole build, or build natively on the Oracle host. Expect a QEMU build to take 10 to 20 minutes; it is only needed for the deploy build. Keep the amd64 build in CI for speed. Arm GitHub runners are free only for public repos; the repo visibility is still open.
+2. sharp: pnpm-lock.yaml already contains `@img/sharp-linuxmusl-arm64@0.35.5` and `@img/sharp-linux-arm64`, so a prebuilt binary exists for Alpine arm64. I still want one smoke test (image optimisation request) in the arm64 job. If it fails, switch the runtime base to Debian slim.
+3. postgres:17 and caddy images are multi-arch: fine.
+4. Image optimisation (`/_next/image`) runs on 2 Arm cores: keep Cloudflare caching for it and the 22 KB hero as the only large image.
+5. Section 0.2 mitigation 1 (use a larger Node heap so memory looks busy) is a hack. Prefer real load: run production, staging and the nightly backup. Do not tune settings for the sake of a metric.
+6. Add to the free-stack table: single image, prod URL baked in (see BUG-006).

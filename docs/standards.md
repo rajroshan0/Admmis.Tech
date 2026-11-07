@@ -110,6 +110,8 @@ Unit tests sit next to the code: `foo.ts` → `foo.test.ts`.
 
 Rules: `next/image` for every image (AVIF/WebP, explicit width/height, `priority` only for the LCP image); fonts self-hosted via `next/font`, subset, `display: swap`; no third-party script before consent; animations use `transform`/`opacity` and respect `prefers-reduced-motion`; no client-side data fetching for content; content pages are static/ISR (`revalidate` on publish via Payload hook). Nothing under `(site)` may read `cookies()`, `headers()` or `searchParams` in layouts or pages (it silently makes the route dynamic); CI checks the build output lists public content routes as static/ISR.
 
+**Caching and headers (BUG-002, BUG-007).** Public HTML is sent with `Cache-Control: public, max-age=0, s-maxage=300, stale-while-revalidate=3600` (set in `next.config.ts`; Next's default for prerendered pages is a one-year `s-maxage`, which risks a stale page behind Cloudflare). Cloudflare respects origin headers for HTML (no "Cache Everything" with "Ignore origin"); raj purges on deploy; the Payload publish hook calls `revalidatePath`. `/_next/static` stays immutable. Client-hint headers (`Accept-CH`, `Critical-CH`, `Sec-CH-Prefers-Color-Scheme`) are allowed on `/admin` only: `Critical-CH` restarts the first request in Chrome and costs about 600 ms of LCP. Never add them to public routes.
+
 ## 7. Accessibility (WCAG 2.2 AA)
 Semantic landmarks and one `h1` per page; every input has a label; visible focus; contrast ≥ 4.5:1; alt text from CMS (required field, empty only when marked decorative); all interactive elements keyboard-operable; dialogs trap and restore focus; motion honors reduced-motion. `eslint-plugin-jsx-a11y` on; axe checks in Playwright (rajaros).
 
