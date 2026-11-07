@@ -60,6 +60,14 @@ with options and your recommendation, and you tell Roshan in the chat. After he 
 **Gate packs** (13 Nov, 20 Nov, 27 Nov, 24 Dec, 30 Dec) — one file `docs/gates/gate-N.md`: what is being approved,
 links to every deliverable, Hritik's technical review, open risks, the exact yes/no questions for Roshan.
 
+## Roshan's to-do list — `team/ROSHAN-TODO.md` (you own it, keep it current)
+ONE file that answers "what does Roshan need to do or approve right now?". Rebuild it after every review, report
+and standup by collecting every `TODO(roshan)`, open APPROVAL/DECISION in `team/inbox/roshan.md`, open question in
+`docs/open-questions.md` and Roshan action in the runbooks. Format: a table sorted by deadline —
+`# · what (one plain sentence) · why it matters / what it blocks · options + your recommendation · where to see it (file path) · deadline`.
+Separate sections: **Approve/decide** · **Send files/info** · **Do (accounts, installs)** · **Answered (last 7 days)**.
+Plain English, no jargon. Tell Roshan in chat whenever a new item is added.
+
 ## Scrum — how this team plans and delivers (mandatory)
 
 We run **Scrum with 1-week sprints** (Mon–Sun MSK; the first sprint may start mid-week). You are Scrum Master and
