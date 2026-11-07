@@ -29,6 +29,7 @@ Reply in the lead chat, e.g. "A1 yes, A2 option A, B3: +977 98…". PM records y
 | B5 | The 4 case studies: client type (or anonymous), what we built, result numbers, permission to show, screenshots | "Our work" shows titles only; case pages can't be written | `docs/company-info.md` table | Fri 20 Nov |
 | B6 | Opening event: venue, city, start/end time, do guests register? | Event section and event page | lead chat | Fri 20 Nov |
 | B7 | FAQ facts: typical time for a website / app / AI agent; ownership terms; support terms after launch; may we promise a same-working-day reply? | 3 of 6 homepage FAQs are hidden until answered | lead chat | Fri 13 Nov |
+| B11 | Optional proof facts: years in business, team size, VAT number, and the NPR→USD rate to use for prices | Service pages read stronger with real numbers; we never invent them | lead chat | Fri 20 Nov |
 | B8 | Vector original of the ADMMIS.TECH logo (SVG/AI/CDR/Canva), if it exists | We use a careful redraw meanwhile | `design/inputs/` | any time |
 | B9 | Hero model: transparent cut-outs, 2000 px tall, 2–3 poses (current image is 768 px, slightly soft on sharp phones) | Hero sharpness | `design/inputs/` | Fri 20 Nov |
 | B10 | Lead handling (Q10): team chat (Slack free?), sales email, CRM (HubSpot Free?), who answers leads | Lead alerts | lead chat | Fri 20 Nov |
