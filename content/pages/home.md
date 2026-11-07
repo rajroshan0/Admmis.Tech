@@ -4,7 +4,7 @@ template: home
 primaryKeyword: software development company Nepal
 title: "Software Development Company in Nepal | ADMMIS.TECH"
 metaDescription: "ADMMIS.TECH is a software development company in Nepal. We build websites, apps and AI agents and run your marketing. Get a quote today."
-status: review
+status: approved
 openTodos: see TODO(roshan) markers (PAN, address, phone, WhatsApp number, case results, event venue and time, FAQ facts)
 ---
 
@@ -28,7 +28,6 @@ openTodos: see TODO(roshan) markers (PAN, address, phone, WhatsApp number, case 
 ## hero
 - eyebrow: Software development company, Nepal
 - headline: Software, apps and AI built in Nepal
-<!-- ALTERNATIVE (pending Roshan, ROSHAN-TODO A10): Software development company in Nepal -->
 - subheadline: We build your website, app or AI agent, and we market it. Pay by project, or monthly on rent.
 - ctaPrimary: Get a quote
 - ctaPrimaryLink: /contact

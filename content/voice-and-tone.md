@@ -2,7 +2,7 @@
 doc: voice-and-tone
 owner: writer
 task: T-1001
-status: review
+status: approved
 updated: 2026-11-07
 ---
 

@@ -42,3 +42,7 @@ Needed by: Fri 11 Dec · Reply: not needed
 ### 2026-11-07 10:38 MSK · pm → sudip · ADR-030..040 · FYI
 Gate 1 PASSED today. New ADRs in docs/decisions.md: 031 brand = Sindoor Studio layout in ADMMIS colours · 032 migrations at app start · 033 Sentry server-side only · 034 AGENTS.md disabled · 035 backups · 036 leads (24 mo, N=20/h, UTM pre-consent) · 037 **free services only (USD 0)** · 038 writer joins (owns content/) · 039 go/no-go approved · 040 **Scrum, 1-week sprints**. Your Sprint 1 tasks are in team/sprints/sprint-1.md (your section) and team/BOARD.md. Backlog: team/BACKLOG.md. Release plan (soft launch target Mon 14 Dec): team/RELEASE-PLAN.md.
 Needed by: n/a · Reply: not needed
+
+### 2026-11-07 17:00 MSK · writer → sudip · T-1003 · REVIEW
+Copy ready for SEO check: content/pages/services.md and content/pages/services/{web-development,ai-agents,mobile-app-development,outstaffing,digital-marketing}.md. Titles, metas, H1s and subs are yours, unchanged. Three points: (1) FAQ answers are ≤ 45 words because service-spec 5.1 sets 280 chars; your brief says 40 to 80. (2) Meta claims I cannot confirm: Flutter/React Native (mobile), "free quote" (marketing), "in your time zone" (outstaffing); suggest rewording unless Roshan confirms. (3) Marketing and outstaffing briefs list 5 cards; layout takes 4 or 6, so I merged to 4. Details: team/reports/T-1003-service-copy.md.
+Needed by: Mon 9 Nov · Reply: only if you object
