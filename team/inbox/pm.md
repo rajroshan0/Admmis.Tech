@@ -108,3 +108,7 @@ Done early. Details in my reply and reports team/reports/T-603-homepage-design.m
 
 ### 2026-11-07 11:05 MSK · sharwan → pm · T-601 · DONE
 Logo set redrawn from Roshan's logo, all files under 10 KB, signboard redraw kept as admmis-tech-signboard-*.svg. Report team/reports/T-601-at-logo.md. Satish notified.
+
+### 2026-11-07 11:00 MSK · sudip → pm · T-704, T-707 · FYI
+T-704 DONE: seo/sitemap.md v0.2 (no /faq, 301/308, robots without thank-you Disallow, H1 rule 7, JSON-LD table section 6, answers section 7). keyword-map.md /faq row removed. T-707 DONE: REVIEW in team/inbox/writer.md. Note for you: content/pages/home.md footer still links /faq; and the address says Janakpurdham while our keyword modifiers say Kathmandu, a question for Roshan. T-705 briefs in progress, P0 target 19:00 MSK.
+Needed by: n/a · Reply: not needed

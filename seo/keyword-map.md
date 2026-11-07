@@ -1,6 +1,6 @@
 # Keyword map (EN) — tech.admmis.org
 
-Owner: sudip · Task: T-701 · v0.1 · 2026-11-06 · Reviewer: pm
+Owner: sudip · Task: T-701 · v0.2 · 2026-11-07 (/faq removed) · Reviewer: pm
 
 ## 0. How to read this (honest data note)
 
@@ -35,12 +35,13 @@ Rows follow `seo/sitemap.md`. One primary per page. Secondary keywords are used 
 | `/work/[slug]` | one per case: "[industry] [solution] Nepal" | C | VL | L | set when cases are picked |
 | `/about` | about ADMMIS.TECH | I (brand) | VL | L | ADMMIS Nepal; ADMMIS technology |
 | `/contact` | contact software company Kathmandu | T | VL | L | get a quote web development Nepal; WhatsApp developer Nepal |
-| `/faq` | web development FAQ Nepal | I | VL | L | how long does a website take; who owns the code; support after launch |
 | `/careers` | IT jobs Kathmandu | T (jobs) | M | M | developer jobs Nepal; QA jobs Kathmandu; designer jobs Kathmandu |
 | `/careers/[slug]` | "[role] job Kathmandu" | T | L | L | per role |
 | `/opening-event` | ADMMIS.TECH opening event | I (brand) | VL | L | tech event Kathmandu 2027; ADMMIS launch |
 | `/blog` | tech and marketing blog Nepal | I | VL | L | — |
 | `/privacy`, `/terms`, `/cookies` | none (not targeted) | — | — | — | Index low priority |
+
+Note (v0.2, 2026-11-07): `/faq` was dropped from launch (ADR-029). Its keywords ("how long does a website take", "who owns the code", "support after launch") move into FAQ blocks on `/services/web-development`, `/pricing` and `/rent/website`. "web development FAQ Nepal" is not targeted.
 
 ## 2. Launch articles (3), picked to feed money pages
 

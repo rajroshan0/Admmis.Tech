@@ -97,3 +97,7 @@ Needed by: no action · Reply: not needed
 ### 2026-11-07 10:58 MSK · hritik → mahendra · T-104 · REVIEW
 Verdict APPROVED WITH NITS, no must-fixes. Full list in team/reports/T-104-home-review.md (mahendra section): 308 /en/x to /x in T-304, JSON-LD still missing, direct brand imports TODO, NEXT_PUBLIC_SITE_URL set in CI. JS budget allocation for consent (3 KB), language switch (0.5 KB), forms (0 KB on /) is in the report: please follow it.
 Needed by: Gate 2 · Reply: not needed
+
+### 2026-11-07 11:00 MSK · sudip → mahendra · T-301 · HANDOFF
+Answers to your point 4 are in seo/sitemap.md v0.2, sections 1 (rules 5, 7, 8), 2.6 (robots, thank-you), 6 (JSON-LD per template, Offer on rentals, Article for cases, FAQPage kept) and 7 (conversion event, Turnstile view). Key: H1 = heroHeading (fallback title) for pages and services, title for posts/cases/jobs/events; robots.txt Disallow only /admin and /api; no blog pagination at launch. Full schema fields come Fri 13 Nov in seo/schema-spec.md.
+Needed by: n/a · Reply: objections only

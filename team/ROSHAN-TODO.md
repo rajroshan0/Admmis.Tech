@@ -11,6 +11,7 @@ Reply in the lead chat, e.g. "A1 yes, A2 option A, B3: +977 98…". PM records y
 | A2 | Approve the voice-and-tone guide | All copy follows it | Recommend: approve | `content/voice-and-tone.md` | Sun 8 Nov |
 | A3 | Approve the homepage copy | It goes live as written | Recommend: approve; fill the gaps in B1–B7 | `content/pages/home.md` | Sun 8 Nov |
 | A4 | Accept the logo redraw of your PNG | Used in header, footer, favicon | Recommend: accept now, swap in your vector original later if one exists (B8) | `design/logo/index.html` | Sun 8 Nov |
+| A10 | Homepage heading: sudip (SEO) suggests "Software, apps and AI built in Nepal" with the eyebrow "Software development company, Nepal" | Puts the main search phrase on the page | Recommend: sudip's version (applied after QA today); alternative: "Software development company in Nepal" | `team/inbox/writer.md` (sudip 11:00) | Sun 8 Nov |
 | A5 | OK for the unused `AGENTS.md` file to be removed automatically (you chose "disable" at Gate 1) | Next.js removes it on the next `pnpm dev`; it is untracked and contains only generated text | Recommend: yes | repo root `AGENTS.md` | Sun 8 Nov |
 | A6 | Prices: bands, rental prices, team-on-rent option, terms (P1–P6) | Pricing and rent pages. Team-on-rent may be **3–4× underpriced for foreign clients** | Recommend: P1–P4 yes, team option A + a separate USD rate card | `docs/pricing-summary.md` | Fri 13 Nov |
 | A7 | Budget plan and team pay model (Q19, Q20) | Real cash plan | Free-services-only for now (ADR-037) | `docs/budget.md` | Fri 13 Nov |
@@ -22,7 +23,7 @@ Reply in the lead chat, e.g. "A1 yes, A2 option A, B3: +977 98…". PM records y
 | # | What | Why it matters / what it blocks | Where it goes | Deadline |
 |---|---|---|---|---|
 | B1 | PAN: the number on file has 12 digits (Nepal PANs have 9). The correct number? And is ADMMIS registered in Nepal? | Footer and legal pages; not published until confirmed | `docs/company-info.md` | Fri 13 Nov |
-| B2 | ADMMIS.TECH address: is it also Janaki Chowk, Janakpurdham-3? | Footer, contact page, Google listing | same | Fri 13 Nov |
+| B2 | ADMMIS.TECH address: is it also Janaki Chowk, Janakpurdham-3? Do we have (or plan) a Kathmandu office? Many search keywords say "Kathmandu"; we won't claim an office we don't have | Footer, contact page, Google listing | same | Fri 13 Nov |
 | B3 | Which phone number(s) to publish, and the WhatsApp number | The mobile bottom bar shows only "Get a quote" until then | same | Fri 13 Nov |
 | B4 | ADMMIS.TECH social accounts (the ones we have are ADMMIS.FASHION) | Footer links | same | Fri 20 Nov |
 | B5 | The 4 case studies: client type (or anonymous), what we built, result numbers, permission to show, screenshots | "Our work" shows titles only; case pages can't be written | `docs/company-info.md` table | Fri 20 Nov |
