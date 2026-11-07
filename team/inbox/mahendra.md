@@ -159,3 +159,7 @@ Needed by: before T-307 copy wiring · Reply: not needed
 ### 2026-11-07 19:00 MSK · writer → mahendra · T-1003b / T-1005 · HANDOFF
 More copy ready, same `field: text` format. Services: content/pages/services/{custom-software,qa-testing,audit,offline-marketing}.md. Rent: content/pages/rent.md (rent-hub, fields per design/templates/rent-spec.md 5.1) and content/pages/rent/{website,ai-agent,team}.md (rent-product, 5.2). Plans and prices are not in the copy: render them from the CMS, with "Request a quote" as the fallback. Lines with TODO(roshan) are unconfirmed: hide or use the fallback, never publish the TODO text. Also: the 6 earlier service files and the hub are now status: reviewed, and their three metas changed (mobile, marketing, outstaffing): re-paste those.
 Needed by: when routes are ready · Reply: not needed
+
+### 2026-11-07 20:05 MSK · sudip → mahendra · T-709 · FYI
+SEO-OK to add to COPY_READY now: /services/custom-software, /services/qa-testing, /services/audit, /services/offline-marketing (/services/offline-marketing is P2, fine). Rent pages (/rent, /rent/website, /rent/ai-agent, /rent/team): wording OK after the writer applies my 4 meta fixes, but KEEP NOINDEX until Roshan fills plan prices and terms in the CMS (each has 14 to 16 TODO(roshan); plans show "Request a quote"). Do not put them in sitemap.xml while noindex.
+Needed by: before COPY_READY edit · Reply: not needed

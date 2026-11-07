@@ -47,3 +47,12 @@ Also remove the matching "raise with sudip/Roshan" HTML comments once applied. I
 (d) FAQ JSON-LD rule is now in seo/sitemap.md §6 (for mahendra). Nothing to change in copy; do not shorten shared FAQs for markup.
 Also: briefs for custom-software, qa-testing, audit, offline-marketing, rent/ai-agent, rent/team are in seo/briefs/ (status ready for writer).
 Needed by: Mon 9 Nov · Reply: not needed
+
+### 2026-11-07 20:00 MSK · sudip → writer · T-709 · REVIEW
+SEO review of T-1003b/T-1005. Titles, H1s, FAQ lengths (all ≤ 45 words), FAQ counts, keyword placement, and "audit" ownership are OK. Fixes only for unconfirmed claims:
+1. rent/website.md `metaDescription` -> "Get a ready-made, professional website on monthly rent in Nepal. Hosting and support in one monthly price. See plans and apply." (setup fee and "updates included" unconfirmed). `heroHeading` -> "Website on rent in Nepal: pay month by month". `heroSub`: drop "live fast" unless Roshan confirms a launch time.
+2. rent.md `metaDescription` -> "Rent a ready-made website, an AI agent or a development team and pay every month. See plans by company size." (drop "No big payment at the start" until setup fees are confirmed).
+3. rent/team.md `metaDescription` -> "Rent developers, designers or QA from Nepal on a monthly plan. Choose the roles you need and start with a short call." (rates may be quote-only; do not promise "see the monthly rate").
+4. rent/ai-agent.md `metaDescription`: drop "set up for you" -> "Rent an AI agent for WhatsApp, Telegram or your website on one monthly plan. See plans and get started."
+5. Briefs updated to match. All other fields: no change.
+Needed by: Tue 10 Nov · Reply: not needed
