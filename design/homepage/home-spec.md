@@ -252,6 +252,9 @@ Content from `docs/company-info.md` only. Top: lockup (dark, 44 px high) + about
 ### 3.13 Sticky action bar (below 768 px only)
 Fixed bottom, 3 equal-height buttons (48 px) with 8 px gap, white background, 1 px `--line` top border, soft upward shadow, safe-area padding. WhatsApp and Call: outline buttons (white, 2 px navy border, icon + label, 14/700). "Get a quote": primary orange, 1.5x wider. Body gets 72 px bottom padding so nothing is hidden. Hidden when the mobile menu is open and when a text field has focus (keyboard up), CSS-only where possible (`:has()` is not needed; mahendra decides). Labels max 10 characters. Links: WhatsApp `https://wa.me/<number>` (TODO(roshan): number), `tel:` (TODO(roshan)), `/contact`.
 
+### 3.14 Logo usage
+Source: Roshan's logo, vectorised (`design/logo/README.md`). Header: `admmis-tech-lockup.svg` (aspect 4.4:1, 148 x 34 px mobile, 40 px high desktop, never below 32 px). Footer and navy sections: `admmis-tech-lockup-dark.svg`. Favicon: `favicon.svg` + `png/favicon-32.png`, `png/apple-touch-icon-180.png`. Full badge `admmis-tech-badge.svg` (min 200 px) for the about and event pages and the OG image, not for the header. Clear space: 4 hexagon stroke widths. Do not recolour, stretch or add the orange dot of the earlier wordmark: the supplied logo has ADMMIS with TECH spaced below it.
+
 ## 4. States for shared parts
 
 | Part | Default | Hover | Focus-visible | Active | Disabled |

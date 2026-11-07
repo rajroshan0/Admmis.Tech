@@ -7,7 +7,7 @@ Roshan's own logo `design/inputs/admmis.tech logo.png` (1254 x 1254), per the PM
 ## Delivered (`design/logo/`)
 | File | Use | Size |
 |---|---|---|
-| `admmis-tech-badge.svg`, `-dark.svg` | Full badge with ring text | 12 KB |
+| `admmis-tech-badge.svg`, `-dark.svg` | Full badge with ring text | 10 KB (10,144 bytes; ring-text glyphs defined once and reused) |
 | `admmis-tech-lockup.svg`, `-dark.svg` | Compact lockup (mark + ADMMIS / TECH), header and footer | 2.9 KB |
 | `admmis-tech-mark.svg`, `-dark.svg` | Hexagon + A, no wordmark | 1 KB |
 | `favicon.svg` | Navy tile, hexagon + A + swoosh + node | 0.9 KB |
@@ -19,8 +19,11 @@ All SVGs parse as XML and render in rsvg and Chrome. Badge compared visually wit
 ## Differences from the source
 - Navy and orange use the site tokens (`#0A1F4A`, `#F48221`); the PNG is about `#072051` and `#FB920A`.
 - Wordmark and ring text are close matches, not the original letterforms (no font data in the PNG).
-- Favicon drops the circuit lines (illegible at 32 px). Badge is 12 KB (above the 10 KB target) because of the ring text; the header assets are far smaller.
+- Favicon drops the circuit lines (illegible at 32 px). All files are under 10 KB (badge 10,144 bytes, the rest 1 to 3 KB).
 - TECH in the compact lockup is about 7 px tall at the 34 px header height: do not go below 32 px.
+
+## Kept for reference
+`design/logo/admmis-tech-signboard-{mark,mark-dark,lockup,lockup-dark,favicon}.svg`: first redraw from the signboard emblem, not for use.
 
 ## Question for Roshan
 Does a vector original of this logo exist (SVG, AI, CDR, Canva)? If so, I replace these files with it.

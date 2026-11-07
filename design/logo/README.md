@@ -10,7 +10,7 @@ The ADMMIS signboard emblem (`design/inputs/admmis-logo-crop.png`) was used only
 |---|---|---|
 | `admmis-tech-lockup.svg` | Compact lockup: hexagon mark + ADMMIS / TECH, light backgrounds. **Header** (40 px desktop, 34 px mobile, never below 32 px) | 2.9 KB |
 | `admmis-tech-lockup-dark.svg` | Same in white on navy `#0A1F4A`. Footer, navy sections | 2.9 KB |
-| `admmis-tech-badge.svg` / `-dark.svg` | Full badge with ring, 6 orange nodes and ring text. Social, print, about page. At least 200 px | 12 KB |
+| `admmis-tech-badge.svg` / `-dark.svg` | Full badge with ring, 6 orange nodes and ring text. Social, print, about page. At least 200 px | 10 KB |
 | `admmis-tech-mark.svg` / `-dark.svg` | Hexagon + A + swoosh + circuits, no wordmark | 1 KB |
 | `favicon.svg` | Navy tile, hexagon + A + swoosh + node (no circuits), checked at 32 px | 0.9 KB |
 | `png/` | Raster exports: badge, lockup, mark (light and dark), `favicon-16/32.png`, `apple-touch-icon-180.png`, `favicon-512.png` | |
@@ -19,4 +19,4 @@ Colours: navy `#0A1F4A`, orange `#F48221`, ring `#9AA5BD` (light) or `#445372` (
 Dark variant: hexagon, A, circuits, text and dots are white; orange nodes stay orange. Dark SVGs are transparent (place on navy).
 
 ## Superseded
-`concept-*.svg` and `png/concept-*`: earlier "AT" monogram concepts. The first signboard-emblem redraw (hexagon with network "A") was replaced by these files.
+`concept-*.svg` and `png/concept-*`: earlier "AT" monogram concepts. `admmis-tech-signboard-{mark,mark-dark,lockup,lockup-dark,favicon}.svg`: my first redraw from the ADMMIS signboard emblem (hexagon with network "A"), kept for reference, not for use.
