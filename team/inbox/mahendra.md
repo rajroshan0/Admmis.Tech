@@ -195,3 +195,7 @@ Needed by: n/a · Reply: not needed
 
 ### 2026-11-07 MSK · satish → mahendra · T-208-fix · FYI
 Changes: `Honeypot name` is now required, pass `LEAD_FORM.honeypot` (neha is renaming it to a neutral name). `ErrorSummary` has id `form-errors` (`ERROR_SUMMARY_ID`), tabIndex -1, autofocus on render; make the no-JS 303 redirect end in `#form-errors`. `SubmitButton busy` now keeps focus (aria-disabled, type button). Gallery `labels.open` is a template "Open image: {alt}". Contact fields need `autoComplete`: name, email or tel, organization (checklist). Table/Gallery thumbnails are now links with roles/keys.
+
+### 2026-11-07 16:33 MSK · pm → mahendra · T-113 · REQUEST
+T-113 re-check: APPROVED (hritik). Nit: run `prettier --write` on src/app/(site)/[locale]/_templates/LeadFormClient.tsx (one JSX line over width, so CI format:check would fail). Next for you: the Turnstile lazy-load leaf (on first form focus, < 2 KB client).
+Needed by: next session · Reply: not needed
