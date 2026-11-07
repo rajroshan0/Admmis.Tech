@@ -7,22 +7,530 @@
     "requestQuote": "Request a quote",
     "getQuote": "Get a quote",
     "introHeading": "What you rent",
-    "placeholderTitle": "More detail is coming soon",
-    "placeholderText": "Plans and prices are being finished. Ask us for a quote and we answer your questions directly.",
-    "cardsHeading": "Choose what to rent"
+    "cardsHeading": "Choose what to rent",
+    "crossSellHeading": "You may also need",
+    "notIncludedHeading": "Not included",
+    "minTermLabel": "Minimum term",
+    "setupLabel": "Setup"
   },
   "hub": {
     "seoTitle": "Website and Software Subscription in Nepal | ADMMIS.TECH",
     "metaDescription": "Rent a ready-made website, an AI agent or a development team and pay every month. No big payment at the start. See plans by company size.",
-    "heroHeading": "Monthly website and software subscription for Nepal",
-    "heroSub": "Rent what you need and pay every month. We look after hosting, updates and support."
+    "hero": {
+      "heading": "Monthly website and software subscription for Nepal",
+      "sub": "Rent what you need and pay every month. We look after hosting, updates and support."
+    },
+    "blocks": [
+      {
+        "kind": "cards",
+        "key": "meaning",
+        "heading": "What \"on rent\" means",
+        "items": [
+          {
+            "title": "You pay every month",
+            "text": "A monthly price replaces a large payment at the start."
+          }
+        ]
+      },
+      {
+        "kind": "check",
+        "key": "included",
+        "heading": "Included",
+        "items": [
+          {
+            "title": "Hosting for your service"
+          },
+          {
+            "title": "Updates and fixes"
+          },
+          {
+            "title": "Support hours each month"
+          },
+          {
+            "title": "Backups of your data"
+          }
+        ]
+      },
+      {
+        "kind": "dash",
+        "key": "notIncluded",
+        "heading": "Not included",
+        "items": [
+          {
+            "title": "Payment gateway fees"
+          },
+          {
+            "title": "SMS costs"
+          },
+          {
+            "title": "Paid plugins or tools"
+          },
+          {
+            "title": "Advertising spend"
+          },
+          {
+            "title": "New custom features"
+          }
+        ]
+      }
+    ],
+    "faq": {
+      "heading": "Questions about renting",
+      "items": [
+        {
+          "q": "What does renting a website or software mean?",
+          "a": "You pay a monthly price instead of a large payment at the start. We look after hosting, updates and support. You use the service, and your content stays yours."
+        },
+        {
+          "q": "Which plan fits my business size?",
+          "a": "Choose the size that is closest to your company: S, M, L or XL. On our first call we confirm it with you. If you are between two sizes, we explain the choice."
+        }
+      ]
+    },
+    "form": {
+      "heading": "Tell us what you need",
+      "text": "Tell us what you want to rent and the size of your company. We reply with a plan."
+    },
+    "products": {
+      "productsHeading": "Choose what to rent",
+      "productsIntro": "Three things you can rent. Each has its own page and its own plans."
+    }
   },
   "items": {
+    "ai-agent": {
+      "seoTitle": "AI Chatbot Subscription in Nepal | ADMMIS.TECH",
+      "metaDescription": "Rent an AI agent for WhatsApp, Telegram or your website. One monthly price, set up for you. See plans and get started.",
+      "hero": {
+        "heading": "An AI agent for your business, on a monthly plan",
+        "eyebrow": "On rent",
+        "sub": "It answers common questions and handles routine tasks. You pay one monthly fee and we run it for you."
+      },
+      "blocks": [
+        {
+          "kind": "steps",
+          "key": "howSteps",
+          "heading": "What you get",
+          "intro": "A chatbot follows fixed buttons and set answers. An AI agent understands normal sentences and uses your information to reply. Rent one agent, and we set it up and run it for you.",
+          "items": [
+            {
+              "title": "We set it up",
+              "text": "We build one agent on one channel, using your own information."
+            },
+            {
+              "title": "We improve it",
+              "text": "We update its answers and give support, up to the hours in your plan."
+            }
+          ]
+        },
+        {
+          "kind": "cards",
+          "key": "included",
+          "heading": "What is included every month",
+          "items": [
+            {
+              "title": "Running the agent",
+              "text": "We host it and keep it online."
+            },
+            {
+              "title": "Updates",
+              "text": "We update answers when your prices or rules change."
+            },
+            {
+              "title": "Support",
+              "text": "Ask us for help, up to the hours in your plan."
+            },
+            {
+              "title": "One channel",
+              "text": "The agent works on one channel, such as WhatsApp or Telegram."
+            },
+            {
+              "title": "Handoff to a person",
+              "text": "When the agent is unsure, it passes the chat to your team."
+            }
+          ]
+        },
+        {
+          "kind": "cards",
+          "key": "examples",
+          "heading": "What it can do",
+          "items": [
+            {
+              "title": "Answer customers",
+              "text": "Replies to common questions about prices, hours and products."
+            },
+            {
+              "title": "Collect leads and bookings",
+              "text": "Asks what the customer needs and sends you the details."
+            },
+            {
+              "title": "Enter data and reports",
+              "text": "Puts details from messages in order, so your team types less."
+            }
+          ]
+        },
+        {
+          "kind": "cards",
+          "key": "channels",
+          "heading": "Where it works",
+          "items": [
+            {
+              "title": "WhatsApp",
+              "text": "Customers write to your business number."
+            },
+            {
+              "title": "Telegram",
+              "text": "A bot for your customers or your own team."
+            },
+            {
+              "title": "Your website",
+              "text": "A chat box on your pages."
+            }
+          ]
+        },
+        {
+          "kind": "steps",
+          "key": "launchSteps",
+          "items": [
+            {
+              "title": "Talk",
+              "text": "You tell us what the agent should do."
+            },
+            {
+              "title": "Share your knowledge",
+              "text": "You send your prices, rules and common answers."
+            },
+            {
+              "title": "We set up",
+              "text": "We build the agent and connect your channel."
+            }
+          ]
+        },
+        {
+          "kind": "dash",
+          "key": "notIncluded",
+          "items": [
+            {
+              "title": "Costs of the chat channel, such as WhatsApp fees"
+            },
+            {
+              "title": "Paid tools you ask us to connect"
+            },
+            {
+              "title": "New custom features"
+            },
+            {
+              "title": "Advertising spend"
+            }
+          ]
+        }
+      ],
+      "crossSell": [
+        {
+          "title": "Need more than one agent?",
+          "text": "For several channels or special tools, we build a custom agent.",
+          "href": "/services/ai-agents"
+        },
+        {
+          "title": "Need a website too?",
+          "text": "Rent a ready website, with the agent on your pages.",
+          "href": "/rent/website"
+        }
+      ],
+      "faq": {
+        "heading": "Questions about renting an AI agent",
+        "items": [
+          {
+            "q": "How much does it cost per month?",
+            "a": "The price depends on the size of your company. See the plans above, or ask for a quote."
+          },
+          {
+            "q": "What if I need more than the plan covers?",
+            "a": "We can build a custom agent for more channels, tools or rules. Tell us what you need and we send a quote. See AI agent development."
+          }
+        ]
+      },
+      "form": {
+        "heading": "Start with a short call",
+        "text": "Tell us your business type, your channel and how many questions you get each day."
+      }
+    },
+    "team": {
+      "seoTitle": "Rent a Development Team in Nepal | ADMMIS.TECH",
+      "metaDescription": "Rent developers, designers or QA from Nepal on a monthly plan. See the monthly rate per role and start with a short call.",
+      "hero": {
+        "heading": "Rent a development team in Nepal, month by month",
+        "eyebrow": "On rent",
+        "sub": "Choose the roles you need and pay a clear monthly rate. Scale up or down with notice."
+      },
+      "blocks": [
+        {
+          "kind": "steps",
+          "key": "howSteps",
+          "heading": "How renting a team works",
+          "intro": "Renting a team is a monthly plan, not a fixed project. You choose roles from a list, and each role has its own rate. You decide the tasks, and we look after the person's work setup.",
+          "items": [
+            {
+              "title": "Choose roles",
+              "text": "You pick the roles and the start date."
+            },
+            {
+              "title": "Pay monthly",
+              "text": "Each person has a monthly rate. You pay each month, not per project."
+            },
+            {
+              "title": "You direct the work",
+              "text": "You give the tasks. We employ the people and look after tools."
+            }
+          ]
+        },
+        {
+          "kind": "cards",
+          "key": "included",
+          "heading": "Roles you can rent",
+          "items": [
+            {
+              "title": "Developers",
+              "text": "Frontend, backend and mobile developers for web and app work."
+            },
+            {
+              "title": "Designers",
+              "text": "UI and UX designers who plan screens and make them clear."
+            },
+            {
+              "title": "QA and DevOps",
+              "text": "Testers who report problems, and engineers who run servers and releases."
+            },
+            {
+              "title": "AI engineers",
+              "text": "Engineers who add AI features and agents to your product."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "key": "why",
+          "heading": "Why rent a team",
+          "items": [
+            {
+              "title": "A predictable monthly cost",
+              "text": "Each role has a clear rate. You know the monthly cost."
+            }
+          ]
+        },
+        {
+          "kind": "steps",
+          "key": "launchSteps",
+          "items": [
+            {
+              "title": "Brief",
+              "text": "You tell us the roles and the start date."
+            },
+            {
+              "title": "Shortlist",
+              "text": "We send profiles that fit."
+            },
+            {
+              "title": "Interview",
+              "text": "You talk to the people and choose."
+            }
+          ]
+        },
+        {
+          "kind": "dash",
+          "key": "notIncluded",
+          "items": [
+            {
+              "title": "Your own software licences and tools"
+            },
+            {
+              "title": "Work outside the agreed role"
+            },
+            {
+              "title": "Travel to your office"
+            }
+          ]
+        }
+      ],
+      "crossSell": [
+        {
+          "title": "Want us to run the whole project?",
+          "text": "We build your software for a clear price.",
+          "href": "/services/custom-software"
+        },
+        {
+          "title": "Need testing only?",
+          "text": "We test your website or app and send a clear list of fixes.",
+          "href": "/services/qa-testing"
+        }
+      ],
+      "faq": {
+        "heading": "Questions about renting a team",
+        "items": [
+          {
+            "q": "How does renting a team work?",
+            "a": "You choose the roles and pay a monthly rate for each person. You give the tasks and set the priorities. We employ the people and look after their tools."
+          },
+          {
+            "q": "How much does it cost per month?",
+            "a": "Each role has a monthly rate per person. See the rates above, or ask for a quote."
+          }
+        ]
+      },
+      "form": {
+        "heading": "Tell us who you need",
+        "text": "Tell us the roles, the start date and how many months. We reply with a plan."
+      }
+    },
     "website": {
       "seoTitle": "Website on Rent in Nepal | ADMMIS.TECH",
       "metaDescription": "Get a ready-made, professional website on monthly rent in Nepal. Hosting, updates and support included. No big upfront cost. See plans and apply.",
-      "heroHeading": "Website on rent in Nepal: pay monthly, no big upfront cost",
-      "heroSub": "A professional website for your business, live fast. One monthly price covers hosting, updates and support."
+      "hero": {
+        "heading": "Website on rent in Nepal: pay monthly, no big upfront cost",
+        "eyebrow": "On rent",
+        "sub": "A professional website for your business, live fast. One monthly price covers hosting, updates and support."
+      },
+      "blocks": [
+        {
+          "kind": "steps",
+          "key": "howSteps",
+          "heading": "How website rental works",
+          "items": [
+            {
+              "title": "Pick a plan",
+              "text": "Choose the plan for your company size, and tell us about your business."
+            },
+            {
+              "title": "We set up your site",
+              "text": "We make your ready-made website fit your business, with your text and images."
+            },
+            {
+              "title": "You pay monthly",
+              "text": "One price each month. We keep the site online and up to date."
+            }
+          ]
+        },
+        {
+          "kind": "cards",
+          "key": "included",
+          "heading": "What is included every month",
+          "items": [
+            {
+              "title": "Hosting",
+              "text": "Your website stays online on our servers."
+            },
+            {
+              "title": "Domain help",
+              "text": "We help you choose and connect your web address."
+            },
+            {
+              "title": "Updates",
+              "text": "We fix problems and keep the site working as things change."
+            },
+            {
+              "title": "Support hours",
+              "text": "Ask us for changes or help, up to the hours in your plan."
+            }
+          ]
+        },
+        {
+          "kind": "cards",
+          "key": "examples",
+          "heading": "Websites for your business",
+          "items": [
+            {
+              "title": "Shop",
+              "text": "Show your products, your prices and how to order or visit."
+            },
+            {
+              "title": "Clinic or school",
+              "text": "Share your services, your team and how to book or apply."
+            },
+            {
+              "title": "Service business",
+              "text": "Explain what you do, show your work and make it easy to ask for a quote."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "key": "why",
+          "heading": "Why rent instead of buy",
+          "items": [
+            {
+              "title": "Lower start cost",
+              "text": "You pay a monthly price, not one large amount at the start."
+            },
+            {
+              "title": "We keep it running",
+              "text": "We look after hosting and updates, so you can focus on your customers."
+            }
+          ]
+        },
+        {
+          "kind": "steps",
+          "key": "launchSteps",
+          "items": [
+            {
+              "title": "Choose",
+              "text": "You choose a plan and send your details."
+            },
+            {
+              "title": "Share content",
+              "text": "You send your text, logo and images."
+            },
+            {
+              "title": "We set up",
+              "text": "We prepare your site and show it to you."
+            }
+          ]
+        },
+        {
+          "kind": "dash",
+          "key": "notIncluded",
+          "items": [
+            {
+              "title": "Payment gateway fees"
+            },
+            {
+              "title": "SMS costs"
+            },
+            {
+              "title": "Paid plugins or tools"
+            },
+            {
+              "title": "Advertising spend"
+            },
+            {
+              "title": "New custom features"
+            }
+          ]
+        }
+      ],
+      "crossSell": [
+        {
+          "title": "Need something custom?",
+          "text": "If your website needs special features, we can build it for you.",
+          "href": "/services/web-development"
+        },
+        {
+          "title": "Need marketing?",
+          "text": "We can plan and run search, social media and ads for your site.",
+          "href": "/services/digital-marketing"
+        }
+      ],
+      "faq": {
+        "heading": "Website rental questions",
+        "items": [
+          {
+            "q": "What is website on rent, and how does it work?",
+            "a": "You rent a ready-made website that we set up for your business. You pay one monthly price. We host it, update it and support it. Your text, images and domain stay yours."
+          }
+        ]
+      },
+      "form": {
+        "heading": "Apply for your website",
+        "text": "Tell us about your business and its size. We reply with a plan."
+      }
     }
   }
 }

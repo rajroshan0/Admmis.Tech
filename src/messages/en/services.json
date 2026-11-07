@@ -10,46 +10,1285 @@
     "introHeading": "What it is",
     "priceHeading": "Know the cost before you start",
     "priceText": "Tell us what you need and we send a clear quote.",
-    "placeholderTitle": "More detail is coming soon",
-    "placeholderText": "This page is being finished. Ask us for a quote and we answer your questions directly."
+    "crossSellHeading": "You may also need",
+    "timeLabel": "Typical time",
+    "bestForLabel": "Best for",
+    "listHeading": "All services"
   },
   "hub": {
     "seoTitle": "IT Services in Nepal | ADMMIS.TECH",
     "metaDescription": "Websites, mobile apps, custom software, AI agents, testing, audits, dedicated teams and marketing. One Nepal-based team, clear prices. Get a quote.",
-    "heroHeading": "IT services in Nepal, from first build to marketing",
-    "heroSub": "Choose one service or combine several. Each is priced on its own, and we show the prices.",
-    "listHeading": "All services"
+    "hero": {
+      "eyebrow": "Services",
+      "heading": "IT services in Nepal, from first build to marketing",
+      "sub": "Choose one service or combine several. Each is priced on its own, and we show the prices."
+    },
+    "choices": {
+      "heading": "How we choose the right service with you",
+      "items": [
+        {
+          "question": "I need a website for my business",
+          "label": "Website development",
+          "link": "/services/web-development"
+        },
+        {
+          "question": "I want customers to use my app",
+          "label": "Mobile app development",
+          "link": "/services/mobile-app-development"
+        },
+        {
+          "question": "I want to answer customers faster",
+          "label": "AI agent development",
+          "link": "/services/ai-agents"
+        },
+        {
+          "question": "I need more developers in my team",
+          "label": "Dedicated developers",
+          "link": "/services/outstaffing"
+        },
+        {
+          "question": "I want more customers to find me",
+          "label": "Digital marketing",
+          "link": "/services/digital-marketing"
+        }
+      ]
+    },
+    "price": {
+      "heading": "Know the cost before you start",
+      "text": "Each service has its own price. The price depends on the service and the size of your company. See the packages on the pricing page, or ask us for a quote."
+    },
+    "rent": {
+      "heading": "Prefer to pay monthly?",
+      "intro": "Rent a website, an AI agent or a team member. You pay each month, and we look after the rest."
+    },
+    "faq": {
+      "heading": "Questions about our services",
+      "items": [
+        {
+          "q": "What services does ADMMIS.TECH offer?",
+          "a": "We build websites, mobile apps, custom software and AI agents. We also test and audit software, provide dedicated developers, and run digital and offline marketing. Each service has its own page with details."
+        },
+        {
+          "q": "Can I use more than one service together?",
+          "a": "Yes. For example, a website with marketing, or an app with an AI agent. Tell us your goal and we suggest a plan that fits."
+        },
+        {
+          "q": "How are your services priced?",
+          "a": "Each service has its own price, shown in NPR and USD. The price depends on the service and the size of your company. For larger projects, we send a clear quote before we start."
+        },
+        {
+          "q": "Do you work with companies outside Nepal?",
+          "a": "Yes. We work with clients in Nepal and in other countries. Prices are also shown in US dollars."
+        }
+      ]
+    },
+    "cta": {
+      "heading": "Tell us what you need",
+      "text": "Tell us your goal. We reply with a clear plan and quote."
+    }
   },
   "items": {
-    "web-development": {
-      "seoTitle": "Web Development Company in Nepal | ADMMIS.TECH",
-      "metaDescription": "Fast, clear websites and web platforms built in Nepal: company sites, online shops, booking and portals. See prices and get a quote.",
-      "heroHeading": "Web development in Nepal: fast websites that bring customers",
-      "heroSub": "We design, build and launch your website so it loads fast on any phone and makes it easy to contact you."
-    },
-    "mobile-app-development": {
-      "seoTitle": "Mobile App Development in Nepal | ADMMIS.TECH",
-      "metaDescription": "Android and iPhone apps built in Nepal with Flutter, React Native or native code. Clear plan, clear price, support after launch. Get a quote.",
-      "heroHeading": "Mobile app development in Nepal for Android and iPhone",
-      "heroSub": "From idea to the Play Store and App Store. We choose the technology that fits your goal and budget."
-    },
     "ai-agents": {
       "seoTitle": "AI Agent Development in Nepal | ADMMIS.TECH",
       "metaDescription": "AI agents and chatbots for WhatsApp, Telegram and your website, built in Nepal. They answer customers and handle routine tasks. Get a quote.",
-      "heroHeading": "AI agent development in Nepal that answers your customers",
-      "heroSub": "An AI agent is software that answers questions and does routine work for you, on WhatsApp, Telegram or your website."
+      "hero": {
+        "heading": "AI agent development in Nepal that answers your customers",
+        "eyebrow": "Build",
+        "sub": "An AI agent is software that answers questions and does routine work for you, on WhatsApp, Telegram or your website."
+      },
+      "facts": {
+        "bestFor": "Shops, clinics, schools, service firms"
+      },
+      "blocks": [
+        {
+          "kind": "prose",
+          "key": "intro",
+          "text": "An AI agent is software that reads a message, understands what the person wants, and replies or does a task. A simple chatbot follows fixed buttons and set answers. An AI agent understands normal sentences and can use your own information, such as your prices, opening hours or product list. When it is not sure, it passes the chat to a person on your team."
+        },
+        {
+          "kind": "cards",
+          "key": "types",
+          "heading": "What AI agents do for you",
+          "items": [
+            {
+              "title": "Customer support",
+              "text": "Answers common questions about prices, hours and products at any hour, and hands difficult chats to your team."
+            },
+            {
+              "title": "Sales and leads",
+              "text": "Asks customers what they need, collects their details and sends you the enquiry."
+            },
+            {
+              "title": "Data entry and reports",
+              "text": "Takes details from messages and puts them in order, so your team types less."
+            },
+            {
+              "title": "Marketing content",
+              "text": "Helps write posts and replies in your style. Your team checks them before they go out."
+            }
+          ]
+        },
+        {
+          "kind": "cards",
+          "key": "industries",
+          "heading": "Agents for your industry",
+          "items": [
+            {
+              "title": "Retail",
+              "text": "Answer questions about products, prices and orders."
+            },
+            {
+              "title": "Clinics",
+              "text": "Answer questions about doctors and hours, and take appointment requests."
+            },
+            {
+              "title": "Schools",
+              "text": "Answer parents about fees, courses and admission."
+            },
+            {
+              "title": "Hotels and tourism",
+              "text": "Answer guests about rooms, tours and prices."
+            },
+            {
+              "title": "Restaurants",
+              "text": "Share the menu and hours, and take table requests."
+            },
+            {
+              "title": "Services",
+              "text": "Qualify enquiries and book calls for your team."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "key": "benefits",
+          "heading": "What you get",
+          "items": [
+            {
+              "title": "Answers at any hour",
+              "text": "Customers get a reply on WhatsApp or Telegram even when your team is offline."
+            },
+            {
+              "title": "Fewer repeated tasks",
+              "text": "The agent handles the same questions every day, so your team does not have to."
+            },
+            {
+              "title": "Your team keeps the people part",
+              "text": "Complex or sensitive chats go to a person. The agent supports your team and does not replace it."
+            },
+            {
+              "title": "You stay in control",
+              "text": "You decide what the agent may say and do. We set the rules with you."
+            }
+          ]
+        },
+        {
+          "kind": "cards",
+          "key": "channels",
+          "heading": "Where your agent works",
+          "items": [
+            {
+              "title": "WhatsApp",
+              "text": "Customers write to your business number as they already do."
+            },
+            {
+              "title": "Telegram",
+              "text": "A bot for customers or for your own team."
+            },
+            {
+              "title": "Your website",
+              "text": "A chat box on your pages, built into the site."
+            },
+            {
+              "title": "Your app",
+              "text": "The agent works inside your mobile app."
+            }
+          ]
+        },
+        {
+          "kind": "cards",
+          "key": "how",
+          "heading": "How an AI agent works",
+          "items": [
+            {
+              "title": "Your knowledge",
+              "text": "Your prices, rules, product lists and common answers. The agent uses these, so it speaks about your business."
+            },
+            {
+              "title": "Connected tools",
+              "text": "Links to your other systems, for example a sheet, a booking tool or your website, so it can do tasks and not only talk."
+            },
+            {
+              "title": "Rules and handoff",
+              "text": "Limits on what the agent may do. When it is unsure, it passes the chat to a person."
+            }
+          ]
+        },
+        {
+          "kind": "steps",
+          "key": "steps",
+          "heading": "From idea to a working agent",
+          "items": [
+            {
+              "title": "Talk",
+              "text": "You tell us what questions and tasks the agent should handle."
+            },
+            {
+              "title": "Collect knowledge",
+              "text": "We gather your prices, rules and common answers."
+            },
+            {
+              "title": "Build and connect",
+              "text": "We build the agent and connect it to your channel and tools."
+            },
+            {
+              "title": "Test with your team",
+              "text": "Your team tries it, and we fix what is wrong."
+            },
+            {
+              "title": "Launch and improve",
+              "text": "We go live, read real chats with you, and make it better."
+            }
+          ]
+        }
+      ],
+      "price": {
+        "heading": "How AI agent work is priced",
+        "text": "You can pay once for a project, or pay each month. The price depends on the channel and the work the agent does. Prefer a monthly plan? Rent an AI agent by the month.",
+        "cta": "AI agent prices",
+        "ctaLink": "/pricing"
+      },
+      "crossSell": [
+        {
+          "title": "Prefer to pay monthly?",
+          "text": "Rent one AI agent on one channel, trained on your own information.",
+          "href": "/rent/ai-agent"
+        },
+        {
+          "title": "Want a chatbot on a new website?",
+          "text": "We can build the website and the agent together.",
+          "href": "/services/web-development"
+        }
+      ],
+      "faq": {
+        "heading": "AI agent questions",
+        "items": [
+          {
+            "q": "What is an AI agent, and how is it different from a chatbot?",
+            "a": "An AI agent understands normal sentences and can use your own information to reply or do a task. A simple chatbot only follows fixed buttons and set answers. When an agent is unsure, it hands the chat to a person."
+          },
+          {
+            "q": "Can an AI agent work on WhatsApp or Telegram?",
+            "a": "Yes. We have built agents for Telegram and WhatsApp. They can also work on your website or inside your app. Tell us where your customers write to you and we plan from there."
+          },
+          {
+            "q": "Will the AI agent give wrong answers?",
+            "a": "It can. No AI agent is right every time. We reduce mistakes by giving it your own information, setting clear rules and testing it with your team. When it is unsure, it passes the chat to a person."
+          }
+        ]
+      },
+      "form": {
+        "heading": "What should your agent do?",
+        "text": "Tell us what you want your agent to do. We reply with a clear plan and quote."
+      }
     },
-    "outstaffing": {
-      "seoTitle": "Hire Dedicated Developers in Nepal | ADMMIS.TECH",
-      "metaDescription": "Hire dedicated developers, designers, QA and DevOps from Nepal. Work in your time zone, pay a clear monthly rate per person. Talk to us.",
-      "heroHeading": "Hire dedicated developers in Nepal for your product",
-      "heroSub": "Add senior engineers, designers and testers to your team. You direct the work; we handle hiring, tools and payroll."
+    "audit": {
+      "seoTitle": "Website Audit Service in Nepal | ADMMIS.TECH",
+      "metaDescription": "A clear review of your website or app: code, design, speed and SEO. You get a plain-language report and a prioritised fix list. Get a quote.",
+      "hero": {
+        "heading": "A website audit that tells you what to fix first",
+        "eyebrow": "Quality",
+        "sub": "We review your code, design, speed and search basics, then give you a short, ranked list of fixes."
+      },
+      "facts": {
+        "bestFor": "Slow, old or unclear sites"
+      },
+      "blocks": [
+        {
+          "kind": "prose",
+          "key": "intro",
+          "text": "An audit is an honest review by someone outside your project. We look at your website or app and tell you what is good, what is weak and what to fix first. An audit helps when your site is slow, your code is old, your visits are falling, or you plan a redesign or a launch. You get findings in plain words, not a list of technical terms."
+        },
+        {
+          "kind": "cards",
+          "key": "types",
+          "heading": "What we review",
+          "items": [
+            {
+              "title": "Code quality",
+              "text": "Is the code clear, safe to change and free of common mistakes?"
+            },
+            {
+              "title": "Design and use",
+              "text": "Can a visitor find what they need and act, on a phone and on a computer?"
+            },
+            {
+              "title": "Search basics",
+              "text": "Page titles, headings, structure and links that help search engines read your site."
+            },
+            {
+              "title": "Speed and security",
+              "text": "How fast pages load, and whether common weak points are open."
+            }
+          ]
+        },
+        {
+          "kind": "steps",
+          "key": "steps",
+          "heading": "How it works",
+          "items": [
+            {
+              "title": "Scope",
+              "text": "You tell us your concern and your goal. We agree what to review."
+            },
+            {
+              "title": "Review",
+              "text": "We check your site or app against our list."
+            },
+            {
+              "title": "Report",
+              "text": "You receive the findings and the ranked list of fixes."
+            },
+            {
+              "title": "Walkthrough",
+              "text": "We explain the report and answer your questions."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "key": "benefits",
+          "heading": "Why an independent review",
+          "items": [
+            {
+              "title": "Honest findings",
+              "text": "We tell you what we find, including problems that are hard to fix."
+            },
+            {
+              "title": "Plain words",
+              "text": "Every finding says what is wrong, why it matters and what to do."
+            }
+          ]
+        }
+      ],
+      "price": {
+        "heading": "What an audit costs",
+        "text": "The price depends on the size of your site or app and what we review. See the pricing page, or ask us for a quote.",
+        "cta": "See pricing",
+        "ctaLink": "/pricing"
+      },
+      "crossSell": [
+        {
+          "title": "Need the fixes built?",
+          "text": "Our team can build the fixes on your website.",
+          "href": "/services/web-development"
+        },
+        {
+          "title": "Need ongoing search work?",
+          "text": "We plan and run search and social work every month.",
+          "href": "/services/digital-marketing"
+        }
+      ],
+      "faq": {
+        "heading": "Audit questions",
+        "items": [
+          {
+            "q": "What does a website audit include?",
+            "a": "We review four things: code quality, design and ease of use, search basics, and speed and security. You get a report with findings, a priority for each one and a ranked list of fixes."
+          },
+          {
+            "q": "Will an audit raise my Google ranking?",
+            "a": "Not by itself. Fixing the problems we find can help your site, but nobody can promise a ranking. We tell you what to fix and why, so you can decide."
+          },
+          {
+            "q": "How much does an audit cost?",
+            "a": "It depends on the size of your site or app. We agree the scope and send a clear quote. See the pricing block above."
+          }
+        ]
+      },
+      "form": {
+        "heading": "Send us your site",
+        "text": "Give us your web address, your concern and your goal. We reply with a plan."
+      }
+    },
+    "custom-software": {
+      "seoTitle": "Custom Software Development in Nepal | ADMMIS.TECH",
+      "metaDescription": "Custom software and SaaS built in Nepal around how your business works: tools, portals, CRM and integrations. Clear plan and price. Get a quote.",
+      "hero": {
+        "heading": "Custom software built around how your business works",
+        "eyebrow": "Build",
+        "sub": "Replace spreadsheets and manual steps with software made for your team. We plan, build, test and support it."
+      },
+      "facts": {
+        "bestFor": "Teams with repeated manual work"
+      },
+      "blocks": [
+        {
+          "kind": "prose",
+          "key": "intro",
+          "text": "Custom software is made for your way of working. A ready-made tool asks you to change your process to fit it. You may need custom software when your team repeats the same manual steps, when your tools do not talk to each other, or when you have a product idea. If a simple website or a ready tool is enough, we tell you. For a website, see our web development service."
+        },
+        {
+          "kind": "cards",
+          "key": "types",
+          "heading": "What we build",
+          "items": [
+            {
+              "title": "Internal tools and dashboards",
+              "text": "Tools that replace spreadsheets: orders, stock, tasks and reports in one place."
+            },
+            {
+              "title": "SaaS products",
+              "text": "SaaS means software that customers use online and pay for each month. We build the product with you."
+            },
+            {
+              "title": "Integrations and automation",
+              "text": "We connect your tools, so data moves by itself and your team types less."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "key": "benefits",
+          "heading": "Why build with us",
+          "items": [
+            {
+              "title": "One team, plan to support",
+              "text": "The same team plans, builds, tests and supports your software."
+            },
+            {
+              "title": "Clear scope and price",
+              "text": "You know what is built, and what it costs, before we start."
+            }
+          ]
+        },
+        {
+          "kind": "steps",
+          "key": "steps",
+          "heading": "How it works",
+          "items": [
+            {
+              "title": "Discover",
+              "text": "We learn how your business works and where time is lost."
+            },
+            {
+              "title": "Scope",
+              "text": "We agree what the first version does, and send a quote."
+            },
+            {
+              "title": "Design",
+              "text": "You see the screens and give feedback before we build."
+            },
+            {
+              "title": "Build",
+              "text": "We build in short cycles. You see progress and can change direction."
+            },
+            {
+              "title": "Launch and support",
+              "text": "We go live together and stay available for fixes and new features."
+            }
+          ]
+        }
+      ],
+      "price": {
+        "heading": "What custom software costs",
+        "text": "The price depends on the scope. You can pay a fixed price for a defined scope, or a monthly fee for ongoing work. See the pricing page, or ask us for a quote.",
+        "cta": "See pricing",
+        "ctaLink": "/pricing"
+      },
+      "crossSell": [
+        {
+          "title": "Need a website only?",
+          "text": "If you need pages and not a system, a website is simpler and cheaper.",
+          "href": "/services/web-development"
+        },
+        {
+          "title": "Want a team to run it?",
+          "text": "Add developers to your own team, or rent one person by the month.",
+          "href": "/services/outstaffing"
+        }
+      ],
+      "faq": {
+        "heading": "Questions about custom software",
+        "items": [
+          {
+            "q": "What is custom software?",
+            "a": "Custom software is made for your own process. A ready-made tool is built for many companies, so you adapt to it. Custom software adapts to you, and does only what you need."
+          },
+          {
+            "q": "How much does custom software cost in Nepal?",
+            "a": "It depends on the scope: what the software does and how many people use it. We agree the scope first and send a clear quote. See the pricing block above."
+          }
+        ]
+      },
+      "form": {
+        "heading": "Tell us what you want to build",
+        "text": "Tell us the need, a budget range and your timeline. We reply with a plan."
+      }
     },
     "digital-marketing": {
       "seoTitle": "Digital Marketing Agency in Nepal | ADMMIS.TECH",
-      "metaDescription": "SEO, social media, Facebook and Google ads and influencer campaigns for Nepali businesses. Clear plans, clear prices. Get a free quote today.",
-      "heroHeading": "Digital marketing agency in Nepal: SEO, social and ads",
-      "heroSub": "We plan, run and report your marketing so you can see what brings customers and what does not."
+      "metaDescription": "SEO, social media, Facebook and Google ads and influencer campaigns for Nepali businesses. Clear plans, clear prices. Get a quote.",
+      "hero": {
+        "heading": "Digital marketing agency in Nepal: SEO, social and ads",
+        "eyebrow": "Team and marketing",
+        "sub": "We plan, run and report your marketing so you can see what brings customers and what does not."
+      },
+      "facts": {
+        "bestFor": "Shops, clinics, schools, companies"
+      },
+      "blocks": [
+        {
+          "kind": "prose",
+          "key": "intro",
+          "text": "Marketing is how people find your business and decide to contact you. We work on search (SEO), which helps people find you on Google. We run social media, paid ads and influencer campaigns. Reach means how many people see your message. We set a goal with you, run the work, and show you what happened each month in plain words."
+        },
+        {
+          "kind": "cards",
+          "key": "types",
+          "heading": "Our marketing services",
+          "items": [
+            {
+              "title": "SEO",
+              "text": "We improve your website so people who search for what you sell can find you."
+            },
+            {
+              "title": "Social media",
+              "text": "We plan and post content on your pages, answer comments, and keep your brand clear."
+            },
+            {
+              "title": "Paid ads",
+              "text": "Ads on Meta (Facebook and Instagram) and Google, aimed at people likely to need you."
+            },
+            {
+              "title": "Influencers and content",
+              "text": "We find creators who fit your brand, and make posts, photos and short videos that show your work."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "key": "benefits",
+          "heading": "What you get",
+          "items": [
+            {
+              "title": "One team for site and marketing",
+              "text": "The people who build your website can also market it, so the work fits together."
+            },
+            {
+              "title": "A monthly report in plain words",
+              "text": "You see visits, enquiries and cost per enquiry, with simple notes on what we learned."
+            }
+          ]
+        },
+        {
+          "kind": "steps",
+          "key": "steps",
+          "heading": "How we work",
+          "items": [
+            {
+              "title": "Goal",
+              "text": "You tell us what you want: more calls, orders or visits. We review what you have now."
+            },
+            {
+              "title": "Plan",
+              "text": "We choose channels and a monthly plan that fit your goal and budget."
+            },
+            {
+              "title": "Launch",
+              "text": "We start the campaigns and check that tracking works."
+            },
+            {
+              "title": "Report monthly",
+              "text": "You get a report you can read, and we explain it in a call."
+            },
+            {
+              "title": "Improve",
+              "text": "We keep what works and change what does not."
+            }
+          ]
+        },
+        {
+          "kind": "prose",
+          "key": "detail2",
+          "heading": "Marketing together with your website or app",
+          "text": "Marketing works best when your website is fast and clear. If you do not have one yet, we can build it and then market it. Our web development service covers the build. This keeps one team responsible for the whole result."
+        }
+      ],
+      "price": {
+        "heading": "What marketing costs",
+        "text": "Marketing has monthly plans. The price depends on the channels and the work. The money you spend on ads is paid to the ad platform, and is separate from our fee.",
+        "cta": "See marketing plans",
+        "ctaLink": "/pricing"
+      },
+      "crossSell": [
+        {
+          "title": "Need a website first?",
+          "text": "We build a fast website that is ready for marketing.",
+          "href": "/services/web-development"
+        },
+        {
+          "title": "Want events and print too?",
+          "text": "We run events and on-the-ground activities that put your brand in front of people.",
+          "href": "/services/offline-marketing"
+        }
+      ],
+      "faq": {
+        "heading": "Marketing questions",
+        "items": [
+          {
+            "q": "What does a digital marketing agency in Nepal do?",
+            "a": "We plan and run your marketing online: search (SEO), social media, paid ads, influencers and content. We set a goal with you, run the work, and send a monthly report so you see what works."
+          },
+          {
+            "q": "Do you work with small businesses and shops?",
+            "a": "Yes. We work with shops, clinics, schools and small companies. Tell us your goal and your budget, and we suggest a plan that fits."
+          }
+        ]
+      },
+      "form": {
+        "heading": "Tell us about your business",
+        "text": "Tell us what you sell and what you want. We reply with a clear plan and quote."
+      }
+    },
+    "mobile-app-development": {
+      "seoTitle": "Mobile App Development in Nepal | ADMMIS.TECH",
+      "metaDescription": "Android and iPhone apps built in Nepal. Clear plan, clear price, support after launch. Get a quote.",
+      "hero": {
+        "heading": "Mobile app development in Nepal for Android and iPhone",
+        "eyebrow": "Build",
+        "sub": "From idea to the Play Store and App Store. We choose the technology that fits your goal and budget."
+      },
+      "facts": {
+        "bestFor": "Shops, services, delivery, booking"
+      },
+      "blocks": [
+        {
+          "kind": "prose",
+          "key": "intro",
+          "text": "A mobile app is a program your customers or staff install on their phone. An Android app and an iPhone app are different products. A native app is written for one kind of phone. A cross-platform app uses one shared code base for both, which can save time and money. We help you choose, based on your goal, your budget and the phones your customers use."
+        },
+        {
+          "kind": "cards",
+          "key": "types",
+          "heading": "Apps we build",
+          "items": [
+            {
+              "title": "Customer apps",
+              "text": "An app where your customers see your offers, place orders and get updates."
+            },
+            {
+              "title": "Staff and delivery apps",
+              "text": "Apps for your own team: tasks, orders, deliveries and reports, on the phone."
+            },
+            {
+              "title": "Booking and shop apps",
+              "text": "Customers book a visit or buy online from their phone."
+            },
+            {
+              "title": "Apps for your AI agent",
+              "text": "An app with an AI agent inside, or an app connected to your service."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "key": "benefits",
+          "heading": "What you get",
+          "items": [
+            {
+              "title": "The right technology",
+              "text": "We recommend what fits your goal and budget, and we explain why."
+            },
+            {
+              "title": "A clear plan and price",
+              "text": "You know the features, the steps and the cost before we start."
+            },
+            {
+              "title": "Tested on real phones",
+              "text": "We test the app before launch, so fewer problems reach your customers."
+            }
+          ]
+        },
+        {
+          "kind": "steps",
+          "key": "steps",
+          "heading": "How we build your app",
+          "items": [
+            {
+              "title": "Idea",
+              "text": "You tell us your goal and your users. We agree what the first version needs."
+            },
+            {
+              "title": "Design",
+              "text": "You see every screen before we build it, and you give feedback."
+            },
+            {
+              "title": "Build",
+              "text": "We write the app and the server behind it. You see progress as we go."
+            },
+            {
+              "title": "Test",
+              "text": "We test on real phones and fix problems."
+            },
+            {
+              "title": "Publish and support",
+              "text": "We submit the app to the stores. The stores decide when it is approved."
+            }
+          ]
+        }
+      ],
+      "price": {
+        "heading": "What an app costs",
+        "text": "The price depends on how many platforms you need, the features, and the server behind the app. See our budget guide, or tell us your idea and we send a quote.",
+        "cta": "App prices",
+        "ctaLink": "/pricing"
+      },
+      "crossSell": [
+        {
+          "title": "Need a website too?",
+          "text": "We build the website and the app together, so they work as one.",
+          "href": "/services/web-development"
+        },
+        {
+          "title": "Need a team for a bigger app?",
+          "text": "Add developers and testers to your own team.",
+          "href": "/services/outstaffing"
+        }
+      ],
+      "faq": {
+        "heading": "Mobile app questions",
+        "items": [
+          {
+            "q": "Should I build for Android, iPhone, or both?",
+            "a": "It depends on your customers. Check which phones they use. If you are not sure, we can start with one platform and add the other later, or build both with one shared code base."
+          },
+          {
+            "q": "What is the difference between Flutter, React Native and native apps?",
+            "a": "Flutter and React Native let us build one app for both Android and iPhone. A native app is made for one phone type only, and gives the best speed and access to phone features. See the table above."
+          }
+        ]
+      },
+      "form": {
+        "heading": "Tell us about your app",
+        "text": "Tell us your idea. We reply with a clear plan and quote."
+      }
+    },
+    "offline-marketing": {
+      "seoTitle": "Event and BTL Marketing in Kathmandu | ADMMIS.TECH",
+      "metaDescription": "Events, print and on-ground campaigns in Kathmandu, planned with your online marketing. Clear plan and budget. Get a quote.",
+      "hero": {
+        "heading": "Events, print and on-ground marketing in Kathmandu",
+        "eyebrow": "Team and marketing",
+        "sub": "Launches, activations and printed material that match your online campaigns, planned and run by one team."
+      },
+      "facts": {
+        "bestFor": "Launches, events, brand drives"
+      },
+      "blocks": [
+        {
+          "kind": "prose",
+          "key": "intro",
+          "text": "Offline marketing reaches people where they are: at events, in shops and streets, and in print. It is also called BTL, short for below-the-line. This means direct, on-the-ground activities, not mass advertising. We plan and manage offline work in Kathmandu and connect it with your online campaigns, so people see one message in every place."
+        },
+        {
+          "kind": "cards",
+          "key": "types",
+          "heading": "What we do",
+          "items": [
+            {
+              "title": "Events and launches",
+              "text": "We plan the event, from the idea and the budget to the day itself."
+            },
+            {
+              "title": "On-ground activations",
+              "text": "Teams in shops, markets or public places that talk to people and give out samples."
+            },
+            {
+              "title": "Brand material",
+              "text": "Signs, uniforms and displays that make your brand easy to notice."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "key": "benefits",
+          "heading": "Why link offline with online",
+          "items": [
+            {
+              "title": "The same message everywhere",
+              "text": "People who see your banner and your post get one clear message."
+            },
+            {
+              "title": "One team, one plan",
+              "text": "One team plans the event and the online campaign together."
+            }
+          ]
+        },
+        {
+          "kind": "steps",
+          "key": "steps",
+          "heading": "How it works",
+          "items": [
+            {
+              "title": "Goal",
+              "text": "You tell us what you want from the event or campaign."
+            },
+            {
+              "title": "Plan and budget",
+              "text": "We send a plan, a budget and a timeline you can approve."
+            },
+            {
+              "title": "Run",
+              "text": "We manage the work on the ground and keep you informed."
+            },
+            {
+              "title": "Review",
+              "text": "We look at what worked and what to change next time."
+            }
+          ]
+        }
+      ],
+      "price": {
+        "heading": "What it costs",
+        "text": "Each event or campaign is priced as a project. The price depends on the size, the place and the material. Tell us your plan and we send a quote.",
+        "cta": "Get a quote",
+        "ctaLink": "/contact"
+      },
+      "crossSell": [
+        {
+          "title": "Want online campaigns too?",
+          "text": "Search, social media and ads that match your event.",
+          "href": "/services/digital-marketing"
+        },
+        {
+          "title": "Need a site for the event?",
+          "text": "We build a simple website for your event or launch.",
+          "href": "/services/web-development"
+        }
+      ],
+      "faq": {
+        "heading": "Offline marketing questions",
+        "items": [
+          {
+            "q": "What is BTL marketing?",
+            "a": "BTL means below-the-line. It is direct marketing on the ground, such as events, print and activations, instead of mass advertising like TV. It reaches people face to face."
+          },
+          {
+            "q": "How far ahead should I plan an event?",
+            "a": "Plan as early as you can. A bigger event needs more time for the venue, the material and the team. Tell us your date and we say if it is realistic."
+          },
+          {
+            "q": "How much does it cost?",
+            "a": "Each project is priced by quote. The cost depends on the size, the place and the material. Tell us your goal and budget and we suggest a plan."
+          }
+        ]
+      },
+      "form": {
+        "heading": "Plan your event or campaign",
+        "text": "Tell us the type, date, city and budget. We reply with a plan."
+      }
+    },
+    "outstaffing": {
+      "seoTitle": "Hire Dedicated Developers in Nepal | ADMMIS.TECH",
+      "metaDescription": "Hire dedicated developers, designers, QA and DevOps from Nepal. Pay a clear monthly rate per person. Talk to us.",
+      "hero": {
+        "heading": "Hire dedicated developers in Nepal for your product",
+        "eyebrow": "Team and marketing",
+        "sub": "Add senior engineers, designers and testers to your team. You direct the work; we handle hiring, tools and payroll."
+      },
+      "facts": {
+        "bestFor": "Product teams that need more people"
+      },
+      "blocks": [
+        {
+          "kind": "prose",
+          "key": "intro",
+          "text": "A dedicated team member works only for you. You give the tasks and set the priorities, like with your own staff. We employ the person, pay the salary and look after the work setup. You get the skills you need without a long hiring process. Many companies call this staff augmentation. Hiring a team in another country is also called offshore development, and our developers work from Nepal."
+        },
+        {
+          "kind": "cards",
+          "key": "roles",
+          "heading": "Roles you can hire",
+          "items": [
+            {
+              "title": "Developers",
+              "text": "Frontend, backend and mobile developers for your web or app product."
+            },
+            {
+              "title": "Designers",
+              "text": "UI and UX designers who plan screens and make them clear to use."
+            },
+            {
+              "title": "QA and DevOps",
+              "text": "Testers who report every problem clearly, and engineers who run servers and releases."
+            },
+            {
+              "title": "AI engineers",
+              "text": "Engineers who build AI features and agents into your product."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "key": "benefits",
+          "heading": "Why hire through ADMMIS.TECH",
+          "items": [
+            {
+              "title": "A monthly rate you can see",
+              "text": "The rate per person is public, in NPR and USD. No hidden fees."
+            },
+            {
+              "title": "You manage the work",
+              "text": "You choose tasks and priorities. The person works as part of your team."
+            }
+          ]
+        },
+        {
+          "kind": "steps",
+          "key": "steps",
+          "heading": "How it works",
+          "items": [
+            {
+              "title": "Brief",
+              "text": "You tell us the roles, skills and start date you need."
+            },
+            {
+              "title": "Shortlist",
+              "text": "We send you profiles that fit your brief."
+            },
+            {
+              "title": "Interview",
+              "text": "You talk to the people and choose."
+            },
+            {
+              "title": "Start",
+              "text": "The person joins your tools and your daily work."
+            },
+            {
+              "title": "Review monthly",
+              "text": "We check with you each month and adjust the team."
+            }
+          ]
+        }
+      ],
+      "price": {
+        "heading": "Rates",
+        "text": "Each role has a monthly rate per person, shown in NPR and USD. The rate depends on the role and the level of experience. For a full team, we send a quote.",
+        "cta": "See rates",
+        "ctaLink": "/pricing"
+      },
+      "crossSell": [
+        {
+          "title": "Need one person for a short time?",
+          "text": "Rent a developer, designer or tester for a month, or longer.",
+          "href": "/rent/team"
+        },
+        {
+          "title": "Want us to run the whole project?",
+          "text": "We build your software end to end for a clear price.",
+          "href": "/services/custom-software"
+        }
+      ],
+      "faq": {
+        "heading": "Questions from companies hiring in Nepal",
+        "items": [
+          {
+            "q": "How much does it cost to hire a developer in Nepal?",
+            "a": "Each role has a monthly rate per person, shown in NPR and USD on the pricing page. The rate depends on the role and the experience level."
+          },
+          {
+            "q": "What is the difference between a dedicated team and renting a team?",
+            "a": "A dedicated team is built around your long product plan, with people chosen for you. Renting gives you standard roles, one person at a time, by the month. Both are paid monthly. Not sure which? Tell us your plan and we advise."
+          }
+        ]
+      },
+      "form": {
+        "heading": "Tell us who you need",
+        "text": "Tell us the role, level, start date and budget. We reply with a clear plan."
+      }
+    },
+    "qa-testing": {
+      "seoTitle": "Software Testing Services in Nepal | ADMMIS.TECH",
+      "metaDescription": "Manual and automated testing for websites, apps and software, done in Nepal. Clear bug reports and fixes list. Get a quote.",
+      "hero": {
+        "heading": "Software testing that finds bugs before your customers do",
+        "eyebrow": "Quality",
+        "sub": "We test your website or app on real phones and browsers, then send a clear list of what to fix."
+      },
+      "facts": {
+        "bestFor": "Sites and apps before launch"
+      },
+      "blocks": [
+        {
+          "kind": "prose",
+          "key": "intro",
+          "text": "A bug is a mistake in your software: a button that does nothing, a page that breaks on a phone, a form that loses data. A bug found before launch is cheap to fix. A bug found by a customer can cost you that customer. Testing means trying your product the way real people use it, and telling you what goes wrong."
+        },
+        {
+          "kind": "cards",
+          "key": "types",
+          "heading": "What we test",
+          "items": [
+            {
+              "title": "Websites",
+              "text": "Pages, forms, menus and checkout, on different browsers and screen sizes."
+            },
+            {
+              "title": "APIs and back end",
+              "text": "The part users do not see. We check that data goes in and out correctly."
+            },
+            {
+              "title": "Speed and security basics",
+              "text": "We check how fast pages load, and look for common, well-known weak points."
+            }
+          ]
+        },
+        {
+          "kind": "cards",
+          "key": "kinds",
+          "heading": "Types of testing",
+          "items": [
+            {
+              "title": "Manual testing",
+              "text": "A person uses your product and notices what feels wrong. Best for new features and design."
+            },
+            {
+              "title": "Performance and accessibility",
+              "text": "We check speed under load, and whether people with disabilities can use the product."
+            }
+          ]
+        },
+        {
+          "kind": "steps",
+          "key": "steps",
+          "heading": "How it works",
+          "items": [
+            {
+              "title": "Scope",
+              "text": "We agree what to test, on which devices, and by when."
+            },
+            {
+              "title": "Test plan",
+              "text": "We list the checks we will run. You see the list first."
+            },
+            {
+              "title": "Test",
+              "text": "We run the checks and write down every problem we find."
+            },
+            {
+              "title": "Report and retest",
+              "text": "You get the list. After you fix the problems, we check again."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "key": "benefits",
+          "heading": "What you get",
+          "items": [
+            {
+              "title": "A bug report in plain words",
+              "text": "Each problem has steps to repeat it, so your developers can find it fast."
+            },
+            {
+              "title": "A pass or fail summary",
+              "text": "One page that tells you if the product is ready to launch."
+            }
+          ]
+        }
+      ],
+      "price": {
+        "heading": "What testing costs",
+        "text": "The price depends on what we test and how many devices and features are included. See the pricing page, or ask us for a quote.",
+        "cta": "See pricing",
+        "ctaLink": "/pricing"
+      },
+      "crossSell": [
+        {
+          "title": "Built it with us?",
+          "text": "We build websites and apps, and test them before launch.",
+          "href": "/services/web-development"
+        },
+        {
+          "title": "Want a deeper review?",
+          "text": "A review of code, design and search basics, with a ranked list of fixes.",
+          "href": "/services/audit"
+        }
+      ],
+      "faq": {
+        "heading": "Testing questions",
+        "items": [
+          {
+            "q": "What is the difference between testing and an audit?",
+            "a": "Testing finds bugs in how your product works. An audit reviews the quality of your code, design or search basics. Testing asks \"does it work?\" An audit asks \"is it built well?\""
+          },
+          {
+            "q": "How much does testing cost?",
+            "a": "It depends on what we test and how much. We agree the scope first and send a clear quote. See the pricing block above."
+          }
+        ]
+      },
+      "form": {
+        "heading": "Tell us what to test",
+        "text": "Tell us the product, its stage and your deadline. We reply with a plan."
+      }
+    },
+    "web-development": {
+      "seoTitle": "Web Development Company in Nepal | ADMMIS.TECH",
+      "metaDescription": "Fast, clear websites and web platforms built in Nepal: company sites, online shops, booking and portals. See prices and get a quote.",
+      "hero": {
+        "heading": "Web development in Nepal: fast websites that bring customers",
+        "eyebrow": "Build",
+        "sub": "We design, build and launch your website so it loads fast on any phone and makes it easy to contact you."
+      },
+      "facts": {
+        "bestFor": "Shops, clinics, schools, companies"
+      },
+      "blocks": [
+        {
+          "kind": "prose",
+          "key": "intro",
+          "text": "A website is your business online: pages that tell people who you are, what you sell and how to reach you. A web platform does more. People can log in, book, pay or manage their own information. We build both, and we make sure they work well on phones, because most visitors use a phone. You update text yourself in a simple editor called a CMS, so small changes need no developer."
+        },
+        {
+          "kind": "cards",
+          "key": "types",
+          "heading": "What we build",
+          "items": [
+            {
+              "title": "Company website",
+              "text": "Pages that show your business, your services and your contact details, so new customers trust you."
+            },
+            {
+              "title": "Booking and service sites",
+              "text": "Customers book a table, a visit or an appointment online, and the request comes to you."
+            },
+            {
+              "title": "Portals and dashboards",
+              "text": "Sites with logins, where customers or staff see their own information and manage tasks."
+            }
+          ]
+        },
+        {
+          "kind": "cards",
+          "key": "industries",
+          "heading": "Websites for your industry",
+          "items": [
+            {
+              "title": "Retail",
+              "text": "Show your products and tell customers how to order or visit."
+            },
+            {
+              "title": "Restaurants",
+              "text": "Show your menu, opening hours and location, and take reservations."
+            },
+            {
+              "title": "Pharmacy",
+              "text": "List what you stock and help customers contact you quickly."
+            },
+            {
+              "title": "Education",
+              "text": "Share courses, fees and admission steps for students and parents."
+            },
+            {
+              "title": "Tourism",
+              "text": "Show rooms, tours and prices to guests at home and abroad."
+            },
+            {
+              "title": "Services",
+              "text": "Explain what you do and make it easy to ask for a quote."
+            }
+          ]
+        },
+        {
+          "kind": "rule",
+          "key": "benefits",
+          "heading": "What you get",
+          "items": [
+            {
+              "title": "Built for speed on any phone",
+              "text": "Pages are light and simple, so they open quickly on a basic phone and a slow connection."
+            },
+            {
+              "title": "Easy to update",
+              "text": "You change text and images yourself. For bigger changes, we are here to help."
+            },
+            {
+              "title": "Ready for search",
+              "text": "Clean structure and fast pages help search engines read your site. We do not promise rankings."
+            }
+          ]
+        },
+        {
+          "kind": "steps",
+          "key": "steps",
+          "heading": "From idea to launch in 5 steps",
+          "items": [
+            {
+              "title": "Talk",
+              "text": "You tell us about your business, your customers and your goal."
+            },
+            {
+              "title": "Plan and quote",
+              "text": "We suggest pages and features, and send a clear quote."
+            },
+            {
+              "title": "Design",
+              "text": "You see how the site looks on phone and computer, and give feedback."
+            },
+            {
+              "title": "Build",
+              "text": "We build the pages, add your content and test everything."
+            },
+            {
+              "title": "Launch and support",
+              "text": "We put the site online and stay available to fix problems."
+            }
+          ]
+        },
+        {
+          "kind": "prose",
+          "key": "detail2",
+          "heading": "Search-ready from day one",
+          "text": "We build the basics that search engines look for: fast pages, a layout that works on phones, clear headings and page titles. This gives your website a good start. Nobody can promise a place on Google, and we do not. If you want more visitors, our digital marketing service can help."
+        }
+      ],
+      "price": {
+        "heading": "What a website costs",
+        "text": "The price depends on the type of site, the number of pages and the features you need. See our website packages, or tell us your plan and we send a quote.",
+        "cta": "Website packages and prices",
+        "ctaLink": "/pricing"
+      },
+      "crossSell": [
+        {
+          "title": "Prefer to pay monthly?",
+          "text": "Get a ready website with hosting, updates and support included, and pay each month.",
+          "href": "/rent/website"
+        },
+        {
+          "title": "Need software, not a website?",
+          "text": "We build custom software for the way your business works.",
+          "href": "/services/custom-software"
+        }
+      ],
+      "faq": {
+        "heading": "Website questions we hear often",
+        "items": [
+          {
+            "q": "How much does a website cost in Nepal?",
+            "a": "It depends on the type of site, the pages and the features. Our packages are on the pricing page in NPR and USD. For online shops and portals, tell us your plan and we send a quote."
+          },
+          {
+            "q": "Will my website work on mobile phones?",
+            "a": "Yes. We design for phones first, then for larger screens, and we check the site on phones before launch. Pages are kept light so they open quickly on a basic phone."
+          }
+        ]
+      },
+      "form": {
+        "heading": "Tell us about your website",
+        "text": "Tell us what you need. We reply with a clear plan and quote."
+      }
     }
   }
 }

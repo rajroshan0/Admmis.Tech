@@ -14,3 +14,10 @@ Gaps: no Breadcrumbs component (none added); ChoiceList content, rental-plans bl
 ## T-307-fix (hritik T-110 must-fix)
 - `indexable` now comes only from `COPY_READY` in src/lib/routes/section-pages.ts (empty sets, so all 9 service and 3 rent pages are noindex). Flip a slug in when its writer copy is synced and the placeholder is removed. Hub pages stay indexable (no placeholder).
 - Later nits (not done): type views from payload-types with findPublished/resolvePublished at the CMS swap; no identical FAQPage JSON-LD on all 9 pages; sitemap must exclude noindex pages.
+
+## T-308 Copy sync (mahendra), 2026-11-07
+- Synced content/pages/services.md, services/*.md (9), rent.md, rent/*.md (3) into src/messages/en/{services,rent}.json by a one-off script (not committed). Shape: src/lib/routes/page-copy.ts. Placeholder callout removed. New: PageBlocks/PageTail in _templates/, hub choice list.
+- TODO(roshan) rule applied strictly: a field or list item containing TODO text is dropped whole, so some lists are shorter than the copy (e.g. benefits 2 of 4, rent hub "meaning" 1 of 3, rent exit callout and 3 FAQs). No TODO text in any page (test and grep).
+- COPY_READY.services = web-development, ai-agents, mobile-app-development, outstaffing, digital-marketing; the 4 P1 pages and all 3 rent pages stay noindex. Hubs indexable.
+- Not rendered: compare tables, plans, hub groups, cases (none approved), second process block (launchSteps; ProcessStepsBlock has a fixed heading id), WhatsApp links, JSON-LD (none emitted; FAQPage rule respected by emitting none). Lists with fewer than 2 items are skipped. rent/ai-agent and team now have 3 cards, so the 4-card question is moot.
+- Verified: tsc and eslint clean, vitest 48/48, build static, JS 143.7 KB, 360 px on ai-agents, rent/ai-agent, both hubs: no overflow, one H1, no duplicate ids. Full e2e not re-run.

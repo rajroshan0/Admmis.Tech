@@ -1,12 +1,26 @@
 import { SERVICE_ICONS } from '@/lib/routes/home-view'
-import { buildSharedSections, COPY_READY, slugOf, type PageSeo } from '@/lib/routes/section-pages'
+import type { PageCopy } from '@/lib/routes/page-copy'
+import {
+  applyCopy,
+  buildSharedSections,
+  COPY_READY,
+  slugOf,
+  type PageSeo,
+} from '@/lib/routes/section-pages'
 import type { Locale } from '@/lib/i18n/config'
 import type { Messages } from '@/lib/i18n/messages'
 import { pathFor } from '@/lib/routes/path'
 
-type Items = Messages['services']['items']
-
-const BRAND_SUFFIX = ' | ADMMIS.TECH'
+type HubCopy = {
+  seoTitle: string
+  metaDescription: string
+  hero: { eyebrow: string; heading: string; sub: string }
+  choices: { heading: string; items: { question: string; label: string; link: string }[] }
+  price: { heading: string; text: string }
+  rent: { heading: string; intro: string }
+  faq: { heading: string; items: { q: string; a: string }[] }
+  cta: { heading: string; text: string }
+}
 
 /** Service slugs come from the nine home cards (same order as seo/sitemap.md rows 9 to 17). */
 export function serviceSlugs(home: Messages['home']): string[] {
@@ -19,22 +33,20 @@ export function buildServicesHubView(
   svc: Messages['services'],
 ) {
   const href = (path: string) => pathFor(locale, path)
-  const seo: PageSeo = {
-    title: svc.hub.seoTitle,
-    description: svc.hub.metaDescription,
-    indexable: true,
-  }
+  const hub = svc.hub as HubCopy
+  const shared = buildSharedSections(locale, home, svc.ui.getQuote, '/contact')
+  const seo: PageSeo = { title: hub.seoTitle, description: hub.metaDescription, indexable: true }
   return {
     seo,
     hero: {
       variant: 'plain' as const,
-      eyebrow: svc.ui.hubEyebrow,
-      heading: svc.hub.heroHeading,
-      subheading: svc.hub.heroSub,
+      eyebrow: hub.hero.eyebrow,
+      heading: hub.hero.heading,
+      subheading: hub.hero.sub,
       primaryCta: { label: svc.ui.getQuote, href: href('/contact') },
     },
     grid: {
-      heading: svc.hub.listHeading,
+      heading: svc.ui.listHeading,
       items: home.services.cards.map((card, i) => ({
         href: href(card.link),
         title: card.title,
@@ -43,17 +55,36 @@ export function buildServicesHubView(
         linkLabel: card.linkLabel,
       })),
     },
-    ...buildSharedSections(locale, home, svc.ui.getQuote, '/contact'),
+    choices: {
+      heading: hub.choices.heading,
+      items: hub.choices.items.map((c) => ({ ...c, href: href(c.link) })),
+    },
+    process: shared.process,
+    pricing: {
+      ...shared.pricing,
+      heading: hub.price.heading,
+      text: hub.price.text,
+      secondary: undefined,
+    },
     rent: {
-      heading: home.rent.title,
+      heading: hub.rent.heading,
       eyebrow: home.rent.eyebrow,
-      intro: home.rent.intro,
+      intro: hub.rent.intro,
       items: home.rent.cards.map((card) => ({
         href: href(card.link),
         title: card.title,
         summary: card.text,
       })),
       cta: { label: home.rent.ctaLabel, href: href(home.rent.ctaLink) },
+    },
+    faq: {
+      heading: hub.faq.heading,
+      items: hub.faq.items.map((i, n) => ({ id: `faq-${n}`, question: i.q, answer: i.a })),
+    },
+    cta: {
+      heading: hub.cta.heading,
+      text: hub.cta.text,
+      primary: shared.cta.primary,
     },
     ui: svc.ui,
   }
@@ -65,32 +96,33 @@ export function buildServiceView(
   home: Messages['home'],
   svc: Messages['services'],
 ) {
-  const index = serviceSlugs(home).indexOf(slug)
-  if (index < 0) return null
-  const card = home.services.cards[index]
-  if (!card) return null
-  const entry = (svc.items as Record<string, Items[keyof Items] | undefined>)[slug]
+  if (!serviceSlugs(home).includes(slug)) return null
+  const copy = (svc.items as unknown as Record<string, PageCopy | undefined>)[slug]
+  if (!copy) return null
   const href = (path: string) => pathFor(locale, path)
-
-  // No brief entry: title and description fall back to the card. Indexing depends only on COPY_READY.
   const seo: PageSeo = {
-    title: entry?.seoTitle ?? `${card.linkLabel}${BRAND_SUFFIX}`,
-    description: entry?.metaDescription ?? card.text,
+    title: copy.seoTitle,
+    description: copy.metaDescription,
     indexable: COPY_READY.services.has(slug),
   }
+  const quote = `/contact?service=${slug}`
   return {
     seo,
     slug,
     hero: {
       variant: 'plain' as const,
-      eyebrow: svc.ui.eyebrow,
-      // seo/sitemap.md rule 7: H1 = heroHeading, fallback title
-      heading: entry?.heroHeading ?? card.title,
-      subheading: entry?.heroSub ?? card.text,
-      primaryCta: { label: svc.ui.getQuote, href: href(`/contact?service=${slug}`) },
+      eyebrow: copy.hero.eyebrow ?? svc.ui.eyebrow,
+      // seo/sitemap.md rule 7: H1 = heroHeading
+      heading: copy.hero.heading,
+      subheading: copy.hero.sub,
+      primaryCta: { label: svc.ui.getQuote, href: href(quote) },
     },
-    intro: { heading: svc.ui.introHeading, text: card.text },
-    ...buildSharedSections(locale, home, svc.ui.getQuote, `/contact?service=${slug}`),
+    facts: [
+      { label: svc.ui.timeLabel, value: copy.facts?.time },
+      { label: svc.ui.bestForLabel, value: copy.facts?.bestFor },
+    ],
+    blocks: copy.blocks,
+    ...applyCopy(buildSharedSections(locale, home, svc.ui.getQuote, quote), copy, locale),
     ui: svc.ui,
   }
 }

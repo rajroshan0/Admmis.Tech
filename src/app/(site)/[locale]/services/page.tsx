@@ -7,6 +7,7 @@ import {
   HeroBlock,
   PricingTeaserBlock,
   ProcessStepsBlock,
+  ChoiceListBlock,
   RentCardsBlock,
   ServicesGridBlock,
 } from '@/components/blocks'
@@ -47,6 +48,7 @@ export default async function ServicesHubPage({ params }: Props) {
     <>
       <HeroBlock data={view.hero} />
       <ServicesGridBlock data={view.grid} tone={tone()} />
+      <ChoiceListBlock data={view.choices} tone={tone()} />
       <PricingTeaserBlock data={{ ...view.pricing, secondary: undefined }} tone={tone()} />
       <RentCardsBlock data={view.rent} tone={tone()} />
       <ProcessStepsBlock data={view.process} tone={tone()} />

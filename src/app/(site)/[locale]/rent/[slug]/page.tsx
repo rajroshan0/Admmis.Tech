@@ -1,20 +1,13 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import {
-  CtaBandBlock,
-  FaqBlock,
-  HeroBlock,
-  PricingTeaserBlock,
-  ProcessStepsBlock,
-} from '@/components/blocks'
+import { HeroBlock } from '@/components/blocks'
 import { Price, ServiceFacts } from '@/components/ui'
 import { DEFAULT_LOCALE, isLocale } from '@/lib/i18n/config'
 import { getMessages } from '@/lib/i18n/messages'
 import { buildRentProductView, rentSlugs } from '@/lib/routes/rent-view'
 import { buildPageMetadata } from '@/lib/seo/page-metadata'
-import { IntroSection } from '@/app/(site)/[locale]/_templates/IntroSection'
-import { PriceAside } from '@/app/(site)/[locale]/_templates/PriceAside'
+import { PageBlocks, PageTail } from '@/app/(site)/[locale]/_templates/PageBlocks'
 import { toneCycle } from '@/app/(site)/[locale]/_templates/tones'
 
 // Rental product page (template rent-product). Minimum term and setup rows are TODO(roshan): omitted.
@@ -49,26 +42,30 @@ export default async function RentProductPage({ params }: Props) {
     <ServiceFacts
       label={ui.factsLabel}
       title={ui.factsTitle}
-      rows={[{ label: ui.startsFrom, value: <Price quoteLabel={ui.requestQuote} /> }]}
+      rows={[
+        { label: ui.startsFrom, value: <Price quoteLabel={ui.requestQuote} /> },
+        ...view.facts,
+      ]}
     />
   )
   return (
     <>
       <HeroBlock data={view.hero} aside={facts} />
-      <IntroSection
-        tone={tone()}
-        heading={view.intro.heading}
-        text={view.intro.text}
-        placeholder={{ title: ui.placeholderTitle, text: ui.placeholderText }}
+      <PageBlocks
+        blocks={view.blocks}
+        tone={tone}
+        introHeading={ui.introHeading}
+        notIncludedHeading={ui.notIncludedHeading}
       />
-      <ProcessStepsBlock data={view.process} tone={tone()} />
-      <PricingTeaserBlock
-        data={{ ...view.pricing, secondary: undefined }}
-        tone={tone()}
-        aside={<PriceAside label={ui.requestQuote} />}
+      <PageTail
+        tone={tone}
+        pricing={view.pricing}
+        priceLabel={ui.requestQuote}
+        crossSell={view.crossSell}
+        crossSellHeading={ui.crossSellHeading}
+        faq={view.faq}
+        cta={view.cta}
       />
-      <FaqBlock data={view.faq} tone={tone()} />
-      <CtaBandBlock data={view.cta} />
     </>
   )
 }

@@ -58,3 +58,7 @@ Needed by: Mon 9 Nov · Reply: OK
 ### 2026-11-07 16:05 MSK · pm → rajaros · T-805 · REQUEST
 For T-805: run tests/e2e/ne.spec.ts in a browser (satish removed the Mukta-on-EN fixme, never run since), and do a 360 px check of the new service/rent blocks once mahendra's T-307 routes land.
 Needed by: Thu 12 Nov · Reply: not needed
+
+### 2026-11-07 MSK · mahendra → rajaros · T-308 · FYI
+Service and rent pages now carry the writer's copy (placeholder note gone). Please re-test /services, /services/*, /rent, /rent/*. Index rules: only web-development, ai-agents, mobile-app-development, outstaffing, digital-marketing are indexable; the other 4 services and all 3 rent pages are noindex; both hubs indexable. Expected: no "TODO" text anywhere, one H1 per page, price shows "Request a quote". Some lists are shorter than the copy because fields with TODO(roshan) are hidden. Compare tables, plans, quote form, breadcrumbs, JSON-LD are not built yet.
+Needed by: n/a · Reply: bugs to mahendra

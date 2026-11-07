@@ -2,6 +2,7 @@ import type { Cta } from '@/components/ui'
 import type { Locale } from '@/lib/i18n/config'
 import type { Messages } from '@/lib/i18n/messages'
 import { pathFor } from '@/lib/routes/path'
+import type { PageCopy } from '@/lib/routes/page-copy'
 
 // Shared by the service and rent templates. Pure and server-side. The data shapes mirror the CMS
 // fields (design/templates/*-spec.md section 5), so swapping the CMS in later only changes the loaders.
@@ -18,7 +19,15 @@ export type PageSeo = {
  * Add a slug here when the writer's copy for that page is synced and the placeholder is gone.
  */
 export const COPY_READY: { services: ReadonlySet<string>; rent: ReadonlySet<string> } = {
-  services: new Set<string>(),
+  // The five SEO-reviewed P0 pages (T-308). The four P1 pages wait for sudip's review.
+  services: new Set([
+    'web-development',
+    'ai-agents',
+    'mobile-app-development',
+    'outstaffing',
+    'digital-marketing',
+  ]),
+  // Rent pages stay out: sudip review pending and rent terms are TODO(roshan).
   rent: new Set<string>(),
 }
 
@@ -59,5 +68,37 @@ export function buildSharedSections(
       primary: cta(home.pricingTeaser.ctaPrimary, home.pricingTeaser.ctaPrimaryLink),
       secondary: cta(home.pricingTeaser.ctaSecondary, home.pricingTeaser.ctaSecondaryLink),
     },
+  }
+}
+
+/** Page-specific FAQ, price teaser and closing band from the synced copy; shared home copy fills any gap. */
+export function applyCopy(
+  shared: ReturnType<typeof buildSharedSections>,
+  copy: PageCopy,
+  locale: Locale,
+) {
+  const href = (path: string) => pathFor(locale, path)
+  return {
+    ...shared,
+    faq: copy.faq
+      ? {
+          heading: copy.faq.heading ?? shared.faq.heading,
+          items: copy.faq.items.map((i, n) => ({ id: `faq-${n}`, question: i.q, answer: i.a })),
+        }
+      : shared.faq,
+    pricing: {
+      ...shared.pricing,
+      ...(copy.price?.heading ? { heading: copy.price.heading } : {}),
+      ...(copy.price?.text ? { text: copy.price.text } : {}),
+      ...(copy.price?.cta && copy.price.ctaLink
+        ? { primary: { label: copy.price.cta, href: href(copy.price.ctaLink) } }
+        : {}),
+      secondary: undefined,
+    },
+    cta: {
+      ...shared.cta,
+      ...(copy.form ? { heading: copy.form.heading, text: copy.form.text ?? shared.cta.text } : {}),
+    },
+    crossSell: (copy.crossSell ?? []).map((c) => ({ ...c, href: href(c.href) })),
   }
 }

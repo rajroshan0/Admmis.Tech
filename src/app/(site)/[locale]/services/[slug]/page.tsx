@@ -1,20 +1,13 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import {
-  CtaBandBlock,
-  FaqBlock,
-  HeroBlock,
-  PricingTeaserBlock,
-  ProcessStepsBlock,
-} from '@/components/blocks'
+import { HeroBlock } from '@/components/blocks'
 import { Price, ServiceFacts } from '@/components/ui'
 import { DEFAULT_LOCALE, isLocale } from '@/lib/i18n/config'
 import { getMessages } from '@/lib/i18n/messages'
 import { buildServiceView, serviceSlugs } from '@/lib/routes/services-view'
 import { buildPageMetadata } from '@/lib/seo/page-metadata'
-import { IntroSection } from '@/app/(site)/[locale]/_templates/IntroSection'
-import { PriceAside } from '@/app/(site)/[locale]/_templates/PriceAside'
+import { PageBlocks, PageTail } from '@/app/(site)/[locale]/_templates/PageBlocks'
 import { toneCycle } from '@/app/(site)/[locale]/_templates/tones'
 
 // Service page (template service). Slugs come from seo/sitemap.md via the home cards.
@@ -52,31 +45,25 @@ export default async function ServicePage({ params }: Props) {
     <ServiceFacts
       label={ui.factsLabel}
       title={ui.factsTitle}
-      rows={[{ label: ui.startsFrom, value: <Price quoteLabel={ui.requestQuote} /> }]}
+      rows={[
+        { label: ui.startsFrom, value: <Price quoteLabel={ui.requestQuote} /> },
+        ...view.facts,
+      ]}
     />
   )
   return (
     <>
       <HeroBlock data={view.hero} aside={facts} />
-      <IntroSection
-        tone={tone()}
-        heading={view.intro.heading}
-        text={view.intro.text}
-        placeholder={{ title: ui.placeholderTitle, text: ui.placeholderText }}
+      <PageBlocks blocks={view.blocks} tone={tone} introHeading={ui.introHeading} />
+      <PageTail
+        tone={tone}
+        pricing={view.pricing}
+        priceLabel={ui.requestQuote}
+        crossSell={view.crossSell}
+        crossSellHeading={ui.crossSellHeading}
+        faq={view.faq}
+        cta={view.cta}
       />
-      <ProcessStepsBlock data={view.process} tone={tone()} />
-      <PricingTeaserBlock
-        data={{
-          ...view.pricing,
-          heading: ui.priceHeading,
-          text: ui.priceText,
-          secondary: undefined,
-        }}
-        tone={tone()}
-        aside={<PriceAside label={ui.requestQuote} />}
-      />
-      <FaqBlock data={view.faq} tone={tone()} />
-      <CtaBandBlock data={view.cta} />
     </>
   )
 }

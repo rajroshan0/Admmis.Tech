@@ -12,6 +12,7 @@ import { DEFAULT_LOCALE, isLocale } from '@/lib/i18n/config'
 import { getMessages } from '@/lib/i18n/messages'
 import { buildRentHubView } from '@/lib/routes/rent-view'
 import { buildPageMetadata } from '@/lib/seo/page-metadata'
+import { PageBlocks } from '@/app/(site)/[locale]/_templates/PageBlocks'
 import { toneCycle } from '../_templates/tones'
 
 // On-rent hub (template rent-hub). The plans block and rent-vs-buy table wait for approved prices and copy.
@@ -42,6 +43,7 @@ export default async function RentHubPage({ params }: Props) {
     <>
       <HeroBlock data={view.hero} />
       <RentCardsBlock data={view.cards} tone={tone()} />
+      <PageBlocks blocks={view.blocks} tone={tone} introHeading={view.ui.introHeading} />
       <ProcessStepsBlock data={view.process} tone={tone()} />
       <FaqBlock data={view.faq} tone={tone()} />
       <CtaBandBlock data={view.cta} />
