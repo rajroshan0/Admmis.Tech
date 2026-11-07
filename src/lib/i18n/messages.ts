@@ -18,8 +18,11 @@ const loaders: Record<Locale, { [N in Namespace]?: () => Promise<{ default: unkn
     common: () => import('@/messages/en/common.json'),
     home: () => import('@/messages/en/home.json'),
   },
-  // ne: added at switch-on preparation (i18n.md §10), same namespaces and keys.
-  ne: {},
+  // NE homepage draft (ADR-041): same keys as EN; keys missing here fall back to EN.
+  ne: {
+    common: () => import('@/messages/ne/common.json'),
+    home: () => import('@/messages/ne/home.json'),
+  },
 }
 
 function isPlainObject(value: unknown): value is Record<string, unknown> {
@@ -48,4 +51,9 @@ export async function getMessages<N extends Namespace>(
   const loadLocale = loaders[locale][namespace]
   if (!loadLocale) return base
   return deepMerge(base, (await loadLocale()).default)
+}
+
+/** True when the locale has its own file for the namespace (not just the EN fallback). */
+export function hasMessages(locale: Locale, namespace: Namespace): boolean {
+  return locale === DEFAULT_LOCALE || loaders[locale][namespace] !== undefined
 }

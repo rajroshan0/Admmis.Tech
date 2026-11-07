@@ -1,3 +1,4 @@
+import { LanguageSwitch, type LanguageItem } from './LanguageSwitch'
 import { Logo } from './Logo'
 import { MobileNav } from './MobileNav'
 import { LinkButton } from '@/components/ui/Button'
@@ -11,9 +12,11 @@ type Props = {
   nav: NavItem[]
   cta: Cta
   labels: { menuOpen: string; menuClose: string; menuLabel: string }
+  /** language switch; absent or a single item renders nothing */
+  languages?: { label: string; items: LanguageItem[] }
 }
 
-export function Header({ homeHref, logoAlt, nav, cta, labels }: Props) {
+export function Header({ homeHref, logoAlt, nav, cta, labels, languages }: Props) {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-surface text-fg">
       <div className="mx-auto flex h-header w-full max-w-page items-center justify-between px-gutter">
@@ -21,24 +24,27 @@ export function Header({ homeHref, logoAlt, nav, cta, labels }: Props) {
           <Logo alt={logoAlt} />
         </a>
 
-        <nav aria-label={labels.menuLabel} className="hidden lg:block">
-          <ul className="flex items-center gap-1">
-            {nav.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  aria-current={item.current ? 'page' : undefined}
-                  className="nav-link inline-flex min-h-11 items-center rounded-button px-3 text-[0.9375rem] font-semibold leading-none text-fg no-underline"
-                >
-                  {item.label}
-                </a>
+        <div className="hidden items-center gap-2 lg:flex">
+          <nav aria-label={labels.menuLabel}>
+            <ul className="flex items-center gap-1">
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    aria-current={item.current ? 'page' : undefined}
+                    className="nav-link inline-flex min-h-11 items-center rounded-button px-3 text-[0.9375rem] font-semibold leading-none text-fg no-underline"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+              <li className="ms-3">
+                <LinkButton cta={cta} className="min-h-11 px-5" />
               </li>
-            ))}
-            <li className="ms-3">
-              <LinkButton cta={cta} className="min-h-11 px-5" />
-            </li>
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+          {languages ? <LanguageSwitch label={languages.label} items={languages.items} /> : null}
+        </div>
 
         {/* No JavaScript: the menu button would be inert, so hide it and show the links in a row below. */}
         <noscript>
@@ -62,6 +68,9 @@ export function Header({ homeHref, logoAlt, nav, cta, labels }: Props) {
               </li>
             ))}
           </ul>
+          {languages ? (
+            <LanguageSwitch label={languages.label} items={languages.items} className="mt-4" />
+          ) : null}
           <LinkButton cta={cta} className="mt-6 w-full" />
         </MobileNav>
       </div>
@@ -79,6 +88,7 @@ export function Header({ homeHref, logoAlt, nav, cta, labels }: Props) {
               </li>
             ))}
           </ul>
+          {languages ? <LanguageSwitch label={languages.label} items={languages.items} /> : null}
         </nav>
       </noscript>
     </header>

@@ -55,3 +55,10 @@ Checks: typecheck, lint, test 13/13, build pass; e2e (`E2E_PORT=3103 E2E_CHANNEL
 
 ## Update 2026-11-07 (BUG-002b, hritik request)
 `fetchPriority="high"` added to the hero `<Image>` (`quality` was already dropped). Built HTML check on a production server (port 3106, stopped): both the `<link rel="preload" as="image">` and the `<img>` carry `fetchpriority="high"` (the `low` one on the page is the lazy footer logo). typecheck, lint, test 13/13, build pass; First Load JS `/en` 143.8 KB gzip (unchanged).
+
+## Update 2026-11-07 (T-206 LanguageSwitch, linkLabel)
+- `src/components/layout/LanguageSwitch.tsx`: server component, plain links, no client JS. Props `{ label, items: { locale, name, href, current }[], className? }`. Each link has `lang` and `hreflang`; the current one keeps its link with `aria-current="true"` and a heavier underline; 44 px minimum target; renders nothing for fewer than two items. Unit test: `LanguageSwitch.test.tsx`.
+- `Header` has a new optional prop `languages?: { label: string; items: LanguageItem[] }`. It shows in the desktop nav (right of the CTA), in the mobile menu above the CTA, and in the no-JS link row (BUG-004 fallback). Exported from `@/components/layout`.
+- `ServiceItem.linkLabel?`: finding: using it as `aria-label` fails axe `label-content-name-mismatch` (WCAG 2.5.3), because "Website development" does not contain the visible "Websites". The block now uses `aria-label` only when the label contains the title; otherwise it appends the label as hidden text after the title. Writer could start each `linkLabel` with the visible title to get a cleaner name.
+- Devanagari: "नेपाली" on EN pages has no Devanagari @font-face, so it uses the stack's system fallback (`Noto Sans Devanagari` and system fonts); on NE pages Mukta applies. The font stacks already tolerate the undefined `--font-devanagari`.
+Checks: typecheck, lint, test 17/17, build pass. First Load JS `/en` 143.8 KB gzip (limit 144.3). e2e (port 3106): 22 passed, 1 failed: `ne.spec.ts` "/ne serves a page..." (mahendra's /ne wiring in progress, not part of this task).

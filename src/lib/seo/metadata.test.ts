@@ -21,4 +21,13 @@ describe('buildMetadata', () => {
   it('emits no hreflang with one locale', () => {
     expect(buildMetadata({ ...base, locale: 'en', path: '/' }).alternates?.languages).toBeUndefined()
   })
+  it('emits hreflang for translated locales plus x-default pointing to EN', () => {
+    const m = buildMetadata({ ...base, locale: 'ne', path: '/', translatedLocales: ['en', 'ne'] })
+    expect(m.alternates?.canonical).toBe('https://tech.admmis.org/ne')
+    expect(m.alternates?.languages).toEqual({
+      en: 'https://tech.admmis.org/',
+      ne: 'https://tech.admmis.org/ne',
+      'x-default': 'https://tech.admmis.org/',
+    })
+  })
 })

@@ -15,7 +15,7 @@ import {
 } from '@/components/blocks'
 import { brand } from '@/brands/admmis-tech/brand'
 import { isLocale } from '@/lib/i18n/config'
-import { getMessages } from '@/lib/i18n/messages'
+import { getMessages, hasMessages } from '@/lib/i18n/messages'
 import { getServerEnv } from '@/lib/env'
 import { buildHomeView } from '@/lib/routes/home-view'
 import { buildMetadata } from '@/lib/seo/metadata'
@@ -31,7 +31,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   if (!isLocale(locale)) notFound()
   const home = await getMessages(locale, 'home')
+  // A locale counts as translated for the homepage when it has its own home messages.
+  const translatedLocales = getServerEnv().ENABLED_LOCALES.filter((l) => hasMessages(l, 'home'))
   return buildMetadata({
+    translatedLocales,
+    noindex: !translatedLocales.includes(locale),
     siteUrl: getServerEnv().NEXT_PUBLIC_SITE_URL,
     locale,
     path: '/',

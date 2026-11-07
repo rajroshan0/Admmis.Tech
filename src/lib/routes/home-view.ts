@@ -1,7 +1,7 @@
 import type { Locale } from '@/lib/i18n/config'
 import type { Messages } from '@/lib/i18n/messages'
 import type { Cta } from '@/components/ui'
-import { pathFor } from '@/lib/routes/path'
+import { languageItems, pathFor } from '@/lib/routes/path'
 
 // Maps the home message namespaces to block props (docs/frontend/component-inventory.md §3.1).
 // Pure and server-side. Fields still marked TODO(roshan) are absent from the message files, so
@@ -134,13 +134,21 @@ export function buildHomeView(
   return { hero, services, rent, whyUs, process, work, pricingTeaser, event, faq, finalCta, common }
 }
 
-export function buildChrome(locale: Locale, common: Messages['common']) {
+export function buildChrome(
+  locale: Locale,
+  common: Messages['common'],
+  enabledLocales: readonly Locale[],
+) {
   const href = (path: string) => pathFor(locale, path)
   const header = {
     homeHref: href('/'),
     logoAlt: common.header.logoAlt,
     nav: common.header.nav.map((n) => ({ label: n.label, href: href(n.link) })),
     cta: { label: common.header.ctaLabel, href: href(common.header.ctaLink) } satisfies Cta,
+    languages: {
+      label: common.languageSwitchAria,
+      items: languageItems(locale, enabledLocales, common.languages),
+    },
     labels: {
       menuOpen: common.common.menuOpen,
       menuClose: common.common.menuClose,

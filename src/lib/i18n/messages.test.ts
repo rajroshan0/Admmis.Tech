@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { deepMerge, getMessages } from '@/lib/i18n/messages'
+import { deepMerge, getMessages, hasMessages } from '@/lib/i18n/messages'
 
 describe('deepMerge', () => {
   it('keeps EN keys the locale does not define', () => {
@@ -14,8 +14,20 @@ describe('deepMerge', () => {
 })
 
 describe('getMessages', () => {
-  it('falls back to EN while NE has no files', async () => {
-    expect(await getMessages('ne', 'common')).toEqual(await getMessages('en', 'common'))
+  it('serves NE strings and falls back to EN for keys NE does not define', async () => {
+    const en = await getMessages('en', 'home')
+    const ne = await getMessages('ne', 'home')
+    expect(JSON.stringify(ne)).not.toEqual(JSON.stringify(en))
+    // Same shape as EN: every EN key exists in the merged NE object.
+    const keys = (o: unknown, p = ''): string[] =>
+      typeof o === 'object' && o !== null && !Array.isArray(o)
+        ? Object.entries(o).flatMap(([k, v]) => keys(v, `${p}.${k}`))
+        : [p]
+    expect(keys(ne)).toEqual(keys(en))
+  })
+  it('reports which locales have their own files', () => {
+    expect(hasMessages('en', 'home')).toBe(true)
+    expect(hasMessages('ne', 'home')).toBe(true)
   })
   it('never contains an unresolved TODO marker', async () => {
     for (const ns of ['common', 'home'] as const) {

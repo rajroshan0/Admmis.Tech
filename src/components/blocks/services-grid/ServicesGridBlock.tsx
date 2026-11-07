@@ -22,24 +22,38 @@ export function ServicesGridBlock({
         level={headingLevel}
       />
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-        {data.items.map((item) => (
-          <li key={item.href}>
-            <Card
-              interactive
-              className="block h-full max-sm:grid max-sm:grid-cols-[3rem_1fr] max-sm:items-start max-sm:gap-x-4 max-sm:p-4"
-            >
-              <span className="max-sm:row-span-2">
-                <IconTile>
-                  {item.icon ? <Icon name={item.icon} className="size-6.5" /> : null}
-                </IconTile>
-              </span>
-              <h3 className="mb-1 mt-3 text-[1.125rem] font-bold sm:text-h3 max-sm:mt-0">
-                <CardLink href={item.href}>{item.title}</CardLink>
-              </h3>
-              <p className="text-card text-muted">{item.summary}</p>
-            </Card>
-          </li>
-        ))}
+        {data.items.map((item) => {
+          // WCAG 2.5.3: an accessible name must contain the visible text; otherwise append the label as hidden text.
+          const labelContainsTitle = item.linkLabel
+            ?.toLowerCase()
+            .includes(item.title.toLowerCase())
+          return (
+            <li key={item.href}>
+              <Card
+                interactive
+                className="block h-full max-sm:grid max-sm:grid-cols-[3rem_1fr] max-sm:items-start max-sm:gap-x-4 max-sm:p-4"
+              >
+                <span className="max-sm:row-span-2">
+                  <IconTile>
+                    {item.icon ? <Icon name={item.icon} className="size-6.5" /> : null}
+                  </IconTile>
+                </span>
+                <h3 className="mb-1 mt-3 text-[1.125rem] font-bold sm:text-h3 max-sm:mt-0">
+                  <CardLink
+                    href={item.href}
+                    ariaLabel={labelContainsTitle ? item.linkLabel : undefined}
+                  >
+                    {item.title}
+                    {item.linkLabel && !labelContainsTitle ? (
+                      <span className="sr-only"> – {item.linkLabel}</span>
+                    ) : null}
+                  </CardLink>
+                </h3>
+                <p className="text-card text-muted">{item.summary}</p>
+              </Card>
+            </li>
+          )
+        })}
       </ul>
       {data.cta ? (
         <div className="mt-8 text-center">

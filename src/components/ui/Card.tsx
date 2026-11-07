@@ -20,10 +20,20 @@ export function Card({ children, className = '', interactive }: CardProps) {
 }
 
 /** Title link stretched over the whole Card. The focus ring is drawn on the card edge, no :has() needed. */
-export function CardLink({ href, children }: { href: string; children: ReactNode }) {
+export function CardLink({
+  href,
+  children,
+  ariaLabel,
+}: {
+  href: string
+  children: ReactNode
+  /** descriptive accessible name when the visible title is short; keep it containing the title (WCAG 2.5.3) */
+  ariaLabel?: string
+}) {
   return (
     <a
       href={href}
+      aria-label={ariaLabel}
       className="text-inherit no-underline after:absolute after:inset-0 after:rounded-card focus-visible:outline-none focus-visible:after:outline-3 focus-visible:after:outline-offset-3 focus-visible:after:outline-focus"
     >
       {children}

@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import type { Viewport } from 'next'
 import type { ReactNode } from 'react'
 
-import { fontVariables } from '@/brands/admmis-tech/fonts'
+import { devanagari, latin } from '@/brands/admmis-tech/fonts'
 import { Footer, Header, MobileStickyBar, SkipLink } from '@/components/layout'
 import { isLocale } from '@/lib/i18n/config'
 import { getMessages } from '@/lib/i18n/messages'
@@ -29,10 +29,13 @@ export default async function LocaleLayout({
   if (!isLocale(locale) || !getServerEnv().ENABLED_LOCALES.some((l) => l === locale)) notFound()
 
   const common = await getMessages(locale, 'common')
-  const chrome = buildChrome(locale, common)
+  const chrome = buildChrome(locale, common, getServerEnv().ENABLED_LOCALES)
 
   return (
-    <html lang={locale} className={fontVariables}>
+    <html
+      lang={locale}
+      className={locale === 'ne' ? `${latin.variable} ${devanagari.variable}` : latin.variable}
+    >
       <body>
         <SkipLink label={chrome.skipToContent} />
         <Header {...chrome.header} />

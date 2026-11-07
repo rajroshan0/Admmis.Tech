@@ -1,0 +1,170 @@
+{
+  "common": {
+    "skipToContent": "मुख्य सामग्रीमा जानुहोस्",
+    "menuOpen": "मेनु खोल्नुहोस्",
+    "menuClose": "मेनु बन्द गर्नुहोस्",
+    "menuLabel": "मुख्य मेनु",
+    "languageSwitch": "भाषा",
+    "backToTop": "माथि जानुहोस्",
+    "readMore": "थप पढ्नुहोस्",
+    "opensInNewTab": "(नयाँ ट्याबमा खुल्छ)"
+  },
+  "header": {
+    "nav": [
+      {
+        "label": "सेवाहरू",
+        "link": "/services"
+      },
+      {
+        "label": "भाडामा",
+        "link": "/rent"
+      },
+      {
+        "label": "मूल्य",
+        "link": "/pricing"
+      },
+      {
+        "label": "हाम्रा काम",
+        "link": "/work"
+      },
+      {
+        "label": "हाम्रो बारे",
+        "link": "/about"
+      }
+    ],
+    "ctaLabel": "कोटेशन लिनुहोस्",
+    "ctaLink": "/contact",
+    "logoAlt": "ADMMIS.TECH गृहपृष्ठ"
+  },
+  "footer": {
+    "about": "ADMMIS.TECH नेपालमा रहेको ADMMIS को प्रविधि र मार्केटिङ इकाई हो।",
+    "columns": [
+      {
+        "title": "सेवाहरू",
+        "links": [
+          {
+            "label": "वेबसाइट",
+            "link": "/services/web-development"
+          },
+          {
+            "label": "मोबाइल एप",
+            "link": "/services/mobile-app-development"
+          },
+          {
+            "label": "कस्टम सफ्टवेयर",
+            "link": "/services/custom-software"
+          },
+          {
+            "label": "AI एजेन्ट",
+            "link": "/services/ai-agents"
+          },
+          {
+            "label": "QA र टेस्टिङ",
+            "link": "/services/qa-testing"
+          },
+          {
+            "label": "अडिट",
+            "link": "/services/audit"
+          },
+          {
+            "label": "समर्पित टोली",
+            "link": "/services/outstaffing"
+          },
+          {
+            "label": "डिजिटल मार्केटिङ",
+            "link": "/services/digital-marketing"
+          },
+          {
+            "label": "अफलाइन मार्केटिङ",
+            "link": "/services/offline-marketing"
+          }
+        ]
+      },
+      {
+        "title": "भाडामा",
+        "links": [
+          {
+            "label": "भाडामा वेबसाइट",
+            "link": "/rent/website"
+          },
+          {
+            "label": "भाडामा AI एजेन्ट",
+            "link": "/rent/ai-agent"
+          },
+          {
+            "label": "भाडामा टोली",
+            "link": "/rent/team"
+          }
+        ]
+      },
+      {
+        "title": "कम्पनी",
+        "links": [
+          {
+            "label": "हाम्रो बारे",
+            "link": "/about"
+          },
+          {
+            "label": "करियर",
+            "link": "/careers"
+          },
+          {
+            "label": "ब्लग",
+            "link": "/blog"
+          },
+          {
+            "label": "उद्घाटन कार्यक्रम",
+            "link": "/opening-event"
+          },
+          {
+            "label": "सम्पर्क",
+            "link": "/contact"
+          }
+        ]
+      },
+      {
+        "title": "कानुनी",
+        "links": [
+          {
+            "label": "गोपनीयता नीति",
+            "link": "/privacy"
+          },
+          {
+            "label": "सेवाका सर्त",
+            "link": "/terms"
+          },
+          {
+            "label": "कुकी नीति",
+            "link": "/cookies"
+          }
+        ]
+      }
+    ],
+    "contact": {
+      "addressLabel": "ठेगाना",
+      "phoneLabel": "फोन",
+      "emailLabel": "इमेल",
+      "email": "admmis.org@gmail.com",
+      "websiteLabel": "मुख्य वेबसाइट",
+      "website": "www.admmis.org"
+    },
+    "copyright": "© २०२७ ADMMIS.TECH, ADMMIS को अंश। सर्वाधिकार सुरक्षित।"
+  },
+  "stickyBar": {
+    "whatsapp": "WhatsApp",
+    "call": "फोन",
+    "quote": "कोटेशन",
+    "whatsappAria": "WhatsApp मा हामीसँग च्याट गर्नुहोस्",
+    "callAria": "ADMMIS.TECH लाई फोन गर्नुहोस्",
+    "quoteAria": "कोटेशन लिनुहोस्"
+  },
+  "faq": {
+    "expand": "उत्तर देखाउनुहोस्",
+    "collapse": "उत्तर लुकाउनुहोस्"
+  },
+  "languages": {
+    "en": "English",
+    "ne": "नेपाली"
+  },
+  "languageSwitchAria": "भाषा परिवर्तन गर्नुहोस्"
+}

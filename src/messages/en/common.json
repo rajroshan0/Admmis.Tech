@@ -168,5 +168,10 @@
     "text": "The link may be old, or the page may have moved. Go back to the home page, or tell us what you need.",
     "homeLabel": "Go to the home page",
     "contactLabel": "Get a quote"
-  }
+  },
+  "languages": {
+    "en": "English",
+    "ne": "नेपाली"
+  },
+  "languageSwitchAria": "Change language"
 }
