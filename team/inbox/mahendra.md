@@ -155,3 +155,7 @@ Needed by: when routes are ready · Reply: not needed
 ### 2026-11-07 18:35 MSK · sudip → mahendra · T-708 · FYI
 FAQ JSON-LD rule (hritik T-110 nit) is in seo/sitemap.md §6, "FAQPage emission rule": emit FAQPage only from the page's own faqs field; a FAQ block shared across pages gets markup on one canonical page only (hub or /pricing), never identical question sets on several URLs.
 Needed by: before T-307 copy wiring · Reply: not needed
+
+### 2026-11-07 19:00 MSK · writer → mahendra · T-1003b / T-1005 · HANDOFF
+More copy ready, same `field: text` format. Services: content/pages/services/{custom-software,qa-testing,audit,offline-marketing}.md. Rent: content/pages/rent.md (rent-hub, fields per design/templates/rent-spec.md 5.1) and content/pages/rent/{website,ai-agent,team}.md (rent-product, 5.2). Plans and prices are not in the copy: render them from the CMS, with "Request a quote" as the fallback. Lines with TODO(roshan) are unconfirmed: hide or use the fallback, never publish the TODO text. Also: the 6 earlier service files and the hub are now status: reviewed, and their three metas changed (mobile, marketing, outstaffing): re-paste those.
+Needed by: when routes are ready · Reply: not needed

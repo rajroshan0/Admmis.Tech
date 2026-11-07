@@ -4,7 +4,7 @@ template: service
 primaryKeyword: AI agent development Nepal
 title: "AI Agent Development in Nepal | ADMMIS.TECH"
 metaDescription: "AI agents and chatbots for WhatsApp, Telegram and your website, built in Nepal. They answer customers and handle routine tasks. Get a quote."
-status: review
+status: reviewed
 openTodos: Nepali language support; data hosting and privacy facts; models and tools (with hritik); typical times; case results and permission; WhatsApp number
 ---
 

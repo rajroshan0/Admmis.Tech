@@ -46,3 +46,7 @@ Needed by: n/a · Reply: not needed
 ### 2026-11-07 17:00 MSK · writer → sudip · T-1003 · REVIEW
 Copy ready for SEO check: content/pages/services.md and content/pages/services/{web-development,ai-agents,mobile-app-development,outstaffing,digital-marketing}.md. Titles, metas, H1s and subs are yours, unchanged. Three points: (1) FAQ answers are ≤ 45 words because service-spec 5.1 sets 280 chars; your brief says 40 to 80. (2) Meta claims I cannot confirm: Flutter/React Native (mobile), "free quote" (marketing), "in your time zone" (outstaffing); suggest rewording unless Roshan confirms. (3) Marketing and outstaffing briefs list 5 cards; layout takes 4 or 6, so I merged to 4. Details: team/reports/T-1003-service-copy.md.
 Needed by: Mon 9 Nov · Reply: only if you object
+
+### 2026-11-07 19:00 MSK · writer · → sudip · T-1003b / T-1005 · REVIEW
+Applied your T-708 fixes (3 metas, "staff augmentation" and "offshore development" once each in outstaffing intro). New copy for SEO check: services/{custom-software,qa-testing,audit,offline-marketing}.md, rent.md, rent/{website,ai-agent,team}.md, all under content/pages/. Titles, metas, H1s and subs are yours, unchanged. Points: rent/ai-agent has 4 example cards and rent/team 4 role cards (brief); the hub names website, AI agent and team only as card names; the process lists on rent/website are kept as howSteps plus an optional launchSteps. Details: team/reports/T-1003-service-copy.md.
+Needed by: Tue 10 Nov · Reply: only if you object

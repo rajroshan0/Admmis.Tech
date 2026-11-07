@@ -3,12 +3,12 @@ slug: /services/outstaffing
 template: service
 primaryKeyword: hire dedicated developers Nepal
 title: "Hire Dedicated Developers in Nepal | ADMMIS.TECH"
-metaDescription: "Hire dedicated developers, designers, QA and DevOps from Nepal. Work in your time zone, pay a clear monthly rate per person. Talk to us."
-status: review
+metaDescription: "Hire dedicated developers, designers, QA and DevOps from Nepal. Pay a clear monthly rate per person. Talk to us."
+status: reviewed
 openTodos: team size and roles available; replacement and trial terms; minimum term; contract entity; payment for foreign clients; IP and NDA wording (legal); time to start; real engagement
 ---
 
-<!-- Format: `field: text`. Field names follow design/templates/service-spec.md section 5.1 and map to src/messages/en/services.json (items.outstaffing.*). Rates are never typed: the price teaser reads the CMS. "Rent" stays out of H1 and title (it belongs to /rent/team). The meta description says "in your time zone": see the time zone section, it is true only as an overlap of hours. Raise with sudip. -->
+<!-- Format: `field: text`. Field names follow design/templates/service-spec.md section 5.1 and map to src/messages/en/services.json (items.outstaffing.*). Rates are never typed: the price teaser reads the CMS. "Rent" stays out of H1 and title (it belongs to /rent/team). -->
 
 ## hero
 - heroEyebrow: Team and marketing
@@ -22,7 +22,7 @@ openTodos: team size and roles available; replacement and trial terms; minimum t
 - facts.bestFor: Product teams that need more people
 
 ## intro
-- intro: A dedicated team member works only for you. You give the tasks and set the priorities, like with your own staff. We employ the person, pay the salary and look after the work setup. You get the skills you need without a long hiring process. Many readers outside Nepal know this as staff augmentation or offshore development.
+- intro: A dedicated team member works only for you. You give the tasks and set the priorities, like with your own staff. We employ the person, pay the salary and look after the work setup. You get the skills you need without a long hiring process. Many companies call this staff augmentation. Hiring a team in another country is also called offshore development, and our developers work from Nepal.
 
 ## roles
 - rolesHeading: Roles you can hire

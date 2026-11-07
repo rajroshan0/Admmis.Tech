@@ -4,7 +4,7 @@ template: services-hub
 primaryKeyword: IT services Nepal
 title: "IT Services in Nepal | ADMMIS.TECH"
 metaDescription: "Websites, mobile apps, custom software, AI agents, testing, audits, dedicated teams and marketing. One Nepal-based team, clear prices. Get a quote."
-status: review
+status: reviewed
 openTodos: WhatsApp number; real case results and client permission; typical project times (shared with home FAQ)
 ---
 

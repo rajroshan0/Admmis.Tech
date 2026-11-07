@@ -3,12 +3,12 @@ slug: /services/digital-marketing
 template: service
 primaryKeyword: digital marketing agency Nepal
 title: "Digital Marketing Agency in Nepal | ADMMIS.TECH"
-metaDescription: "SEO, social media, Facebook and Google ads and influencer campaigns for Nepali businesses. Clear plans, clear prices. Get a free quote today."
-status: review
+metaDescription: "SEO, social media, Facebook and Google ads and influencer campaigns for Nepali businesses. Clear plans, clear prices. Get a quote."
+status: reviewed
 openTodos: channels we manage; account ownership; contract terms (lock-in); real campaign results; report sample; ad spend handling; typical times; WhatsApp number
 ---
 
-<!-- Format: `field: text`. Field names follow design/templates/service-spec.md section 5.1 and map to src/messages/en/services.json (items.digital-marketing.*). Prices are never typed. No ranking or sales promises. No "audit" as a heading (it belongs to /services/audit). "Free quote" in the meta comes from sudip's brief: it is true only if quotes are free. Raise with Roshan. -->
+<!-- Format: `field: text`. Field names follow design/templates/service-spec.md section 5.1 and map to src/messages/en/services.json (items.digital-marketing.*). Prices are never typed. No ranking or sales promises. No "audit" as a heading (it belongs to /services/audit). -->
 
 ## hero
 - heroEyebrow: Team and marketing

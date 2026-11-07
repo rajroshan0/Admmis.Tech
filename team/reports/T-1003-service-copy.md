@@ -28,3 +28,11 @@ Status: DONE (draft, review). Date: 2026-11-07.
 
 ## Not done
 Remaining 4 service pages (custom-software, qa-testing, audit, offline-marketing) are P1; not in this batch.
+
+## Update 2026-11-07 (T-708 fixes, T-1003b, T-1005)
+- T-708 applied: 3 metas reworded (mobile, marketing, outstaffing), matching comments removed. "Staff augmentation" and "offshore development" each appear once in the outstaffing intro. The 6 service files and the hub are `status: reviewed`.
+- T-1003b: content/pages/services/{custom-software,qa-testing,audit,offline-marketing}.md. Offline: no portfolio claimed; cases hidden until Roshan supplies real ones.
+- T-1005: content/pages/rent.md and content/pages/rent/{website,ai-agent,team}.md. Format per design/templates/rent-spec.md section 5. No price typed. All terms (setup fee, minimum term, support hours, cancellation, code buyout, ownership) are TODO(roshan); the band staff ranges are marked as a proposal.
+- Deviations: rent/ai-agent has 4 "what it can do" cards and rent/team has 4 role cards where the template wants 3 or 6 (noted in the files; ask sharwan/satish). Rent pages carry extra fields (channels, compare text, intro) beyond the spec.
+- New TODOs: approved rental terms (pricing-model section 3), plan inclusions per product, Nepali support for AI agents, report/checklist samples for audit, printing and cities for offline, tools and devices for QA.
+- Not run: typo and link check.

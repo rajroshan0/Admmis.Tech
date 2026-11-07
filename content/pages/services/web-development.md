@@ -4,7 +4,7 @@ template: service
 primaryKeyword: web development company Nepal
 title: "Web Development Company in Nepal | ADMMIS.TECH"
 metaDescription: "Fast, clear websites and web platforms built in Nepal: company sites, online shops, booking and portals. See prices and get a quote."
-status: review
+status: reviewed
 openTodos: typical times; ownership terms; eSewa/Khalti experience; client-site stack; case results; WhatsApp number
 ---
 

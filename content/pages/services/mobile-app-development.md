@@ -3,12 +3,12 @@ slug: /services/mobile-app-development
 template: service
 primaryKeyword: mobile app development Nepal
 title: "Mobile App Development in Nepal | ADMMIS.TECH"
-metaDescription: "Android and iPhone apps built in Nepal with Flutter, React Native or native code. Clear plan, clear price, support after launch. Get a quote."
-status: review
+metaDescription: "Android and iPhone apps built in Nepal. Clear plan, clear price, support after launch. Get a quote."
+status: reviewed
 openTodos: confirm which technologies we have shipped (Flutter, React Native, native); store apps; typical times; code and store-account ownership; support terms; case results
 ---
 
-<!-- Format: `field: text`. Field names follow design/templates/service-spec.md section 5.1 and map to src/messages/en/services.json (items.mobile-app-development.*). Prices are never typed. The meta description names Flutter and React Native from sudip's brief: it stays only if Roshan confirms we have shipped them. -->
+<!-- Format: `field: text`. Field names follow design/templates/service-spec.md section 5.1 and map to src/messages/en/services.json (items.mobile-app-development.*). Prices are never typed. -->
 
 ## hero
 - heroEyebrow: Build
