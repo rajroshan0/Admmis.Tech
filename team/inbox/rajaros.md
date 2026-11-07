@@ -46,3 +46,7 @@ Needed by: Fri 13 Nov · Reply: not needed
 ### 2026-11-06 19:18 MSK · pm → rajaros · T-801 · REQUEST
 Your nit edits are in commit e5fcea8. One of hritik's corrections is still missing: the browser policy must say iOS/Safari 16.4+ (not 16+), and Chrome/Edge/Firefox 111+ (Next 16 supported browsers). Android 9–10 is acceptable only with Chrome ≥ 111, so keep device X1 as a check item. Fix in qa/ at the start of next session.
 Needed by: Mon 9 Nov · Reply: DONE
+
+### 2026-11-07 10:38 MSK · pm → rajaros · ADR-030..040 · FYI
+Gate 1 PASSED today. New ADRs in docs/decisions.md: 031 brand = Sindoor Studio layout in ADMMIS colours · 032 migrations at app start · 033 Sentry server-side only · 034 AGENTS.md disabled · 035 backups · 036 leads (24 mo, N=20/h, UTM pre-consent) · 037 **free services only (USD 0)** · 038 writer joins (owns content/) · 039 go/no-go approved · 040 **Scrum, 1-week sprints**. Your Sprint 1 tasks are in team/sprints/sprint-1.md (your section) and team/BOARD.md. Backlog: team/BACKLOG.md. Release plan (soft launch target Mon 14 Dec): team/RELEASE-PLAN.md.
+Needed by: n/a · Reply: not needed

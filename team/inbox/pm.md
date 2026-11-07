@@ -92,3 +92,13 @@ T-103 DONE (report team/reports/T-103-scaffold.md); T-102 updated (docs/gates/ga
 Also: Next 16 generated AGENTS.md in the repo root (a second rulebook for AI tools); keep or disable (agentRules false)?
 Disk: free space is 797 MB (below the 1 GB rule), I broke the rule twice for builds, no deletions; I am paused on builds/installs until there is more space.
 Needed by: before Gate 2 · Reply: decision
+
+### 2026-11-07 10:35 MSK · roshan (via Claude chat) → pm · INPUTS + DECISIONS
+1. **Brand files received** → `design/inputs/` (ADMMIS signboard PDF/PNG, emblem crop, colours, fonts in `design/inputs/README.md`). Unblock sharwan T-601/T-602: match the ADMMIS family (navy #0A1F4A, orange dot #F48221, amber/green network emblem, Montserrat). No vector original yet → sharwan redraws the emblem as clean SVG.
+2. **Company info + 4 case studies** → `docs/company-info.md`. PAN looks wrong (12 digits) — ask Roshan to confirm. Case-study details still needed from Roshan (table there).
+3. **New team member: `writer`** (Content Writer, `.claude/agents/writer-content.md`, owns `content/`). Replaces the copywriter hire (ADR-008) → record an ADR. Writer starts with voice-and-tone, then Home.
+4. **Free services only for now.** Raj: revise the infra plan to a USD 0 stack — Cloudflare Free (DNS, WAF, Turnstile, R2 free tier), GitHub Free, Sentry Developer, UptimeRobot/Better Stack free, Slack free, Bitwarden free. Hosting: evaluate a free option close to Nepal (e.g. Oracle Cloud Always Free, Mumbai region — verify) vs the cheapest paid fallback; show the trade-off. Update ADR-017 via a new ADR after Roshan OKs.
+5. **DNS:** Roshan manages admmis.org himself. Raj: tell him exactly what you need (registrar login steps to change nameservers to Cloudflare Free, keeping existing records), in plain steps.
+6. **Mac:** Roshan freed 100 GB; Docker Desktop install is his action.
+7. **Speed:** Roshan wants to finish as early as possible and see a result **today at end of day**.
+✔ read 2026-11-07 (pm)

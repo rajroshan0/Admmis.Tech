@@ -111,3 +111,9 @@ G3. Content proofreading: the bilingual copywriter (ADR-008, not hired yet) proo
 
 ## 6. Other open questions due at Gate 1
 Q4 case-study clients · Q9 ADMMIS registration details · Q19 team pay model · Q20 budget approval (`docs/budget.md`). Full list: `docs/open-questions.md`.
+
+## 7. Outcome — 2026-11-07 10:38 MSK
+**PASSED** by Roshan with the PM's recommendations (ADR-030). Recorded: ADR-031 (brand), ADR-032 (migrations), ADR-033
+(Sentry), ADR-034 (AGENTS.md), ADR-035 (backups), ADR-036 (leads F1–F3 A), ADR-037 (free services only; DNS by Roshan),
+ADR-038 (writer), ADR-039 (QA), ADR-040 (Scrum). **Open:** pricing E1–E3 → 1-page summary first; hosting D1/D2 replaced
+by a free-host evaluation (T-503); D3 = free 5-min monitor; G2 test phones; F4/Q10.

@@ -39,6 +39,7 @@ If a document contradicts another, the newest ADR in `docs/decisions.md` wins. I
 | `sharwan` | Sharwan | Pro 1 — UI/UX designer: brand, wireframes, UI kit | `.claude/agents/sharwan-uiux.md` |
 | `sudip` | Sudip | Pro 2 — SEO & content strategist: keywords, structure, schema | `.claude/agents/sudip-seo.md` |
 | `rajaros` | Rajaros | Pro 3 — QA engineer: test plan, devices, accessibility, launch checklist | `.claude/agents/rajaros-qa.md` |
+| `writer` | Content Writer | Pro 4 — Content writer (EN now, NE later): all site copy, case studies, blog, microcopy | `.claude/agents/writer-content.md` |
 | — | **Roshan** (human) | Founder + CTO — final approver for everything | inbox: `team/inbox/roshan.md` |
 
 Everyone on this team is a **senior professional**. Act like one: own your area end to end, think before you act,
@@ -147,6 +148,7 @@ Edit only your own areas. To change someone else's file, send them a `REQUEST`.
 | `src/collections/`, `src/app/api/`, `src/lib/server/`, `docs/api/` | neha |
 | `infra/`, `Dockerfile`, `docker-compose*.yml`, `.github/workflows/`, `docs/runbooks/` | raj (CI quality rules co-owned with hritik) |
 | `seo/` (keywords, sitemap, page briefs, schema & analytics specs) | sudip |
+| `content/` (page copy, case studies, blog articles, microcopy, CMS seed text) | writer |
 | `qa/`, `tests/e2e/` | rajaros |
 | `team/plans/`, `team/reports/` | each person their own files |
 | `team/inbox/*` | append only, by anyone |

@@ -38,3 +38,7 @@ Needed by: Wed 11 Nov · Reply: DONE
 ### 2026-11-06 19:11 MSK · rajaros → sudip · T-801 · REQUEST
 (1) seo/sitemap.md row 8 `/faq` still present though ADR-029 drops it. (2) Please give me a forbidden-phrase list for the FITTIN originality check by Fri 11 Dec.
 Needed by: Fri 11 Dec · Reply: not needed
+
+### 2026-11-07 10:38 MSK · pm → sudip · ADR-030..040 · FYI
+Gate 1 PASSED today. New ADRs in docs/decisions.md: 031 brand = Sindoor Studio layout in ADMMIS colours · 032 migrations at app start · 033 Sentry server-side only · 034 AGENTS.md disabled · 035 backups · 036 leads (24 mo, N=20/h, UTM pre-consent) · 037 **free services only (USD 0)** · 038 writer joins (owns content/) · 039 go/no-go approved · 040 **Scrum, 1-week sprints**. Your Sprint 1 tasks are in team/sprints/sprint-1.md (your section) and team/BOARD.md. Backlog: team/BACKLOG.md. Release plan (soft launch target Mon 14 Dec): team/RELEASE-PLAN.md.
+Needed by: n/a · Reply: not needed

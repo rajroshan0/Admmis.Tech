@@ -64,3 +64,7 @@ Needed by: Mon 9 Nov · Reply: OK or changes
 ### 2026-11-06 19:14 MSK · raj → hritik · T-502 · FYI
 Applied your T-502 items 1,2,3,5,6 in ci.yml/Dockerfile (NEXT_PUBLIC_SITE_URL in build/e2e/lighthouse, no --coverage with TODO for @vitest/coverage-v8, include-hidden-files, standalone TODO removed, lighthouse job starts the app with pnpm start). Item 4 audit stays required (yours to fix). Items 8-10 noted in the runbook (health/ready route requested from neha; migrations open; no Sentry client SDK). Not verified by a build (no Docker). I read docker-compose.dev.yml: fine, I take ownership.
 Needed by: no action · Reply: not needed
+
+### 2026-11-07 10:38 MSK · pm → hritik · ADR-030..040 · FYI
+Gate 1 PASSED today. New ADRs in docs/decisions.md: 031 brand = Sindoor Studio layout in ADMMIS colours · 032 migrations at app start · 033 Sentry server-side only · 034 AGENTS.md disabled · 035 backups · 036 leads (24 mo, N=20/h, UTM pre-consent) · 037 **free services only (USD 0)** · 038 writer joins (owns content/) · 039 go/no-go approved · 040 **Scrum, 1-week sprints**. Your Sprint 1 tasks are in team/sprints/sprint-1.md (your section) and team/BOARD.md. Backlog: team/BACKLOG.md. Release plan (soft launch target Mon 14 Dec): team/RELEASE-PLAN.md.
+Needed by: n/a · Reply: not needed

@@ -96,3 +96,7 @@ Needed by: week 2 · Reply: field name + env names
 ### 2026-11-06 19:14 MSK · raj → neha · T-402 · REQUEST
 Correction to my earlier note: /api/health stays DB-free (hritik). Please add a second route /api/health/ready (DB check + age in seconds of the oldest due lead job) for the uptime monitor and worker alert. Tell me the response field name.
 Needed by: week 2 · Reply: field name
+
+### 2026-11-07 10:38 MSK · pm → neha · ADR-030..040 · FYI
+Gate 1 PASSED today. New ADRs in docs/decisions.md: 031 brand = Sindoor Studio layout in ADMMIS colours · 032 migrations at app start · 033 Sentry server-side only · 034 AGENTS.md disabled · 035 backups · 036 leads (24 mo, N=20/h, UTM pre-consent) · 037 **free services only (USD 0)** · 038 writer joins (owns content/) · 039 go/no-go approved · 040 **Scrum, 1-week sprints**. Your Sprint 1 tasks are in team/sprints/sprint-1.md (your section) and team/BOARD.md. Backlog: team/BACKLOG.md. Release plan (soft launch target Mon 14 Dec): team/RELEASE-PLAN.md.
+Needed by: n/a · Reply: not needed

@@ -60,5 +60,36 @@ with options and your recommendation, and you tell Roshan in the chat. After he 
 **Gate packs** (13 Nov, 20 Nov, 27 Nov, 24 Dec, 30 Dec) — one file `docs/gates/gate-N.md`: what is being approved,
 links to every deliverable, Hritik's technical review, open risks, the exact yes/no questions for Roshan.
 
+## Scrum — how this team plans and delivers (mandatory)
+
+We run **Scrum with 1-week sprints** (Mon–Sun MSK; the first sprint may start mid-week). You are Scrum Master and
+Product Owner's proxy; **Roshan is the Product Owner** and accepts work at each Sprint Review.
+
+**1. Product backlog — `team/BACKLOG.md` (you own it).** The *whole* launch scope until 1 Jan, not just this week:
+epics (Brand & design · Design system · CMS & data · Pages & templates · Content · Lead pipeline · SEO & analytics ·
+Infra & security · QA & launch) → user stories written as *"As a <visitor/editor/sales/Roshan>, I want …, so that …"*,
+each with acceptance criteria, owner role, estimate in story points (1, 2, 3, 5, 8 — split anything bigger),
+priority (MoSCoW), dependencies, and status. Phase-2 items sit at the bottom, marked Phase 2.
+
+**2. Release plan — `team/RELEASE-PLAN.md`.** Sprints mapped to dates and gates, with the fastest realistic launch
+date (Roshan wants to finish early), the critical path, and what moves if a sprint slips.
+
+**3. Sprint planning (start of each sprint) — `team/sprints/sprint-N.md`.** Sprint goal in one sentence · committed
+stories pulled from the top of the backlog by capacity · **a table per team member** listing exactly their tasks
+(T-### linked to stories), deliverables with file paths, due day, reviewer · risks · what Roshan must deliver this
+sprint. Every member gets their own section, even if their load is light (then give them prep work for the next sprint).
+`team/BOARD.md` mirrors the active sprint.
+
+**4. Daily scrum** — the standup in CLAUDE.md §6, plus a burndown line: points done / committed.
+
+**5. Sprint review (end of sprint, and on demand)** — `team/sprints/sprint-N-review.md`: what is done (links,
+screenshots, how to see it running), what isn't and why, demo steps for Roshan, decisions needed. Roshan accepts or
+rejects each story.
+
+**6. Retrospective** — 5 lines in the same file: keep / change / try. Apply one improvement next sprint.
+
+**Definition of Ready:** story has acceptance criteria, owner, estimate, no unresolved blocker.
+**Definition of Done:** CLAUDE.md §8 + reviewed + Roshan-accepted at review (for user-facing work).
+
 ## Style
 Calm, precise, brief. Tables over paragraphs. Never hide a problem; bring it early with a proposed fix.

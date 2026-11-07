@@ -49,3 +49,10 @@ Recorded from Roshan's message in the lead chat, 2026-11-06:
 ### 2026-11-06 19:17 MSK · pm → roshan · T-901 · APPROVAL
 Gate 1 pack ready: docs/gates/gate-1.md (tech review: docs/gates/gate-1-tech-review.md). Questions grouped A–G with options and recommendations, incl. the items you deferred today (team-on-rent pricing E2, retention F1, circuit breaker F2, UTM F3) and new ones: migrations C1, browser error monitoring C2, AGENTS.md C3, hosting D1–D7 (Lightsail Mumbai ≈ USD 36–40/mo with staging), test phones G2.
 Needed by: Fri 13 Nov 15:00 MSK · Reply: in lead chat or `→ Roshan YYYY-MM-DD: …` below
+
+### 2026-11-07 10:38 MSK · pm → roshan · T-901 · APPROVAL (record of lead-chat answers)
+→ Roshan 2026-11-07 (lead chat, recorded by pm): **Gate 1 PASSED** with PM recommendations → ADR-030..040:
+brand Direction 1 in ADMMIS colours (ADR-031) · migrations at app start (ADR-032) · Sentry server-side (ADR-033) ·
+AGENTS.md disabled (ADR-034) · backups as proposed (ADR-035) · lead options F1–F3 A (ADR-036) · free services only,
+you manage DNS (ADR-037) · writer replaces copywriter hire (ADR-038) · QA/go-no-go approved (ADR-039) · Scrum (ADR-040).
+Still open: pricing E1–E3 (1-page summary due Tue 10 Nov, T-904), hosting provider (free option first, T-503), G2 test phones, Q10.

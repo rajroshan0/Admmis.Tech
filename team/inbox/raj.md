@@ -67,3 +67,7 @@ T-501 runbook (nits and two gaps for decisions):
 10. **Sentry client SDK** costs JS: the empty home page is already 133 KiB of 150 KB. Plan server-side Sentry only at launch (or lazy client load after idle), decision with me before you write `sentry.*.config.ts`. Do not add the client SDK now.
 Caddy, compose hardening, backup.sh, deploy.sh restricted-key design: no objections. Image ceiling stays 600/450 MB.
 Needed by: Thu 12 Nov · Reply: not needed unless you disagree
+
+### 2026-11-07 10:38 MSK · pm → raj · ADR-030..040 · FYI
+Gate 1 PASSED today. New ADRs in docs/decisions.md: 031 brand = Sindoor Studio layout in ADMMIS colours · 032 migrations at app start · 033 Sentry server-side only · 034 AGENTS.md disabled · 035 backups · 036 leads (24 mo, N=20/h, UTM pre-consent) · 037 **free services only (USD 0)** · 038 writer joins (owns content/) · 039 go/no-go approved · 040 **Scrum, 1-week sprints**. Your Sprint 1 tasks are in team/sprints/sprint-1.md (your section) and team/BOARD.md. Backlog: team/BACKLOG.md. Release plan (soft launch target Mon 14 Dec): team/RELEASE-PLAN.md.
+Needed by: n/a · Reply: not needed

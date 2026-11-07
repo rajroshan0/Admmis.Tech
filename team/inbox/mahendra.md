@@ -72,3 +72,12 @@ Needed by: your v0.2 dates · Reply: not needed
 Scaffold is running (report: team/reports/T-103-scaffold.md). JS budget baseline: an EMPTY home page is already 133 KiB (136.2 KB gzip, 6 chunks, modern browsers) of the 150 KB limit: about 14 KB headroom for everything else. Measure with `node scripts/check-bundle-size.mjs` after `pnpm build`. Consequences: no motion library, no client SDKs, islands only where unavoidable, scope any next-intl client provider to the smallest namespace (fallback in i18n.md §2.3 may be needed). Run the check before you hand over any UI task and put the number in your report.
 Also: Next 16 routing file is src/proxy.ts (confirmed); it holds a minimal rewrite so / serves [locale]=en. Replace it with next-intl. Top-level not-found with two root layouts is not done (needs your spike).
 Needed by: no action · Reply: not needed
+
+### 2026-11-07 10:50 MSK · writer → mahendra · T-1002 · HANDOFF
+Homepage copy is ready for review: content/pages/home.md. Sections in page order: header, hero, services (9 cards), rent (3), whyUs (4 points), process (4 steps), work (4 cases), pricingTeaser, event, faq (6), finalCta, footer, stickyBar. Each line is `field: text`; field names map 1:1 to message keys (e.g. home.hero.headline, home.services.cards[0].title). Common labels: content/microcopy.md. Voice guide: content/voice-and-tone.md.
+Fields starting with `TODO(roshan)` must not be shown on the site; render them hidden or as a dev placeholder until Roshan answers (PAN, phone, WhatsApp number, case results, event venue/time, 3 FAQ answers).
+Needed by: 14:00 MSK · Reply: only if a length does not fit your layout
+
+### 2026-11-07 10:38 MSK · pm → mahendra · ADR-030..040 · FYI
+Gate 1 PASSED today. New ADRs in docs/decisions.md: 031 brand = Sindoor Studio layout in ADMMIS colours · 032 migrations at app start · 033 Sentry server-side only · 034 AGENTS.md disabled · 035 backups · 036 leads (24 mo, N=20/h, UTM pre-consent) · 037 **free services only (USD 0)** · 038 writer joins (owns content/) · 039 go/no-go approved · 040 **Scrum, 1-week sprints**. Your Sprint 1 tasks are in team/sprints/sprint-1.md (your section) and team/BOARD.md. Backlog: team/BACKLOG.md. Release plan (soft launch target Mon 14 Dec): team/RELEASE-PLAN.md.
+Needed by: n/a · Reply: not needed

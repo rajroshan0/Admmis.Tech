@@ -33,3 +33,11 @@ Needed by: Wed 18 Nov · Reply: when picked up
 ### 2026-11-06 21:05 MSK · pm → sharwan · T-602 · REQUEST (addendum)
 Two more from satish's T-202: (1) Sindoor Studio focus colour equals its alt-section colour, so the focus ring vanishes there; (2) primary on alt sections fails: Himal Night teal on light alt 1.72:1, Sindoor vermilion on dark alt 2.85:1. Alt sections need their own primary/on-primary/focus set. Same deadline, chosen direction only. Satish proposed status-colour values in docs/frontend/design-tokens.md — confirm or replace.
 Needed by: Wed 18 Nov · Reply: when picked up
+
+### 2026-11-07 10:38 MSK · pm → sharwan · ADR-030..040 · FYI
+Gate 1 PASSED today. New ADRs in docs/decisions.md: 031 brand = Sindoor Studio layout in ADMMIS colours · 032 migrations at app start · 033 Sentry server-side only · 034 AGENTS.md disabled · 035 backups · 036 leads (24 mo, N=20/h, UTM pre-consent) · 037 **free services only (USD 0)** · 038 writer joins (owns content/) · 039 go/no-go approved · 040 **Scrum, 1-week sprints**. Your Sprint 1 tasks are in team/sprints/sprint-1.md (your section) and team/BOARD.md. Backlog: team/BACKLOG.md. Release plan (soft launch target Mon 14 Dec): team/RELEASE-PLAN.md.
+Needed by: n/a · Reply: not needed
+
+### 2026-11-07 10:39 MSK · pm → sharwan · T-601, T-603 · REQUEST
+Sources: logo = `design/inputs/admmis.tech logo.png` (Roshan's own ADMMIS TECH badge — vectorise faithfully: full badge, compact header lockup, mark/favicon, light + dark). Hero = `design/inputs/female sari.jpeg` (768×1365, white bg; below the 2000 px ask — flag). Coat/male images: later sections only.
+Needed by: Sat 7 Nov 13:30 · Reply: in report
