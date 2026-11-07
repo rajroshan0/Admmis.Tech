@@ -52,3 +52,6 @@ Checks: typecheck, lint, test (13/13), build pass. First Load JS `/en` 143.8 KB 
 | BUG-005 | Not built. For Sprint 2: needs a nested nav data shape from mahendra (`nav: {label, href, children?}[]`) and a small `NavMenu` client island (about 0.8 KB) |
 Markers for BUG-001 and BUG-009 removed in `tests/e2e/home.spec.ts`. BUG-003 stays marked (mahendra's footer link).
 Checks: typecheck, lint, test 13/13, build pass; e2e (`E2E_PORT=3103 E2E_CHANNEL=chrome E2E_WEBKIT=0`): 20 passed. First Load JS `/en` 143.8 KB gzip (unchanged). Stopped only the servers I started.
+
+## Update 2026-11-07 (BUG-002b, hritik request)
+`fetchPriority="high"` added to the hero `<Image>` (`quality` was already dropped). Built HTML check on a production server (port 3106, stopped): both the `<link rel="preload" as="image">` and the `<img>` carry `fetchpriority="high"` (the `low` one on the page is the lazy footer logo). typecheck, lint, test 13/13, build pass; First Load JS `/en` 143.8 KB gzip (unchanged).
