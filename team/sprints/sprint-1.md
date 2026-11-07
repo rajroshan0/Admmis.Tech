@@ -118,3 +118,15 @@ US-1003 page briefs, P0 pages (8) · US-911 pricing summary (2)
 | Day | Done / committed points |
 |---|---|
 | Sat 7 Nov | 0 / 78 (start) |
+
+## Status — Sat 7 Nov 16:15 MSK (pm)
+1. Roshan's 6 priorities for the session are all DONE and committed (ed35189 → 5c0365b).
+2. Language switch EN/नेपाली + /ne homepage (T-306/T-206): live locally; /ne stays draft + noindex in prod until A11 proofread.
+3. Template designs for service, services hub and on-rent (T-604a): done; prices public, "Request a quote" fallback.
+4. Built: /services + 9 service pages, /rent + 3 rental pages (T-207, T-307, T-308), static, JS 143.7 KB, real copy.
+5. CMS collections in code (T-404/T-406): Pages, Services, Pricing, RentalPlans, Faqs, Redirects, Media, Users, siteSettings; migrations unverified until Docker (C1).
+6. Copy: services hub + 9 service pages + rent hub + 3 rental pages (T-1003/T-1005); P0 SEO-reviewed (T-708), 6 new briefs.
+7. QA (T-805): e2e 80/80 pass, axe clean, no new bugs. Indexable: hubs + 5 P0 service pages; rest noindex until reviewed.
+8. Reviews: hritik T-107/108/109/110, all APPROVED WITH NITS; must-fixes done, nits sent to inboxes.
+9. Blockers for Roshan: C1 Docker (migrations), A6 prices/rent terms, A11 Nepali proofread, B3 WhatsApp, B7/B12 facts.
+10. Next: T-709 review of P1 + rent copy → COPY_READY; T-604b designs for pricing/contact/about/cases/blog; satish T-108 nits.
