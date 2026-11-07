@@ -38,9 +38,9 @@ Reply in the lead chat, e.g. "A1 yes, A2 option A, B3: +977 98…". PM records y
 
 | # | What | Why | How | Deadline |
 |---|---|---|---|---|
-| C1 | Install Docker Desktop (free) | Needed for the CMS admin (`/admin`) and the local database | https://www.docker.com/products/docker-desktop/ — raj sends a short note Mon 9 Nov | Mon 9 Nov |
+| C1 | Install Docker Desktop (free) | Needed for the CMS admin (`/admin`) and the local database | Guide ready: `docs/runbooks/local-dev-mac.md` (free for businesses < 250 staff and < USD 10M revenue) | Mon 9 Nov |
 | C2 | Push the commits to GitHub (`git push`) | First CI run; proves the build pipeline | `git push origin main` | Mon 16 Nov |
-| C3 | Move admmis.org DNS to Cloudflare Free | Staging/production, SSL, spam protection | raj's step-by-step guide arrives Mon 9 Nov (`docs/runbooks/dns-cloudflare.md`) | after the guide |
+| C3 | Move admmis.org DNS to Cloudflare Free (whole domain; Free plan can't move only `tech.`). First tell raj: where admmis.org is registered, who runs its DNS today, and whether DNSSEC is on | Staging/production, SSL, spam protection | Guide ready: `docs/runbooks/dns-cloudflare.md` (≈ 1 h for you + up to 24 h waiting; email records kept) | registrar info Fri 13 Nov; move by Mon 23 Nov |
 | C4 | Free account setup actions (Cloudflare, Sentry, uptime monitor, Bitwarden…) | Infra | revised list in raj's v0.2 runbook, Tue 10 Nov | Mon 23 Nov |
 
 ## Answered (last 7 days)
