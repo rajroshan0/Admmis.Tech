@@ -3,7 +3,7 @@ slug: /
 template: home
 primaryKeyword: software development company Nepal
 title: "Software Development Company in Nepal | ADMMIS.TECH"
-metaDescription: "ADMMIS.TECH builds websites, apps and AI agents in Nepal, and runs your marketing. Pay by project or monthly on rent. Get a quote today."
+metaDescription: "ADMMIS.TECH is a software development company in Nepal. We build websites, apps and AI agents and run your marketing. Get a quote today."
 status: review
 openTodos: see TODO(roshan) markers (PAN, address, phone, WhatsApp number, case results, event venue and time, FAQ facts)
 ---
@@ -26,8 +26,9 @@ openTodos: see TODO(roshan) markers (PAN, address, phone, WhatsApp number, case 
 - logoAlt: ADMMIS.TECH home
 
 ## hero
-- eyebrow: Technology and marketing, Nepal
-- headline: Websites, apps and AI for Nepal
+- eyebrow: Software development company, Nepal
+- headline: Software, apps and AI built in Nepal
+<!-- ALTERNATIVE (pending Roshan, ROSHAN-TODO A10): Software development company in Nepal -->
 - subheadline: We build your website, app or AI agent, and we market it. Pay by project, or monthly on rent.
 - ctaPrimary: Get a quote
 - ctaPrimaryLink: /contact
@@ -37,35 +38,44 @@ openTodos: see TODO(roshan) markers (PAN, address, phone, WhatsApp number, case 
 
 ## services
 - eyebrow: What we do
-- title: Everything your business needs online
+- title: Software development and marketing, in one team
 - intro: Build it, test it, market it. Choose one service or combine several. Each service is priced on its own.
 - cards[0].title: Websites
 - cards[0].text: A fast website that shows your business well and brings in customers, on any phone.
 - cards[0].link: /services/web-development
+- cards[0].linkLabel: Website development
 - cards[1].title: Mobile apps
 - cards[1].text: Apps for Android and iPhone, built with the technology that fits your goal and budget.
 - cards[1].link: /services/mobile-app-development
+- cards[1].linkLabel: Mobile app development
 - cards[2].title: Custom software
 - cards[2].text: Software made for the way you work, from internal tools to full online platforms.
 - cards[2].link: /services/custom-software
+- cards[2].linkLabel: Custom software development
 - cards[3].title: AI agents
 - cards[3].text: An AI agent answers customer questions and handles routine tasks, so your team can focus on people.
 - cards[3].link: /services/ai-agents
+- cards[3].linkLabel: AI agent development
 - cards[4].title: QA and testing
 - cards[4].text: We test your website or app before your customers do, and report every problem clearly.
 - cards[4].link: /services/qa-testing
+- cards[4].linkLabel: QA and software testing
 - cards[5].title: Audits
 - cards[5].text: An honest review of your code, design or search ranking, with a clear list of what to fix.
 - cards[5].link: /services/audit
+- cards[5].linkLabel: Code, UX and SEO audits
 - cards[6].title: Dedicated team
 - cards[6].text: Developers, designers, QA and DevOps who work for you full time on a contract.
 - cards[6].link: /services/outstaffing
+- cards[6].linkLabel: Hire dedicated developers
 - cards[7].title: Digital marketing
 - cards[7].text: Search, social media, paid ads and influencers, planned to bring you real enquiries.
 - cards[7].link: /services/digital-marketing
+- cards[7].linkLabel: Digital marketing services
 - cards[8].title: Offline marketing
 - cards[8].text: Events, print and on-the-ground activities that put your brand in front of people in Kathmandu.
 - cards[8].link: /services/offline-marketing
+- cards[8].linkLabel: Offline and event marketing
 - allLinkLabel: See all services
 - allLink: /services
 
@@ -93,7 +103,7 @@ openTodos: see TODO(roshan) markers (PAN, address, phone, WhatsApp number, case 
 - points[1].title: Build and marketing together
 - points[1].text: One company makes your product and promotes it. You do not manage two agencies.
 - points[2].title: Based in Nepal
-- points[2].text: We speak your language, know your market and are one message away on WhatsApp.
+- points[2].text: We speak your language, know your market and work from Nepal.
 - points[3].title: Pay in the way that suits you
 - points[3].text: Choose a fixed project, or rent monthly. Each service is priced on its own.
 
@@ -181,7 +191,7 @@ openTodos: see TODO(roshan) markers (PAN, address, phone, WhatsApp number, case 
 - columns[1].title: On rent
 - columns[1].links: Website on rent /rent/website; AI agent on rent /rent/ai-agent; Team on rent /rent/team
 - columns[2].title: Company
-- columns[2].links: About /about; Careers /careers; Blog /blog; Opening event /opening-event; FAQ /faq; Contact /contact
+- columns[2].links: About /about; Careers /careers; Blog /blog; Opening event /opening-event; Contact /contact
 - columns[3].title: Legal
 - columns[3].links: Privacy policy /privacy; Terms of service /terms; Cookie policy /cookies
 - contact.addressLabel: Address

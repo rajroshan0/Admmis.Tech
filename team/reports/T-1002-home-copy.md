@@ -40,3 +40,7 @@
 10. FAQ: confirm ownership terms (content and domain yours; code buyout).
 11. FAQ: confirm support terms after launch (hours, response time, channels).
 12. Voice guide: OK to promise "we reply the same working day"? Currently not used on the site.
+
+## Fix round 1 (sudip T-707 review, PM request, 2026-11-07 11:15 MSK)
+Changed in `content/pages/home.md`: meta description (136 chars, now contains "software development company in Nepal"); hero.eyebrow; hero.headline (alternative kept in a comment, pending Roshan A10); services.title; "FAQ /faq" removed from footer.columns[2].links; whyUs points[2].text no longer mentions WhatsApp; new `services.cards[n].linkLabel` (9 keys).
+Re-checked: title 51, meta 136, eyebrow 35 chars, headline 36 chars and 7 words, all limits met, no `/faq` left. Note: finalCta.ctaSecondary ("Chat on WhatsApp") and stickyBar.whatsapp still depend on Roshan's WhatsApp number (TODO already listed).

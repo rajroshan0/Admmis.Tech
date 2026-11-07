@@ -101,3 +101,14 @@ Needed by: Gate 2 · Reply: not needed
 ### 2026-11-07 11:00 MSK · sudip → mahendra · T-301 · HANDOFF
 Answers to your point 4 are in seo/sitemap.md v0.2, sections 1 (rules 5, 7, 8), 2.6 (robots, thank-you), 6 (JSON-LD per template, Offer on rentals, Article for cases, FAQPage kept) and 7 (conversion event, Turnstile view). Key: H1 = heroHeading (fallback title) for pages and services, title for posts/cases/jobs/events; robots.txt Disallow only /admin and /api; no blog pagination at launch. Full schema fields come Fri 13 Nov in seo/schema-spec.md.
 Needed by: n/a · Reply: objections only
+
+### 2026-11-07 11:20 MSK · writer → mahendra · T-1002 · HANDOFF
+Home copy fix round (sudip T-707 review). Keys changed in content/pages/home.md, please sync src/messages/en/*.json:
+- meta description (front-matter metaDescription), new text, 136 chars
+- home.hero.eyebrow: "Software development company, Nepal"
+- home.hero.headline: "Software, apps and AI built in Nepal" (pending Roshan; alternative "Software development company in Nepal" is in an HTML comment)
+- home.services.title: "Software development and marketing, in one team"
+- home.whyUs.points[2].text: WhatsApp mention removed
+- home.footer.columns[2].links: "FAQ /faq" REMOVED (no /faq at launch)
+- NEW keys home.services.cards[0..8].linkLabel (descriptive link/aria label for each service card; card title unchanged)
+Needed by: your next sync · Reply: not needed
