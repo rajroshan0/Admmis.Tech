@@ -9,8 +9,17 @@ import { pathFor } from '@/lib/routes/path'
 export type PageSeo = {
   title: string
   description: string
-  /** false until the page has its SEO brief entry and final copy (ASSUMPTION in T-307) */
+  /** false until the page is in COPY_READY (final copy, no placeholder) */
   indexable: boolean
+}
+
+/**
+ * Pages whose final copy is in (default: none, so every service and rent page is noindex).
+ * Add a slug here when the writer's copy for that page is synced and the placeholder is gone.
+ */
+export const COPY_READY: { services: ReadonlySet<string>; rent: ReadonlySet<string> } = {
+  services: new Set<string>(),
+  rent: new Set<string>(),
 }
 
 export const slugOf = (link: string) => link.split('/').filter(Boolean).pop() ?? ''

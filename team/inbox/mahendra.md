@@ -123,3 +123,31 @@ Needed by: your /ne wiring · Reply: only if a length breaks the layout
 ### 2026-11-07 15:52 MSK · sharwan → mahendra · T-604a · HANDOFF
 Template specs ready: design/templates/service-spec.md (service, services hub) and rent-spec.md (rent hub, rent product): section order, tone rule by visible index, states, quote/rent form fields, price-on-request fallback. Mocks: service.html, rent.html.
 Needed by: Mon 9 Nov · Reply: only if a field or limit is a problem
+
+### 2026-11-07 17:10 MSK · satish → mahendra · T-207 · HANDOFF
+Template components are in (all server components, 0 client JS). Import from `@/components/blocks` and `@/components/ui`. Every string comes from you; money arrives already formatted. Types: src/components/blocks/*/types.ts.
+- `HeroBlock` data `{variant:'plain', eyebrow?, heading, subheading?, primaryCta?, secondaryCta?}` + optional `aside={<ServiceFacts/>}`. No image. Tone default `alt`.
+- `ServiceFacts({label, title, rows:{label:string; value?:ReactNode}[]})` (ui). Rows without value are dropped; no rows = renders nothing. Price row value: `<Price prefix="From" amount="NPR 25,000" secondary="USD 190" quoteLabel="Price on request"/>`; with no `amount` it shows `quoteLabel` (never 0). Same `Price` for quote-only (`quoteLabel="Quote only"`).
+- `FeatureListBlock` data adds `variant?: 'rule'(default) | 'cards' | 'checklist'`, `marker?: 'check'|'dash'`, `listLabel?: string` (checklist), item `{title, text?, icon?, href?}` (`text` is now optional; `href` only in `cards`). Heading ids are now generated, so several lists per page are fine.
+- `ChoiceListBlock` data `{eyebrow?, heading, intro?, items:{question, label, href}[]}`.
+- `Callout({title, tone?: 'info'|'important', children?})` (ui), `role="note"`.
+- `RentalPlansBlock` data `{eyebrow?, heading, intro?, legend, help?, selectedLabel, priceFallback, quoteOnlyLabel, inclusionsLabel, pricePrefix?, selectedId? (from ?plan=), plans:{id, label, sub?, title, price?:{amount, secondary?, unit?}, quoteOnly?, setupText?, inclusions:string[], supportText?, cta}[]}`. Radio selection works without JS (up to 6 plans). Currency toggle is NOT built: pass `amount` + `secondary` (NPR + USD shown together).
+- Not built (not in this task): Breadcrumbs, Table stacked, rich-text, cta-form slot, LeadForm, PriceTeaser aside box (PricingTeaserBlock already takes `aside`; use `<Price/>` in it).
+- Tone rule stays yours (alternate bg/surface). Tell me if a field limit breaks a layout.
+Needed by: T-307 · Reply: only if a prop is a problem
+
+### 2026-11-07 MSK · neha → satish · T-406 · HANDOFF
+Collections are in src/collections/ (types in src/payload-types.ts). Service and rent fields match the design specs section 5 names. Icons use your 21-name list. Block shapes: Pages.ts. Details: docs/api/content-model.md v0.3 changelog.
+Needed by: n/a · Reply: only if objecting
+
+### 2026-11-07 17:25 MSK · satish → mahendra · T-207 · FYI
+Price fallback label is "Request a quote" (pm, per updated specs). Pass it as `quoteLabel` on `<Price/>` and as `priceFallback` in RentalPlansData, from messages, not hard-coded. Keep the ServiceFacts "Starts from" row: give it `<Price quoteLabel=.../>` so it stays visible without a price. "Price on request" in my earlier handoff was only an example string.
+Needed by: T-307 · Reply: not needed
+
+### 2026-11-07 15:57 MSK · pm → mahendra · T-307 · FYI
+neha's T-406 fix: when you later swap your file loader for the CMS, read pages with findPublished (always depth 0) and resolve relations (FAQs, pricing) only through resolvePublished, never with depth > 0. See src/lib/server/content.ts.
+Needed by: CMS swap · Reply: not needed
+
+### 2026-11-07 17:00 MSK · writer → mahendra · T-1003 · HANDOFF
+Service copy is in content/pages/services.md (hub) and content/pages/services/{web-development,ai-agents,mobile-app-development,outstaffing,digital-marketing}.md. Fields follow design/templates/service-spec.md section 5, one per line as `field: text`, so they paste 1:1 into src/messages/en/services.json. Lines containing TODO(roshan) are unconfirmed: show the fallback or hide the field, never publish the TODO text. Extra sections not in the spec (industries, channels, how-it-works, compare table, AI examples) are optional: build them only if the template supports them. Lines that say "use home.md ..." reuse home entries.
+Needed by: when routes are ready · Reply: not needed

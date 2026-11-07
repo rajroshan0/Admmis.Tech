@@ -1,5 +1,5 @@
 import { SERVICE_ICONS } from '@/lib/routes/home-view'
-import { buildSharedSections, slugOf, type PageSeo } from '@/lib/routes/section-pages'
+import { buildSharedSections, COPY_READY, slugOf, type PageSeo } from '@/lib/routes/section-pages'
 import type { Locale } from '@/lib/i18n/config'
 import type { Messages } from '@/lib/i18n/messages'
 import { pathFor } from '@/lib/routes/path'
@@ -72,11 +72,11 @@ export function buildServiceView(
   const entry = (svc.items as Record<string, Items[keyof Items] | undefined>)[slug]
   const href = (path: string) => pathFor(locale, path)
 
-  // No brief entry yet: title and description fall back to the card; the page stays noindex.
+  // No brief entry: title and description fall back to the card. Indexing depends only on COPY_READY.
   const seo: PageSeo = {
     title: entry?.seoTitle ?? `${card.linkLabel}${BRAND_SUFFIX}`,
     description: entry?.metaDescription ?? card.text,
-    indexable: Boolean(entry),
+    indexable: COPY_READY.services.has(slug),
   }
   return {
     seo,

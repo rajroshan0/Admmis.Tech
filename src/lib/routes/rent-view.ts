@@ -1,4 +1,4 @@
-import { buildSharedSections, slugOf, type PageSeo } from '@/lib/routes/section-pages'
+import { buildSharedSections, COPY_READY, slugOf, type PageSeo } from '@/lib/routes/section-pages'
 import type { Locale } from '@/lib/i18n/config'
 import type { Messages } from '@/lib/i18n/messages'
 import { pathFor } from '@/lib/routes/path'
@@ -57,7 +57,7 @@ export function buildRentProductView(
   const seo: PageSeo = {
     title: entry?.seoTitle ?? `${card.title}${BRAND_SUFFIX}`,
     description: entry?.metaDescription ?? card.text,
-    indexable: Boolean(entry),
+    indexable: COPY_READY.rent.has(slug),
   }
   const quoteHref = `/contact?type=rent&product=${slug}`
   return {

@@ -10,3 +10,7 @@ Built: /services, /services/[slug] (9), /rent, /rent/[slug] (3), all static, EN 
 Verified: tsc clean (excluding neha's helpers.ts and migrations errors), eslint clean on my files, vitest 48/48, prettier clean, build: all routes static. JS 143.7 KB gz per page (async chunks, noModule excluded), no increase over home. 360 px: no horizontal overflow, one H1, no duplicate ids on service, rent and hub. E2E: 23 pass, 1 fail (ne.spec: /ne absent because local .env has ENABLED_LOCALES=en; .env.example has en,ne; not caused by this task). Servers stopped.
 
 Gaps: no Breadcrumbs component (none added); ChoiceList content, rental-plans block, rent-vs-buy table, groups on the hub grid (ServicesGridBlock has fixed heading ids, so one grid for all 9), quote form (closing CtaBand links to /contact?service=slug) wait for copy, components or pricing approval. Hub price text-only. JSON-LD not yet added to these pages.
+
+## T-307-fix (hritik T-110 must-fix)
+- `indexable` now comes only from `COPY_READY` in src/lib/routes/section-pages.ts (empty sets, so all 9 service and 3 rent pages are noindex). Flip a slug in when its writer copy is synced and the placeholder is removed. Hub pages stay indexable (no placeholder).
+- Later nits (not done): type views from payload-types with findPublished/resolvePublished at the CMS swap; no identical FAQPage JSON-LD on all 9 pages; sitemap must exclude noindex pages.

@@ -13,10 +13,10 @@ describe('service and rent views', () => {
     expect(rentSlugs(home)).toEqual(['website', 'ai-agent', 'team'])
   })
 
-  it('uses the brief SEO fields and indexes pages that have a brief', () => {
+  it('uses the brief SEO fields; every page is noindex until it is in COPY_READY', () => {
     const v = buildServiceView('en', 'web-development', home, services)
     expect(v?.seo.title).toBe('Web Development Company in Nepal | ADMMIS.TECH')
-    expect(v?.seo.indexable).toBe(true)
+    expect(v?.seo.indexable).toBe(false)
     expect(v?.hero.heading).toBe(services.items['web-development'].heroHeading)
   })
 
