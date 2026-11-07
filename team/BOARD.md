@@ -7,7 +7,7 @@ release plan `team/RELEASE-PLAN.md`. This board mirrors the active sprint: `team
 
 ## Sprint 1 — Sat 7 – Sun 15 Nov (active) · goal: homepage live in the ADMMIS brand ✔ (accepted, ADR-041) → now pulling Sprint 2 forward for soft launch ≤ Mon 14 Dec
 
-Updated 2026-11-07 16:00 MSK. Priority order (Roshan 7 Nov 15:45): language switch → template designs → service + rent templates built → CMS collections in code → service copy → QA.
+Updated 2026-11-07 16:36 MSK. Priority order (Roshan 7 Nov 15:45): language switch → template designs → service + rent templates built → CMS collections in code → service copy → QA.
 
 ### Active / next (in priority order)
 | ID | Task | Owner | Deliverable | Story | Reviewer | Due | Status |
@@ -26,7 +26,11 @@ Updated 2026-11-07 16:00 MSK. Priority order (Roshan 7 Nov 15:45): language swit
 | T-208 | Components for T-604b specs (contact form first) + T-108 nits | satish | `src/components/` | Sprint 2 (pulled) | hritik | Tue 10 Nov | DONE (T-111 APPROVED WITH NITS, fixes in) |
 | T-407 | Collections: cases, posts, events, team, leads + lead API | neha | `src/collections/`, `src/app/api/` | Sprint 2 (pulled) | hritik | Wed 11 Nov | DONE (T-112 must-fixes applied; atomic limiter + DB checks wait for Docker C1) |
 | T-309 | Routes: /pricing, /contact (+thank-you), /about, /work, /blog, /event | mahendra | `src/app/(site)/` | Sprint 2 (pulled) | hritik | Thu 12 Nov | DONE (T-113 must-fix done; real submit needs DB; /privacy needed — T-1006) |
-| T-1006 | Legal pages copy: privacy (+ policyVersion), terms, cookies — consent link on /contact 404s until /privacy exists; Roshan approves legal text | writer → mahendra | `content/pages/privacy.md` … | US-411 | Roshan | Fri 20 Nov | TODO (blocks form going live) |
+| T-1006 | Legal pages copy: privacy (+ policyVersion), terms, cookies | writer | `content/pages/{privacy,terms,cookies}.md` | US-411 | Roshan (A12) | Fri 20 Nov | DONE as DRAFT — waits for Roshan/lawyer |
+| T-1007 / T-1008 | Pricing, about, contact, opening-event copy | writer | `content/pages/*.md` | US-1004 | sudip | Sat 7 Nov | DONE (sudip review pending) |
+| T-310 | NEXT: sync pricing/about/contact/event/legal copy into pages, add /privacy /terms /cookies routes, Turnstile lazy leaf, prettier nit | mahendra | `src/app/(site)/`, `src/messages/en/` | US-411/1004 | hritik | Tue 10 Nov | TODO |
+| T-710 | NEXT: SEO review of T-1007/T-1008 copy (Kathmandu vs Nepal → B2) | sudip | `team/inbox/writer.md` | — | pm | Mon 9 Nov | TODO |
+| T-408 | NEXT (after Docker C1): run migrations, atomic rate-limit upsert, DB checks, real form submit | neha | `src/migrations/` | US-305 | hritik | after C1 | BLOCKED (C1) |
 | T-1003 | Services hub + service page copy (P0 briefs first) | writer | `content/pages/services*.md`, `content/pages/services/*.md` | US-1004 | sudip, pm | Tue 10 Nov (was Sun 15) | DONE (9 pages + hub; P0 SEO-reviewed T-708; P1 review pending) |
 | T-1005 | Rent hub + rental pages copy | writer | `content/pages/rent*.md` | US-1004 | sudip, pm | Wed 11 Nov | DONE (SEO-reviewed; terms TODO(roshan)) |
 | T-805 | QA of /ne + service/rent templates (manual + e2e) | rajaros | `qa/bugs/`, `tests/e2e/` | US-904 | hritik | Thu 12 Nov | DONE (e2e 80/80 after T-308, axe clean, no new bugs) |

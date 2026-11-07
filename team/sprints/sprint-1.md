@@ -130,3 +130,15 @@ US-1003 page briefs, P0 pages (8) · US-911 pricing summary (2)
 8. Reviews: hritik T-107/108/109/110, all APPROVED WITH NITS; must-fixes done, nits sent to inboxes.
 9. Blockers for Roshan: C1 Docker (migrations), A6 prices/rent terms, A11 Nepali proofread, B3 WhatsApp, B7/B12 facts.
 10. Next: T-709 review of P1 + rent copy → COPY_READY; T-604b designs for pricing/contact/about/cases/blog; satish T-108 nits.
+
+## Status — Sat 7 Nov 16:36 MSK (pm, end of session)
+1. All 6 priorities done and committed, and then more: Sprint 2 scope is largely built on day 1 (commits ed35189 → 0c519f2).
+2. Built pages (static, EN): home, /ne, /services + 9, /rent + 3, /pricing, /about, /work, /blog, /opening-event, /contact + thank-you.
+3. Indexable now: home, /services + 9 service pages. Everything else noindex until copy/prices/facts (COPY_READY flags).
+4. CMS: 17 collections + siteSettings in code; lead API (no-JS form, rate limits, Turnstile fallback), reviewed by hritik; 111 tests pass.
+5. Copy written: services, rent, pricing, about, contact, event; legal DRAFTS (privacy/terms/cookies) for A12.
+6. QA: e2e 80/80 (T-805b), axe clean; the T-309 pages need a QA pass next (rajaros).
+7. Reviews: T-107…T-113 all approved after must-fixes; open nits are in owners' inboxes.
+8. Blockers (Roshan): C1 Docker (migrations, real submit), A6 prices/rent terms, A11 Nepali proofread, A12 legal, B2/B3/B6/B7/B12 facts.
+9. Next session: T-310 copy sync + legal routes (mahendra), T-710 review (sudip), QA of T-309 pages (rajaros), T-408 after Docker (neha).
+10. Soft launch ≤ Mon 14 Dec is realistic; the risks are now Roshan's inputs plus staging (A8 host, C3 DNS), not the build.
