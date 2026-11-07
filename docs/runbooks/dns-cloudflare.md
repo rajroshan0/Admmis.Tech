@@ -11,13 +11,13 @@ Cost: USD 0 (Cloudflare Free, ADR-037). Time for Roshan: about 45 min of work pl
 
 | Option | What it is | Available on Free? | Risk to email and current site | Recommended |
 |---|---|---|---|---|
-| A. Full move (nameservers) | Cloudflare becomes DNS for all of admmis.org | Yes, this is the standard Free setup | Low if every record is copied first (steps 1-4) | **Yes** |
-| B. Delegate only `tech.admmis.org` via NS records to Cloudflare | Parent DNS keeps the zone, hands the `tech` sub-zone over | UNVERIFIED. As far as I know Cloudflare's "subdomain setup" is an Enterprise feature. TODO(roshan or pm): confirm at https://developers.cloudflare.com/dns/zone-setups/subdomain-setup/ (I could not read the page on 2026-11-07) | Lowest (nothing else touched) | Only if the page says Free is allowed |
-| C. CNAME ("partial") setup | Keep DNS where it is, add a CNAME `tech` to Cloudflare | **No.** Cloudflare docs: "A CNAME setup (partial) is only available to customers on a Business or Enterprise plan." Source: https://developers.cloudflare.com/dns/zone-setups/partial-setup/ (seen in search result, 2026-11-07) | Low | No (paid) |
+| A. Full move (nameservers) | Cloudflare becomes DNS for all of admmis.org | Yes, the only Free setup | Low if every record is copied first (steps 1-4) | **Yes** |
+| B. Delegate only `tech.admmis.org` via NS records to Cloudflare | Parent DNS keeps the zone, hands the `tech` sub-zone over | **No.** "Subdomain setup is only available for Enterprise accounts." Source: https://developers.cloudflare.com/dns/zone-setups/subdomain-setup/ (read 2026-11-07) | Lowest | No (paid) |
+| C. CNAME ("partial") setup | Keep DNS where it is, add a CNAME `tech` to Cloudflare | **No.** Cloudflare docs: "A CNAME setup (partial) is only available to customers on a Business or Enterprise plan." Source: https://developers.cloudflare.com/dns/zone-setups/partial-setup/ (read 2026-11-07) | Low | No (paid) |
 | D. Plain records at the current DNS (A or CNAME to the host, no Cloudflare proxy) | Just point `tech` at the server | Yes | None, but we lose the proxy: no WAF, no rate limit, no CDN cache, no Turnstile benefit from the edge, origin IP visible | Fallback only |
 
 **Why A:** Free, standard, and our security design (WAF, rate limit on `/api/leads`, caching, hidden origin IP) needs the proxy. The risk is a forgotten record. Steps 1-4 remove it.
-If Roshan prefers zero risk to the main domain, use D temporarily for staging tests and do A before launch.
+If Roshan prefers zero risk to the main domain, use D (a plain A/CNAME record for `tech`, no proxy) temporarily for staging tests and do A before launch.
 
 ## 1. Find out who runs DNS today (5 min)
 1. Run in Terminal:
@@ -44,7 +44,7 @@ If Roshan prefers zero risk to the main domain, use D temporarily for staging te
 
 ## 3. Add the site to Cloudflare (10 min)
 1. Log in to https://dash.cloudflare.com , "Add a domain", enter `admmis.org`, choose **Free**.
-2. Cloudflare scans and imports records. Compare the imported list with your step 2 snapshot line by line. Add anything missing, fix anything wrong.
+2. Cloudflare scans and imports records, but its quick scan "is not guaranteed to find all existing DNS records". Review manually, especially MX, SPF and DKIM. Compare the imported list with your step 2 snapshot line by line. Add anything missing, fix anything wrong.
 3. For **every record that serves email** (MX, `mail`, `smtp`, `imap`, `autodiscover`, `_domainkey`), make sure the cloud icon is **grey (DNS only)**. Email records must never be proxied.
 4. Records for the existing website (`@`, `www`): keep exactly as today. Orange (proxied) is normally fine for a normal website, but to change the least, set them to grey (DNS only) first and switch to orange later after testing.
 5. Do not add `tech` yet.
@@ -54,11 +54,11 @@ If Roshan prefers zero risk to the main domain, use D temporarily for staging te
 - Record count in Cloudflare equals the snapshot (plus nothing missing).
 - MX, SPF (`v=spf1 ...`), DKIM and DMARC TXT records are present and identical to the snapshot.
 - TTLs do not matter on Cloudflare for grey records; ignore.
-- If DNSSEC is on at the registrar: **turn it off first** at the registrar, wait for the old DS record TTL (check the TTL, often 1 h to 24 h), then change nameservers. A DS record left behind makes the domain fail validation and look dead. After the switch you can turn DNSSEC on in Cloudflare. (Cloudflare documents this in its full-setup guide; TODO verify wording: https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/ .)
+- If DNSSEC is on at the registrar: **turn it off first** at the registrar, wait for the old DS record TTL (check the TTL, often 1 h to 24 h), then change nameservers. A DS record left behind makes the domain fail validation and look dead. After the switch you can turn DNSSEC on in Cloudflare. (Source: https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/ , read 2026-11-07.)
 
 ## 5. Change nameservers (5 min)
 1. At the **registrar**, open the domain, "Nameservers" or "DNS servers", choose Custom, replace the existing entries with the two Cloudflare ones. Save. Write the old nameserver names down first (this is your rollback).
-2. Back in Cloudflare click "Done, check nameservers". Activation usually takes minutes to a few hours, up to 24 h. Cloudflare emails you when active.
+2. Back in Cloudflare click "Done, check nameservers". Activation can take up to 24 h. Cloudflare emails you when it is active.
 3. Do not edit DNS records at the old provider while waiting (they are ignored once the switch lands and you would be confused).
 
 ## 6. Verify after the switch (15 min)
@@ -71,6 +71,7 @@ If Roshan prefers zero risk to the main domain, use D temporarily for staging te
 7. SSL/TLS mode in Cloudflare: set to "Full" for now. Switch to "Full (strict)" only when the origin has a valid certificate (Raj will say when).
 
 ## 7. Roll back
+Note: the rollback is Raj's procedure ("restore the old nameservers at the registrar"). It is NOT taken from Cloudflare's troubleshooting pages, which were not read.
 - Within 24 h of the switch: at the registrar put back the old nameservers you wrote down in step 5. DNS returns to the old provider within the TTL. Old records are still there unless you deleted them. Do not delete the old zone for at least 7 days.
 - If only one record is wrong: fix that record in Cloudflare. No rollback needed.
 - If email breaks: first suspect a proxied (orange) mail record or a missing MX or TXT. Set mail records grey, compare with the snapshot.
@@ -88,8 +89,9 @@ If Roshan prefers zero risk to the main domain, use D temporarily for staging te
 
 ## Open items
 - TODO(roshan): registrar name, name server company, whether DNSSEC is on (Q17).
-- TODO(roshan or pm): confirm plan availability of subdomain setup (option B) from the Cloudflare page.
 
-## Sources (checked 2026-11-07)
-- Partial/CNAME setup requires Business or Enterprise: https://developers.cloudflare.com/dns/zone-setups/partial-setup/ (from a search result of that page; not opened in full).
-- Subdomain setup and full-setup guide: https://developers.cloudflare.com/dns/zone-setups/subdomain-setup/ and https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/ . NOT read; marked UNVERIFIED above.
+## Sources (read 2026-11-07, all HTTP 200, pages modified 2026-04 to 2026-10)
+- https://developers.cloudflare.com/dns/zone-setups/partial-setup/ : Business or Enterprise only.
+- https://developers.cloudflare.com/dns/zone-setups/subdomain-setup/ : Enterprise only.
+- https://developers.cloudflare.com/dns/zone-setups/full-setup/ and /setup/ : only option on Free; two nameservers; DNSSEC off first; activation up to 24 h.
+- Not read: full-setup troubleshooting and pending-nameservers pages.

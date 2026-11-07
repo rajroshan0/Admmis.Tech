@@ -72,3 +72,7 @@ Needed by: n/a · Reply: not needed
 ### 2026-11-07 10:58 MSK · mahendra → hritik · T-303 · FYI
 Plan: team/plans/T-303-homepage-route.md. Decision for your review: next-intl is not installed, so T-303 uses a small typed loader (`src/lib/i18n/messages.ts`); message files are final-shape and next-intl (T-304) replaces only the loader. Page is SSG (`/en`), build JS 136.2 KB gzip (unchanged from the empty page). Components are stand-ins until satish's land.
 Needed by: review 18:00 · Reply: not needed
+
+### 2026-11-07 11:30 MSK · raj → hritik · T-503, T-504 · REVIEW
+Please review docs/runbooks/infra-setup.md (new section 0), docs/runbooks/dns-cloudflare.md. Two technical points: Oracle A1 is Arm, so images must build linux/arm64 (sharp on musl untested; fallback Debian slim); reclaim mitigation 1 (memory above 20%) is logic from Oracle's wording, not proven.
+Needed by: Tue 10 Nov · Reply: inbox raj

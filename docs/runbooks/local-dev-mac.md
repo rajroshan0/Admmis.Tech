@@ -18,14 +18,14 @@ Machine: Apple Silicon (darwin arm64), about 66 GB free disk. Cost: USD 0.
 
 Docker Desktop is free for personal use, education, non-commercial open source, and small businesses. Reported thresholds: fewer than 250 employees AND less than USD 10 million annual revenue. Larger companies need a paid plan.
 
-- Sources: Docker's subscription agreement page https://docs.docker.com/subscription/desktop-license/ and https://www.docker.com/pricing/ (the pricing page states the thresholds).
-- STATUS: UNVERIFIED against the primary page. On 2026-11-07 I could only confirm the thresholds from secondary reports of Docker's 2021 announcement and a search snippet of Docker's Personal plan page. TODO(roshan): open https://docs.docker.com/subscription/desktop-license/ and confirm that ADMMIS.TECH is under both thresholds. ADMMIS.TECH is a small agency, so it very likely qualifies.
+- Source: https://docs.docker.com/subscription/desktop-license/ (read 2026-11-07, page shows no date). It lists free use for "Small businesses (fewer than 250 employees AND less than $10 million in annual revenue)", personal use, education and non-commercial open source.
+- ADMMIS.TECH is a small agency and very likely qualifies. Roshan checks headcount and revenue himself.
 - Docker Engine itself and the `docker compose` command-line tool are open source and free. Only the Desktop app has the licence rule. If you prefer to avoid it entirely, use path B.
 
 ## 3. Path A: Docker Desktop
 
-1. Download Docker Desktop for Mac with **Apple silicon** from https://www.docker.com/products/docker-desktop/ (file `Docker.dmg`). Do not choose the Intel build.
-2. Open the dmg and drag Docker to Applications. Open it, accept the terms, and choose "Use recommended settings". You can skip the sign-in. No account is needed.
+1. Download the **Apple silicon** build: https://desktop.docker.com/mac/main/arm64/Docker.dmg (file `Docker.dmg`). Do not choose the Intel build. Requirements per Docker: a supported macOS (current release and the two previous major ones) and at least 4 GB RAM. Rosetta 2 is recommended: `softwareupdate --install-rosetta`. Docker does not state a disk figure; plan on about 5 GB.
+2. Open the dmg, drag Docker to Applications, start Docker.app and click Accept on the agreement. No password is needed. Choose "Use recommended settings". You can skip the sign-in; no account is needed.
 3. Wait until the whale icon in the menu bar says "Docker Desktop is running".
 4. Optional, saves RAM: Docker Desktop, Settings, Resources, set Memory to 2 GB (enough for Postgres only).
 5. Open Terminal and check:
@@ -107,5 +107,5 @@ Do not run both paths at once: both use port 5432.
 | Fonts fail to download during build | No internet to fonts.gstatic.com | Check the connection; the build downloads fonts once |
 
 ## Sources (checked 2026-11-07)
-- Docker licence: https://docs.docker.com/subscription/desktop-license/ and https://www.docker.com/pricing/ . Primary pages NOT yet read; see section 2.
+- https://docs.docker.com/subscription/desktop-license/ , https://docs.docker.com/desktop/setup/install/mac-install/ , https://www.docker.com/pricing/ (all read 2026-11-07, no page dates). Not stated by Docker: disk space figure, exact macOS versions.
 - Repo files: `docker-compose.dev.yml`, `.env.example`.

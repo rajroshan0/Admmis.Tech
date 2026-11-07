@@ -1,11 +1,127 @@
-# Infrastructure setup runbook (T-501)
+# Infrastructure setup runbook (T-501, T-503)
 
-Owner: raj · Version: v0.1 DRAFT · 2026-11-06 (MSK) · Reviewer: hritik · Approver: Roshan
+Owner: raj · Version: v0.2 DRAFT · 2026-11-07 (MSK) (v0.1 2026-11-06; v0.2 adds the USD 0 plan in section 0) · Reviewer: hritik · Approver: Roshan
 Scope: hosting, DNS, Cloudflare, staging, monitoring, backups, 2FA, secrets for tech.admmis.org (ADR-015, ADR-017, ADR-027).
 
 **Rules for this document.** Raj creates no accounts, buys nothing, changes no DNS (CLAUDE.md §3). Everything marked **[ROSHAN]** is done by Roshan. After he confirms, Raj verifies (section 15). Prices are USD, ex-tax, "at check date". Items marked `verify` could not be confirmed from a source.
 
 Every section has: purpose, prerequisites, steps, how to verify, how to roll back.
+
+---
+
+## 0. v0.2 — USD 0 plan (T-503, ADR-037). READ THIS FIRST
+
+Version v0.2 DRAFT · 2026-11-07 (MSK) · Reviewer: hritik · Approver: Roshan.
+ADR-037 says: free services only until Roshan says otherwise. This section replaces the paid VPS plan of v0.1 for the first launch. Sections 2, 13 and 14 below are marked accordingly. Sections 4 to 12 still apply, with the changes listed in 0.5.
+
+### 0.1 Free host near Nepal: Oracle Cloud Always Free (Ampere A1)
+
+Source: https://docs.oracle.com/en-us/iaas/Content/FreeTier/resourceref.htm (read 2026-11-07, page shows no date).
+
+| Fact | What Oracle's page says (summary) | Status |
+|---|---|---|
+| A1 compute | 1,500 OCPU-hours and 9,000 GB-hours per month, about **2 OCPU and 12 GB RAM in total**, 1 to 2 instances | Verified |
+| Storage | 200 GB block storage in total including boot volumes, 5 backups. (Boot minimum is given as 47 GB in one place and 50 GB in another; page is inconsistent) | Verified |
+| Outbound traffic | 10 TB per month free | Verified |
+| Where | Always Free compute and block volumes only in the **home region** | Verified |
+| Idle reclaim | Instances "may be reclaimed" if, over 7 days, CPU 95th percentile, network and memory (A1) are **all under 20%**. Whether Oracle stops or terminates is not stated | Verified |
+| After the 30-day trial | Compute stays free "for the life of the account"; object storage is capped at 20 GB in Always-Free-only state and objects over the limit are deleted | Verified |
+| Card needed at sign-up, and hold amount | The FAQ page returned HTTP 403 | **UNVERIFIED**. Assume a card is needed until proven otherwise |
+| Mumbai or Hyderabad offered as home region to new sign-ups | Not confirmed | **UNVERIFIED** |
+| Home region can be changed later | Not confirmed. Treat the home region as permanent | **UNVERIFIED** |
+| Older figure of 4 OCPU / 24 GB | Seen in older third-party posts. Oracle's own page now says 2 / 12. We plan for 2 / 12 | Verified by page |
+
+Note on cost vs ADR-037: a card on file is not spending, but Roshan must be comfortable giving a card to Oracle. Raj never enters card details. If a card is not acceptable, use the fallback in 0.3.
+
+**Is 2 OCPU / 12 GB enough?** Yes. The app (Next.js standalone about 55 MB image part, Payload, Postgres 17, Caddy) needs roughly 1 to 2 GB of RAM at idle; production and staging as two compose projects on one host fit in 12 GB. Everything is below the 600/450 MB image ceiling set by Hritik.
+
+### 0.2 The reclaim risk, stated honestly
+
+A quiet brochure site WILL look idle. Memory under 20% of 12 GB means under about 2.4 GB, and a small app plus database uses less than that. If CPU, network and memory are all under 20% for 7 days, Oracle may reclaim the instance. That could mean downtime at the opening event on Fri 1 January 2027.
+
+Mitigations, in order of preference:
+
+| # | Mitigation | Cost | Status |
+|---|---|---|---|
+| 1 | Run staging and production on the same A1 instance and give Postgres a larger `shared_buffers` and the app a larger Node heap so memory use is genuinely above 20% (about 2.5 GB). The condition needs all three metrics low, so one honest metric above 20% prevents "idle" | 0 | Logic follows from Oracle's wording ("all"); effect UNVERIFIED in practice. Raj measures with `docker stats` after deploy |
+| 2 | A scheduled job (systemd timer) doing real work: nightly encrypted backup, image prune, `pg_dump` verification restore, health checks. Adds CPU and network bursts | 0 | Helps, but p95 CPU under 20% stays likely, so do not rely on it alone |
+| 3 | Do NOT run a fake CPU burner as a plan. It can breach Oracle's terms and wastes energy. If used, Roshan decides | 0 | Not recommended |
+| 4 | Upgrade the Oracle account to "Pay As You Go" while staying inside Always Free limits (costs USD 0 if nothing paid is created). Commonly said to remove idle reclaim for the account | 0 but needs card | **UNVERIFIED**. Not stated on the page I read. Ask Oracle or read their reclamation policy before relying on it |
+| 5 | Be rebuildable: all state is the Postgres dump and media in R2 (ADR-035). A new host plus `docker compose up` plus restore takes about 1 hour (runbook section 12). Uptime alerts tell us within 5 minutes | 0 | Design, Raj tests it in the monthly restore drill |
+| 6 | Decision gate with a 7-day measurement before soft launch, see 0.6 | Fallback cost | Decision gate |
+
+Residual risk: **MEDIUM**. Oracle can change Always Free terms or capacity at any time, and free capacity in a region can be unavailable when creating an instance (commonly reported by users, not verified by me).
+
+### 0.3 Options compared
+
+| | A. Oracle Always Free A1 (recommended for now) | B. Other free hosts | C. Cheapest paid fallback: AWS Lightsail Mumbai |
+|---|---|---|---|
+| Cost / month | USD 0 | USD 0 | 2 GB plan USD 12; 4 GB plan USD 24 (+ about 4 snapshots). Prices checked 2026-11-06, see section 2 |
+| RAM / CPU | 12 GB / 2 OCPU Arm (Ampere), arm64 image needed | Not verified. Free tiers I know of are small (about 1 GB class VMs) or sleep when idle | 2 GB: 2 vCPU. 4 GB: 2 vCPU |
+| Near Nepal | Mumbai or Hyderabad if offered as home region (UNVERIFIED) | Not verified | Mumbai confirmed |
+| Reliability | Medium: no SLA I have seen, reclaim rule, capacity risk | Low to medium | High, with SLA and support plans |
+| Reclaim / sleep policy | Idle reclaim, see 0.2 | Sleep on idle is common on free PaaS tiers; not suitable for a Postgres + Payload site | None |
+| Docker Compose + Postgres fit | Yes, a full VM | Often no (PaaS, managed DB expiry) | Yes |
+| Card needed | Probably (UNVERIFIED) | Varies | Yes |
+| Lock-in / exit | Low (plain Ubuntu + compose) | Medium | Low |
+| Verdict | Use it, with 0.2 mitigations and the decision gate | Not evaluated in depth: **no primary source read on 2026-11-07**. Candidates to check later: Google Cloud e2-micro Always Free, other VM free tiers. Do not plan on them | Fallback if Oracle is refused, reclaimed or fails the 15 Dec test |
+
+Arm note (A): the Dockerfile and CI must build `linux/arm64` (Oracle A1 is Ampere Arm). Hritik's note: sharp on musl is untested. Raj adds a `docker buildx --platform linux/arm64` job to the CI skeleton and Hritik tests sharp on arm64 musl; if it fails, use a Debian slim base for the runtime image.
+
+### 0.4 The free stack (ADR-037)
+
+| Need | Service | USD |
+|---|---|---|
+| Host | Oracle Always Free A1, one VM, `docker compose` for production and staging (separate projects, ports and databases) | 0 |
+| DNS, CDN, WAF, rate limit, Turnstile, R2 | Cloudflare Free (DNS move per `docs/runbooks/dns-cloudflare.md`). R2 free tier; Cloudflare may require a payment method on file for R2 (UNVERIFIED, v0.1 said verify) | 0 |
+| Reverse proxy and HTTPS | Caddy, automatic Let's Encrypt, or Cloudflare Origin Certificate | 0 |
+| Code, CI, images | GitHub Free, Actions, GHCR | 0 |
+| Errors | Sentry Developer plan, server-side only (ADR-033) | 0 |
+| Uptime | Free monitor, 5-minute checks (D3). 1-minute checks in the role file are a paid feature; we accept 5 minutes | 0 |
+| Alerts | Slack free + email | 0 |
+| Passwords | Bitwarden free. TODO(raj): check what the free plan allows for sharing items with Raj (not read). Fallback: Roshan enters secrets on the server himself | 0 |
+| Backups | Encrypted dumps to R2 (within 10 GB free tier) plus a copy to Roshan's Mac once a week. Oracle block-volume backups: 5 free | 0 |
+| Cost calculator (Phase 2) | Static, no host needed | 0 |
+
+### 0.5 What changes in sections 4 to 12
+
+| Section | Change |
+|---|---|
+| 2, 13 | Paid Lightsail plan is the **fallback**, not the plan. Staging is a second compose project on the same VM |
+| 4 DNS | Use `docs/runbooks/dns-cloudflare.md`. On Free the whole of admmis.org must move (subdomain delegation is Enterprise only; partial setup is Business or Enterprise) |
+| 6 Staging | `staging.tech.admmis.org` on the same VM, Cloudflare Access (free limits UNVERIFIED) or basic auth |
+| 7 Hardening | Oracle VM: also set the Oracle Security List to open only 22, 80, 443 (or only Cloudflare IP ranges for 80/443); Ubuntu arm64 |
+| 9 Lead worker | systemd timer every minute, unchanged. It also counts as the activity job in 0.2 #2 |
+| 11 Monitoring | 5-minute checks; also alert when `docker stats` shows memory under 20% for 5 days (reclaim early warning) |
+| 12 Backups | Unchanged (ADR-035). Add Oracle idle-reclaim recovery drill to the first monthly restore test |
+
+### 0.6 Decision gate
+
+Soft launch target is Mon 14 Dec 2026 (`team/RELEASE-PLAN.md`). The Oracle VM must therefore run a **7-day measurement ending Fri 11 Dec**: CPU p95, network, memory. If all three were under 20% in that window and mitigations 1 and 4 are not accepted, or if Oracle did not give us a Mumbai or Hyderabad home region, switch to fallback C (about USD 12 to 24 per month, new ADR, Roshan approves) before 14 Dec.
+
+### 0.7 ADR proposal text (for PM to number)
+
+> **ADR-04x (proposed, raj).** Hosting for launch: **Oracle Cloud Always Free, Ampere A1 (2 OCPU, 12 GB), in India (Mumbai or Hyderabad, whichever is offered as home region)**, one VM running production and staging as separate Docker Compose projects. Cost USD 0. Reasons: complies with ADR-037; enough RAM for the stack; Docker Compose portable to any VPS. Risks accepted: Oracle idle-reclaim rule (CPU p95, network and memory all under 20% over 7 days), no confirmed SLA, free capacity can vanish, a card is probably required. Mitigations: runbook section 0.2. Exit: AWS Lightsail Mumbai 2 or 4 GB (USD 12 to 24 per month) if the 7-day measurement in 0.6 fails or Oracle refuses the account. Changes ADR-017 hosting detail ("VPS in Mumbai") to "free VM in India, Mumbai preferred". Docker images must build for linux/arm64.
+
+### 0.8 Exact actions for Roshan at USD 0 (replaces section 14)
+
+Do them in this order. Hand secrets to Raj only through the agreed vault, never chat.
+
+| # | Action | Time | Gives Raj | USD / month |
+|---|---|---|---|---|
+| 1 | Answer **Q17**: who runs DNS for admmis.org; registrar login; is DNSSEC on. Then follow `docs/runbooks/dns-cloudflare.md` | 1 h hands-on | confirmation | 0 |
+| 2 | Turn on **2FA** on GitHub; confirm repo visibility; invite Raj as collaborator (Write) | 10 min | repo access | 0 |
+| 3 | Create a free **Bitwarden** account with 2FA (check what the free plan allows for sharing with Raj) | 15 min | — | 0 |
+| 4 | Create a free **Cloudflare** account with 2FA (before DNS step 1) | 10 min | — | 0 |
+| 5 | Decide: is giving a **card to Oracle** acceptable (Raj never enters it)? If yes, create an **Oracle Cloud** account with 2FA, choose home region **India South (Mumbai)** or Hyderabad **(permanent, UNVERIFIED that it can be changed)**; then I give exact VM steps (Ubuntu 24.04 arm64, `VM.Standard.A1.Flex`, 2 OCPU, 12 GB, 100 GB boot, SSH key = public keys only, no password login) | 30 min | public IP, console access for Raj (IAM, limited) | 0 |
+| 6 | In Cloudflare after the DNS move: Turnstile widgets, R2 buckets and tokens, WAF and rate-limit rules (section 5) | 40 min | tokens via vault | 0 |
+| 7 | Create **Sentry** (Developer plan) + 2FA; project `admmis-tech`; give the DSN | 10 min | DSN | 0 |
+| 8 | Create a free **uptime monitor** (5-minute checks) + 2FA | 15 min | — | 0 |
+| 9 | Create **Slack** channels `#alerts-prod`, `#alerts-staging` with incoming webhooks; tell PM the alert email | 10 min | webhooks | 0 |
+| 10 | GitHub environments `staging` and `production` (reviewer: Roshan), Actions secrets Raj lists, branch protection from `docs/ci-spec.md` §5 after the first push | 20 min | — | 0 |
+| 11 | Approve the ADR in 0.7 and the retention policy (ADR-035 already approved) | 5 min | OK to PM | 0 |
+
+Total cost: **USD 0 per month**. Roshan's time: about 3.5 hours. Items 1, 4, 5 unlock the most. If Oracle is refused or fails, section 0.6 applies and the cost becomes USD 12 to 24 per month: that is a new decision.
 
 ---
 
@@ -37,7 +153,7 @@ Images are built **in CI** (GitHub Actions) and pushed to GHCR (GitHub Container
 
 ---
 
-## 2. VPS provider comparison
+## 2. VPS provider comparison (PAID FALLBACK since ADR-037; v0.1 data from 2026-11-06)
 
 Requirement (ADR-017): VPS in Mumbai region, new accounts, 2FA, backups every 24 h. Need: about 2 vCPU / 4 GB RAM for production (Next.js + Payload + Postgres + Caddy), 2 GB for staging.
 
@@ -292,7 +408,7 @@ Roll back (the backup system itself): `systemctl disable --now backup.timer`; no
 
 ---
 
-## 13. Cost summary (monthly, USD, check dates above)
+## 13. Cost summary of the PAID fallback (v0.1). Current plan costs USD 0, see section 0
 
 | Item | USD |
 |---|---|
@@ -304,7 +420,7 @@ Roll back (the backup system itself): `systemctl disable --now backup.timer`; no
 
 ---
 
-## 14. Exact actions for Roshan (numbered, with time)
+## 14. SUPERSEDED paid-plan actions (v0.1). Use section 0.8 instead
 
 Do them in this order. Each says what you give Raj, and how (always Bitwarden, never chat).
 
@@ -352,7 +468,11 @@ Monthly total at launch: about USD 40 (A) or 28 (B) for servers, plus Bitwarden 
 | 7 | verify: Free plan Cloudflare Access limit, Sentry free limits, uptime plans, Ubuntu LTS at purchase | Raj |
 | 8 | Privacy policy must name processors: Cloudflare, Sentry, hosting, email provider, chat tool, CRM (leads.md §10) | Sudip / PM |
 
-## Sources (checked 2026-11-06)
+## Sources
+- Oracle Always Free resources: https://docs.oracle.com/en-us/iaas/Content/FreeTier/resourceref.htm (read 2026-11-07, no page date). Oracle FAQ https://www.oracle.com/cloud/free/faq/ returned HTTP 403, not read.
+- Cloudflare zone setups: see `docs/runbooks/dns-cloudflare.md` (read 2026-11-07).
+
+Checked 2026-11-06 (v0.1):
 
 - https://aws.amazon.com/lightsail/pricing/
 - https://www.digitalocean.com/pricing/droplets · https://docs.digitalocean.com/products/backups/details/pricing/

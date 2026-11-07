@@ -15,7 +15,7 @@ Reply in the lead chat, e.g. "A1 yes, A2 option A, B3: +977 98…". PM records y
 | A5 | OK for the unused `AGENTS.md` file to be removed automatically (you chose "disable" at Gate 1) | Next.js removes it on the next `pnpm dev`; it is untracked and contains only generated text | Recommend: yes | repo root `AGENTS.md` | Sun 8 Nov |
 | A6 | Prices: bands, rental prices, team-on-rent option, terms (P1–P6) | Pricing and rent pages. Team-on-rent may be **3–4× underpriced for foreign clients** | Recommend: P1–P4 yes, team option A + a separate USD rate card | `docs/pricing-summary.md` | Fri 13 Nov |
 | A7 | Budget plan and team pay model (Q19, Q20) | Real cash plan | Free-services-only for now (ADR-037) | `docs/budget.md` | Fri 13 Nov |
-| A8 | Free host proposal (raj delivers Tue 10 Nov) | Staging server; soft launch 14 Dec depends on it | PM will recommend after raj's comparison | `docs/runbooks/infra-setup.md` (v0.2, Tue) | Mon 23 Nov latest |
+| A8 | Free hosting: Oracle Cloud Always Free (2 CPU / 12 GB, India region, USD 0). (a) Is giving Oracle a card for verification OK? (likely required, not verified) (b) approve the new hosting ADR text (§0.7) | Staging server; soft launch 14 Dec depends on it. Risk: Oracle may reclaim a quiet server → raj measures for 7 days and we switch to paid (Lightsail Mumbai ≈ USD 12–24/mo, needs your OK) before 14 Dec if needed | Recommend: yes to Oracle + the 7-day measurement gate (hritik reviewing) | `docs/runbooks/infra-setup.md` §0 | Fri 13 Nov |
 | A9 | Test phones (G2): use your/team phones + free emulators? | Real-device test before launch | Recommend: borrowed phones, USD 0 | `qa/device-matrix.md` | Fri 20 Nov |
 
 ## Send files / info
