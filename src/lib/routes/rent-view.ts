@@ -18,7 +18,8 @@ export function rentSlugs(home: Messages['home']): string[] {
 export function buildRentHubView(locale: Locale, home: Messages['home'], rent: Messages['rent']) {
   const href = (path: string) => pathFor(locale, path)
   const copy = rent.hub as unknown as PageCopy
-  const seo: PageSeo = { title: copy.seoTitle, description: copy.metaDescription, indexable: true }
+  // Noindex like the product pages until Roshan's prices and terms (A6) are in (sudip T-709).
+  const seo: PageSeo = { title: copy.seoTitle, description: copy.metaDescription, indexable: false }
   const quote = '/contact?type=rent'
   return {
     seo,

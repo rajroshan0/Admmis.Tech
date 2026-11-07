@@ -1,10 +1,10 @@
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 
-// T-805. Services templates (T-307). Placeholder copy by design; every slug page is noindex until listed in COPY_READY.
+// T-805. Services templates (T-307). Every slug page is indexable once listed in COPY_READY (all 9 since T-308b).
 const ROUTES = ['/services', ...['web-development', 'mobile-app-development', 'custom-software', 'ai-agents', 'qa-testing', 'audit', 'outstaffing', 'digital-marketing', 'offline-marketing'].map((s) => `/services/${s}`)]
 const HUB = '/services'
-const INDEXABLE = ['web-development', 'ai-agents', 'mobile-app-development', 'outstaffing', 'digital-marketing'].map((s) => `/services/${s}`) // COPY_READY (T-308)
+const INDEXABLE = ROUTES // all nine slugs are in COPY_READY (T-308b)
 
 for (const route of ROUTES) {
   test.describe(route, () => {
@@ -16,7 +16,7 @@ for (const route of ROUTES) {
       await expect(page.locator('main')).not.toContainText(/TODO|lorem ipsum|undefined|\[object/i)
     })
 
-    test('robots: P0 slugs and hub indexable, other slugs noindex', async ({ page }) => {
+    test('robots: hub and all nine slugs indexable', async ({ page }) => {
       await page.goto(route)
       const robots = page.locator('meta[name="robots"]')
       if (route === HUB || INDEXABLE.includes(route)) await expect(robots).toHaveCount(0)

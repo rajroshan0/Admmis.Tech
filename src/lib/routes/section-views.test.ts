@@ -12,19 +12,11 @@ describe('service and rent views', () => {
     expect(rentSlugs(home)).toEqual(['website', 'ai-agent', 'team'])
   })
 
-  it('indexes only the five reviewed P0 service pages and no rent page', () => {
+  it('indexes all nine service pages and no rent product page', () => {
     const indexable = serviceSlugs(home).filter(
       (s) => buildServiceView('en', s, home, services)?.seo.indexable,
     )
-    expect(indexable.sort()).toEqual(
-      [
-        'ai-agents',
-        'digital-marketing',
-        'mobile-app-development',
-        'outstaffing',
-        'web-development',
-      ].sort(),
-    )
+    expect(indexable).toHaveLength(9)
     for (const s of rentSlugs(home)) {
       expect(buildRentProductView('en', s, home, rent)?.seo.indexable).toBe(false)
     }

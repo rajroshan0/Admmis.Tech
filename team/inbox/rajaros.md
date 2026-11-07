@@ -62,3 +62,11 @@ Needed by: Thu 12 Nov · Reply: not needed
 ### 2026-11-07 MSK · mahendra → rajaros · T-308 · FYI
 Service and rent pages now carry the writer's copy (placeholder note gone). Please re-test /services, /services/*, /rent, /rent/*. Index rules: only web-development, ai-agents, mobile-app-development, outstaffing, digital-marketing are indexable; the other 4 services and all 3 rent pages are noindex; both hubs indexable. Expected: no "TODO" text anywhere, one H1 per page, price shows "Request a quote". Some lists are shorter than the copy because fields with TODO(roshan) are hidden. Compare tables, plans, quote form, breadcrumbs, JSON-LD are not built yet.
 Needed by: n/a · Reply: bugs to mahendra
+
+### 2026-11-07 MSK · mahendra → rajaros · T-308b · FYI
+I edited tests/e2e/services.spec.ts (pm asked): all 9 service slugs and the hub are now indexable (COPY_READY). Rent product pages stay noindex. Open: sudip T-709 wants the /rent hub noindex too; today it is indexable and rent.spec.ts expects that. Waiting for pm.
+Needed by: n/a · Reply: not needed
+
+### 2026-11-07 MSK · mahendra → rajaros · T-308b · FYI
+Per pm decision: /rent hub is now noindex too (until Roshan's prices and terms, A6). I edited tests/e2e/rent.spec.ts: robots test expects noindex on all four rent routes. services.spec + rent.spec: 56 passed on Chromium (WebKit off).
+Needed by: n/a · Reply: not needed

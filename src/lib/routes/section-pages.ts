@@ -19,8 +19,12 @@ export type PageSeo = {
  * Add a slug here when the writer's copy for that page is synced and the placeholder is gone.
  */
 export const COPY_READY: { services: ReadonlySet<string>; rent: ReadonlySet<string> } = {
-  // The five SEO-reviewed P0 pages (T-308). The four P1 pages wait for sudip's review.
+  // All nine service pages are SEO-reviewed (sudip T-709).
   services: new Set([
+    'custom-software',
+    'qa-testing',
+    'audit',
+    'offline-marketing',
     'web-development',
     'ai-agents',
     'mobile-app-development',

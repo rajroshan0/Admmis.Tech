@@ -21,3 +21,8 @@ Gaps: no Breadcrumbs component (none added); ChoiceList content, rental-plans bl
 - COPY_READY.services = web-development, ai-agents, mobile-app-development, outstaffing, digital-marketing; the 4 P1 pages and all 3 rent pages stay noindex. Hubs indexable.
 - Not rendered: compare tables, plans, hub groups, cases (none approved), second process block (launchSteps; ProcessStepsBlock has a fixed heading id), WhatsApp links, JSON-LD (none emitted; FAQPage rule respected by emitting none). Lists with fewer than 2 items are skipped. rent/ai-agent and team now have 3 cards, so the 4-card question is moot.
 - Verified: tsc and eslint clean, vitest 48/48, build static, JS 143.7 KB, 360 px on ai-agents, rent/ai-agent, both hubs: no overflow, one H1, no duplicate ids. Full e2e not re-run.
+
+## T-308b
+- COPY_READY.services now has all 9 slugs (sudip T-709); rent product pages stay noindex. The rent hub stays indexable as before (sudip T-709 says noindex too: pm to decide; one-line change in rent-view.ts plus rent.spec.ts).
+- Rent metas, rent/website H1 and hero sub synced from T-1005-fix. Updated tests/e2e/services.spec.ts (all 9 indexable). tsc, eslint, vitest 48/48 and build pass.
+- /rent hub made noindex (pm decision, sudip T-709); rent.spec.ts updated; services+rent e2e 56 passed (Chromium).

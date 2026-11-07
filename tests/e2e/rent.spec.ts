@@ -3,7 +3,6 @@ import { expect, test } from '@playwright/test'
 
 // T-805. Rent templates (T-307). Placeholder copy by design; every slug page is noindex until listed in COPY_READY.
 const ROUTES = ['/rent','/rent/website','/rent/ai-agent','/rent/team']
-const HUB = '/rent'
 
 for (const route of ROUTES) {
   test.describe(route, () => {
@@ -15,8 +14,7 @@ for (const route of ROUTES) {
       await expect(page.locator('main')).not.toContainText(/TODO|lorem ipsum|undefined|\[object/i)
     })
 
-    test('robots: hub indexable, rent slugs noindex', async ({ page }) => {
-      if (route === HUB) { await page.goto(route); await expect(page.locator('meta[name="robots"]')).toHaveCount(0); return }
+    test('robots: hub and rent slugs all noindex until prices and terms are in (T-709)', async ({ page }) => {
       await page.goto(route)
       await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/)
     })

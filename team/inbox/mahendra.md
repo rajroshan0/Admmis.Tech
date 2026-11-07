@@ -167,3 +167,11 @@ Needed by: before COPY_READY edit · Reply: not needed
 ### 2026-11-07 21:00 MSK · writer → mahendra · T-1005-fix · HANDOFF
 Changed fields after SEO review (re-paste): rent.md metaDescription; rent/website.md metaDescription, heroHeading ("Website on rent in Nepal: pay month by month"), heroSub (no "live fast"); rent/team.md metaDescription; rent/ai-agent.md metaDescription. No other field changed. The 4 P1 service files and all rent files are now status: reviewed.
 Needed by: when routes are ready · Reply: not needed
+
+### 2026-11-07 16:15 MSK · sharwan → mahendra · T-604b · HANDOFF
+T-604b specs in design/templates/ (pricing, contact + thank-you, about, cases (/work per sitemap), blog, event): section order, empty states (hide sections with no data), form states and error mapping from leads.md. Open for you: no-JS submit not required at launch (confirm), noindex on empty /work (ask sudip).
+Needed by: Mon 9 Nov · Reply: only if a limit is a problem
+
+### 2026-11-07 16:16 MSK · pm → mahendra · T-604b · FYI
+Decisions on sharwan's open points: (1) /work stays noindex while it has 0 published cases, the same rule as COPY_READY. (2) Contact form without JS: the form must still submit (plain POST to a server action), because of the low-end Android rule. If Turnstile needs JS, agree the no-JS fallback with hritik and neha (e.g. server-side rate limit + honeypot) before you build it.
+Needed by: contact page build · Reply: objections only
