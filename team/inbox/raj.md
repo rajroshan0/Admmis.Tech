@@ -71,3 +71,30 @@ Needed by: Thu 12 Nov · Reply: not needed unless you disagree
 ### 2026-11-07 10:38 MSK · pm → raj · ADR-030..040 · FYI
 Gate 1 PASSED today. New ADRs in docs/decisions.md: 031 brand = Sindoor Studio layout in ADMMIS colours · 032 migrations at app start · 033 Sentry server-side only · 034 AGENTS.md disabled · 035 backups · 036 leads (24 mo, N=20/h, UTM pre-consent) · 037 **free services only (USD 0)** · 038 writer joins (owns content/) · 039 go/no-go approved · 040 **Scrum, 1-week sprints**. Your Sprint 1 tasks are in team/sprints/sprint-1.md (your section) and team/BOARD.md. Backlog: team/BACKLOG.md. Release plan (soft launch target Mon 14 Dec): team/RELEASE-PLAN.md.
 Needed by: n/a · Reply: not needed
+
+### 2026-11-07 11:06 MSK · pm → raj · T-503 · FYI (Oracle Always Free research that reached pm instead of you)
+Read 2026-11-07: docs.oracle.com/en-us/iaas/Content/FreeTier/resourceref.htm (200; no page date). oracle.com/cloud/free/faq/ = 403 (not readable).
+- A1: 1,500 OCPU-h + 9,000 GB-h/month ≈ 2 OCPU + 12 GB RAM total, 1–2 instances. Block storage 200 GB total incl. boot (boot min 47 vs 50 GB — page inconsistent), 5 backups.
+- Idle reclaim: "may be reclaimed" if over 7 days CPU p95 < 20%, network < 20%, memory < 20% (A1). Stop vs terminate not stated.
+- Always Free only in the HOME region (compute, block volumes).
+- Outbound: 10 TB/month free.
+- After trial: compute free "for the life of the account"; object storage capped at 20 GB in Always-Free-only state, objects over the limit deleted.
+- UNVERIFIED: card/hold amount, India regions (Mumbai/Hyderabad) availability for new sign-ups, home-region change.
+Needed by: T-503 Tue 10 Nov · Reply: not needed
+
+### 2026-11-07 11:06 MSK · pm → raj · T-504 · FYI (Cloudflare zone-setup research that reached pm instead of you)
+Read 2026-11-07 (all HTTP 200): developers.cloudflare.com/dns/zone-setups/{partial-setup, subdomain-setup, subdomain-setup/setup, full-setup, full-setup/setup}/ (modified 2026-04..10).
+- Subdomain delegation (NS for tech.admmis.org only): **Enterprise only** ("Subdomain setup is only available for Enterprise accounts").
+- Partial/CNAME setup: **Business or Enterprise only**.
+- Full setup (move admmis.org nameservers): the only option on Free. Quick scan "is not guaranteed to find all existing DNS records" → review manually (MX/SPF/DKIM!). Two assigned nameservers, copy exactly. **Turn DNSSEC off at the registrar first** if active. Activation up to 24 h; email on completion.
+- NOT READ: rollback/troubleshooting pages (full-setup/troubleshooting/, troubleshooting/pending-nameservers/) — rollback = put the old nameservers back at the registrar; state it as such and mark it as not from Cloudflare docs.
+Implication: on Free, Roshan must move the whole admmis.org DNS to Cloudflare (existing records kept). Alternative with USD 0: keep DNS where it is and point tech.admmis.org with an A/CNAME record to the host, without Cloudflare proxy/WAF for it — state the trade-off.
+Needed by: T-504 today 16:00 · Reply: not needed
+
+### 2026-11-07 11:06 MSK · pm → raj · T-505 · FYI (Docker Desktop research that reached pm instead of you)
+Read 2026-11-07 (HTTP 200, no page dates): docs.docker.com/subscription/desktop-license/ · docs.docker.com/desktop/setup/install/mac-install/ · docker.com/pricing/.
+- Licence: free for "Small businesses (fewer than 250 employees AND less than $10 million in annual revenue)", personal use, education, non-commercial OSS → ADMMIS qualifies (state as: verify headcount/revenue yourself, Roshan).
+- Apple silicon download: https://desktop.docker.com/mac/main/arm64/Docker.dmg · needs a supported macOS (current + 2 previous major releases), ≥ 4 GB RAM; Rosetta 2 recommended (`softwareupdate --install-rosetta`).
+- Install: open Docker.dmg → drag to Applications → start Docker.app → Accept the agreement → no password needed.
+- Not stated: disk space figure, exact macOS versions, page dates.
+Needed by: T-505 today 14:30 · Reply: not needed
