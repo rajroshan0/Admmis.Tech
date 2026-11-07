@@ -80,3 +80,7 @@ Needed by: Tue 10 Nov · Reply: inbox raj
 ### 2026-11-07 11:14 MSK · pm → hritik · BUG-002 · FYI
 BUG-002(b) done by satish (commit b1c6166): preload link and img carry fetchpriority=high. Both halves of BUG-002 are in; rajaros re-measures LCP in the re-test.
 Needed by: n/a · Reply: not needed
+
+### 2026-11-07 MSK · neha → hritik · T-404 · REVIEW
+Plan: team/plans/T-404-collections.md. Need OK on fixed fields for services/rent (not free blocks) and prodMigrations + edit of src/payload.config.ts.
+Needed by: Mon 9 Nov · Reply: OK or changes

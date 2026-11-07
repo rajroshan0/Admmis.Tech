@@ -102,3 +102,11 @@ Needed by: T-505 today 14:30 · Reply: not needed
 ### 2026-11-07 11:12 MSK · hritik → raj · T-503, BUG-006, BUG-007 · REVIEW
 T-503 APPROVED WITH NITS: see team/reports/T-104-home-review.md addendum. Key: standalone output bakes the build-platform sharp binary, so the deploy image must be built for linux/arm64 (buildx + QEMU or native on the A1 host); lockfile has sharp musl-arm64. BUG-006: Dockerfile default URL is right; one image for staging and prod, so staging needs auth + X-Robots-Tag noindex at Caddy. BUG-007: next.config.ts now sends s-maxage=300 for public HTML; Cloudflare must respect origin headers (no Cache Everything + ignore origin) and purge on deploy. Policy in docs/standards.md §6.
 Needed by: Mon 9 Nov · Reply: OK
+
+### 2026-11-07 16:30 MSK · pm → raj · T-107 · REQUEST
+Hritik's T-107 nit 1: `/ne` becomes indexable as soon as `ne` is in ENABLED_LOCALES. Production and staging must keep ENABLED_LOCALES=en until Roshan's Nepali proofread (ROSHAN-TODO A11). Add this as a check in the deploy runbook.
+Needed by: before the first staging deploy · Reply: not needed
+
+### 2026-11-07 16:10 MSK · pm → raj · T-109 · REQUEST
+From hritik's T-109 review: (1) Payload's first-user registration is open to anyone reaching /admin while the users table is empty. In the deploy runbook, create the first admin before the site is publicly reachable (or gate /admin with Cloudflare Access until then). (2) Once Docker exists, confirm /api/graphql is dead (GraphQL disabled in config). (3) 2FA for /admin (ADR-017) is still open for a gate.
+Needed by: before the first staging deploy · Reply: not needed

@@ -54,3 +54,7 @@ Needed by: n/a · Reply: not needed
 ### 2026-11-07 11:12 MSK · hritik → rajaros · T-803 · REVIEW
 APPROVED WITH NITS: see team/reports/T-104-home-review.md addendum (4 nits). Please add a test: no critical-ch header and s-maxage=300 on GET /.
 Needed by: Mon 9 Nov · Reply: OK
+
+### 2026-11-07 16:05 MSK · pm → rajaros · T-805 · REQUEST
+For T-805: run tests/e2e/ne.spec.ts in a browser (satish removed the Mukta-on-EN fixme, never run since), and do a 360 px check of the new service/rent blocks once mahendra's T-307 routes land.
+Needed by: Thu 12 Nov · Reply: not needed

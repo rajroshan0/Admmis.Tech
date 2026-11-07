@@ -1,6 +1,6 @@
 # CMS content model — ADMMIS.TECH
 
-Owner: neha · Task: T-401 · Version: v0.2 draft · 2026-11-06 · Reviewer: hritik
+Owner: neha · Task: T-401 · Version: v0.3 draft · 2026-11-06 · Reviewer: hritik
 Binding inputs: ADR-004 (all text localizable), ADR-005 (NPR + USD), ADR-007 (leads), ADR-013 (multi-brand), ADR-014 (one price source), ADR-006 (consent), `docs/standards.md`, `seo/sitemap.md` v0.1.
 Status of numbers: size bands, prices and retention periods are **not approved** (Gate 1, Q16). They are data or config, never code.
 
@@ -465,3 +465,4 @@ This document is the contract for frontend (Satish blocks, Mahendra templates). 
 ### Changelog
 - v0.1 (2026-11-06): first draft.
 - v0.2 (2026-11-06, per Hritik review): blocks and arrays not localized (text inside is); FAQ price node dropped; analytics IDs to env; `leads.service` is a config text key; internal tables note; editors cannot change prices.
+- v0.3 (2026-11-07, T-406, hritik OK): **implemented in `src/collections/`.** Services and rent pages use fixed named fields that match `design/templates/service-spec.md` and `rent-spec.md` section 5 one to one (changing a spec later needs a migration: tell neha). `rentalPlans` collection added (product, band, `priceRef`). `pages` keeps `blocks` only for home, pricing, about, contact, thank-you, legal; `services-hub`, `rent-hub`, `rent-product` use template groups (`servicesHub`, `rentHub`, `rentProduct`). User field is `roles` (not `role`). `feature-list`/`services` icons use the 21-name IconName list. `pricing` has `features[]`, `excludes[]`, `highlight`. `banner` is a block (tone info/promo/notice) and also `siteSettings.announcement`. `siteSettings.localesEnabled` dropped (routing uses env ENABLED_LOCALES). CMS REST read is staff only; the frontend reads through `src/lib/server/content.ts` (`findPublished`, always `draft: false` and status published). Only `pricing`/`rentalPlans` admin-only edit applies to `pricing` (ADR-025: admin-only editing, public display). **Fallback warning:** `localization.fallback: true` shows English text on `/ne` when Nepali is empty; keep `/ne` pages `noindex` until translated. Not yet built: cases, clients, testimonials, posts, jobs, events, teamMembers, leads, leadJobs, leadSettings, `translatedLocales`.

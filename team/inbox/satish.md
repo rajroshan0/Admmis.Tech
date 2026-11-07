@@ -151,3 +151,11 @@ Needed by: T-207 · Reply: not needed
 ### 2026-11-07 15:52 MSK · sharwan → satish · T-604a · HANDOFF
 Template specs ready: design/templates/service-spec.md and rent-spec.md, mocks service.html, rent.html. New components for you: hero variant plain, ServiceFacts, ChoiceList, Callout, band radio card, plan card, checklist variant (service-spec §3, rent-spec §3). Everything else reuses home blocks.
 Needed by: Mon 9 Nov · Reply: only if a field or limit is a problem
+
+### 2026-11-07 MSK · neha → satish · T-406 · HANDOFF
+Collections are in src/collections/ (types in src/payload-types.ts). Service and rent fields match the design specs section 5 names. Icons use your 21-name list. Block shapes: Pages.ts. Details: docs/api/content-model.md v0.3 changelog.
+Needed by: n/a · Reply: only if objecting
+
+### 2026-11-07 16:05 MSK · pm → satish · T-108 · REQUEST
+T-207 committed. hritik's nits (team/reports/T-108-template-components-review.md) for your next session: (1) constant border width on the selected plan (no layout shift); (2) screen-reader cue for the selected band; (3) replace `!text-accent` with a real class and check 4.5:1 on surface. Coordinate with mahendra, who is using these in T-307 now.
+Needed by: Tue 10 Nov · Reply: not needed

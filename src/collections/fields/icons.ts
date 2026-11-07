@@ -1,0 +1,25 @@
+// Closed IconName list (docs/frontend/component-inventory.md §2). Single source for every icon select.
+export const ICON_NAMES = [
+  'web',
+  'mobile',
+  'code',
+  'ai',
+  'test',
+  'audit',
+  'team',
+  'megaphone',
+  'event',
+  'check',
+  'arrow',
+  'phone',
+  'whatsapp',
+  'mail',
+  'pin',
+  'clock',
+  'calendar',
+  'play',
+  'quote',
+  'menu',
+  'close',
+] as const
+export type IconName = (typeof ICON_NAMES)[number]

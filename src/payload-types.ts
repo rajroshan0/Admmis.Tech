@@ -69,6 +69,12 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    pages: Page;
+    services: Service;
+    pricing: Pricing;
+    rentalPlans: RentalPlan;
+    faqs: Faq;
+    redirects: Redirect;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -78,6 +84,12 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
+    services: ServicesSelect<false> | ServicesSelect<true>;
+    pricing: PricingSelect<false> | PricingSelect<true>;
+    rentalPlans: RentalPlansSelect<false> | RentalPlansSelect<true>;
+    faqs: FaqsSelect<false> | FaqsSelect<true>;
+    redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -87,8 +99,12 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: ('false' | 'none' | 'null') | false | null | ('en' | 'ne') | ('en' | 'ne')[];
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    siteSettings: SiteSetting;
+  };
+  globalsSelect: {
+    siteSettings: SiteSettingsSelect<false> | SiteSettingsSelect<true>;
+  };
   locale: 'en' | 'ne';
   widgets: {
     collections: CollectionsWidget;
@@ -123,6 +139,13 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: number;
+  /**
+   * Shown in the admin and in version history.
+   */
+  name?: string | null;
+  /**
+   * Admin: everything. Editor: content, no leads. Sales: leads and read-only content.
+   */
   roles: 'admin' | 'editor' | 'sales';
   updatedAt: string;
   createdAt: string;
@@ -150,7 +173,26 @@ export interface User {
  */
 export interface Media {
   id: number;
-  alt: string;
+  /**
+   * Describe what the image shows for someone who cannot see it.
+   */
+  alt?: string | null;
+  /**
+   * Tick if the image is only decoration. Then alt text can stay empty.
+   */
+  decorative?: boolean | null;
+  /**
+   * Aim for 143 characters or fewer (hard limit 200, room for Nepali).
+   */
+  caption?: string | null;
+  /**
+   * Photographer, or "AI-generated (tool, date)".
+   */
+  credit?: string | null;
+  /**
+   * For AI-generated images: tool, prompt and date.
+   */
+  provenance?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -162,6 +204,1302 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+  sizes?: {
+    w480?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    w768?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    w1280?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    w1920?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: number;
+  /**
+   * Admin label and default H1. Aim for 70 characters or fewer (hard limit 98, room for Nepali).
+   */
+  title: string;
+  /**
+   * The web address, English, lowercase, hyphens. One level of nesting allowed, for example rent/website. Use "home" for the homepage.
+   */
+  slug: string;
+  /**
+   * Tick only if you understand the old web address will redirect to the new one.
+   */
+  confirmSlugChange?: boolean | null;
+  /**
+   * Decides the page layout. Only the fields for this layout are shown.
+   */
+  template:
+    'home' | 'services-hub' | 'pricing' | 'rent-hub' | 'rent-product' | 'about' | 'contact' | 'thank-you' | 'legal';
+  /**
+   * Version label shown on the policy, for example 2026-12-01.
+   */
+  legalVersion?: string | null;
+  /**
+   * Build the page from blocks.
+   */
+  blocks?:
+    | (
+        | {
+            /**
+             * Aim for 30 characters or fewer (hard limit 42, room for Nepali).
+             */
+            eyebrow?: string | null;
+            /**
+             * Aim for 70 characters or fewer (hard limit 98, room for Nepali).
+             */
+            heading: string;
+            /**
+             * Aim for 150 characters or fewer (hard limit 210, room for Nepali).
+             */
+            subheading?: string | null;
+            primaryCta?: {
+              /**
+               * Aim for 24 characters or fewer (hard limit 34, room for Nepali).
+               */
+              label?: string | null;
+              /**
+               * Path like /contact, or a full URL.
+               */
+              href?: string | null;
+            };
+            secondaryCta?: {
+              /**
+               * Aim for 24 characters or fewer (hard limit 34, room for Nepali).
+               */
+              label?: string | null;
+              /**
+               * Path like /contact, or a full URL.
+               */
+              href?: string | null;
+            };
+            image?: (number | null) | Media;
+            /**
+             * Optional crop for phones.
+             */
+            mobileImage?: (number | null) | Media;
+            variant?: ('centered' | 'split' | 'model') | null;
+            chips?:
+              | {
+                  /**
+                   * Aim for 24 characters or fewer (hard limit 34, room for Nepali).
+                   */
+                  text: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero';
+          }
+        | {
+            /**
+             * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+             */
+            heading?: string | null;
+            /**
+             * Aim for 121 characters or fewer (hard limit 170, room for Nepali).
+             */
+            intro?: string | null;
+            mode?: ('all' | 'pick') | null;
+            services?: (number | Service)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'services-grid';
+          }
+        | {
+            /**
+             * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+             */
+            heading?: string | null;
+            items?:
+              | {
+                  /**
+                   * Pick an icon from the fixed set.
+                   */
+                  icon?:
+                    | (
+                        | 'web'
+                        | 'mobile'
+                        | 'code'
+                        | 'ai'
+                        | 'test'
+                        | 'audit'
+                        | 'team'
+                        | 'megaphone'
+                        | 'event'
+                        | 'check'
+                        | 'arrow'
+                        | 'phone'
+                        | 'whatsapp'
+                        | 'mail'
+                        | 'pin'
+                        | 'clock'
+                        | 'calendar'
+                        | 'play'
+                        | 'quote'
+                        | 'menu'
+                        | 'close'
+                      )
+                    | null;
+                  /**
+                   * Aim for 29 characters or fewer (hard limit 40, room for Nepali).
+                   */
+                  title: string;
+                  /**
+                   * Aim for 121 characters or fewer (hard limit 170, room for Nepali).
+                   */
+                  text: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'feature-list';
+          }
+        | {
+            /**
+             * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+             */
+            heading?: string | null;
+            steps?:
+              | {
+                  /**
+                   * Aim for 19 characters or fewer (hard limit 26, room for Nepali).
+                   */
+                  title: string;
+                  /**
+                   * Aim for 111 characters or fewer (hard limit 155, room for Nepali).
+                   */
+                  text: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'process-steps';
+          }
+        | {
+            /**
+             * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+             */
+            heading?: string | null;
+            /**
+             * Aim for 121 characters or fewer (hard limit 170, room for Nepali).
+             */
+            intro?: string | null;
+            kind: 'package' | 'hourly';
+            prices?: (number | Pricing)[] | null;
+            showCurrencyToggle?: boolean | null;
+            quoteCta?: {
+              /**
+               * Aim for 24 characters or fewer (hard limit 34, room for Nepali).
+               */
+              label?: string | null;
+              /**
+               * Path like /contact, or a full URL.
+               */
+              href?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'pricing-table';
+          }
+        | {
+            /**
+             * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+             */
+            heading?: string | null;
+            product: 'website' | 'ai-agent' | 'team';
+            highlightBand?: ('S' | 'M' | 'L' | 'XL') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'rental-plans';
+          }
+        | {
+            /**
+             * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+             */
+            heading?: string | null;
+            faqs?: (number | Faq)[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'faq';
+          }
+        | {
+            /**
+             * Aim for 50 characters or fewer (hard limit 70, room for Nepali).
+             */
+            heading?: string | null;
+            /**
+             * Aim for 121 characters or fewer (hard limit 170, room for Nepali).
+             */
+            text?: string | null;
+            formKind: 'contact' | 'quote' | 'rent' | 'event' | 'callback';
+            defaultService?: (number | null) | Service;
+            defaultPricing?: (number | null) | Pricing;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'cta-form';
+          }
+        | {
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            width?: ('narrow' | 'wide') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'rich-text';
+          }
+        | {
+            /**
+             * Aim for 100 characters or fewer (hard limit 140, room for Nepali).
+             */
+            text: string;
+            link?: {
+              /**
+               * Aim for 24 characters or fewer (hard limit 34, room for Nepali).
+               */
+              label?: string | null;
+              /**
+               * Path like /contact, or a full URL.
+               */
+              href?: string | null;
+            };
+            tone?: ('info' | 'promo' | 'notice') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'banner';
+          }
+      )[]
+    | null;
+  servicesHub?: {
+    /**
+     * Aim for 70 characters or fewer (hard limit 98, room for Nepali).
+     */
+    heroHeading: string;
+    /**
+     * Aim for 150 characters or fewer (hard limit 210, room for Nepali).
+     */
+    heroSub: string;
+    groups: {
+      /**
+       * Aim for 24 characters or fewer (hard limit 34, room for Nepali).
+       */
+      title: string;
+      /**
+       * Aim for 90 characters or fewer (hard limit 126, room for Nepali).
+       */
+      text: string;
+      id?: string | null;
+    }[];
+    choices: {
+      /**
+       * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+       */
+      question: string;
+      serviceRef: number | Service;
+      id?: string | null;
+    }[];
+    /**
+     * Aim for 221 characters or fewer (hard limit 310, room for Nepali).
+     */
+    priceText?: string | null;
+    faqs: (number | Faq)[];
+  };
+  rentHub?: {
+    /**
+     * Aim for 70 characters or fewer (hard limit 98, room for Nepali).
+     */
+    heroHeading: string;
+    /**
+     * Aim for 150 characters or fewer (hard limit 210, room for Nepali).
+     */
+    heroSub: string;
+    meaning: {
+      /**
+       * Aim for 29 characters or fewer (hard limit 40, room for Nepali).
+       */
+      title: string;
+      /**
+       * Aim for 111 characters or fewer (hard limit 155, room for Nepali).
+       */
+      text: string;
+      /**
+       * Pick an icon from the fixed set.
+       */
+      icon?:
+        | (
+            | 'web'
+            | 'mobile'
+            | 'code'
+            | 'ai'
+            | 'test'
+            | 'audit'
+            | 'team'
+            | 'megaphone'
+            | 'event'
+            | 'check'
+            | 'arrow'
+            | 'phone'
+            | 'whatsapp'
+            | 'mail'
+            | 'pin'
+            | 'clock'
+            | 'calendar'
+            | 'play'
+            | 'quote'
+            | 'menu'
+            | 'close'
+          )
+        | null;
+      id?: string | null;
+    }[];
+    /**
+     * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+     */
+    productsHeading: string;
+    /**
+     * Aim for 121 characters or fewer (hard limit 170, room for Nepali).
+     */
+    productsIntro?: string | null;
+    products: {
+      rentalProduct: 'website' | 'ai-agent' | 'team';
+      /**
+       * Aim for 21 characters or fewer (hard limit 30, room for Nepali).
+       */
+      cardTitle: string;
+      /**
+       * Aim for 40 characters or fewer (hard limit 56, room for Nepali).
+       */
+      cardFor: string;
+      cardBullets: {
+        /**
+         * Aim for 40 characters or fewer (hard limit 56, room for Nepali).
+         */
+        text: string;
+        id?: string | null;
+      }[];
+      /**
+       * Pick an icon from the fixed set.
+       */
+      icon?:
+        | (
+            | 'web'
+            | 'mobile'
+            | 'code'
+            | 'ai'
+            | 'test'
+            | 'audit'
+            | 'team'
+            | 'megaphone'
+            | 'event'
+            | 'check'
+            | 'arrow'
+            | 'phone'
+            | 'whatsapp'
+            | 'mail'
+            | 'pin'
+            | 'clock'
+            | 'calendar'
+            | 'play'
+            | 'quote'
+            | 'menu'
+            | 'close'
+          )
+        | null;
+      id?: string | null;
+    }[];
+    /**
+     * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+     */
+    compareHeading: string;
+    compareRows: {
+      /**
+       * Aim for 24 characters or fewer (hard limit 34, room for Nepali).
+       */
+      topic: string;
+      /**
+       * Aim for 70 characters or fewer (hard limit 98, room for Nepali).
+       */
+      rent: string;
+      /**
+       * Aim for 70 characters or fewer (hard limit 98, room for Nepali).
+       */
+      buy: string;
+      id?: string | null;
+    }[];
+    /**
+     * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+     */
+    plansHeading: string;
+    /**
+     * Aim for 161 characters or fewer (hard limit 225, room for Nepali).
+     */
+    plansIntro?: string | null;
+    /**
+     * Aim for 111 characters or fewer (hard limit 155, room for Nepali).
+     */
+    bandHelp: string;
+    /**
+     * Aim for 40 characters or fewer (hard limit 56, room for Nepali).
+     */
+    includedHeading: string;
+    included: {
+      /**
+       * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+       */
+      text: string;
+      id?: string | null;
+    }[];
+    /**
+     * Aim for 40 characters or fewer (hard limit 56, room for Nepali).
+     */
+    notIncludedHeading: string;
+    notIncluded: {
+      /**
+       * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+       */
+      text: string;
+      id?: string | null;
+    }[];
+    /**
+     * Aim for 50 characters or fewer (hard limit 70, room for Nepali).
+     */
+    exitHeading: string;
+    /**
+     * Aim for 90 characters or fewer (hard limit 126, room for Nepali).
+     */
+    exitCallout: string;
+    /**
+     * Aim for 400 characters or fewer (hard limit 560, room for Nepali).
+     */
+    exitText: string;
+    faqs: (number | Faq)[];
+    /**
+     * Aim for 50 characters or fewer (hard limit 70, room for Nepali).
+     */
+    formHeading: string;
+    /**
+     * Aim for 121 characters or fewer (hard limit 170, room for Nepali).
+     */
+    formText: string;
+  };
+  rentProduct?: {
+    product: 'website' | 'ai-agent' | 'team';
+    /**
+     * Aim for 30 characters or fewer (hard limit 42, room for Nepali).
+     */
+    heroEyebrow?: string | null;
+    /**
+     * Aim for 70 characters or fewer (hard limit 98, room for Nepali).
+     */
+    heroHeading: string;
+    /**
+     * Aim for 150 characters or fewer (hard limit 210, room for Nepali).
+     */
+    heroSub: string;
+    facts?: {
+      /**
+       * Aim for 30 characters or fewer (hard limit 42, room for Nepali).
+       */
+      minTerm?: string | null;
+      /**
+       * Aim for 30 characters or fewer (hard limit 42, room for Nepali).
+       */
+      setup?: string | null;
+    };
+    /**
+     * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+     */
+    howHeading: string;
+    howSteps: {
+      /**
+       * Aim for 19 characters or fewer (hard limit 26, room for Nepali).
+       */
+      title: string;
+      /**
+       * Aim for 111 characters or fewer (hard limit 155, room for Nepali).
+       */
+      text: string;
+      id?: string | null;
+    }[];
+    /**
+     * Aim for 40 characters or fewer (hard limit 56, room for Nepali).
+     */
+    includedHeading: string;
+    included: {
+      /**
+       * Aim for 29 characters or fewer (hard limit 40, room for Nepali).
+       */
+      title: string;
+      /**
+       * Aim for 111 characters or fewer (hard limit 155, room for Nepali).
+       */
+      text: string;
+      /**
+       * Pick an icon from the fixed set.
+       */
+      icon?:
+        | (
+            | 'web'
+            | 'mobile'
+            | 'code'
+            | 'ai'
+            | 'test'
+            | 'audit'
+            | 'team'
+            | 'megaphone'
+            | 'event'
+            | 'check'
+            | 'arrow'
+            | 'phone'
+            | 'whatsapp'
+            | 'mail'
+            | 'pin'
+            | 'clock'
+            | 'calendar'
+            | 'play'
+            | 'quote'
+            | 'menu'
+            | 'close'
+          )
+        | null;
+      id?: string | null;
+    }[];
+    /**
+     * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+     */
+    plansHeading: string;
+    /**
+     * Aim for 161 characters or fewer (hard limit 225, room for Nepali).
+     */
+    plansIntro?: string | null;
+    /**
+     * Team rental only.
+     */
+    teamRoles?:
+      | {
+          /**
+           * Aim for 29 characters or fewer (hard limit 40, room for Nepali).
+           */
+          role: string;
+          priceRef?: (number | null) | Pricing;
+          /**
+           * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+           */
+          note?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+     */
+    examplesHeading: string;
+    examples: {
+      /**
+       * Aim for 29 characters or fewer (hard limit 40, room for Nepali).
+       */
+      title: string;
+      /**
+       * Aim for 111 characters or fewer (hard limit 155, room for Nepali).
+       */
+      text: string;
+      /**
+       * Pick an icon from the fixed set.
+       */
+      icon?:
+        | (
+            | 'web'
+            | 'mobile'
+            | 'code'
+            | 'ai'
+            | 'test'
+            | 'audit'
+            | 'team'
+            | 'megaphone'
+            | 'event'
+            | 'check'
+            | 'arrow'
+            | 'phone'
+            | 'whatsapp'
+            | 'mail'
+            | 'pin'
+            | 'clock'
+            | 'calendar'
+            | 'play'
+            | 'quote'
+            | 'menu'
+            | 'close'
+          )
+        | null;
+      id?: string | null;
+    }[];
+    /**
+     * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+     */
+    whyHeading: string;
+    why: {
+      /**
+       * Aim for 29 characters or fewer (hard limit 40, room for Nepali).
+       */
+      title: string;
+      /**
+       * Aim for 121 characters or fewer (hard limit 170, room for Nepali).
+       */
+      text: string;
+      id?: string | null;
+    }[];
+    launchSteps?:
+      | {
+          /**
+           * Aim for 19 characters or fewer (hard limit 26, room for Nepali).
+           */
+          title: string;
+          /**
+           * Aim for 111 characters or fewer (hard limit 155, room for Nepali).
+           */
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+    notIncluded: {
+      /**
+       * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+       */
+      text: string;
+      id?: string | null;
+    }[];
+    /**
+     * Aim for 50 characters or fewer (hard limit 70, room for Nepali).
+     */
+    exitHeading: string;
+    /**
+     * Aim for 90 characters or fewer (hard limit 126, room for Nepali).
+     */
+    exitCallout: string;
+    /**
+     * Aim for 400 characters or fewer (hard limit 560, room for Nepali).
+     */
+    exitText: string;
+    crossSell?:
+      | {
+          /**
+           * Aim for 30 characters or fewer (hard limit 42, room for Nepali).
+           */
+          title?: string | null;
+          /**
+           * Aim for 111 characters or fewer (hard limit 155, room for Nepali).
+           */
+          text?: string | null;
+          href?: string | null;
+          /**
+           * Aim for 24 characters or fewer (hard limit 34, room for Nepali).
+           */
+          cta?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    faqs: (number | Faq)[];
+    /**
+     * Aim for 50 characters or fewer (hard limit 70, room for Nepali).
+     */
+    formHeading: string;
+    /**
+     * Aim for 121 characters or fewer (hard limit 170, room for Nepali).
+     */
+    formText: string;
+  };
+  seo?: {
+    /**
+     * Browser and search title. Start with the main keyword. Leave empty to use the page title. Aim for 43 characters or fewer (hard limit 60, room for Nepali).
+     */
+    metaTitle?: string | null;
+    /**
+     * Search result text. Up to 160 characters.
+     */
+    metaDescription?: string | null;
+    /**
+     * For editors only. Not shown on the site.
+     */
+    primaryKeyword?: string | null;
+    /**
+     * Social share image. Falls back to the site default.
+     */
+    ogImage?: (number | null) | Media;
+    /**
+     * Only if this page should point to another URL.
+     */
+    canonicalPath?: string | null;
+    /**
+     * Hide from search engines and the sitemap.
+     */
+    noindex?: boolean | null;
+    nofollow?: boolean | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services".
+ */
+export interface Service {
+  id: number;
+  /**
+   * Name of the service. Used in cards, menu and breadcrumb. Aim for 40 characters or fewer (hard limit 56, room for Nepali).
+   */
+  title: string;
+  /**
+   * The web address, English, lowercase, hyphens only. It is locked after publishing.
+   */
+  slug: string;
+  /**
+   * Tick only if you understand the old web address will redirect to the new one.
+   */
+  confirmSlugChange?: boolean | null;
+  /**
+   * Short title for cards on the home page and services page. Aim for 21 characters or fewer (hard limit 30, room for Nepali).
+   */
+  cardTitle: string;
+  /**
+   * One line for the card, about 16 words. Aim for 100 characters or fewer (hard limit 140, room for Nepali).
+   */
+  cardText: string;
+  /**
+   * Pick an icon from the fixed set.
+   */
+  icon:
+    | 'web'
+    | 'mobile'
+    | 'code'
+    | 'ai'
+    | 'test'
+    | 'audit'
+    | 'team'
+    | 'megaphone'
+    | 'event'
+    | 'check'
+    | 'arrow'
+    | 'phone'
+    | 'whatsapp'
+    | 'mail'
+    | 'pin'
+    | 'clock'
+    | 'calendar'
+    | 'play'
+    | 'quote'
+    | 'menu'
+    | 'close';
+  /**
+   * Which group it appears in on the services page.
+   */
+  group: 'build' | 'quality' | 'team-marketing';
+  /**
+   * Lower numbers come first.
+   */
+  order?: number | null;
+  /**
+   * Small line above the heading. Defaults to the group name. Aim for 30 characters or fewer (hard limit 42, room for Nepali).
+   */
+  heroEyebrow?: string | null;
+  /**
+   * The page H1. Include the main keyword. Aim for 70 characters or fewer (hard limit 98, room for Nepali).
+   */
+  heroHeading: string;
+  /**
+   * Aim for 150 characters or fewer (hard limit 210, room for Nepali).
+   */
+  heroSub: string;
+  facts?: {
+    /**
+     * Pick a price. If empty the page says "Price on request". Never type a number.
+     */
+    startsFromPriceRef?: (number | null) | Pricing;
+    /**
+     * Aim for 30 characters or fewer (hard limit 42, room for Nepali).
+     */
+    time?: string | null;
+    /**
+     * Aim for 40 characters or fewer (hard limit 56, room for Nepali).
+     */
+    bestFor?: string | null;
+  };
+  intro: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+   */
+  typesHeading: string;
+  /**
+   * Aim for 121 characters or fewer (hard limit 170, room for Nepali).
+   */
+  typesIntro?: string | null;
+  types: {
+    /**
+     * Aim for 29 characters or fewer (hard limit 40, room for Nepali).
+     */
+    title: string;
+    /**
+     * Aim for 121 characters or fewer (hard limit 170, room for Nepali).
+     */
+    text: string;
+    /**
+     * Pick an icon from the fixed set.
+     */
+    icon?:
+      | (
+          | 'web'
+          | 'mobile'
+          | 'code'
+          | 'ai'
+          | 'test'
+          | 'audit'
+          | 'team'
+          | 'megaphone'
+          | 'event'
+          | 'check'
+          | 'arrow'
+          | 'phone'
+          | 'whatsapp'
+          | 'mail'
+          | 'pin'
+          | 'clock'
+          | 'calendar'
+          | 'play'
+          | 'quote'
+          | 'menu'
+          | 'close'
+        )
+      | null;
+    id?: string | null;
+  }[];
+  /**
+   * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+   */
+  benefitsHeading: string;
+  benefits: {
+    /**
+     * Aim for 29 characters or fewer (hard limit 40, room for Nepali).
+     */
+    title: string;
+    /**
+     * Aim for 121 characters or fewer (hard limit 170, room for Nepali).
+     */
+    text: string;
+    /**
+     * Pick an icon from the fixed set.
+     */
+    icon?:
+      | (
+          | 'web'
+          | 'mobile'
+          | 'code'
+          | 'ai'
+          | 'test'
+          | 'audit'
+          | 'team'
+          | 'megaphone'
+          | 'event'
+          | 'check'
+          | 'arrow'
+          | 'phone'
+          | 'whatsapp'
+          | 'mail'
+          | 'pin'
+          | 'clock'
+          | 'calendar'
+          | 'play'
+          | 'quote'
+          | 'menu'
+          | 'close'
+        )
+      | null;
+    id?: string | null;
+  }[];
+  /**
+   * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+   */
+  processHeading: string;
+  steps: {
+    /**
+     * Aim for 19 characters or fewer (hard limit 26, room for Nepali).
+     */
+    title: string;
+    /**
+     * Aim for 111 characters or fewer (hard limit 155, room for Nepali).
+     */
+    text: string;
+    /**
+     * Aim for 20 characters or fewer (hard limit 28, room for Nepali).
+     */
+    time?: string | null;
+    id?: string | null;
+  }[];
+  /**
+   * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+   */
+  detailHeading?: string | null;
+  detail?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+   */
+  priceHeading: string;
+  /**
+   * Do not type a number. Prices come from the price entries below. Aim for 221 characters or fewer (hard limit 310, room for Nepali).
+   */
+  priceText: string;
+  /**
+   * One to three prices shown in the price teaser.
+   */
+  pricingRefs?: (number | Pricing)[] | null;
+  crossSell?:
+    | {
+        /**
+         * Aim for 30 characters or fewer (hard limit 42, room for Nepali).
+         */
+        title?: string | null;
+        /**
+         * Aim for 111 characters or fewer (hard limit 155, room for Nepali).
+         */
+        text?: string | null;
+        href?: string | null;
+        /**
+         * Aim for 24 characters or fewer (hard limit 34, room for Nepali).
+         */
+        cta?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Four to six questions.
+   */
+  faqs: (number | Faq)[];
+  /**
+   * Aim for 50 characters or fewer (hard limit 70, room for Nepali).
+   */
+  formHeading: string;
+  /**
+   * Aim for 121 characters or fewer (hard limit 170, room for Nepali).
+   */
+  formText: string;
+  promises?:
+    | {
+        /**
+         * Aim for 50 characters or fewer (hard limit 70, room for Nepali).
+         */
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  seo?: {
+    /**
+     * Browser and search title. Start with the main keyword. Leave empty to use the page title. Aim for 43 characters or fewer (hard limit 60, room for Nepali).
+     */
+    metaTitle?: string | null;
+    /**
+     * Search result text. Up to 160 characters.
+     */
+    metaDescription?: string | null;
+    /**
+     * For editors only. Not shown on the site.
+     */
+    primaryKeyword?: string | null;
+    /**
+     * Social share image. Falls back to the site default.
+     */
+    ogImage?: (number | null) | Media;
+    /**
+     * Only if this page should point to another URL.
+     */
+    canonicalPath?: string | null;
+    /**
+     * Hide from search engines and the sitemap.
+     */
+    noindex?: boolean | null;
+    nofollow?: boolean | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pricing".
+ */
+export interface Pricing {
+  id: number;
+  /**
+   * Package = one-time project. Rental = monthly plan. Hourly = per hour.
+   */
+  kind: 'package' | 'rental' | 'hourly';
+  /**
+   * Shown to visitors, for example "Landing page". Aim for 57 characters or fewer (hard limit 80, room for Nepali).
+   */
+  name: string;
+  /**
+   * Machine key, for example rent-website-m. Do not change after publishing.
+   */
+  key: string;
+  /**
+   * Aim for 171 characters or fewer (hard limit 240, room for Nepali).
+   */
+  description?: string | null;
+  unit: 'one-time' | 'month' | 'hour' | 'person-month';
+  /**
+   * Which /rent page uses this price.
+   */
+  rentalProduct?: ('website' | 'ai-agent' | 'team') | null;
+  sizeBand?: ('S' | 'M' | 'L' | 'XL') | null;
+  /**
+   * For example engineer, designer, QA.
+   */
+  role?: string | null;
+  /**
+   * One row per currency. Both NPR and USD are needed unless the price is "request a quote".
+   */
+  amounts?:
+    | {
+        currency: 'NPR' | 'USD';
+        /**
+         * Whole number in paisa or cents. NPR 15,000 is 1500000.
+         */
+        minorUnits: number;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * No amount shown. The page says "Request a quote".
+   */
+  quoteOnly?: boolean | null;
+  /**
+   * Show as "from ...".
+   */
+  fromPrice?: boolean | null;
+  setupFee?:
+    | {
+        currency: 'NPR' | 'USD';
+        minorUnits: number;
+        id?: string | null;
+      }[]
+    | null;
+  minTermMonths?: number | null;
+  supportHours?: number | null;
+  /**
+   * What is included.
+   */
+  features?:
+    | {
+        /**
+         * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+         */
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * What is not included.
+   */
+  excludes?:
+    | {
+        /**
+         * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+         */
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Highlight this price in a table.
+   */
+  highlight?: boolean | null;
+  /**
+   * Lower numbers come first.
+   */
+  order?: number | null;
+  /**
+   * Hidden prices are not shown anywhere.
+   */
+  visibility: 'public' | 'hidden';
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "faqs".
+ */
+export interface Faq {
+  id: number;
+  /**
+   * Aim for 70 characters or fewer (hard limit 98, room for Nepali).
+   */
+  question: string;
+  /**
+   * Keep it short, about 45 words. Do not type prices here; link to the pricing page.
+   */
+  answer: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  topic: 'pricing' | 'timelines' | 'ownership' | 'support' | 'rent' | 'general';
+  /**
+   * Lower numbers come first.
+   */
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "rentalPlans".
+ */
+export interface RentalPlan {
+  id: number;
+  product: 'website' | 'ai-agent' | 'team';
+  band: 'S' | 'M' | 'L' | 'XL';
+  /**
+   * Plan name shown on the card. Aim for 21 characters or fewer (hard limit 30, room for Nepali).
+   */
+  label: string;
+  /**
+   * Who this plan suits. Aim for 40 characters or fewer (hard limit 56, room for Nepali).
+   */
+  forWho: string;
+  /**
+   * Missing or unpublished price shows "Price on request". The page still publishes.
+   */
+  priceRef?: (number | null) | Pricing;
+  /**
+   * Aim for 40 characters or fewer (hard limit 56, room for Nepali).
+   */
+  setupText?: string | null;
+  inclusions?:
+    | {
+        /**
+         * Aim for 60 characters or fewer (hard limit 84, room for Nepali).
+         */
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Aim for 40 characters or fewer (hard limit 56, room for Nepali).
+   */
+  supportText?: string | null;
+  quoteOnly?: boolean | null;
+  /**
+   * Lower numbers come first.
+   */
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "redirects".
+ */
+export interface Redirect {
+  id: number;
+  /**
+   * Old path without language, for example /services/old-name.
+   */
+  from: string;
+  /**
+   * New path or full URL.
+   */
+  to: string;
+  status: '301' | '302';
+  /**
+   * Created automatically when a web address changed.
+   */
+  auto?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -194,6 +1532,30 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'pages';
+        value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'services';
+        value: number | Service;
+      } | null)
+    | ({
+        relationTo: 'pricing';
+        value: number | Pricing;
+      } | null)
+    | ({
+        relationTo: 'rentalPlans';
+        value: number | RentalPlan;
+      } | null)
+    | ({
+        relationTo: 'faqs';
+        value: number | Faq;
+      } | null)
+    | ({
+        relationTo: 'redirects';
+        value: number | Redirect;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -242,6 +1604,7 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  name?: T;
   roles?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -267,6 +1630,10 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  decorative?: T;
+  caption?: T;
+  credit?: T;
+  provenance?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -278,6 +1645,575 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+  sizes?:
+    | T
+    | {
+        w480?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        w768?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        w1280?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        w1920?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  confirmSlugChange?: T;
+  template?: T;
+  legalVersion?: T;
+  blocks?:
+    | T
+    | {
+        hero?:
+          | T
+          | {
+              eyebrow?: T;
+              heading?: T;
+              subheading?: T;
+              primaryCta?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                  };
+              secondaryCta?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                  };
+              image?: T;
+              mobileImage?: T;
+              variant?: T;
+              chips?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'services-grid'?:
+          | T
+          | {
+              heading?: T;
+              intro?: T;
+              mode?: T;
+              services?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'feature-list'?:
+          | T
+          | {
+              heading?: T;
+              items?:
+                | T
+                | {
+                    icon?: T;
+                    title?: T;
+                    text?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'process-steps'?:
+          | T
+          | {
+              heading?: T;
+              steps?:
+                | T
+                | {
+                    title?: T;
+                    text?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'pricing-table'?:
+          | T
+          | {
+              heading?: T;
+              intro?: T;
+              kind?: T;
+              prices?: T;
+              showCurrencyToggle?: T;
+              quoteCta?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'rental-plans'?:
+          | T
+          | {
+              heading?: T;
+              product?: T;
+              highlightBand?: T;
+              id?: T;
+              blockName?: T;
+            };
+        faq?:
+          | T
+          | {
+              heading?: T;
+              faqs?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'cta-form'?:
+          | T
+          | {
+              heading?: T;
+              text?: T;
+              formKind?: T;
+              defaultService?: T;
+              defaultPricing?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'rich-text'?:
+          | T
+          | {
+              content?: T;
+              width?: T;
+              id?: T;
+              blockName?: T;
+            };
+        banner?:
+          | T
+          | {
+              text?: T;
+              link?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                  };
+              tone?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  servicesHub?:
+    | T
+    | {
+        heroHeading?: T;
+        heroSub?: T;
+        groups?:
+          | T
+          | {
+              title?: T;
+              text?: T;
+              id?: T;
+            };
+        choices?:
+          | T
+          | {
+              question?: T;
+              serviceRef?: T;
+              id?: T;
+            };
+        priceText?: T;
+        faqs?: T;
+      };
+  rentHub?:
+    | T
+    | {
+        heroHeading?: T;
+        heroSub?: T;
+        meaning?:
+          | T
+          | {
+              title?: T;
+              text?: T;
+              icon?: T;
+              id?: T;
+            };
+        productsHeading?: T;
+        productsIntro?: T;
+        products?:
+          | T
+          | {
+              rentalProduct?: T;
+              cardTitle?: T;
+              cardFor?: T;
+              cardBullets?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              icon?: T;
+              id?: T;
+            };
+        compareHeading?: T;
+        compareRows?:
+          | T
+          | {
+              topic?: T;
+              rent?: T;
+              buy?: T;
+              id?: T;
+            };
+        plansHeading?: T;
+        plansIntro?: T;
+        bandHelp?: T;
+        includedHeading?: T;
+        included?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        notIncludedHeading?: T;
+        notIncluded?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        exitHeading?: T;
+        exitCallout?: T;
+        exitText?: T;
+        faqs?: T;
+        formHeading?: T;
+        formText?: T;
+      };
+  rentProduct?:
+    | T
+    | {
+        product?: T;
+        heroEyebrow?: T;
+        heroHeading?: T;
+        heroSub?: T;
+        facts?:
+          | T
+          | {
+              minTerm?: T;
+              setup?: T;
+            };
+        howHeading?: T;
+        howSteps?:
+          | T
+          | {
+              title?: T;
+              text?: T;
+              id?: T;
+            };
+        includedHeading?: T;
+        included?:
+          | T
+          | {
+              title?: T;
+              text?: T;
+              icon?: T;
+              id?: T;
+            };
+        plansHeading?: T;
+        plansIntro?: T;
+        teamRoles?:
+          | T
+          | {
+              role?: T;
+              priceRef?: T;
+              note?: T;
+              id?: T;
+            };
+        examplesHeading?: T;
+        examples?:
+          | T
+          | {
+              title?: T;
+              text?: T;
+              icon?: T;
+              id?: T;
+            };
+        whyHeading?: T;
+        why?:
+          | T
+          | {
+              title?: T;
+              text?: T;
+              id?: T;
+            };
+        launchSteps?:
+          | T
+          | {
+              title?: T;
+              text?: T;
+              id?: T;
+            };
+        notIncluded?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        exitHeading?: T;
+        exitCallout?: T;
+        exitText?: T;
+        crossSell?:
+          | T
+          | {
+              title?: T;
+              text?: T;
+              href?: T;
+              cta?: T;
+              id?: T;
+            };
+        faqs?: T;
+        formHeading?: T;
+        formText?: T;
+      };
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+        primaryKeyword?: T;
+        ogImage?: T;
+        canonicalPath?: T;
+        noindex?: T;
+        nofollow?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services_select".
+ */
+export interface ServicesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  confirmSlugChange?: T;
+  cardTitle?: T;
+  cardText?: T;
+  icon?: T;
+  group?: T;
+  order?: T;
+  heroEyebrow?: T;
+  heroHeading?: T;
+  heroSub?: T;
+  facts?:
+    | T
+    | {
+        startsFromPriceRef?: T;
+        time?: T;
+        bestFor?: T;
+      };
+  intro?: T;
+  typesHeading?: T;
+  typesIntro?: T;
+  types?:
+    | T
+    | {
+        title?: T;
+        text?: T;
+        icon?: T;
+        id?: T;
+      };
+  benefitsHeading?: T;
+  benefits?:
+    | T
+    | {
+        title?: T;
+        text?: T;
+        icon?: T;
+        id?: T;
+      };
+  processHeading?: T;
+  steps?:
+    | T
+    | {
+        title?: T;
+        text?: T;
+        time?: T;
+        id?: T;
+      };
+  detailHeading?: T;
+  detail?: T;
+  priceHeading?: T;
+  priceText?: T;
+  pricingRefs?: T;
+  crossSell?:
+    | T
+    | {
+        title?: T;
+        text?: T;
+        href?: T;
+        cta?: T;
+        id?: T;
+      };
+  faqs?: T;
+  formHeading?: T;
+  formText?: T;
+  promises?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+        primaryKeyword?: T;
+        ogImage?: T;
+        canonicalPath?: T;
+        noindex?: T;
+        nofollow?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pricing_select".
+ */
+export interface PricingSelect<T extends boolean = true> {
+  kind?: T;
+  name?: T;
+  key?: T;
+  description?: T;
+  unit?: T;
+  rentalProduct?: T;
+  sizeBand?: T;
+  role?: T;
+  amounts?:
+    | T
+    | {
+        currency?: T;
+        minorUnits?: T;
+        id?: T;
+      };
+  quoteOnly?: T;
+  fromPrice?: T;
+  setupFee?:
+    | T
+    | {
+        currency?: T;
+        minorUnits?: T;
+        id?: T;
+      };
+  minTermMonths?: T;
+  supportHours?: T;
+  features?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  excludes?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  highlight?: T;
+  order?: T;
+  visibility?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "rentalPlans_select".
+ */
+export interface RentalPlansSelect<T extends boolean = true> {
+  product?: T;
+  band?: T;
+  label?: T;
+  forWho?: T;
+  priceRef?: T;
+  setupText?: T;
+  inclusions?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  supportText?: T;
+  quoteOnly?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "faqs_select".
+ */
+export interface FaqsSelect<T extends boolean = true> {
+  question?: T;
+  answer?: T;
+  topic?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "redirects_select".
+ */
+export interface RedirectsSelect<T extends boolean = true> {
+  from?: T;
+  to?: T;
+  status?: T;
+  auto?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -318,6 +2254,280 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "siteSettings".
+ */
+export interface SiteSetting {
+  id: number;
+  /**
+   * Aim for 43 characters or fewer (hard limit 60, room for Nepali).
+   */
+  siteName: string;
+  /**
+   * Aim for 86 characters or fewer (hard limit 120, room for Nepali).
+   */
+  tagline?: string | null;
+  logo?: (number | null) | Media;
+  logoDark?: (number | null) | Media;
+  favicon?: (number | null) | Media;
+  header: {
+    /**
+     * Up to six top-level items.
+     */
+    items?:
+      | {
+          /**
+           * Aim for 29 characters or fewer (hard limit 40, room for Nepali).
+           */
+          label: string;
+          href: string;
+          children?:
+            | {
+                /**
+                 * Aim for 29 characters or fewer (hard limit 40, room for Nepali).
+                 */
+                label: string;
+                href: string;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
+    cta: {
+      /**
+       * Aim for 29 characters or fewer (hard limit 40, room for Nepali).
+       */
+      label: string;
+      href: string;
+      id?: string | null;
+    };
+  };
+  footer?: {
+    columns?:
+      | {
+          /**
+           * Aim for 29 characters or fewer (hard limit 40, room for Nepali).
+           */
+          title: string;
+          links?:
+            | {
+                /**
+                 * Aim for 29 characters or fewer (hard limit 40, room for Nepali).
+                 */
+                label: string;
+                href: string;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
+    legalLinks?:
+      | {
+          /**
+           * Aim for 29 characters or fewer (hard limit 40, room for Nepali).
+           */
+          label: string;
+          href: string;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Aim for 86 characters or fewer (hard limit 120, room for Nepali).
+     */
+    note?: string | null;
+  };
+  contacts?: {
+    /**
+     * Public contact email only. The internal lead alert address is an environment setting.
+     */
+    salesEmail?: string | null;
+    phone?: string | null;
+    whatsapp?: string | null;
+    address?: string | null;
+    /**
+     * Aim for 57 characters or fewer (hard limit 80, room for Nepali).
+     */
+    hours?: string | null;
+  };
+  social?:
+    | {
+        platform: string;
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  stickyBar?: {
+    whatsapp?: boolean | null;
+    call?: boolean | null;
+    quote?: boolean | null;
+  };
+  announcement?: {
+    enabled?: boolean | null;
+    /**
+     * Aim for 100 characters or fewer (hard limit 140, room for Nepali).
+     */
+    text?: string | null;
+    link?: string | null;
+  };
+  thankYou?: {
+    /**
+     * Aim for 50 characters or fewer (hard limit 70, room for Nepali).
+     */
+    heading?: string | null;
+    /**
+     * Aim for 143 characters or fewer (hard limit 200, room for Nepali).
+     */
+    text?: string | null;
+    /**
+     * Aim for 29 characters or fewer (hard limit 40, room for Nepali).
+     */
+    whatsappLabel?: string | null;
+  };
+  seo?: {
+    /**
+     * Browser and search title. Start with the main keyword. Leave empty to use the page title. Aim for 43 characters or fewer (hard limit 60, room for Nepali).
+     */
+    metaTitle?: string | null;
+    /**
+     * Search result text. Up to 160 characters.
+     */
+    metaDescription?: string | null;
+    /**
+     * For editors only. Not shown on the site.
+     */
+    primaryKeyword?: string | null;
+    /**
+     * Social share image. Falls back to the site default.
+     */
+    ogImage?: (number | null) | Media;
+    /**
+     * Only if this page should point to another URL.
+     */
+    canonicalPath?: string | null;
+    /**
+     * Hide from search engines and the sitemap.
+     */
+    noindex?: boolean | null;
+    nofollow?: boolean | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "siteSettings_select".
+ */
+export interface SiteSettingsSelect<T extends boolean = true> {
+  siteName?: T;
+  tagline?: T;
+  logo?: T;
+  logoDark?: T;
+  favicon?: T;
+  header?:
+    | T
+    | {
+        items?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              children?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+        cta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              id?: T;
+            };
+      };
+  footer?:
+    | T
+    | {
+        columns?:
+          | T
+          | {
+              title?: T;
+              links?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+        legalLinks?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              id?: T;
+            };
+        note?: T;
+      };
+  contacts?:
+    | T
+    | {
+        salesEmail?: T;
+        phone?: T;
+        whatsapp?: T;
+        address?: T;
+        hours?: T;
+      };
+  social?:
+    | T
+    | {
+        platform?: T;
+        url?: T;
+        id?: T;
+      };
+  stickyBar?:
+    | T
+    | {
+        whatsapp?: T;
+        call?: T;
+        quote?: T;
+      };
+  announcement?:
+    | T
+    | {
+        enabled?: T;
+        text?: T;
+        link?: T;
+      };
+  thankYou?:
+    | T
+    | {
+        heading?: T;
+        text?: T;
+        whatsappLabel?: T;
+      };
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+        primaryKeyword?: T;
+        ogImage?: T;
+        canonicalPath?: T;
+        noindex?: T;
+        nofollow?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

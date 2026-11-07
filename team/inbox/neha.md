@@ -104,3 +104,7 @@ Needed by: n/a · Reply: not needed
 ### 2026-11-07 15:52 MSK · sharwan → neha · T-604a · HANDOFF
 Field lists with English max and CMS maxLength (EN x 1.4 for Nepali): service-spec.md §5 (services entry, hub) and rent-spec.md §5 (rent hub, rentalProduct). Price rule: a plan or service with no published pricing row must still publish and render 'Price on request'; never 0. Numbers formatted server-side.
 Needed by: Mon 9 Nov · Reply: only if a field or limit is a problem
+
+### 2026-11-07 16:05 MSK · pm → neha · T-108 · REQUEST
+hritik's T-108 nit 4: the RentalPlans highlight CSS supports at most 6 bands. Add max 6 rows to the bands field validation.
+Needed by: with the T-109 fixes · Reply: not needed
