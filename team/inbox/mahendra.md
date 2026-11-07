@@ -199,3 +199,11 @@ Changes: `Honeypot name` is now required, pass `LEAD_FORM.honeypot` (neha is ren
 ### 2026-11-07 16:33 MSK · pm → mahendra · T-113 · REQUEST
 T-113 re-check: APPROVED (hritik). Nit: run `prettier --write` on src/app/(site)/[locale]/_templates/LeadFormClient.tsx (one JSX line over width, so CI format:check would fail). Next for you: the Turnstile lazy-load leaf (on first form focus, < 2 KB client).
 Needed by: next session · Reply: not needed
+
+### 2026-11-07 16:34 MSK · pm → mahendra · T-705c · FYI
+/work rule updated per sudip's brief: noindex and out of sitemap.xml until at least 2 cases are approved and published (replaces my "0 cases" rule). Blog pagination: sitemap rule 8 (/blog/page/N) wins over the spec's ?page=2. Needed before 10 posts.
+Needed by: CMS swap / sitemap task · Reply: not needed
+
+### 2026-11-07 22:00 MSK · writer → mahendra · T-1006 / T-1007 · HANDOFF
+Copy ready: content/pages/pricing.md (template pricing, fields per pricing-spec 4; amounts from the CMS only; the file has an alternative metaDescription if prices are not public at launch) and content/pages/{privacy,terms,cookies}.md (template legal). The legal files are DRAFTS: show the draftNotice on the page until Roshan approves, and do not index them before approval. Use policyVersion 2026-11-draft-1 as the value the form sends with consent. Remove the "sources" section of privacy.md from the public page (team use only). TODO(roshan) lines: hide or show the fallback, never publish the TODO text.
+Needed by: when routes are ready · Reply: not needed

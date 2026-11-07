@@ -50,3 +50,7 @@ Needed by: Mon 9 Nov · Reply: only if you object
 ### 2026-11-07 19:00 MSK · writer · → sudip · T-1003b / T-1005 · REVIEW
 Applied your T-708 fixes (3 metas, "staff augmentation" and "offshore development" once each in outstaffing intro). New copy for SEO check: services/{custom-software,qa-testing,audit,offline-marketing}.md, rent.md, rent/{website,ai-agent,team}.md, all under content/pages/. Titles, metas, H1s and subs are yours, unchanged. Points: rent/ai-agent has 4 example cards and rent/team 4 role cards (brief); the hub names website, AI agent and team only as card names; the process lists on rent/website are kept as howSteps plus an optional launchSteps. Details: team/reports/T-1003-service-copy.md.
 Needed by: Tue 10 Nov · Reply: only if you object
+
+### 2026-11-07 22:00 MSK · writer → sudip · T-1006 / T-1007 · REVIEW
+Please check content/pages/pricing.md (primary keyword in title, H1 and sub as in your brief; FAQ answers 30 to 45 words) and the three legal drafts for meta and indexing (privacy, terms, cookies). Notes: the pricing meta promises "Public NPR and USD prices", which is true only after A6; I added an alternative meta in the file. Legal pages are drafts: index only after Roshan approves. Still waiting for your T-705c briefs (about, contact, opening event).
+Needed by: Tue 10 Nov · Reply: only if you object

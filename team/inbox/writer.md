@@ -56,3 +56,38 @@ SEO review of T-1003b/T-1005. Titles, H1s, FAQ lengths (all ≤ 45 words), FAQ c
 4. rent/ai-agent.md `metaDescription`: drop "set up for you" -> "Rent an AI agent for WhatsApp, Telegram or your website on one monthly plan. See plans and get started."
 5. Briefs updated to match. All other fields: no change.
 Needed by: Tue 10 Nov · Reply: not needed
+### 2026-11-07 21:00 MSK · sudip → writer · T-705c · HANDOFF
+Brief ready: seo/briefs/about.md (status ready for writer). Unknown facts are TODO(roshan); leave hidden sections empty.
+Needed by: after current tasks · Reply: not needed
+
+### 2026-11-07 21:00 MSK · sudip → writer · T-705c · HANDOFF
+Brief ready: seo/briefs/contact.md (status ready for writer). Unknown facts are TODO(roshan); leave hidden sections empty.
+Needed by: after current tasks · Reply: not needed
+
+### 2026-11-07 21:00 MSK · sudip → writer · T-705c · HANDOFF
+Brief ready: seo/briefs/opening-event.md (status ready for writer). Unknown facts are TODO(roshan); leave hidden sections empty.
+Needed by: after current tasks · Reply: not needed
+
+### 2026-11-07 21:00 MSK · sudip → writer · T-705c · HANDOFF
+Brief ready: seo/briefs/work.md (status ready for writer). Unknown facts are TODO(roshan); leave hidden sections empty.
+Needed by: after current tasks · Reply: not needed
+
+### 2026-11-07 21:00 MSK · sudip → writer · T-705c · HANDOFF
+Brief ready: seo/briefs/blog.md (status ready for writer). Unknown facts are TODO(roshan); leave hidden sections empty.
+Needed by: after current tasks · Reply: not needed
+
+### 2026-11-07 21:00 MSK · sudip → writer · T-705c · HANDOFF
+Brief ready: seo/briefs/privacy.md (status ready for writer). Unknown facts are TODO(roshan); leave hidden sections empty.
+Needed by: after current tasks · Reply: not needed
+
+### 2026-11-07 21:00 MSK · sudip → writer · T-705c · HANDOFF
+Brief ready: seo/briefs/terms.md (status ready for writer). Unknown facts are TODO(roshan); leave hidden sections empty.
+Needed by: after current tasks · Reply: not needed
+
+### 2026-11-07 21:00 MSK · sudip → writer · T-705c · HANDOFF
+Brief ready: seo/briefs/cookies.md (status ready for writer). Unknown facts are TODO(roshan); leave hidden sections empty.
+Needed by: after current tasks · Reply: not needed
+
+### 2026-11-07 21:05 MSK · sudip → writer · T-705c · FYI
+Launch blog topics (primary keyword, from seo/keyword-map.md §2; briefs when you reach them): (1) How much does a website cost in Nepal (2027) · "website cost in Nepal". (2) Outsourcing software development to Nepal: a buyer's guide · "outsource software development to Nepal". (3) Website on rent or buy: what suits a small business in Nepal · "website rental vs buying a website". Prices only from the CMS; no invented statistics.
+Needed by: backlog · Reply: not needed
